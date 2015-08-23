@@ -1,0 +1,134 @@
+.item {
+
+	@include span-columns(12);
+	@include margin(0 0 rem(15) 0);
+	
+	clear: both;
+	
+	.icon {
+		
+		@extend %text-center;
+		@extend %display-block;
+		@include margin(null auto rem(25) auto);
+		
+	}
+	
+	.text {
+		
+		@include padding(rem(10) null null null);
+		
+		border-top: 2px solid #fff;
+		
+	}
+	
+	&.skill {
+	
+		@include bp($small) {
+		
+			@include span-columns(4);
+			@include omega(3n);
+			@include margin(null null rem(60) null);
+			
+			clear: none;
+			
+		}
+		
+	}
+	
+	&.work {
+		
+		@include bp($x-small) {
+	
+			@include span-columns(6);
+			@include omega(2n);
+			
+			clear: none;
+			
+		}
+	
+		@include bp($small) {
+		
+			@include span-columns(4);
+			@include omega-reset(2n);
+			@include omega(3n);
+			
+		}
+	
+		@include margin(null null 0 null);
+		
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+		
+		p {
+			
+			@include font-size(14);
+			
+		}
+		
+		a {
+			
+			@include size(100% 100%);
+			@include margin(null null rem(10) null);
+			
+			float: left;
+			position: relative;
+			z-index: 10;
+			overflow: hidden;
+			
+			&:hover {
+				
+				.overlay {
+					
+					@include opacity(1);
+				
+				}
+				
+				img {
+				
+					@include transform(scale(1.1));
+					@include transform-origin(center center);
+				
+				}
+				
+			}
+			
+			.overlay {
+			
+				@include transition(opacity 0.3s ease);
+				@include size(100% 100%);
+				@include opacity(0);
+
+				position: absolute;
+				z-index: 50;
+			
+				.btn {
+					
+					@include margin(rem(-26) 0 0 rem(-71));
+					
+					position: absolute;
+					z-index: 100;
+					top: 50%;
+					left: 50%;
+					
+				}
+			
+			}
+			
+		}
+		
+		img {
+			
+			@include transition(all 1s ease);
+			@include black-and-white();
+			
+			display: block;
+			overflow: hidden;
+			width: 100%;
+			height: auto;
+			
+		}
+		
+	}
+	
+}

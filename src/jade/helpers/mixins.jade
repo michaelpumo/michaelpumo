@@ -1,0 +1,47 @@
+mixin skill(icon, title, subtitle, description)
+
+    div(class='item skill')
+        
+        i(class='icon icon-#{icon}')
+
+        div(class='text')
+            p: em #{title}
+            h3 #{subtitle}
+            p #{description}
+
+
+mixin work(url, image, title, description)
+
+    div(class='item work')
+            
+        a(href='#{url}', target='_blank')
+            
+            div(class='overlay'): div(class='btn') Open Website
+            img(class='lazy', src='./dist/images/placeholder.png', data-original='./images/#{image}', width='575', height='324', alt='')
+
+        p
+            strong #{title}
+            br
+            | #{description}
+
+
+mixin quote(quote, name, position, company, url)
+
+    blockquote
+
+        p
+            mark &ldquo;
+            | #{quote}
+            mark &rdquo;
+
+        footer
+            p
+                em #{name}
+                br
+                | #{position} at 
+                a(href='#{url}', target='_blank') #{company}.
+
+
+
+
+

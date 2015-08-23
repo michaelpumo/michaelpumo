@@ -1,0 +1,19 @@
+@import "neat/neat-helpers";
+
+// Grid Guide
+$visual-grid: false;
+$visual-grid-color: pink;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.3;
+
+// Grid Settings
+$column: 100px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: em(1200);
+
+// Define Breakpoints
+$x-small: new-breakpoint(min-width 640px 12);
+$small: new-breakpoint(min-width 768px 12);
+$medium: new-breakpoint(min-width 992px 12);
+$large: new-breakpoint(min-width 1200px 12);
