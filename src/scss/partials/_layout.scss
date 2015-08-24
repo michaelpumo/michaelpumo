@@ -1,101 +1,101 @@
 main {
-	
-	@include clearfix();
-	@include size(100% 100%);
-	position: absolute;
-	
+    
+    @include clearfix();
+    @include size(100% 100%);
+    position: absolute;
+    
 }
 
 .footer {
-	
-	@include outer-container;
-	@include padding(rem(40) null rem(20) null);
-	
-	.about, .info {
-		
-		@include span-columns(12);
-	
-		@include bp($small) {
-	
-			@include span-columns(6);
-			
-		}
-		
-	}
-	
-	h4, p, ul {
-		
-		@include margin(null null null rem(75));
-		max-width: 400px;
-		
-		@include bp($small) {
-		
-			@include margin(null null null rem(95));
-			
-		}
-		
-	}
-	
-	.about {
-		
-		img {
-			
-			@include size(rem(60) rem(60));
-			display: block;
-			float: left;
-			border-radius: 50%;
-			
-			@include bp($small) {
-			
-				@include size(rem(80) rem(80));
-				
-			}
-			
-		}
-		
-		h4 {
-			
-			color: #fff;
-			
-		}
+    
+    @include outer-container;
+    @include padding(rem(40) null rem(20) null);
+    
+    .about, .info {
+        
+        @include span-columns(12);
+    
+        @include bp($small) {
+    
+            @include span-columns(6);
+            
+        }
+        
+    }
+    
+    h4, p, ul {
+        
+        @include margin(null null null rem(75));
+        max-width: 400px;
+        
+        @include bp($small) {
+        
+            @include margin(null null null rem(95));
+            
+        }
+        
+    }
+    
+    .about {
+        
+        img {
+            
+            @include size(rem(60) rem(60));
+            display: block;
+            float: left;
+            border-radius: 50%;
+            
+            @include bp($small) {
+            
+                @include size(rem(80) rem(80));
+                
+            }
+            
+        }
+        
+        h4 {
+            
+            color: #fff;
+            
+        }
 
-	}
-	 
-	.info {
-	
-		ul, p {
-			
-			@include bp($small) {
-			
-				float: right;
-				clear: both;
-				text-align: right;
-			
-			}
-			
-		}
-	
-		ul {
-			
-			@include clearfix;
-			@include size(100% auto);
-			
-			li {
-				
-				@include margin(0 rem(5) 0 0);
-				display: inline-block;
-				
-			}
-			
-		}
-		
-		small {
-			
-			color: darken($color-grey, 70%);
-			
-		}
+    }
+     
+    .info {
+    
+        ul, p {
+            
+            @include bp($small) {
+            
+                float: right;
+                clear: both;
+                text-align: right;
+            
+            }
+            
+        }
+    
+        ul {
+            
+            @include clearfix;
+            @include size(100% auto);
+            
+            li {
+                
+                @include margin(0 rem(5) 0 0);
+                display: inline-block;
+                
+            }
+            
+        }
+        
+        small {
+            
+            color: darken($color-grey, 70%);
+            
+        }
 
-	}
-	 
+    }
+     
 }
 

@@ -4,20 +4,20 @@
 
 @function rem($pxval) {
 
-	@if not unitless($pxval) {
-		$pxval: strip-units($pxval);
-	}
-	
-	$base: $em-base;
-	
-	@if not unitless($base) {
-		$base: strip-units($base);
-	}
-	
-	@if ($rem-support) {
+    @if not unitless($pxval) {
+        $pxval: strip-units($pxval);
+    }
+    
+    $base: $em-base;
+    
+    @if not unitless($base) {
+        $base: strip-units($base);
+    }
+    
+    @if ($rem-support) {
         @return ($pxval / $base) * 1rem;
-	} @else {
+    } @else {
         @return $pxval + px;
-	}
-	
+    }
+    
 }

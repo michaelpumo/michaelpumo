@@ -1,23 +1,23 @@
 mixin skill(icon, title, subtitle, description)
 
-    div(class='item skill')
+    div.item.skill
         
         i(class='icon icon-#{icon}')
 
-        div(class='text')
+        div.text
             p: em #{title}
             h3 #{subtitle}
-            p #{description}
+            p !{description}
 
 
 mixin work(url, image, title, description)
 
-    div(class='item work')
+    div.item.work
             
         a(href='#{url}', target='_blank')
             
-            div(class='overlay'): div(class='btn') Open Website
-            img(class='lazy', src='./dist/images/placeholder.png', data-original='./images/#{image}', width='575', height='324', alt='')
+            div.overlay: div.btn Open Website
+            img(class='lazy', src='./dist/images/placeholder.png', data-original='./dist/images/#{image}', width='575', height='324', alt='')
 
         p
             strong #{title}
@@ -42,6 +42,23 @@ mixin quote(quote, name, position, company, url)
                 a(href='#{url}', target='_blank') #{company}.
 
 
+mixin process(unit, percent, title, description)
+
+    div.chart
+        div.stat(data-text='#{unit}', data-percent='#{percent}', data-dimension='150', data-width='2', data-fontsize='20', data-fgcolor='#C32F34', data-bgcolor='#ffffff')
+        p: em #{title}
+        p #{description}
 
 
+mixin event(icon, position, agency, datetime, duration, description)
+
+    li.timeline-event
+    
+        div.timeline-icon: i(class='icon icon-timeline-#{icon}')
+        
+        div.timeline-label
+            p: em #{position}
+            h3 #{agency}
+            p: time(datetime='#{datetime}') #{duration}
+            p !{description}
 

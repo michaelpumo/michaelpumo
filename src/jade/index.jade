@@ -2,22 +2,23 @@ include ./helpers/mixins.jade
 
 doctype html
 
-html
+html(class='no-js' lang='en')
     
     head
 
+        include ./includes/credits.jade
         include ./includes/head.jade
 
     body
 
-        main(id='sections', role='main')
+        main#sections(role='main')
 
             include ./includes/cover.jade
             include ./includes/skills.jade
             include ./includes/work.jade
-            //- include ./includes/process.jade
+            include ./includes/process.jade
             include ./includes/quotes.jade      
-            //- include ./includes/timeline.jade
+            include ./includes/timeline.jade
             include ./includes/footer.jade
         
         include ./includes/scripts.jade
