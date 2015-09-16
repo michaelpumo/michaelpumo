@@ -1,3 +1,9 @@
+mixin navItem(id, title)
+
+    li
+        a(href='#section-#{id}') #{title}
+
+
 mixin skill(icon, title, subtitle, description)
 
     div.item.skill
@@ -59,6 +65,7 @@ mixin event(icon, position, agency, datetime, duration, description)
         div.timeline-label
             p: em #{position}
             h3 #{agency}
-            p: time(datetime='#{datetime}') #{duration}
+            p: time(datetime='#{datetime}') !{duration}
             p !{description}
+
 

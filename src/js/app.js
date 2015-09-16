@@ -58,16 +58,12 @@ var Modernizr   = require('browsernizr'),
                 var travel = ( cache.$section.eq(1).offset().top );
 
                 if( Modernizr.mq('only screen and (min-width: 768px)') ) {
-
                     travel = ( cache.$section.eq(1).offset().top ) - cache.$nav.height();
-
                 }
     
                 cache.$htmlBody.animate({
-                    
                     scrollTop: travel
-                
-                }, 500, 'swing');
+                }, 500);
                 
                 return false;
             
@@ -98,19 +94,13 @@ var Modernizr   = require('browsernizr'),
                 var travel = ( $( $.attr(this, 'href') ).offset().top );
 
                 if( Modernizr.mq('only screen and (min-width: 768px)') ) {
-
                     travel = ( $( $.attr(this, 'href') ).offset().top ) - ( cache.$nav.height() - 1);
-
                 }
     
                 cache.$htmlBody.animate({
-                    
-                    scrollTop: travel
-                                    
-                }, 1000, 'easeInOutExpo', function() {
-                    
+                    scrollTop: travel    
+                }, 1000, 'linear', function() {
                     cache.$nav.removeClass('nav-open');
-                    
                 });
                 
                 return false;
