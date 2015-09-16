@@ -93,6 +93,15 @@
         width: 100%;
         padding: 0;
         background: transparent;
+        opacity: 0;
+        transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+
+        &.show {
+
+            opacity: 1;
+            transform: translateX(0px)!important;
+
+        }
         
         @include bp($small) {
     
@@ -162,6 +171,8 @@
         }
         
         &:nth-child(odd) {
+
+            transform: translateX(50px);
             
             @include bp($medium) {
             
@@ -192,6 +203,8 @@
         }
 
         &:nth-child(even) {
+
+            transform: translateX(-50px);
 
             .timeline-label {
             

@@ -26,6 +26,7 @@
     "gulp-postcss": "~6.0.0",
     "autoprefixer-core": "~5.2.1",
     "gulp-sourcemaps": "~1.5.2",
-    "browsernizr": "~1.0.2"
+    "browsernizr": "~1.0.2",
+    "scrollmagic": "~2.0.5"
   }
 }

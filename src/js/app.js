@@ -2,10 +2,9 @@ require('browsernizr/lib/mq');
 require('browsernizr');
 
 var Modernizr   = require('browsernizr'),
+    ScrollMagic = require('scrollmagic'),
     backstretch = require('./plugins/jquery.backstretch'),
-    circliful   = require('./plugins/jquery.circliful'),
-    lazyload    = require('./plugins/jquery.lazyload'),
-    scrollspy   = require('./plugins/jquery.scrollspy');
+    lazyload    = require('./plugins/jquery.lazyload');
 
 (function($) {
 
@@ -32,7 +31,6 @@ var Modernizr   = require('browsernizr'),
             
             app.backstretch();
             app.jump();
-            app.stats();
             app.navScroll();
             app.navToggle();
             app.timeline();
@@ -68,18 +66,6 @@ var Modernizr   = require('browsernizr'),
                 return false;
             
             });
-            
-        },
-        
-        stats: function() {
-            
-            var canvas = document.createElement('canvas');
-        
-            if (canvas.getContext) {
-            
-                cache.$stat.circliful();
-            
-            }
             
         },
         
@@ -122,33 +108,32 @@ var Modernizr   = require('browsernizr'),
         },
         
         navHighlight: function() {
-            
-            cache.$section.each(function() {
 
-                var position = $(this).position();
-                
-                $(this).scrollspy({
-                
-                    min: position.top - cache.$nav.height(),
-                    max: position.top + ( $(this).height() - cache.$nav.height() ),
-                    onEnter: function(element) {
-                        
-                        cache.$nav.find('a[href="#' + element.id + '"]').parent().addClass('current');
-                        
-                    },
-                    onLeave: function(element) {
-                    
-                        cache.$nav.find('a[href="#' + element.id + '"]').parent().removeClass('current');
-        
-                    }
-                    
-                });
-        
-            });
+            // var controller = new ScrollMagic.Controller();
+            // var scene = new ScrollMagic.Scene({triggerElement: '#section-process', duration: $('#section-process').height() })
+            //     .on('enter', function () {
+            //         console.log('enter');
+            //     })
+            //     .on('leave', function () {
+            //         console.log('leave');
+            //     })
+            //     .addTo(controller);
+
+            
             
         },
         
         timeline: function() {
+
+            var controller = new ScrollMagic.Controller();
+
+            cache.$timelineEvent.each(function() {
+
+                var timelineItem = new ScrollMagic.Scene({triggerElement: $(this)[0], offset: 0 }) //duration: $(this).height()
+                    .setClassToggle($(this)[0],'show')
+                    .addTo(controller);
+
+            });
     
         },
         
@@ -163,10 +148,8 @@ var Modernizr   = require('browsernizr'),
         
     };
     
-
     app.init();
     
-
     $(window).on('resize load', function() {
         
         app.navHighlight();
@@ -174,6 +157,5 @@ var Modernizr   = require('browsernizr'),
         app.jump();
         
     });
-    
 
 })(jQuery);

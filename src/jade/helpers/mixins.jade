@@ -1,7 +1,7 @@
 mixin navItem(id, title)
 
     li
-        a(href='#section-#{id}') #{title}
+        a(href='#section-#{id}') !{title}
 
 
 mixin skill(icon, title, subtitle, description)
@@ -46,14 +46,6 @@ mixin quote(quote, name, position, company, url)
                 br
                 | #{position} at 
                 a(href='#{url}', target='_blank') #{company}.
-
-
-mixin process(unit, percent, title, description)
-
-    div.chart
-        div.stat(data-text='#{unit}', data-percent='#{percent}', data-dimension='150', data-width='2', data-fontsize='20', data-fgcolor='#C32F34', data-bgcolor='#ffffff')
-        p: em #{title}
-        p #{description}
 
 
 mixin event(icon, position, agency, datetime, duration, description)
