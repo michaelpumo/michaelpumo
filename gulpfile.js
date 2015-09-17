@@ -33,6 +33,12 @@
         browserSync.reload();
     });
 
+    gulp.task('files', function(){
+        return gulp.src('src/files/**/*')
+            .pipe(gulp.dest('dist/files/'))
+            .pipe(browserSync.reload({ stream: true }));
+    });
+
     gulp.task('images', function(){
         return gulp.src('src/images/**/*')
             .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
