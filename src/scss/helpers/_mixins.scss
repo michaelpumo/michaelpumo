@@ -33,14 +33,6 @@
 
     }
 
-    /* 
-    @else if $browser == "ie-7" {
-    
-            filter: alpha(opacity=#{$level * 100});
-    
-        } 
-    */
-
     @else {
 
         @if $important {
@@ -82,8 +74,17 @@
 
 @mixin omega-reset($nth) {
 
-    &:nth-child(#{$nth}) { margin-right: flex-gutter($grid-columns, $gutter); }
-    &:nth-child(#{$nth}+1) { clear: none }
+    &:nth-child(#{$nth}) { 
+
+        margin-right: flex-gutter($grid-columns, $gutter); 
+    
+    }
+
+    &:nth-child(#{$nth}+1) { 
+
+        clear: none 
+
+    }
 
 }
 
@@ -120,17 +121,20 @@
     @include font-size(12);
     @include padding(rem(15) rem(25));
     
+    transition: all 0.3s ease;
     color: $color;
     cursor: pointer;
     border: 2px solid $color;
-    border: 2px solid rgba(255,255,255,0.5);
+    border: 2px solid rgba($color,0.5);
     background: transparent;
+    font-weight: 500;
     
     &:hover, &:focus {
         
         outline: none;
         background: transparent;
         border: 2px solid $color;
+        color: $color;
         
     }
     

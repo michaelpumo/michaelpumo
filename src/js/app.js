@@ -16,7 +16,7 @@ var Modernizr   = require('browsernizr'),
         $body: $('body'),
         $nav: $('#nav'),
         $navButton: $('#nav-button'),
-        $onward: $('#onward'),
+        $go: $('#go'),
         $sections: $('#sections'),
         $section: $('.section'),
         $stat: $('.stat'),
@@ -47,7 +47,7 @@ var Modernizr   = require('browsernizr'),
         
         jump: function() {
 
-            var $anchor = cache.$onward;
+            var $anchor = cache.$go;
             
             $anchor.off('click');
             
@@ -129,7 +129,7 @@ var Modernizr   = require('browsernizr'),
 
             cache.$timelineEvent.each(function() {
 
-                var timelineItem = new ScrollMagic.Scene({triggerElement: $(this)[0], offset: 0 }) //duration: $(this).height()
+                var timelineItem = new ScrollMagic.Scene({triggerElement: $(this)[0], offset: -150 }) //duration: $(this).height()
                     .setClassToggle($(this)[0],'show')
                     .addTo(controller);
 

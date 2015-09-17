@@ -75,10 +75,15 @@ ul, ol {
     
 }
 
-button, .btn {
+.button {
     
-    @include transition(all 0.3s ease);
     @include button();
+
+    &--red {
+
+        @include button($color-red);
+
+    }
 
 }
 

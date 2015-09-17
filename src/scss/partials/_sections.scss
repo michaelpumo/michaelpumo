@@ -85,7 +85,7 @@
         
     }
     
-    &.grey {
+    &--grey {
         
         background: $color-grey;
         
@@ -97,7 +97,7 @@
         
     }
     
-    &.white {
+    &--white {
         
         background: #fff;
         
@@ -109,7 +109,7 @@
         
     }
     
-    &.dark {
+    &--dark {
         
         background: $color-grey-dark;
         
@@ -119,6 +119,24 @@
         
         }
         
+    }
+
+    &__resume {
+
+        .download {
+
+            @extend %text-center;
+            @include span-columns(12);
+            @include margin(null null rem(50) null);
+
+            @include bp($small) {
+
+                @include margin(null null rem(80) null);
+
+            }
+
+        }
+
     }
     
     &.quote {
@@ -207,7 +225,6 @@
         
         @include size(100% 100%);
         @include padding(0);
-        //@include cover-image("cover-landscape.jpg", $color-red);
         
         display: table;
         position: relative;
@@ -264,7 +281,7 @@
                 
             }
             
-            .button {
+            .go {
                 
                 @include padding(0 0 rem(80) 0);
                 @extend %text-center;
