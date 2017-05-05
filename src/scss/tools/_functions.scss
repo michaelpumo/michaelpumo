@@ -1,0 +1,18 @@
+@function removeUnit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+@function p2r($pxval) {
+
+  @if not unitless($pxval) {
+    $pxval: removeUnit($pxval);
+  }
+
+  $base: 16px;
+
+  @if not unitless($base) {
+    $base: removeUnit($base);
+  }
+
+  @return ($pxval / $base) * 1rem;
+}

@@ -1,0 +1,33 @@
+.c-footer {
+
+  @include padding(null null p2r(15) null);
+
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  display: block;
+  float: left;
+
+  @include grid-media($grid-medium) {
+
+    @include padding(null null p2r(25) null);
+
+  }
+
+  &__strapline {
+
+    font-size: p2r(14);
+
+  }
+
+  &__emoji {
+
+    @include font-size(20);
+    @include position(relative, p2r(3) null null null);
+    @include margin(null null null p2r(5));
+
+    background-color: transparent;
+
+  }
+
+}

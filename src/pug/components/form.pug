@@ -1,0 +1,18 @@
+form(class='c-form' name='contact-form' id='form' action='https://formspree.io/hello@michaelpumo.com' method='post')
+  
+  include ./loader.pug
+  
+  fieldset(class='c-form__fieldset')
+    legend(class='c-form__legend') Contact
+    input(class='c-form__hidden' type='text' name='_gotcha')
+    .c-form__field
+      label(class='c-form__label' for='form-name') Name
+      input(class='c-form__input' type='text' id='form-name' name='fullname' placeholder='Tim Berners-Lee')
+    .c-form__field
+      label(class='c-form__label' for='form-email') Email
+      input(class='c-form__input' type='email' id='form-email' name='email' placeholder='example@example.com')
+    .c-form__field
+      label(class='c-form__label' for='form-message') Message
+      textarea(class='c-form__textarea' id='form-message' name='message' placeholder='Enter your message...')
+    .c-form__field
+      input(class='c-form__button c-button' type='submit' value='Send message')

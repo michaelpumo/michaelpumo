@@ -1,19 +1,43 @@
-@import "neat-helpers";
 
-// Grid Guide
-$visual-grid: false;
-$visual-grid-color: pink;
-$visual-grid-index: front;
-$visual-grid-opacity: 0.3;
+// Seetings for the Bourbon Neat grid.
+$neat-grid: (
+  columns: 12,
+  gutter: 40px,
+  color: hotpink
+);
 
-// Grid Settings
-$column: 100px;
-$gutter: 30px;
-$grid-columns: 12;
-$max-width: em(1200);
+$grid-x-small: (
+  columns: 12,
+  gutter: 20px,
+  media: 480px
+);
 
-// Define Breakpoints
-$x-small: new-breakpoint(min-width 640px 12);
-$small: new-breakpoint(min-width 768px 12);
-$medium: new-breakpoint(min-width 992px 12);
-$large: new-breakpoint(min-width 1200px 12);
+$grid-small: (
+  columns: 12,
+  gutter: 20px,
+  media: 768px
+);
+
+$grid-medium: (
+  columns: 12,
+  gutter: 20px,
+  media: 992px
+);
+
+$grid-big: (
+  columns: 12,
+  gutter: 20px,
+  media: 1200px
+);
+
+$grid-large: (
+  columns: 12,
+  gutter: 20px,
+  media: 1400px
+);
+
+$grid-x-large: (
+  columns: 12,
+  gutter: 20px,
+  media: 1600px
+);

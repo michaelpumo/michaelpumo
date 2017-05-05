@@ -1,0 +1,46 @@
+mixin pattern(selector)
+  canvas(class='c-canvas' id=`${selector}` resize)
+
+mixin event(agency, datetime, duration, summary)
+  li.c-timeline__event
+    div.c-timeline__point
+    div(class='c-timeline__bubble' data-inview)
+      h3.c-timeline__heading #{agency}
+      p.c-timeline__date: time(datetime=`${datetime}`) !{duration}
+      p.c-timeline__summary !{summary}
+
+mixin skill(title, caption, summary, color)
+  div(class=`c-skills__item c-skills__item--${color}`)
+    h3.c-skills__heading #{title}
+    p.c-skills__caption #{caption}
+    p.c-skills__summary #{summary}
+
+mixin work(url, image, title, description, color)
+  li.c-work__item
+    a(class='c-work__link' href=`${url}`, target='_blank')
+      div(class=`c-work__overlay c-work__overlay--${color}`)
+      h4.c-work__heading #{title} #[span.t-sub #{description}]
+      img(class='c-work__image lazyload' alt=`${title}` width='800' height='450' data-src=`../images/${image}` src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+
+mixin svg(name, className = '')
+  - const path = `../svg/sprite.svg#${name}`
+  svg(class=`${className}`)
+    use(xlink:href=`${path}`)
+
+mixin quote(quote, name, position, company, url)
+  blockquote.c-reference__quote
+    h3.c-reference__heading #{quote}
+
+    footer.c-reference__footer
+      p.c-reference__credit #[span.c-reference__name #{name}] #[br]
+        | #{position} at 
+        a(href=`${url}` target='_blank') #{company}
+
+mixin navItem(id, title)
+  li: a(href=`#${id}` data-scroll) !{title}
+
+mixin handle(name, url, target=false)
+  a(href=`${url}` target=(target ? `${target}` : false)) @!{name}
+
+mixin mailto(email)
+  a(href=`mailto:${email}`) !{email}

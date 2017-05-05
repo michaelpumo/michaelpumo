@@ -1,0 +1,124 @@
+.c-navigation {
+
+  @include position(fixed, 0 0 null null);
+  @include size(60px);
+  
+  z-index: map-get($depth, navigation);
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 0 rgba(black, 0.1);
+  overflow: hidden;
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(-20px, 20px, 0);
+  transition:
+    transform $trans-speed $trans-ease,
+    border-radius $trans-speed ($trans-delay * 2) $trans-ease,
+    width $trans-speed $trans-delay $trans-ease,
+    height $trans-speed $trans-delay $trans-ease;
+
+  @include grid-media($grid-small) {
+
+    transform: translate3d(-40px, 40px, 0);
+
+  }
+
+  .is-scrolling-down & {
+
+    transform: translate3d(-20px, -105%, 0);
+
+    @include grid-media($grid-small) {
+
+      transform: translate3d(-40px, -105%, 0);
+
+    }
+
+  }
+
+  .has-navigation & {
+
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    border-radius: $border-radius;
+    transform: translate3d(-20px, 20px, 0);
+    transition:
+      transform $trans-speed $trans-delay $trans-ease,
+      border-radius $trans-speed $trans-ease,
+      width $trans-speed $trans-delay $easeOutBack,
+      height $trans-speed $trans-delay $easeOutBack;
+
+    @include grid-media($grid-small) {
+
+      transform: translate3d(-40px, 40px, 0);
+      width: 300px;
+      height: 500px;
+
+    }
+
+  }
+
+  &__button {
+
+    @extend %text-style;
+    @include position(absolute, 0 0 null null);
+    @include size(60px);
+    @include padding(15px);
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+    display: block;
+    border: 0;
+    margin: 0;
+    outline: none;
+    background-color: transparent;
+
+  }
+
+  &__list {
+
+    @extend %list-reset;
+    @include position(relative, 50% null null null);
+
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity $trans-speed $trans-ease;
+
+    .has-navigation & {
+
+      pointer-events: all;
+      opacity: 1;
+      transition:
+        opacity $trans-speed ($trans-delay * 2) $trans-ease;
+
+    }
+
+    li {
+
+      @extend %text-center;
+      @include font-size(30);
+
+      font-weight: 600;
+
+      @include grid-media($grid-small) {
+
+        @include font-size(20);
+
+      }
+
+    }
+
+    a {
+
+      @include padding(p2r(10));
+
+      display: block;
+      color: map-get($brand, 'navy');
+
+    }
+
+  }
+
+}

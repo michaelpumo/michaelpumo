@@ -1,0 +1,115 @@
+.c-overview {
+
+  $root: &;
+
+  @extend %text-center;
+  @include grid-column(12);
+  @include padding(35px null);
+
+  @include grid-media($grid-x-small) {
+
+    @include grid-column(10);
+    @include grid-push(1);
+
+  }
+
+  @include grid-media($grid-small) {
+
+    @include padding(p2r(70) null);
+
+  }
+
+  @include grid-media($grid-medium) {
+
+    @include padding(p2r(90) null);
+
+  }
+
+  @include grid-media($grid-large) {
+
+    @include grid-column(8);
+    @include grid-push(2);
+
+  }
+
+  &--hero {
+
+    text-align: left !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+  }
+
+  &__heading {
+
+    .is-theme-purple &,
+    .is-theme-yellow &,
+    .is-theme-blue &,
+    .is-theme-navy &,
+    .is-theme-red &,
+    .is-theme-green & {
+
+      color: white;
+
+    }
+
+    #{$root}--hero & {
+
+      @include margin(0 null 40px null);
+
+      @include grid-media($grid-x-small) {
+
+        font-size: 4.7vw;
+
+      }
+
+      @include grid-media($grid-big) {
+
+        font-size: 4vw;
+
+      }
+
+    }
+
+  }
+
+  &__summary {
+
+    @include margin(null auto);
+
+    max-width: 700px;
+
+    .is-theme-purple &,
+    .is-theme-yellow &,
+    .is-theme-blue &,
+    .is-theme-navy &,
+    .is-theme-red &,
+    .is-theme-green & {
+
+      color: white;
+
+    }
+
+    #{$root}--hero & {
+
+      margin-left: 0;
+      margin-right: 0;
+
+      &:last-child {
+
+        @include margin(null null 0 null);
+
+      }
+
+    }
+
+  }
+
+  &__button {
+
+    @include margin(20px null null null);
+
+  }
+
+}

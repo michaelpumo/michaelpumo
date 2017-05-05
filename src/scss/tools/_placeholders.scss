@@ -1,0 +1,67 @@
+%clearfix {
+
+  &:after {
+
+    content: " ";
+    display: block;
+    clear: both;
+
+  }
+
+}
+
+%font-sans {
+
+  font-family: $font-sans;
+
+}
+
+%font-serif {
+
+  font-family: $font-serif;
+
+}
+
+%text-sub-style {
+
+  @extend %font-serif;
+
+  font-weight: 100;
+  font-style: italic;
+
+}
+
+%text-style {
+
+  @extend %font-sans;
+  @include margin(20px null);
+
+  font-size: 18px;
+
+  @include grid-media($grid-small) {
+
+    font-size: 20px;
+
+  }
+
+}
+
+%text-left {
+
+  text-align: left;
+
+}
+
+%text-center {
+
+  text-align: center;
+
+}
+
+%list-reset {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}

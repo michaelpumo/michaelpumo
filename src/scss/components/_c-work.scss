@@ -1,0 +1,168 @@
+.c-work {
+
+  $root: &;
+
+  @extend %clearfix;
+  @include padding(0);
+  @include margin(0 null p2r(60) p2r(10));
+
+  width: calc(100% - #{p2r(20)});
+  list-style: none;
+
+  @include grid-media($grid-small) {
+
+    @include margin(0 null p2r(80) null);
+
+  }
+
+  @include grid-media($grid-medium) {
+
+    @include margin(0 null p2r(100) null);
+
+  }
+
+  @include grid-media($grid-large) {
+
+    @include grid-column(10);
+    @include grid-push(1);
+
+  }
+
+  &__item {
+
+    @extend %text-center;
+    @include size(100% 0);
+    @include padding(null null 56.25% null);
+    @include margin(null null p2r(5) null);
+    @include position(relative, null);
+
+    overflow: hidden;
+
+    @include grid-media($grid-small) {
+
+      @include grid-column(6);
+      @include padding(null null 28.12% null);
+      @include margin(null null 20px null);
+
+    }
+
+    &:last-child {
+
+      @include margin(null null 0 null);
+
+    }
+
+  }
+
+  &__link {
+
+    @include size(100%);
+
+    display: block;
+
+    &:hover,
+    &:active,
+    &:focus {
+
+      #{$root}__overlay {
+
+        opacity: 0;
+
+      }
+
+      #{$root}__image {
+
+        opacity: 1;
+        filter: grayscale(0);
+        transform: scale(1.1);
+
+      }
+
+      #{$root}__heading {
+
+        opacity: 0;
+
+      }
+
+    }
+
+  }
+
+  &__overlay {
+
+    @include size(100%);
+    @include position(absolute, 0 0 0 0);
+
+    z-index: 10;
+    background-color: rgba(black, 0.5);
+    display: block;
+    mix-blend-mode: multiply;
+    transition: opacity $trans-speed $trans-ease;
+
+    @each $color, $value in $brand {
+      &--#{$color} {
+        background-color: $value;
+      }
+    }
+
+  }
+
+  &__heading {
+
+    @include margin(0);
+    @include position(absolute, 50% null null 0);
+
+    z-index: 15;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    transform: translate3d(0, -50%, 0);
+    transition: opacity $trans-speed $trans-ease;
+
+    @include grid-media($grid-x-small) {
+
+      font-size: 4.7vw;
+
+    }
+
+    @include grid-media($grid-small) {
+
+      font-size: 20px;
+
+    }
+
+    @include grid-media($grid-medium) {
+
+      font-size: 30px;
+
+    }
+    
+    @include grid-media($grid-x-large) {
+
+      font-size: 40px;
+
+    }
+
+  }
+
+  &__image {
+
+    @include size(100%);
+    @include position(absolute, 0 null null 0);
+
+    z-index: 5;
+    display: block;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    object-fit: cover;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: scale(1);
+    transition:
+      transform $trans-speed $trans-ease,
+      opacity $trans-speed $trans-ease,
+      filter $trans-speed $trans-ease;
+
+  }
+
+}

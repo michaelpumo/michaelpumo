@@ -1,0 +1,81 @@
+.c-reference {
+
+  @include margin(0);
+
+  text-align: left !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include grid-column(12);
+
+  @include grid-media($grid-x-small) {
+
+    @include grid-column(10);
+    @include grid-push(1);
+
+  }
+
+  @include grid-media($grid-large) {
+
+    @include grid-column(8);
+    @include grid-push(2);
+
+  }
+
+  &__quote {
+
+    @include margin(0);
+
+    &:before,
+    &:after {
+
+      content: "";
+
+    }
+
+  }
+
+  &__heading {
+
+    @include margin(0);
+
+    .is-theme-red & {
+
+      color: white;
+
+    }
+
+    @include grid-media($grid-x-small) {
+
+      font-size: 4.5vw;
+
+    }
+
+    @include grid-media($grid-big) {
+
+      font-size: 4vw;
+
+    }
+
+  }
+
+  &__credit {
+
+    @include margin(null null 0 null);
+  
+    .is-theme-red & {
+
+      color: white;
+
+    }
+
+  }
+
+  &__name {
+
+    font-weight: 600;
+
+  }
+
+}

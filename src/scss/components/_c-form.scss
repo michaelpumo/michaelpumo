@@ -1,0 +1,176 @@
+::input-placeholder {
+
+  color: map-get($brand, 'grey');
+
+}
+
+::placeholder {
+  
+  color: map-get($brand, 'grey');
+
+}
+
+:input-placeholder {
+  
+  color: map-get($brand, 'grey');
+
+}
+
+:placeholder {
+
+  color: map-get($brand, 'grey');
+
+}
+
+.c-form {
+
+  @extend %clearfix;
+  @include position(relative, null);
+  @include margin(null null p2r(40) null);
+
+  width: 100%;
+  clear: both;
+  display: block;
+
+  @include grid-media($grid-small) {
+
+    @include margin(null null p2r(80) null);
+
+  }
+
+  @include grid-media($grid-medium) {
+
+    @include margin(null null p2r(100) null);
+
+  }
+
+  &__hidden {
+
+    display: none;
+
+  }
+
+  &__field {
+
+    @include margin(null null 20px null);
+
+    width: 100%;
+
+    &:last-child {
+
+      @include margin(null null 0 null);
+
+    }
+
+  }
+
+  &__input,
+  &__textarea {
+
+    @extend %text-style;
+    @include position(relative, 0);
+    @include padding(20px 20px);
+    @include margin(0);
+
+    display: block;
+    width: 100%;
+    background-color: white;
+    color: map-get($brand, 'navy');
+    border-radius: $border-radius;
+    border: 4px solid rgba(white, 1);
+    transform: translateZ(0);
+    transition: all $trans-speed $easeInOutQuart;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover,
+    &:active,
+    &:focus {
+
+      outline: none;
+      box-shadow: 0 0 10px rgba(map-get($brand, 'blue'), 1);
+
+    }
+
+    &.has-error {
+
+      box-shadow: 0 0 10px rgba(map-get($brand, 'red'), 1);
+
+    }
+
+  }
+
+  &__textarea {
+
+    min-height: 200px;
+
+  }
+
+  &__button {
+
+    @include margin(p2r(20) null null null);
+
+    width: 100%;
+
+    @include grid-media($grid-x-small) {
+
+      width: auto;
+
+    }
+
+  }
+
+  &__fieldset {
+
+    border: none;
+    margin: 0;
+    padding: 0;
+    transition: opacity $trans-speed $trans-ease;
+
+    .is-loading & {
+
+      opacity: 0.3;
+      pointer-events: none;
+
+    }
+
+    @include grid-column(12);
+
+    @include grid-media($grid-small) {
+
+      @include grid-column(8);
+      @include grid-shift(2);
+
+    }
+
+    @include grid-media($grid-large) {
+
+      @include grid-column(6);
+      @include grid-shift(3);
+
+    }
+
+  }
+
+  &__legend {
+
+    display: none;
+
+  }
+
+  &__label {
+
+    @include padding(null null 10px null);
+
+    display: block;
+
+  }
+
+  &__message {
+
+    @include font-size(16);
+
+    color: map-get($brand, 'red');
+
+  }
+
+}

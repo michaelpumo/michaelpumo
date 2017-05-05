@@ -1,0 +1,42 @@
+.c-splash {
+
+  @include size(100%);
+  @include position(fixed, 0 0 0 0);
+
+  z-index: map-get($depth, splash);
+  background-color: map-get($brand, 'navy');
+  opacity: 0;
+  pointer-events: none;
+  transition: all $trans-speed $trans-speed $trans-ease;
+
+  .is-loading & {
+
+    opacity: 1;
+    
+  }
+
+  &__mark {
+
+    @include size(60px auto);
+    @include position(relative, 50% null null 50%);
+
+    opacity: 0;
+    animation-name: rainbowFill;
+    animation-duration: ($trans-speed * 2);
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+    animation-play-state: running;
+    transform: scale(2) translate(-50%, -50%);
+    transform-origin: left top;
+    transition: all $trans-speed $trans-ease;
+
+    .is-loading & {
+      
+      transform: scale(1) translate(-50%, -50%);
+      opacity: 1;
+      
+    }
+
+  }
+
+}

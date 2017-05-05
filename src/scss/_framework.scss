@@ -1,23 +1,38 @@
-// Bourbon and Neat Libraries.
-@import "bourbon";
+// Bourbon Neat.
+// $output-bourbon-deprecation-warnings: false;
+
 @import "base/grid-settings";
+@import "bourbon";
 @import "neat";
 
-// Base
+// Base.
 @import "base/normalize";
 
-// Helpers
-@import "helpers/variables";
-@import "helpers/functions";
-@import "helpers/mixins";
-@import "helpers/placeholders";
+// Tools.
+@import "tools/fonts";
+@import "tools/variables";
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/placeholders";
+@import "tools/animations";
 
-// Partials
-@import "partials/global";
-@import "partials/icons";
-@import "partials/layout";
-@import "partials/nav";
-@import "partials/items";
-@import "partials/sections";
-@import "partials/stats";
-@import "partials/timeline";
+// Shared.
+@import "shared/typography";
+@import "shared/global";
+
+// Components.
+@import "components/c-form";
+@import "components/c-splash";
+@import "components/c-button";
+@import "components/c-sections";
+@import "components/c-overview";
+@import "components/c-timeline";
+@import "components/c-work";
+@import "components/c-skills";
+@import "components/c-reference";
+@import "components/c-navigation";
+@import "components/c-burger";
+@import "components/c-footer";
+@import "components/c-loader";
+@import "components/c-notification";
+@import "components/c-canvas";

@@ -1,0 +1,60 @@
+::selection {
+
+  background-color: rgba(map-get($brand, 'navy'), 1);
+  color: map-get($brand, 'yellow');
+
+}
+
+html {
+
+  box-sizing: border-box;
+  text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1em;
+  line-height: 1.6;
+  min-height: 100%;
+
+  &.is-loading {
+
+    // overflow: hidden;
+
+  }
+
+}
+
+body {
+
+  // @include grid-visual;
+
+  color: map-get($brand, 'grey');
+
+}
+
+main {
+
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  filter: brightness(100%);
+  transition:
+      all $trans-speed ($trans-delay * 2) $trans-ease;
+
+  .has-navigation & {
+
+    pointer-events: none;
+    filter: brightness(50%);
+    transition:
+      all $trans-speed $trans-delay $trans-ease;
+
+  }
+
+}
+
+*,
+*:before,
+*:after {
+
+  box-sizing: inherit;
+
+}

@@ -1,0 +1,10 @@
+.c-canvas {
+
+  @include position(absolute, null);
+
+  z-index: map-get($depth, canvas);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+
+}
