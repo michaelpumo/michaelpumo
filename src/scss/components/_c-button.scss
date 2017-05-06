@@ -1,7 +1,7 @@
 .c-button {
 
   @extend %text-style;
-  @include padding(20px 40px);
+  @include padding(10px 20px);
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   display: inline-block;
@@ -12,6 +12,12 @@
   border: 4px solid rgba(white, 0.5);
   transition: border-color $trans-speed $easeInOutQuart;
   animation: none;
+
+  @include grid-media($grid-small) {
+
+    @include padding(20px 40px);
+
+  }
 
   .is-theme-navy & {
 
