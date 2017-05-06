@@ -24,7 +24,7 @@ function links() {
     speed: 1000,
     easing: 'easeInOutQuint',
     offset: 0,
-    callback(section, link) {
+    after(section, link) {
       const grandParent = link.parentNode.parentNode;
       if (grandParent && grandParent.classList.contains('c-navigation__list')) {
         toggle();

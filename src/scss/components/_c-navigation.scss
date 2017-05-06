@@ -98,15 +98,9 @@
     li {
 
       @extend %text-center;
-      @include font-size(30);
+      @include font-size(20);
 
       font-weight: 600;
-
-      @include grid-media($grid-small) {
-
-        @include font-size(20);
-
-      }
 
     }
 
