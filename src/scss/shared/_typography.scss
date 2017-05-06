@@ -22,7 +22,7 @@ a {
 
   &:visited {
 
-    color: lighten(map-get($brand, 'red'), 10%);
+    opacity: 0.5;
 
   }
 

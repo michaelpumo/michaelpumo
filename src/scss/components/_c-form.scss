@@ -72,6 +72,7 @@
     @include padding(20px 20px);
     @include margin(0);
 
+    -webkit-appearance: none;
     display: block;
     width: 100%;
     background-color: white;
@@ -109,6 +110,7 @@
 
     @include margin(p2r(20) null null null);
 
+    -webkit-appearance: none;
     width: 100%;
 
     @include grid-media($grid-x-small) {

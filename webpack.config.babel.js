@@ -30,7 +30,7 @@ const FILE_LOADER_FILES_PROD = {
 };
 
 const FILE_LOADER_FONTS_DEV = {
-  name: 'fonts/[name].[ext]'
+  name: '../fonts/[name].[ext]'
 };
 
 const FILE_LOADER_FONTS_PROD = {

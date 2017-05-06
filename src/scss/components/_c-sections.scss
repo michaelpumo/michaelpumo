@@ -25,9 +25,21 @@
   }
 
   @each $color, $value in $brand {
+    
     &.is-theme-#{$color} {
+      
       background-color: $value;
+
+      @if $color != 'grey-light' {
+
+        a {
+          color: white;
+        }
+
+      }
+
     }
+
   }
 
 }
