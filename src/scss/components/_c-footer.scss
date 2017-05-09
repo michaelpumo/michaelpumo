@@ -24,7 +24,7 @@
 
     @include font-size(20);
     @include position(relative, p2r(3) null null null);
-    @include margin(null null null p2r(5));
+    @include margin(null p2r(5));
 
     background-color: transparent;
 
