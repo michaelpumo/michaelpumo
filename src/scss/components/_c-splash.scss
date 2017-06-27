@@ -15,7 +15,7 @@
     
   }
 
-  &__mark {
+  .c-mark {
 
     @include size(60px auto);
     @include position(relative, 50% null null 50%);

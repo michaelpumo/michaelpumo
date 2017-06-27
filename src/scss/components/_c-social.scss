@@ -1,0 +1,41 @@
+.c-social {
+
+  @extend %list-reset;
+  
+  @include grid-media($grid-x-small) {
+
+    @include margin(null null 30px null);
+
+  }
+
+  &__item {
+
+    @extend %text-center;
+    @include font-size(20);
+
+    font-weight: 600;
+
+    @include grid-media($grid-x-small) {
+
+      display: inline-block;
+
+    }
+
+  }
+
+  a {
+
+    @include padding(p2r(10));
+
+    display: block;
+    color: map-get($brand, 'navy');
+
+    @include grid-media($grid-x-small) {
+
+      @include padding(p2r(10) p2r(15));
+
+    }
+
+  }
+
+}
