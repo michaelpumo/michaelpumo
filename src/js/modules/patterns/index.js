@@ -72,7 +72,7 @@ function confetti(selector = '') {
         const rotationDirection = (i % 2) ? +1 : -1;
 
         item.rotate(rotationDirection);
-        item.position.y += (item.bounds.width / 30) + 1;
+        item.position.y += (item.bounds.width / 30) + 0.3;
 
         if (item.bounds.top > paperObj.view.size.height) {
           item.position.y = -item.bounds.width;
