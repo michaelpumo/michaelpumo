@@ -7,12 +7,12 @@
   background-color: map-get($brand, 'navy');
   opacity: 0;
   pointer-events: none;
-  transition: all $trans-speed $trans-speed $trans-ease;
+  transition: opacity $trans-speed $trans-speed $trans-ease;
 
   .is-loading & {
 
     opacity: 1;
-    
+
   }
 
   .c-mark {
