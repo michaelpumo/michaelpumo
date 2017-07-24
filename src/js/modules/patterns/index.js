@@ -41,7 +41,8 @@ function confetti(selector = '') {
     }
 
     const density = 0.02;
-    const items = Math.round((area() / 100) * density);
+    const quantity = Math.round((area() / 100) * density);
+    const items = (quantity <= 200) ? quantity : 200;
     const shape = new paperObj.Path.Rectangle({
       point: randPosition(),
       size: [30, 4],
@@ -51,7 +52,7 @@ function confetti(selector = '') {
     for (let i = 0; i < items; i++) {
       const copy = shape.clone();
 
-      copy.size = [30, 4];
+      copy.size = [randNumber(20, 30), 4];
       copy.position = new paperObj.Point(randPosition());
       copy.fillColor = randColor();
       copy.blendMode = 'multiply';
@@ -72,7 +73,7 @@ function confetti(selector = '') {
         const rotationDirection = (i % 2) ? +1 : -1;
 
         item.rotate(rotationDirection);
-        item.position.y += (item.bounds.width / 30) + 0.3;
+        item.position.y += (item.bounds.width / (item.bounds.width * 2));
 
         if (item.bounds.top > paperObj.view.size.height) {
           item.position.y = -item.bounds.width;
@@ -119,7 +120,8 @@ function background(selector = '', color = 'white') {
     }
 
     const density = 0.02;
-    const items = Math.round((area() / 100) * density);
+    const quantity = Math.round((area() / 100) * density);
+    const items = (quantity <= 200) ? quantity : 200;
     const shape = new paperObj.Path.Rectangle({
       point: randPosition(),
       size: [30, 4],
