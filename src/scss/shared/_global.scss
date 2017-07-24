@@ -15,19 +15,17 @@ html {
   line-height: 1.6;
   min-height: 100%;
 
-  &.is-loading {
-
-    // overflow: hidden;
-
-  }
-
 }
 
 body {
 
-  // @include grid-visual;
-
   color: map-get($brand, 'grey');
+
+  .is-loading & {
+
+    overflow: hidden;
+
+  }
 
 }
 
