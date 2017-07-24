@@ -3,6 +3,7 @@
 .is-loading *:after {
 
   animation-play-state: paused;
+  transition: none !important;
 
 }
 
