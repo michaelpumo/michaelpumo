@@ -2,9 +2,11 @@
 
   $root: &;
 
-  @include grid-column(12);
+  @include grid-container;
   @include padding(0);
-  @include margin(0 null p2r(30) null);
+  @include margin(0 auto p2r(30) auto);
+
+  max-width: $max-width;
 
   @include grid-media($grid-small) {
 
@@ -12,21 +14,14 @@
 
   }
 
-  @include grid-media($grid-large) {
-
-    @include grid-column(10);
-    @include grid-push(1);
-
-  }
-
   &__item {
 
-    @include size(100% auto);
+    @include grid-column(12);
     @include padding(30px null null null);
     @include margin(null null 30px null);
     @include position(relative, null);
 
-    @include grid-media($grid-medium) {
+    @include grid-media($grid-small) {
 
       @include grid-column(8);
       @include grid-push(2);
