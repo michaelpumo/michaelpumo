@@ -28,7 +28,9 @@
     animation-play-state: running;
     transform: scale(2) translate(-50%, -50%);
     transform-origin: left top;
-    transition: all $trans-speed $trans-ease;
+    transition:
+      opacity $trans-speed $trans-ease,
+      transform $trans-speed $trans-ease;
 
     .is-loading & {
       
