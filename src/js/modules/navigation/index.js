@@ -21,7 +21,7 @@ function links() {
   smoothScroll.init({
     selector: '[data-scroll]',
     selectorHeader: null,
-    speed: 1000,
+    speed: 600,
     easing: 'easeInOutQuint',
     offset: 0,
     after(section, link) {
