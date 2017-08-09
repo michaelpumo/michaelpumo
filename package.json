@@ -41,7 +41,7 @@
   "dependencies": {
     "lazysizes": "^3.0.0",
     "paper": "^0.11.2",
-    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git",
+    "smooth-scroll": "^12.1.3",
     "validatinator": "^1.3.4"
   }
 }
