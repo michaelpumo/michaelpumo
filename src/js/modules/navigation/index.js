@@ -1,4 +1,4 @@
-import smoothScroll from 'smooth-scroll';
+import jump from 'jump.js';
 
 function toggle() {
   const html = document.querySelector('html');
@@ -17,19 +17,34 @@ function activate() {
   });
 }
 
-function links() {
-  smoothScroll.init({
-    selector: '[data-scroll]',
-    selectorHeader: null,
-    speed: 600,
-    easing: 'easeInOutQuint',
-    offset: 0,
-    after(section, link) {
-      const grandParent = link.parentNode.parentNode;
-      if (grandParent && grandParent.classList.contains('c-navigation__list')) {
-        toggle();
-      }
+/* eslint-disable no-mixed-operators */
+/* eslint-disable no-cond-assign */
+function easeInOutExpo(t, b, c, d) {
+  if (t === 0) return b;
+  if (t === d) return b + c;
+  if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+  return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+}
+/* eslint-enable no-mixed-operators */
+/* eslint-enable no-cond-assign */
+
+function jumpTo(selector) {
+  jump(selector, {
+    duration: 500,
+    easing: easeInOutExpo,
+    callback: () => {
+      toggle();
     }
+  });
+}
+
+function links() {
+  const scrollLinks = document.querySelectorAll('[data-scroll]');
+  Array.from(scrollLinks).forEach(scrollLink => {
+    scrollLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      jumpTo(scrollLink.getAttribute('href'));
+    });
   });
 }
 
