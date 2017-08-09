@@ -16,8 +16,6 @@ const FILE_LOADER_IMAGES_DEV = {
 const FILE_LOADER_IMAGES_PROD = {
   name: 'images/[name].[ext]',
   publicPath: './dist/'
-  // outputPath: 'images/',
-  // useRelativePath: false
 };
 
 const FILE_LOADER_FILES_DEV = {
@@ -30,12 +28,12 @@ const FILE_LOADER_FILES_PROD = {
 };
 
 const FILE_LOADER_FONTS_DEV = {
-  name: '../fonts/[name].[ext]'
+  name: 'fonts/[name].[ext]'
 };
 
 const FILE_LOADER_FONTS_PROD = {
   name: 'fonts/[name].[ext]',
-  publicPath: './dist/'
+  publicPath: '../'
 };
 
 /*
