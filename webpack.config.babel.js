@@ -15,7 +15,7 @@ const FILE_LOADER_IMAGES_DEV = {
 
 const FILE_LOADER_IMAGES_PROD = {
   name: 'images/[name].[ext]',
-  publicPath: 'http://michaelpumo.com/dist/'
+  publicPath: './dist/'
   // outputPath: 'images/',
   // useRelativePath: false
 };
@@ -26,7 +26,7 @@ const FILE_LOADER_FILES_DEV = {
 
 const FILE_LOADER_FILES_PROD = {
   name: 'files/[name].[ext]',
-  publicPath: '/dist/'
+  publicPath: './dist/'
 };
 
 const FILE_LOADER_FONTS_DEV = {
@@ -35,7 +35,7 @@ const FILE_LOADER_FONTS_DEV = {
 
 const FILE_LOADER_FONTS_PROD = {
   name: 'fonts/[name].[ext]',
-  publicPath: '/dist/'
+  publicPath: './dist/'
 };
 
 /*
