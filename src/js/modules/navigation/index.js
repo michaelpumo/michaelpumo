@@ -29,11 +29,14 @@ function easeInOutExpo(t, b, c, d) {
 /* eslint-enable no-cond-assign */
 
 function jumpTo(selector) {
+  const html = document.querySelector('html');
   jump(selector, {
     duration: 500,
     easing: easeInOutExpo,
     callback: () => {
-      toggle();
+      if (html.classList.contains('has-navigation')) {
+        toggle();
+      }
     }
   });
 }
