@@ -5,6 +5,7 @@ import form from './modules/form';
 import navigation from './modules/navigation';
 import inView from './modules/inview';
 import scrolling from './modules/scrolling';
+import confetti from './modules/patterns';
 
 import './modules/svg';
 
@@ -19,6 +20,10 @@ const app = {
     navigation();
     inView();
     scrolling();
+    confetti('#pattern-cover', false, true);
+    confetti('#pattern-reference', 'cyan');
+    confetti('#pattern-availability', 'yellow');
+    confetti('#pattern-resume', 'purple');
   }
 
 };

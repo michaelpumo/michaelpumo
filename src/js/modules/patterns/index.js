@@ -1,150 +1,105 @@
-import paper from 'paper';
-import { randNumber } from '../../utilities/helpers';
+import { randNumber, normalizeNumber, degToRad } from '../../utilities/helpers';
 import settings from '../../utilities/settings';
 
-window.papers = {};
+function confetti(selector = 'canvas', color = false, animated = false) {
+  const canvas = document.querySelector(selector);
+  const ctx = canvas.getContext('2d');
+  const options = {
+    items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.05),
+    width: 8,
+    height: 100,
+    colours: settings.colors
+  };
+  const shapes = [];
+  let animationFrame = null;
 
-function confetti(selector = '') {
-  const pattern = document.querySelector(selector);
+  function drawShape(shape) {
+    const shapeX = (shape.width / 2) + shape.x;
+    const shapeY = (shape.height / 2) + shape.y;
 
-  if (!pattern) {
-    return;
+    ctx.save();
+    ctx.translate(shapeX, shapeY);
+    ctx.scale(shape.scale, shape.scale);
+    ctx.rotate(degToRad(shape.rotate));
+    ctx.fillStyle = shape.colour;
+    ctx.fillRect(-Math.abs(shape.width / 2), -Math.abs(shape.height / 2), shape.width, shape.height);
+    ctx.restore();
   }
 
-  window.papers[`${pattern.id}`] = new paper.PaperScope();
-  const paperObj = window.papers[`${pattern.id}`];
+  function setShape(shape, index) {
+    const ySpeed = (shape.scale / 2);
+    const rSpeed = (shape.scale / 4);
 
-  paperObj.install(window);
-
-  window.addEventListener('load', () => {
-    paperObj.setup(pattern);
-    paperObj.activate();
-
-    function area() {
-      return paperObj.view.bounds.width * paperObj.view.bounds.height;
+    if (index % 2) {
+      shape.rotate = shape.rotate += rSpeed;
+    } else {
+      shape.rotate = shape.rotate -= rSpeed;
     }
 
-    function randColor() {
-      const selectedColor = settings.colors[randNumber(0, settings.colors.length)];
-      return selectedColor.value;
+    if (shape.y > canvas.height) {
+      shape.y = -Math.abs(shape.height);
+      shape.x = randNumber(0, canvas.width);
+    } else {
+      shape.y = shape.y += ySpeed;
+      // if (index % 2) {
+      //   shape.x = shape.x += shape.xSpeed;
+      // } else {
+      //   shape.x = shape.x -= shape.xSpeed;
+      // }
     }
-
-    function randPosition() {
-      return [
-        randNumber(1, paperObj.view.bounds.width),
-        randNumber(1, paperObj.view.bounds.height)
-      ];
-    }
-
-    function randPositionX() {
-      return Math.round(paperObj.Point.random().x * paperObj.view.size.width);
-    }
-
-    const density = 0.02;
-    const quantity = Math.round((area() / 100) * density);
-    const items = (quantity <= 200) ? quantity : 200;
-    const shape = new paperObj.Path.Rectangle({
-      point: randPosition(),
-      size: [30, 4],
-      fillColor: randColor()
-    });
-
-    for (let i = 0; i < items; i++) {
-      const copy = shape.clone();
-
-      copy.size = [randNumber(20, 30), 4];
-      copy.position = new paperObj.Point(randPosition());
-      copy.fillColor = randColor();
-      copy.blendMode = 'multiply';
-      copy.rotate(randNumber(0, 360));
-
-      if (Math.round(i % 5) === 0) {
-        copy.scale((i / items) * randNumber(1, 5));
-      } else {
-        copy.scale(i / items);
-      }
-    }
-    paperObj.view.update();
-    const children = paperObj.project.activeLayer.children;
-
-    paperObj.view.onFrame = function () {
-      for (let i = 0; i < items; i++) {
-        const item = children[i];
-        const rotationDirection = (i % 2) ? +1 : -1;
-
-        item.rotate(rotationDirection);
-        item.position.y += (item.bounds.width / (item.bounds.width * 2));
-
-        if (item.bounds.top > paperObj.view.size.height) {
-          item.position.y = -item.bounds.width;
-          item.position.x = randPositionX();
-        }
-      }
-    };
-
-    paperObj.view.update();
-    paperObj.view.draw();
-  });
-}
-
-function background(selector = '', color = 'white') {
-  const pattern = document.querySelector(selector);
-
-  if (!pattern) {
-    return;
   }
 
-  window.papers[`${pattern.id}`] = new paper.PaperScope();
-  const paperObj = window.papers[`${pattern.id}`];
+  function placeShapes() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  paperObj.install(window);
-
-  window.addEventListener('load', () => {
-    paperObj.setup(pattern);
-    paperObj.activate();
-
-    function area() {
-      return paperObj.view.bounds.width * paperObj.view.bounds.height;
-    }
-
-    function selectColor(name) {
-      const selected = settings.colors.find(item => item.name === name);
-      return (selected) ? selected.value : name;
-    }
-
-    function randPosition() {
-      return [
-        randNumber(1, paperObj.view.bounds.width),
-        randNumber(1, paperObj.view.bounds.height)
-      ];
-    }
-
-    const density = 0.02;
-    const quantity = Math.round((area() / 100) * density);
-    const items = (quantity <= 200) ? quantity : 200;
-    const shape = new paperObj.Path.Rectangle({
-      point: randPosition(),
-      size: [30, 4],
-      fillColor: selectColor(color)
+    shapes.forEach((shape, index) => {
+      drawShape(shape);
+      setShape(shape, index);
     });
 
-    for (let i = 0; i < items; i++) {
-      const copy = shape.clone();
-
-      copy.size = [30, 4];
-      copy.position = new paperObj.Point(randPosition());
-      copy.rotate(randNumber(0, 360));
-
-      if (Math.round(i % 5) === 0) {
-        copy.scale((i / items) * randNumber(1, 5));
-      } else {
-        copy.scale(i / items);
-      }
+    if (!animated) {
+      return;
     }
 
-    paperObj.view.update();
-    paperObj.view.draw();
+    animationFrame = window.requestAnimationFrame(placeShapes);
+  }
+
+  function createShapes() {
+    for (let i = 0; i < options.items(); i += 1) {
+      const shapeEl = {
+        width: options.width,
+        height: options.height,
+        x: randNumber(-Math.abs(options.width), window.innerWidth),
+        y: randNumber(-Math.abs(options.height), window.innerHeight),
+        colour: (color) ? options.colours.find(item => item.name === color).value : options.colours[randNumber(0, options.colours.length - 1)].value,
+        scale: (i % 15) ? normalizeNumber(randNumber(1, 10), 0, 10) : 1.5,
+        rotate: randNumber(0, 360),
+        xSpeed: randNumber(0, 2)
+      };
+      shapes.push(shapeEl);
+    }
+    placeShapes();
+  }
+
+  function setCanvasSize() {
+    canvas.setAttribute('width', window.innerWidth);
+    canvas.setAttribute('height', window.innerHeight);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    placeShapes();
+  }
+
+  window.addEventListener('resize', () => {
+    window.cancelAnimationFrame(animationFrame);
+    setCanvasSize();
   });
+
+  function init() {
+    setCanvasSize();
+    createShapes();
+  }
+
+  init();
 }
 
-export { confetti, background };
+export default confetti;

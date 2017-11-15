@@ -65,9 +65,6 @@ const config = {
     chunkModules: true
   },
   entry: {
-    'app.patterns': [
-      path.resolve(__dirname, 'src/js/app.patterns.js')
-    ],
     'app.main': [
       path.resolve(__dirname, 'src/js/app.main.js'),
       path.resolve(__dirname, 'src/scss/app.main.scss')

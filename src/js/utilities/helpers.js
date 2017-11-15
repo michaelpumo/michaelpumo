@@ -7,7 +7,16 @@ function domReady(fn) {
 }
 
 function randNumber(from, to) {
-  return Math.floor(Math.random() * to) + from;
+  // return Math.floor(Math.random() * to) + from;
+  return Math.floor(Math.random() * ((to - from) + 1)) + from;
+}
+
+function normalizeNumber(val, min, max) {
+  return (val - min) / (max - min);
+}
+
+function degToRad(degrees) {
+  return degrees * (Math.PI / 180);
 }
 
 function isElementInViewport(el) {
@@ -21,4 +30,4 @@ function isElementInViewport(el) {
   );
 }
 
-export { domReady, randNumber, isElementInViewport };
+export { domReady, randNumber, normalizeNumber, degToRad, isElementInViewport };
