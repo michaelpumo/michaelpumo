@@ -150,13 +150,14 @@ const config = {
           {
             loader: 'image-webpack-loader',
             options: {
-              progressive: false,
               optipng: {
+                progressive: false,
                 optimizationLevel: 7,
                 quality: '90',
                 speed: 5
               },
               mozjpeg: {
+                progressive: false,
                 quality: 90
               },
               gifsicle: {
