@@ -5,7 +5,7 @@ function confetti(selector = 'canvas', color = false, animated = false) {
   const canvas = document.querySelector(selector);
   const ctx = canvas.getContext('2d');
   const options = {
-    items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.05),
+    items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.1),
     width: 8,
     height: 100,
     colours: settings.colors
