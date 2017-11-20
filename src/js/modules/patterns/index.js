@@ -6,8 +6,8 @@ function confetti(selector = 'canvas', color = false, animated = false) {
   const ctx = canvas.getContext('2d');
   const options = {
     items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.1),
-    width: 8,
-    height: 100,
+    width: 6,
+    height: 80,
     colours: settings.colors
   };
   const shapes = [];
@@ -27,7 +27,7 @@ function confetti(selector = 'canvas', color = false, animated = false) {
   }
 
   function setShape(shape, index) {
-    const ySpeed = (shape.scale / 2);
+    const ySpeed = (shape.scale / 4);
     const rSpeed = (shape.scale / 4);
 
     if (index % 2) {
