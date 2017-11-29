@@ -29,26 +29,6 @@ body {
 
 }
 
-main {
-
-  transform: translate3d(0,0,0);
-  backface-visibility: hidden;
-  perspective: 1000;
-  filter: brightness(100%);
-  transition:
-      all $trans-speed ($trans-delay * 2) $trans-ease;
-
-  .has-navigation & {
-
-    pointer-events: none;
-    filter: brightness(50%);
-    transition:
-      all $trans-speed $trans-delay $trans-ease;
-
-  }
-
-}
-
 *,
 *:before,
 *:after {

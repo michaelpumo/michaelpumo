@@ -1,0 +1,21 @@
+.c-overlay {
+
+  @include size(100%);
+  @include position(fixed, 0 0 0 0);
+
+  z-index: map-get($depth, 'overlay');
+  background-color: map-get($brand, 'navy');
+  will-change: opacity;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity $trans-speed ($trans-delay * 2) $trans-ease;
+
+  .has-navigation & {
+
+    pointer-events: auto;
+    opacity: 0.5;
+
+  }
+
+}
