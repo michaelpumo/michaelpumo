@@ -97,6 +97,7 @@
     background-color: rgba(black, 0.5);
     display: block;
     mix-blend-mode: multiply;
+    will-change: opacity;
     transition: opacity $trans-speed $trans-ease;
 
     @each $color, $value in $brand {
@@ -116,6 +117,7 @@
     width: 100%;
     color: white;
     font-size: 20px;
+    will-change: opacity;
     transform: translate3d(0, -50%, 0);
     transition: opacity $trans-speed $trans-ease;
 
@@ -153,10 +155,9 @@
     z-index: 5;
     display: block;
     opacity: 0.5;
-    filter: grayscale(100%);
     object-fit: cover;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
+    filter: grayscale(100%);
+    will-change: filter, transform, opacity;
     transform: scale(1);
     transition:
       transform $trans-speed $trans-ease,
