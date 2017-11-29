@@ -13,6 +13,7 @@
 
   .has-navigation & {
 
+    transition-delay: $trans-delay;
     pointer-events: auto;
     opacity: 0.5;
 
