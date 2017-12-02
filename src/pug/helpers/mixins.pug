@@ -34,13 +34,13 @@ mixin quote(quote, name, position, company, url)
     footer.c-reference__footer
       p.c-reference__credit #[span.c-reference__name #{name}] #[br]
         | #{position} at 
-        a(href=`${url}` target='_blank') #{company}
+        a(href=`${url}` target='_blank' rel='noopener') #{company}
 
 mixin navItem(id, title)
   li: a(href=`#${id}` data-scroll) !{title}
 
 mixin handle(name, url, target=false)
-  a(href=`${url}` target=(target ? `${target}` : false)) @!{name}
+  a(href=`${url}` target=(target ? `${target}` : false) rel='noopener') @!{name}
 
 mixin mailto(email)
   a(href=`mailto:${email}`) !{email}
