@@ -15,7 +15,7 @@ const FILE_LOADER_IMAGES_DEV = {
 
 const FILE_LOADER_IMAGES_PROD = {
   name: 'images/[name].[ext]',
-  publicPath: './dist/'
+  publicPath: 'https://michaelpumo.com/dist/'
 };
 
 const FILE_LOADER_FILES_DEV = {
