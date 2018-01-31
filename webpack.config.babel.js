@@ -200,6 +200,7 @@ const config = {
                   autoprefixer({
                     browsers: [
                       'last 2 versions',
+                      'Safari >= 8',
                       'Explorer >= 9',
                       'Android >= 4'
                     ]
