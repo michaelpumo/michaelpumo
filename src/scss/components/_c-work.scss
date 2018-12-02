@@ -31,7 +31,7 @@
   &__item {
 
     @extend %text-center;
-    @include size(100% 0);
+    @include size(100%, 0);
     @include padding(null null 56.25% null);
     @include margin(null null p2r(5) null);
     @include position(relative, null);

@@ -43,7 +43,7 @@
 
     &:before {
 
-      @include size(50px 4px);
+      @include size(50px, 4px);
       @include position(absolute, 0 null null 0);
 
       content: "";

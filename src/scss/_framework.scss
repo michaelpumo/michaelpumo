@@ -2,8 +2,8 @@
 // $output-bourbon-deprecation-warnings: false;
 
 @import "base/grid-settings";
-@import "bourbon";
-@import "neat";
+@import "~bourbon";
+@import "~bourbon-neat";
 
 // Base.
 @import "base/normalize";

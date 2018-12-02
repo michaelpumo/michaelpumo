@@ -3,7 +3,7 @@
   $root: &;
 
   @include position(relative, null);
-  @include size(30px 20px);
+  @include size(30px, 20px);
 
   &:hover {
 
@@ -20,7 +20,7 @@
   &__bar {
 
     @include position(absolute, null null null 0);
-    @include size(100% 4px);
+    @include size(100%, 4px);
 
     background-color: map-get($brand, 'navy');
     backface-visibility: hidden;

@@ -16,7 +16,7 @@
 
   .c-mark {
 
-    @include size(60px auto);
+    @include size(60px, auto);
     @include margin(40px auto 35px auto);
 
     display: inline-block;

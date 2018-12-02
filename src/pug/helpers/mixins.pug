@@ -20,7 +20,8 @@ mixin work(url, image, title, description, color)
     a(class='c-work__link' href=`${url}` target='_blank' rel='noopener')
       div(class=`c-work__overlay c-work__overlay--${color}`)
       h4.c-work__heading #{title} #[span.t-sub #{description}]
-      img(class='c-work__image lazyload' alt=`${title}` width='800' height='450' data-src=`../images/${image}` src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+      //- img(class='c-work__image lazyload' alt=`${title}` width='800' height='450' data-src=`../../images/${image}` src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+      img(class='c-work__image lazyload' alt=`${title}` width='800' height='450' src=`../images/${image}`)
 
 mixin svg(name, className = '')
   - const path = `../svg/sprite.svg#${name}`
