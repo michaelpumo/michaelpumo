@@ -1,6 +1,6 @@
 import { domReady } from './utilities/helpers'
 import entry from './modules/entry'
-import lazyLoad from './modules/lazy-load'
+// import lazyLoad from './modules/lazy-load'
 import form from './modules/form'
 import navigation from './modules/navigation'
 import inView from './modules/inview'
@@ -10,7 +10,7 @@ import confetti from './modules/patterns'
 const app = {
   init () {
     entry()
-    lazyLoad()
+    // lazyLoad()
     form()
     navigation()
     inView()
