@@ -1,10 +1,10 @@
-function init() {
+function init () {
   window.addEventListener('load', () => {
     window.setTimeout(() => {
-      const html = document.querySelector('html');
-      html.classList.remove('is-loading');
-    }, 1000);
-  });
+      const html = document.querySelector('html')
+      html.classList.remove('is-loading')
+    }, 500)
+  })
 }
 
-export default init;
+export default init

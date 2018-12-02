@@ -1,46 +1,46 @@
-import { randNumber, normalizeNumber, degToRad } from '../../utilities/helpers';
-import settings from '../../utilities/settings';
+import { randNumber, normalizeNumber, degToRad } from '../../utilities/helpers'
+import settings from '../../utilities/settings'
 
-function confetti(selector = 'canvas', color = false, animated = false) {
-  const canvas = document.querySelector(selector);
-  const ctx = canvas.getContext('2d');
+function confetti (selector = 'canvas', color = false, animated = false) {
+  const canvas = document.querySelector(selector)
+  const ctx = canvas.getContext('2d')
   const options = {
-    items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.09),
+    items: () => (window.innerWidth * window.innerHeight) / (window.innerWidth / 0.06),
     width: 6,
-    height: 80,
+    height: 60,
     colours: settings.colors
-  };
-  const shapes = [];
-  let animationFrame = null;
+  }
+  const shapes = []
+  let animationFrame = null
 
-  function drawShape(shape) {
-    const shapeX = (shape.width / 2) + shape.x;
-    const shapeY = (shape.height / 2) + shape.y;
+  function drawShape (shape) {
+    const shapeX = (shape.width / 2) + shape.x
+    const shapeY = (shape.height / 2) + shape.y
 
-    ctx.save();
-    ctx.translate(shapeX, shapeY);
-    ctx.scale(shape.scale, shape.scale);
-    ctx.rotate(degToRad(shape.rotate));
-    ctx.fillStyle = shape.colour;
-    ctx.fillRect(-Math.abs(shape.width / 2), -Math.abs(shape.height / 2), shape.width, shape.height);
-    ctx.restore();
+    ctx.save()
+    ctx.translate(shapeX, shapeY)
+    ctx.scale(shape.scale, shape.scale)
+    ctx.rotate(degToRad(shape.rotate))
+    ctx.fillStyle = shape.colour
+    ctx.fillRect(-Math.abs(shape.width / 2), -Math.abs(shape.height / 2), shape.width, shape.height)
+    ctx.restore()
   }
 
-  function setShape(shape, index) {
-    const ySpeed = (shape.scale / 4);
-    const rSpeed = (shape.scale / 4);
+  function setShape (shape, index) {
+    const ySpeed = (shape.scale / 4)
+    const rSpeed = (shape.scale / 4)
 
     if (index % 2) {
-      shape.rotate = shape.rotate += rSpeed;
+      shape.rotate = shape.rotate += rSpeed
     } else {
-      shape.rotate = shape.rotate -= rSpeed;
+      shape.rotate = shape.rotate -= rSpeed
     }
 
     if (shape.y > canvas.height) {
-      shape.y = -Math.abs(shape.height);
-      shape.x = randNumber(0, canvas.width);
+      shape.y = -Math.abs(shape.height)
+      shape.x = randNumber(0, canvas.width)
     } else {
-      shape.y = shape.y += ySpeed;
+      shape.y = shape.y += ySpeed
       // if (index % 2) {
       //   shape.x = shape.x += shape.xSpeed;
       // } else {
@@ -49,22 +49,22 @@ function confetti(selector = 'canvas', color = false, animated = false) {
     }
   }
 
-  function placeShapes() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function placeShapes () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     shapes.forEach((shape, index) => {
-      drawShape(shape);
-      setShape(shape, index);
-    });
+      drawShape(shape)
+      setShape(shape, index)
+    })
 
     if (!animated) {
-      return;
+      return
     }
 
-    animationFrame = window.requestAnimationFrame(placeShapes);
+    animationFrame = window.requestAnimationFrame(placeShapes)
   }
 
-  function createShapes() {
+  function createShapes () {
     for (let i = 0; i < options.items(); i += 1) {
       const shapeEl = {
         width: options.width,
@@ -75,31 +75,31 @@ function confetti(selector = 'canvas', color = false, animated = false) {
         scale: (i % 15) ? normalizeNumber(randNumber(1, 10), 0, 10) : 1.5,
         rotate: randNumber(0, 360),
         xSpeed: randNumber(0, 2)
-      };
-      shapes.push(shapeEl);
+      }
+      shapes.push(shapeEl)
     }
-    placeShapes();
+    placeShapes()
   }
 
-  function setCanvasSize() {
-    canvas.setAttribute('width', window.innerWidth);
-    canvas.setAttribute('height', window.innerHeight);
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    placeShapes();
+  function setCanvasSize () {
+    canvas.setAttribute('width', window.innerWidth)
+    canvas.setAttribute('height', window.innerHeight)
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    placeShapes()
   }
 
   window.addEventListener('resize', () => {
-    window.cancelAnimationFrame(animationFrame);
-    setCanvasSize();
-  });
+    window.cancelAnimationFrame(animationFrame)
+    setCanvasSize()
+  })
 
-  function init() {
-    setCanvasSize();
-    createShapes();
+  function init () {
+    setCanvasSize()
+    createShapes()
   }
 
-  init();
+  init()
 }
 
-export default confetti;
+export default confetti

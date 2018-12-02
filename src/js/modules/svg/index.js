@@ -1,1 +1,0 @@
-import '../../../svg/mark.svg';

@@ -1,25 +1,25 @@
-function display(template) {
-  const html = document.querySelector('html');
+function display (template) {
+  const html = document.querySelector('html')
 
-  window.document.body.insertAdjacentHTML('afterbegin', template);
+  window.document.body.insertAdjacentHTML('afterbegin', template)
 
   window.setTimeout(() => {
-    const visibleNotifications = document.querySelectorAll('.c-notification');
+    const visibleNotifications = document.querySelectorAll('.c-notification')
 
-    html.classList.add('has-notification');
+    html.classList.add('has-notification')
 
     Array.from(visibleNotifications).forEach(visibleNotification => {
       visibleNotification.addEventListener('click', () => {
-        html.classList.remove('has-notification');
+        html.classList.remove('has-notification')
         window.setTimeout(() => {
-          visibleNotification.parentNode.removeChild(visibleNotification);
-        }, 500);
-      });
-    });
-  }, 500);
+          visibleNotification.parentNode.removeChild(visibleNotification)
+        }, 500)
+      })
+    })
+  }, 500)
 }
 
-function notification(heading = '', message = '', emoji = '🚀') {
+function notification (heading = '', message = '', emoji = '🚀') {
   const template = `
     <div class="c-notification is-theme-grey-light">
       <div class="c-notification__dialog">
@@ -28,9 +28,9 @@ function notification(heading = '', message = '', emoji = '🚀') {
         <p class="c-notification__message">${message}</p>
       </div>
     </div>
-  `;
+  `
 
-  display(template);
+  display(template)
 }
 
-export default notification;
+export default notification

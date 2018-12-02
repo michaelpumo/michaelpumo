@@ -1,9 +1,9 @@
-import lazySizes from 'lazysizes';
+import lazySizes from 'lazysizes'
 
-function init() {
-  lazySizes.cfg.loadMode = 1;
-  lazySizes.cfg.expand = 500;
-  return;
+function init () {
+  lazySizes.cfg.loadMode = 1
+  lazySizes.cfg.expand = 500
+  
 }
 
-export default init;
+export default init

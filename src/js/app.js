@@ -7,8 +7,6 @@ import inView from './modules/inview'
 import scrolling from './modules/scrolling'
 import confetti from './modules/patterns'
 
-import './modules/svg'
-
 const app = {
   init () {
     entry()

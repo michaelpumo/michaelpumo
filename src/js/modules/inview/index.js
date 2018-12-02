@@ -1,32 +1,32 @@
-import { isElementInViewport } from '../../utilities/helpers';
+import { isElementInViewport } from '../../utilities/helpers'
 
-let elements;
+let elements
 
-function isInView() {
+function isInView () {
   if (!elements) {
-    return;
+    return
   }
 
   Array.from(elements).forEach(element => {
     if (isElementInViewport(element)) {
-      element.classList.add('is-inview');
+      element.classList.add('is-inview')
     }
-  });
+  })
 }
 
-function init() {
-  const elementsStore = document.querySelectorAll('[data-inview]');
+function init () {
+  const elementsStore = document.querySelectorAll('[data-inview]')
 
   if (!elementsStore) {
-    return;
+    return
   }
 
-  elements = elementsStore;
-  isInView();
+  elements = elementsStore
+  isInView()
 }
 
 window.addEventListener('scroll', () => {
-  isInView();
-});
+  isInView()
+})
 
-export default init;
+export default init
