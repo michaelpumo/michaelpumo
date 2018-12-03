@@ -30,7 +30,6 @@
 
   &__item {
 
-    @extend %text-center;
     @include size(100%, 0);
     @include padding(null null 56.25% null);
     @include margin(null null p2r(5) null);
@@ -111,37 +110,19 @@
   &__heading {
 
     @include margin(0);
-    @include position(absolute, 50% null null 0);
+    @include position(absolute, null null 0 0);
 
     z-index: 15;
     width: 100%;
     color: white;
     font-size: 20px;
     will-change: opacity;
-    transform: translate3d(0, -50%, 0);
+    padding: 20px;
     transition: opacity $trans-speed $trans-ease;
-
-    @include grid-media($grid-x-small) {
-
-      font-size: 4.7vw;
-
-    }
-
-    @include grid-media($grid-small) {
-
-      font-size: 20px;
-
-    }
 
     @include grid-media($grid-medium) {
 
-      font-size: 30px;
-
-    }
-    
-    @include grid-media($grid-x-large) {
-
-      font-size: 40px;
+      padding: 30px;
 
     }
 
