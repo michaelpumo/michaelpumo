@@ -4,7 +4,7 @@
   "description": "Portfolio of Michael Pumo",
   "main": "./src/pug/index.pug",
   "scripts": {
-    "prebuild": "",
+    "prebuild": "rm -rf dist/",
     "serve": "parcel ./src/pug/index.pug",
     "build": "parcel build ./src/pug/index.pug"
   },
