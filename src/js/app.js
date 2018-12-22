@@ -5,7 +5,7 @@ import form from './modules/form'
 import navigation from './modules/navigation'
 import inView from './modules/inview'
 import scrolling from './modules/scrolling'
-import confetti from './modules/patterns'
+import Confetti from './modules/patterns'
 
 const app = {
   init () {
@@ -15,10 +15,18 @@ const app = {
     navigation()
     inView()
     scrolling()
-    confetti('#pattern-cover', false, true)
-    confetti('#pattern-reference', 'cyan')
-    confetti('#pattern-availability', 'yellow')
-    confetti('#pattern-resume', 'purple')
+
+    const cover = new Confetti('#pattern-cover', false, true)
+    cover.init()
+
+    const reference = new Confetti('#pattern-reference', 'cyan')
+    reference.init()
+
+    const availability = new Confetti('#pattern-availability', 'yellow')
+    availability.init()
+
+    const resume = new Confetti('#pattern-resume', 'purple')
+    resume.init()
   }
 }
 
