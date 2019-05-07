@@ -4,10 +4,12 @@ import notification from '../notification'
 function success (form, data) {
   form.classList.remove('is-loading')
 
-  if (data && data.hasOwnProperty('success')) {
-    notification('Message successfully sent', 'Thanks and I\'ll be in touch soon', '🚀')
-    form.reset()
-    return
+  if (data && data.hasOwnProperty('ok')) {
+    if (data.ok === true) {
+      notification('Message successfully sent', 'Thanks and I\'ll be in touch soon', '🚀')
+      form.reset()
+      return
+    }
   }
 
   notification('Error', 'Something went wrong. Try again!', '🙈')
