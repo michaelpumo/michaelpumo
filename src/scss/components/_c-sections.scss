@@ -4,24 +4,9 @@
 
   @include position(relative, 0);
   @include grid-container;
-  @include margin(-10px null null null);
 
   min-height: 100vh;
-  border: 10px solid white;
-
-  &:nth-child(1) {
-
-    @include margin(0 null null null);
-
-  }
-
-  @include grid-media($grid-medium) {
-
-    @include margin(-20px null null null);
-
-    border-width: 20px;
-
-  }
+  overflow: hidden;
 
   @each $color, $value in $brand {
     
