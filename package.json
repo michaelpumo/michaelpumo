@@ -5,7 +5,7 @@
   "main": "./src/pug/index.pug",
   "scripts": {
     "prebuild": "rm -rf dist/",
-    "serve": "parcel ./src/pug/index.pug",
+    "dev": "parcel ./src/pug/index.pug",
     "build": "parcel build ./src/pug/index.pug"
   },
   "author": "Michael Pumo",
@@ -15,15 +15,15 @@
     "url": "git://github.com/michaelpumo/michaelpumo.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "autoprefixer": "^9.6.1",
     "bourbon": "^6.0.0",
     "bourbon-neat": "^4.0.0",
     "cssnano": "^4.1.10",
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
