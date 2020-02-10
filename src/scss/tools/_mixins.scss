@@ -1,3 +1,0 @@
-@mixin font-size($sizeValue: 16, $line: $sizeValue * 1.4, $important: "") {
-  font-size: ($sizeValue / 16) + rem + $important;
-}
