@@ -15,7 +15,21 @@ function addStyleResource(rule) {
 
 module.exports = {
   siteName: 'Michael Pumo',
-  plugins: [],
+  plugins: [
+    {
+      use: 'gridsome-source-graphql-prismic',
+      options: {
+        url: `https://${process.env.PRISMIC_REPOSITORY}.prismic.io`,
+        fieldName: 'prismic',
+        typeName: 'prismic',
+        // headers: {
+        //   'Prismic-Ref': '',
+        //   Authorization: 'Token '
+        // },
+        useMasterRef: true
+      }
+    }
+  ],
   chainWebpack(config) {
     const types = [
       'vue-modules',
@@ -24,8 +38,6 @@ module.exports = {
       'normal'
     ]
 
-    types.forEach(type => {
-      addStyleResource(config.module.rule('scss').oneOf(type))
-    })
+    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
   }
 }

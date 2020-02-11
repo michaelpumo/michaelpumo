@@ -1,23 +1,71 @@
 <template>
   <Layout>
-    <h2>About me</h2>
-
-    <h3>Methodology</h3>
-    <p>I like to work closely with design teams to faithfully translate their designs right down to the last pixel. On a daily basis you'll find me using modern frontend technologies in order to bring creative designs to life as designers intended them to be.</p>
-
-    <h3>Technical</h3>
-    <p>Frontend is changing fast and fads continue to come and go. Right now however, you can find me hacking away primarily with Vue.js, Nuxt.js, Prismic, GraphQL and JavaScript, HTML and CSS in general.</p>
-
-    <h3>Personal</h3>
-    <p>I grew up in Nottingham and moved to London many moons ago. Being half Italian and half British, you can often find me visiting family in Sicily and struggling with the basics of the language.</p>
-    <p>Vieni qui e lavora con me! 🥳</p>
+    <pre>
+      {{ fields }}
+    </pre>
   </Layout>
 </template>
 
+<page-query>
+  query Page {
+    prismic {
+      page(uid: "home", lang: "en-gb") {
+        meta_title
+        meta_description
+        meta_keywords
+        meta_image
+        title
+        description
+      }
+    }
+  }
+</page-query>
+
 <script>
 export default {
-  metaInfo: {
-    title: 'Index Page'
+  metaInfo() {
+    return ({
+      title: this.fields.meta_title,
+      meta: [
+        {
+          name: 'description',
+          content: this.fields.meta_description
+        },
+        {
+          name: 'keywords',
+          content: this.fields.meta_keywords
+        },
+        // {
+        //   property: 'twitter:card',
+        //   content: 'summary'
+        // },
+        // {
+        //   property: 'twitter:site',
+        //   content: this.settings.company_twitter_handle ? `@${this.settings.company_twitter_handle}` : ''
+        // },
+        // {
+        //   property: 'twitter:creator',
+        //   content: this.settings.company_twitter_handle ? `@${this.settings.company_twitter_handle}` : ''
+        // },
+        {
+          property: 'og:title',
+          content: this.fields.meta_title
+        },
+        {
+          property: 'og:description',
+          content: this.fields.meta_description
+        },
+        {
+          property: 'og:image',
+          content: (this.fields.meta_image && Object.prototype.hasOwnProperty.call(this.fields.meta_image, 'url')) ? this.fields.meta_image.url : null
+        }
+      ]
+    })
+  },
+  computed: {
+    fields() {
+      return this.$page.prismic.page
+    }
   }
 }
 </script>
