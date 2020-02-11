@@ -16,39 +16,27 @@
   @if ($level == "1") {
     @include type-size($level);
 
-    line-height: 1;
+    line-height: 1.2;
   }
 
   @if ($level == "2") {
     @include type-size($level);
-
-    line-height: 1;
-    letter-spacing: normal;
   }
 
   @if ($level == "3") {
     @include type-size($level);
-
-    line-height: 1;
   }
 
   @if ($level == "4") {
     @include type-size($level);
-
-    line-height: 1.2;
   }
 
   @if ($level == "5") {
     @include type-size($level);
-
-    line-height: 1.45;
-    letter-spacing: 0.018em;
   }
 
   @if ($level == "6") {
     @include type-size($level);
-
-    line-height: 1.4;
   }
 }
 
@@ -79,7 +67,7 @@
   @include type-size("6");
 
   padding: 0;
-  margin: 0 0 $bsu-sm 0;
+  margin: 0 0 spacing("sm") 0;
   cursor: pointer;
   user-select: none;
 }

@@ -1,12 +1,18 @@
 :root {
   --app-height: 100vh;
-  --gutter-left: 15px;
-  --gutter-right: 15px;
+  --spacing-unit: #{spacing("sm")};
+  --color-theme: #{color("red")};
+  --color-general: #{color("dark")};
 }
 
-@include media("xxs") {
+@include media("lg") {
   :root {
-    --gutter-left: 11.6vw;
-    --gutter-right: 6.8vw;
+    --spacing-unit: #{spacing("md")};
+  }
+}
+
+@include media("xl") {
+  :root {
+    --spacing-unit: #{spacing("lg")};
   }
 }

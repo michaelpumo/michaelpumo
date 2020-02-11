@@ -8,15 +8,11 @@ $colors: (
   "cream": #f4e8d8
 );
 
-$bsu-sm: 15px;
-$bsu: 20px;
-$bsu-md: 30px;
-$bsu-lg: 40px;
-$bsu-xl: 80px;
-$bsu-xxl: 120px;
-
-$gutter-left: 11.6vw;
-$gutter-right: 6.8vw;
+$spacings: (
+  "sm": 30px,
+  "md": 60px,
+  "lg": 80px,
+);
 
 $sizes: (
   "xxs": 375px,
@@ -30,16 +26,11 @@ $sizes: (
 );
 
 $breakpoints: (
-  "xxsMax": "max-width: #{map-get($sizes, 'xxs') - 1px}",
   "xxs": "min-width: #{map-get($sizes, 'xxs')}",
-  "xsMax": "max-width: #{map-get($sizes, 'xs') - 1px}",
   "xs": "min-width: #{map-get($sizes, 'xs')}",
-  "smMax": "max-width: #{map-get($sizes, 'sm') - 1px}",
   "sm": "min-width: #{map-get($sizes, 'sm')}",
-  "mdMax": "max-width: #{map-get($sizes, 'md') - 1px}",
   "md": "min-width: #{map-get($sizes, 'md')}",
   "lg": "min-width: #{map-get($sizes, 'lg')}",
-  "lgMax": "max-width: #{map-get($sizes, 'lg') - 1px}",
   "xl": "min-width: #{map-get($sizes, 'xl')}",
   "xxl": "min-width: #{map-get($sizes, 'xxl')}",
   "xxxl": "min-width: #{map-get($sizes, 'xxxl')}"

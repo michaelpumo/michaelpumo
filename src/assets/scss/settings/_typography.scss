@@ -74,24 +74,24 @@ p a {
     text-decoration: none;
   }
 
-  &::after {
-    content: '';
-    display: inline-block;
-    width: (10/14 * 1em);
-    height: (10/14 * 1em);
-    margin-top: (2/14 * 1em);
-    margin-left: (2/14 * 1em);
-    background-image: url(/imgs/arrow-link.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: translate3d(0, 0, 0);
-    transition: transform $trans-speed $trans-ease;
-  }
+  // &::after {
+  //   content: '';
+  //   display: inline-block;
+  //   width: (10/14 * 1em);
+  //   height: (10/14 * 1em);
+  //   margin-top: (2/14 * 1em);
+  //   margin-left: (2/14 * 1em);
+  //   background-image: url(/imgs/arrow-link.svg);
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   transform: translate3d(0, 0, 0);
+  //   transition: transform $trans-speed $trans-ease;
+  // }
 
-  &:hover::after {
-    transform: translate3d(3px, -3px, 0);
-  }
+  // &:hover::after {
+  //   transform: translate3d(3px, -3px, 0);
+  // }
 
   @supports (text-decoration-color: currentColor) {
     text-decoration-color: currentColor;

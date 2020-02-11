@@ -14,6 +14,10 @@
   @return unquote(map-get($typefaces, #{$name}));
 }
 
+@function spacing($name: "small") {
+  @return unquote(map-get($spacings, #{$name}));
+}
+
 @function depth($name: "") {
   @if $name == "" {
     @return 1;
