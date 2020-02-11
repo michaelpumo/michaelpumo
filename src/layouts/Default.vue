@@ -1,17 +1,14 @@
 <template>
   <div :class="$options.className">
     <header :class="`${$options.className}__header`">
-      <AppHero title="Hello. I’m a freelance user interface developer">
-        <p>My name’s Michael Pumo. I craft user interfaces using modern frontend technologies like Vue.js, TypeScript, Storybook, GraphQL and JavaScript.</p>
+      <AppHero :title="title">
+        <PrismicRichtext :html="description" />
       </AppHero>
 
+      {{ navigation }}
+
       <AppFooter>
-        <p>
-          Find me at <a
-            href="https://twitter.com/michaelpumo"
-            target="_blank"
-            rel="noopener">Twitter</a>, GitHub and LinkedIn. Have you found a bug?
-        </p>
+        <PrismicRichtext :html="colophon" />
       </AppFooter>
     </header>
 
@@ -22,9 +19,19 @@
 </template>
 
 <static-query>
-  query {
-    metadata {
-      siteName
+  query Page {
+    prismic {
+      allGlobals {
+        edges {
+          node {
+            navigation {
+              id
+              title
+              description
+            }
+          }
+        }
+      }
     }
   }
 </static-query>
@@ -32,13 +39,34 @@
 <script>
 import AppHero from '@/components/AppHero/AppHero.vue'
 import AppFooter from '@/components/AppFooter/AppFooter.vue'
+import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 
 export default {
   name: 'Layout',
   className: 'Layout',
   components: {
     AppHero,
-    AppFooter
+    AppFooter,
+    PrismicRichtext
+  },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    description: {
+      type: Array,
+      default: () => ([])
+    },
+    colophon: {
+      type: Array,
+      default: () => ([])
+    }
+  },
+  computed: {
+    navigation() {
+      return this.$static.prismic.allGlobals.edges[0].node.navigation
+    }
   }
 }
 </script>

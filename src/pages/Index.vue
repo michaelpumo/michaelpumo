@@ -1,7 +1,10 @@
 <template>
-  <Layout>
+  <Layout
+    :title="page.title"
+    :description="page.description"
+    :colophon="page.colophon">
     <pre>
-      {{ fields }}
+      {{ page }}
     </pre>
   </Layout>
 </template>
@@ -16,6 +19,7 @@
         meta_image
         title
         description
+        colophon
         body {
           ... on prismic_PageBodyImage {
             type
@@ -41,45 +45,33 @@
 export default {
   metaInfo() {
     return ({
-      title: this.fields.meta_title,
+      title: this.page.meta_title,
       meta: [
         {
           name: 'description',
-          content: this.fields.meta_description
+          content: this.page.meta_description
         },
         {
           name: 'keywords',
-          content: this.fields.meta_keywords
+          content: this.page.meta_keywords
         },
-        // {
-        //   property: 'twitter:card',
-        //   content: 'summary'
-        // },
-        // {
-        //   property: 'twitter:site',
-        //   content: this.settings.company_twitter_handle ? `@${this.settings.company_twitter_handle}` : ''
-        // },
-        // {
-        //   property: 'twitter:creator',
-        //   content: this.settings.company_twitter_handle ? `@${this.settings.company_twitter_handle}` : ''
-        // },
         {
           property: 'og:title',
-          content: this.fields.meta_title
+          content: this.page.meta_title
         },
         {
           property: 'og:description',
-          content: this.fields.meta_description
+          content: this.page.meta_description
         },
         {
           property: 'og:image',
-          content: (this.fields.meta_image && Object.prototype.hasOwnProperty.call(this.fields.meta_image, 'url')) ? this.fields.meta_image.url : null
+          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
         }
       ]
     })
   },
   computed: {
-    fields() {
+    page() {
       return this.$page.prismic.page
     }
   }
