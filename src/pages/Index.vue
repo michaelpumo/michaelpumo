@@ -3,9 +3,18 @@
     :title="page.title"
     :description="page.description"
     :colophon="page.colophon">
-    <pre>
-      {{ page }}
-    </pre>
+    <template v-for="(slice, index) in page.body">
+      <SliceImage
+        v-if="slice.type === 'image'"
+        :key="index"
+        :slice="slice"
+      />
+      <SliceText
+        v-if="slice.type === 'text'"
+        :key="index"
+        :slice="slice"
+      />
+    </template>
   </Layout>
 </template>
 
@@ -42,7 +51,14 @@
 </page-query>
 
 <script>
+import SliceImage from '@/components/SliceImage/SliceImage.vue'
+import SliceText from '@/components/SliceText/SliceText.vue'
+
 export default {
+  components: {
+    SliceImage,
+    SliceText
+  },
   metaInfo() {
     return ({
       title: this.page.meta_title,
@@ -77,6 +93,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
