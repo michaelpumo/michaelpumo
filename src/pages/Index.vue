@@ -16,6 +16,22 @@
         meta_image
         title
         description
+        body {
+          ... on prismic_PageBodyImage {
+            type
+            primary {
+              id
+              image
+            }
+          }
+          ... on prismic_PageBodyText {
+            type
+            primary {
+              id
+              content
+            }
+          }
+        }
       }
     }
   }
