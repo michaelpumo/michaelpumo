@@ -1,0 +1,12 @@
+:root {
+  --app-height: 100vh;
+  --gutter-left: 15px;
+  --gutter-right: 15px;
+}
+
+@include media("xxs") {
+  :root {
+    --gutter-left: 11.6vw;
+    --gutter-right: 6.8vw;
+  }
+}

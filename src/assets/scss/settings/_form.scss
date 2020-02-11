@@ -1,0 +1,24 @@
+::placeholder {
+  opacity: 1;
+  color: rgba(color('dark'), 0.5);
+  transition: color $trans-speed $trans-ease;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px rgba(color('light'), 0) inset;
+  -webkit-text-fill-color: color('dark');
+  transition: none;
+}

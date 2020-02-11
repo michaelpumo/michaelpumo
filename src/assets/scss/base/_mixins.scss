@@ -1,0 +1,115 @@
+@mixin media($size) {
+  @media only screen and (#{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin type-size($level: "5") {
+  @each $item, $value in $type {
+    @if ($level == $item) {
+      font-size: $value;
+    }
+  }
+}
+
+@mixin type-style($level: "5") {
+  @if ($level == "1") {
+    @include type-size($level);
+
+    line-height: 1;
+  }
+
+  @if ($level == "2") {
+    @include type-size($level);
+
+    line-height: 1;
+    letter-spacing: normal;
+  }
+
+  @if ($level == "3") {
+    @include type-size($level);
+
+    line-height: 1;
+  }
+
+  @if ($level == "4") {
+    @include type-size($level);
+
+    line-height: 1.2;
+  }
+
+  @if ($level == "5") {
+    @include type-size($level);
+
+    line-height: 1.45;
+    letter-spacing: 0.018em;
+  }
+
+  @if ($level == "6") {
+    @include type-size($level);
+
+    line-height: 1.4;
+  }
+}
+
+@mixin custom-scrollbar() {
+  &::-webkit-scrollbar-track {
+    background-color: color('dark');
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: color('dark');
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: color('light');
+  }
+}
+
+@mixin error() {
+  @include type-style("5");
+
+  margin: 10px 0;
+  color: color("error");
+}
+
+@mixin label() {
+  @include type-caps;
+  @include type-size("6");
+
+  padding: 0;
+  margin: 0 0 $bsu-sm 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin input() {
+  width: 100%;
+  min-height: 60px;
+  padding: $bsu;
+  margin: 0;
+  background-color: color("light");
+  color: inherit;
+
+  &[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(1);
+    user-select: none;
+  }
+}
+
+@mixin ie11($bp: null) {
+  @if $bp {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) and (#{map-get($breakpoints, $bp)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @content;
+    }
+  }
+}

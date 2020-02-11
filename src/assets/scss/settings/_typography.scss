@@ -1,0 +1,120 @@
+// @font-face {
+//   font-family: "Mier A";
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url("/fonts/gfsmith_bold.woff") format("woff");
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  @include type-style("2");
+
+  @include media("sm") {
+    @include type-style("1");
+  }
+}
+
+h2 {
+  @include type-style("4");
+
+  @include media("xxs") {
+    @include type-style("3");
+  }
+
+  @include media("sm") {
+    @include type-style("2");
+  }
+}
+
+h3 {
+  @include type-style("4");
+
+  @include media("xxs") {
+    @include type-style("3");
+  }
+}
+
+h4 {
+  @include type-style("4");
+}
+
+h5 {
+  @include type-style("5");
+}
+
+h6 {
+  @include type-style("6");
+}
+
+a {
+  user-select: none;
+}
+
+p,
+address {
+  @include type-style("4");
+
+  font-style: normal;
+}
+
+p a {
+  display: inline-block;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: (10/14 * 1em);
+    height: (10/14 * 1em);
+    margin-top: (2/14 * 1em);
+    margin-left: (2/14 * 1em);
+    background-image: url(/imgs/arrow-link.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translate3d(0, 0, 0);
+    transition: transform $trans-speed $trans-ease;
+  }
+
+  &:hover::after {
+    transform: translate3d(3px, -3px, 0);
+  }
+
+  @supports (text-decoration-color: currentColor) {
+    text-decoration-color: currentColor;
+    transition: text-decoration-color $trans-speed ease;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+strong,
+b {
+  font-weight: normal;
+}
+
+small {
+  @include type-size("6");
+}

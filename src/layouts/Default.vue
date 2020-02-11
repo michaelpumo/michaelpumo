@@ -1,23 +1,13 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link
-          class="nav__link"
-          to="/">
-          Home
-        </g-link>
-        <g-link
-          class="nav__link"
-          to="/about/">
-          About
-        </g-link>
-      </nav>
+  <div :class="$options.className">
+    <header>
+      <h1>Hello. I’m a freelance user interface developer</h1>
+      <p>My name’s Michael Pumo. I craft user interfaces using modern frontend technologies like Vue.js, TypeScript, Storybook, GraphQL and JavaScript.</p>
     </header>
-    <slot />
+
+    <main>
+      <slot />
+    </main>
   </div>
 </template>
 
@@ -28,6 +18,13 @@
     }
   }
 </static-query>
+
+<script>
+export default {
+  name: 'Layout',
+  className: 'Layout'
+}
+</script>
 
 <style>
 </style>

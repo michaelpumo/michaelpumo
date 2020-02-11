@@ -1,0 +1,23 @@
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function color($name: "dark") {
+  @return map-get($colors, #{$name});
+}
+
+@function typeface($name: "sans") {
+  @return unquote(map-get($typefaces, #{$name}));
+}
+
+@function depth($name: "") {
+  @if $name == "" {
+    @return 1;
+  }
+
+  @return map-get($depths, #{$name});
+}
