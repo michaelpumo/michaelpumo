@@ -26,7 +26,11 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "off" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-param-reassign": "off",
-    semi: [2, "never"],
+    "camelcase": "off",
+    "semi": [
+      2,
+      "never"
+    ],
     "space-before-function-paren": [
       "error",
       "never"

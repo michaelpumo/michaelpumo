@@ -15,7 +15,7 @@
 }
 
 @function spacing($name: "small") {
-  @return unquote(map-get($spacings, #{$name}));
+  @return map-get($spacings, #{$name});
 }
 
 @function depth($name: "") {
