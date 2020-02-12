@@ -52,11 +52,11 @@ export default {
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1px;
   width: 100%;
   min-height: 100vh;
   margin: 0;
   background-color: color("light");
+  grid-gap: 1px;
 
   &__item {
     position: relative;
@@ -83,6 +83,7 @@ export default {
 
   &__logo {
     height: 23px;
+    color: color("dark");
   }
 
   &__info {
@@ -94,11 +95,11 @@ export default {
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: color("light");
-    padding: calc(var(--spacing-unit) / 2);
     overflow: hidden;
+    padding: calc(var(--spacing-unit) / 2);
     opacity: 0;
     visibility: hidden;
+    background-color: color("light");
     pointer-events: none;
     transition:
       opacity $trans-speed $trans-ease,
