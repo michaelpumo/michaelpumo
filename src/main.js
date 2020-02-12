@@ -1,7 +1,7 @@
-import '@/assets/scss/app.scss'
 import Vue from 'vue'
-import DefaultLayout from '~/layouts/Default.vue'
+import DefaultLayout from '@/layouts/Default.vue'
 import VueSVGIcon from 'vue-svgicon'
+import '@/assets/scss/app.scss'
 
 Vue.use(VueSVGIcon, {
   tagName: 'SvgIcon'
