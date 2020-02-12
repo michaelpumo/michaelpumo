@@ -26,7 +26,7 @@ export default {
 .SliceText {
   width: 100%;
   min-height: 100vh;
-  background-color: color("grey");
+  background-color: color("light");
   padding: var(--spacing-unit);
 }
 </style>

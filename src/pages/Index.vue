@@ -4,6 +4,11 @@
     :description="page.description"
     :colophon="page.colophon">
     <template v-for="(slice, index) in page.body">
+      <SliceClients
+        v-if="slice.type === 'clients'"
+        :key="index"
+        :slice="slice"
+      />
       <SliceImage
         v-if="slice.type === 'image'"
         :key="index"
@@ -30,6 +35,13 @@
         description
         colophon
         body {
+          ... on prismic_PageBodyClients {
+            type
+            fields {
+              name
+              role
+            }
+          }
           ... on prismic_PageBodyImage {
             type
             primary {
@@ -51,11 +63,13 @@
 </page-query>
 
 <script>
+import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
 import SliceText from '@/components/SliceText/SliceText.vue'
 
 export default {
   components: {
+    SliceClients,
     SliceImage,
     SliceText
   },
