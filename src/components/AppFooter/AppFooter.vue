@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .AppFooter {
-  & > * {
+  &::v-deep * {
     @include type-style("5");
 
     &:last-child {

@@ -1,16 +1,16 @@
 <template>
   <div :class="$options.className">
-    <header :class="`${$options.className}__header`">
+    <div :class="`${$options.className}__header`">
       <AppHero :title="title">
         <PrismicRichtext :html="description" />
       </AppHero>
 
-      {{ navigation }}
+      <!-- {{ navigation }} -->
 
       <AppFooter>
         <PrismicRichtext :html="colophon" />
       </AppFooter>
-    </header>
+    </div>
 
     <main :class="`${$options.className}__main`">
       <slot />
