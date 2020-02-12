@@ -4,7 +4,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "icons": "vsvg -s ./src/assets/svg -t ./src/assets/icons --es6"
   },
   "dependencies": {
     "gridsome": "^0.7.12"
@@ -32,6 +33,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.14.2",
-    "vue-eslint-parser": "^7.0.0"
+    "vue-eslint-parser": "^7.0.0",
+    "vue-svgicon": "^3.2.6"
   }
 }

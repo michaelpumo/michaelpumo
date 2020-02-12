@@ -4,6 +4,10 @@
       v-for="(client, index) in slice.fields"
       :key="index"
       :class="`${$options.className}__item`">
+      <SvgIcon
+        :class="`${$options.className}__logo`"
+        :name="`logo-${client.logo}`"
+      />
       <div :class="`${$options.className}__info`">
         <h3
           v-if="client.name"
@@ -21,14 +25,18 @@
 </template>
 
 <script>
-// import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
+import '@/assets/icons/logo-allofus'
+import '@/assets/icons/logo-foolproof'
+import '@/assets/icons/logo-parallel'
+import '@/assets/icons/logo-raggededge'
+import '@/assets/icons/logo-rotate'
+import '@/assets/icons/logo-someone'
+import '@/assets/icons/logo-somo'
+import '@/assets/icons/logo-thehoxton'
 
 export default {
   name: 'SliceClients',
   className: 'SliceClients',
-  components: {
-    // PrismicRichtext
-  },
   props: {
     slice: {
       type: Object,
@@ -47,10 +55,14 @@ export default {
   grid-gap: 1px;
   width: 100%;
   min-height: 100vh;
+  margin: 0;
   background-color: color("light");
 
   &__item {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: color("grey");
 
     &:hover {
@@ -69,7 +81,17 @@ export default {
     }
   }
 
+  &__logo {
+    height: 23px;
+  }
+
   &__info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     background-color: color("light");
@@ -93,13 +115,16 @@ export default {
   &__name,
   &__role {
     width: 100%;
-    max-width: 300px;
-    margin: 0;
+    max-width: 320px;
     opacity: 0;
     visibility: hidden;
     transition:
       opacity $trans-speed $trans-ease,
       visibility $trans-speed $trans-ease;
+  }
+
+  &__role {
+    margin-bottom: 0;
   }
 }
 </style>

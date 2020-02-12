@@ -1,6 +1,8 @@
 <template>
   <div :class="$options.className">
-    <PrismicRichtext :html="slice.primary.content" />
+    <PrismicRichtext
+      :class="`${$options.className}__content`"
+      :html="slice.primary.content" />
   </div>
 </template>
 
@@ -28,5 +30,10 @@ export default {
   min-height: 100vh;
   background-color: color("light");
   padding: var(--spacing-unit);
+
+  &__content {
+    width: 100%;
+    max-width: 550px;
+  }
 }
 </style>

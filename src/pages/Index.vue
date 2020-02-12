@@ -40,6 +40,7 @@
             fields {
               name
               role
+              logo
             }
           }
           ... on prismic_PageBodyImage {
