@@ -1,6 +1,5 @@
 <template>
   <ul :class="$options.className">
-    <!-- <PrismicRichtext :html="slice.primary.content" /> -->
     <li
       v-for="(client, index) in slice.fields"
       :key="index"
@@ -56,8 +55,7 @@ export default {
 
     &:hover {
       #{$root}__info {
-        @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-          // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        @supports (clip-path: circle(0% at 0 0)) {
           clip-path: circle(145% at 0 0);
         }
       }
@@ -84,20 +82,12 @@ export default {
       opacity $trans-speed $trans-ease,
       visibility $trans-speed $trans-ease;
 
-    @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+    @supports (clip-path: circle(0% at 0 0)) {
       opacity: 1;
       visibility: visible;
-      // clip-path: polygon(0 0, 0 0, 0 0, 0 0);
       clip-path: circle(0% at 0 0);
       transition: clip-path ($trans-speed * 2) $trans-ease;
     }
-
-    // #{$root}__item:hover & {
-    //   @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-    //     // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    //     clip-path: circle(145% at 0 0);
-    //   }
-    // }
   }
 
   &__name,
