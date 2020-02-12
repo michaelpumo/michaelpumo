@@ -1,17 +1,22 @@
 <template>
-  <section :class="$options.className">
+  <SectionSlice :class="$options.className">
     <g-image
       :class="`${$options.className}__image`"
       :src="slice.primary.image.url"
       :width="slice.primary.image.dimensions.width.toString()"
       :height="slice.primary.image.dimensions.height.toString()" />
-  </section>
+  </SectionSlice>
 </template>
 
 <script>
+import SectionSlice from '@/components/SectionSlice/SectionSlice'
+
 export default {
   name: 'SliceImage',
   className: 'SliceImage',
+  components: {
+    SectionSlice
+  },
   props: {
     slice: {
       type: Object,
@@ -23,9 +28,6 @@ export default {
 
 <style lang="scss" scoped>
 .SliceImage {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
   background-color: var(--color-theme);
   transition: background-color $trans-speed $trans-ease;
 

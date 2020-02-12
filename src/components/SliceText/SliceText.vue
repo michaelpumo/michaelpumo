@@ -1,19 +1,21 @@
 <template>
-  <section :class="$options.className">
+  <SectionSlice :class="$options.className">
     <PrismicRichtext
       :class="`${$options.className}__content`"
       :html="slice.primary.content" />
-  </section>
+  </SectionSlice>
 </template>
 
 <script>
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
+import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
 export default {
   name: 'SliceText',
   className: 'SliceText',
   components: {
-    PrismicRichtext
+    PrismicRichtext,
+    SectionSlice
   },
   props: {
     slice: {
@@ -26,8 +28,6 @@ export default {
 
 <style lang="scss" scoped>
 .SliceText {
-  width: 100%;
-  min-height: 100vh;
   padding: var(--spacing-unit);
   background-color: color("light");
 

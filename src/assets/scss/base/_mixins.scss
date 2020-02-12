@@ -4,7 +4,7 @@
   }
 }
 
-@mixin type-size($level: "5") {
+@mixin type-size($level: "4") {
   @each $item, $value in $type {
     @if ($level == $item) {
       font-size: $value;
@@ -12,7 +12,7 @@
   }
 }
 
-@mixin type-style($level: "5") {
+@mixin type-style($level: "4") {
   @if ($level == "1") {
     @include type-size($level);
 

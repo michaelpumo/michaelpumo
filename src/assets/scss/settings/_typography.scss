@@ -25,11 +25,7 @@ h1 {
 }
 
 h2 {
-  @include type-style("4");
-
-  @include media("xxs") {
-    @include type-style("3");
-  }
+  @include type-style("3");
 
   @include media("sm") {
     @include type-style("2");
@@ -39,13 +35,17 @@ h2 {
 h3 {
   @include type-style("4");
 
-  @include media("xxs") {
+  @include media("sm") {
     @include type-style("3");
   }
 }
 
 h4 {
-  @include type-style("4");
+  @include type-style("5");
+
+  @include media("sm") {
+    @include type-style("4");
+  }
 }
 
 h5 {
@@ -62,7 +62,7 @@ a {
 
 p,
 address {
-  @include type-style("4");
+  @include type-style("5");
 
   font-style: normal;
 }

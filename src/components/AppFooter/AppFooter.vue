@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
 .AppFooter {
   &::v-deep * {
-    @include type-style("5");
+    @include type-style("6");
 
     &:last-child {
       margin-bottom: 0;

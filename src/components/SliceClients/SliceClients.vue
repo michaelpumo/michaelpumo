@@ -1,5 +1,5 @@
 <template>
-  <section :class="$options.className">
+  <SectionSlice :class="$options.className">
     <ul :class="`${$options.className}__list`">
       <li
         v-for="(client, index) in slice.fields"
@@ -10,11 +10,11 @@
           :name="`logo-${client.logo}`"
         />
         <div :class="`${$options.className}__info`">
-          <h3
+          <h4
             v-if="client.name"
             :class="`${$options.className}__name`">
             {{ client.name }}
-          </h3>
+          </h4>
           <p
             v-if="client.role"
             :class="`${$options.className}__role`">
@@ -23,7 +23,7 @@
         </div>
       </li>
     </ul>
-  </section>
+  </SectionSlice>
 </template>
 
 <script>
@@ -35,10 +35,14 @@ import '@/assets/icons/logo-rotate'
 import '@/assets/icons/logo-someone'
 import '@/assets/icons/logo-somo'
 import '@/assets/icons/logo-thehoxton'
+import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
 export default {
   name: 'SliceClients',
   className: 'SliceClients',
+  components: {
+    SectionSlice
+  },
   props: {
     slice: {
       type: Object,
@@ -52,7 +56,7 @@ export default {
 .SliceClients {
   $root: &;
 
-  width: 100%;
+  background-color: color("light");
 
   &__list {
     display: grid;
@@ -60,7 +64,6 @@ export default {
     width: 100%;
     min-height: 100vh;
     margin: 0;
-    background-color: color("light");
     grid-gap: 1px;
   }
 
@@ -82,6 +85,7 @@ export default {
       #{$root}__role {
         opacity: 1;
         visibility: visible;
+        transform: translate3d(0, 0, 0);
         transition-delay: $trans-speed;
       }
     }
@@ -129,8 +133,10 @@ export default {
     max-width: 320px;
     opacity: 0;
     visibility: hidden;
+    transform: translate3d(calc(var(--spacing-unit) / 2), 0, 0);
     transition:
       opacity $trans-speed $trans-ease,
+      transform $trans-speed $trans-ease,
       visibility $trans-speed $trans-ease;
   }
 

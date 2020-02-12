@@ -45,7 +45,7 @@ export default {
     margin-bottom: spacing("md");
     &::v-deep {
       p {
-        @include type-style("3");
+        @include type-style("4");
       }
     }
   }

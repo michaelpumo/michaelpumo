@@ -75,7 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .ButtonInput {
-  @include type-style("3");
+  @include type-style("4");
 
   display: flex;
   align-items: center;
