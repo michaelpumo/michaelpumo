@@ -4,13 +4,13 @@
     :type="isObjectEmpty(route) ? type : null"
     :to="!isObjectEmpty(route) ? route : null"
     :class="[
-      $options.class,
+      $options.className,
       `is-variant-${variant}`,
       { 'is-loading': loading }
     ]"
   >
     <template v-if="loading">
-      Please wait... <LoadingRequest :class="`${$options.class}__loader`" />
+      Please wait... <LoadingRequest :class="`${$options.className}__loader`" />
     </template>
     <template v-else>
       {{ label }}
@@ -27,7 +27,7 @@ export default {
   components: {
     LoadingRequest
   },
-  class: 'ButtonInput',
+  className: 'ButtonInput',
   props: {
     label: {
       type: String,

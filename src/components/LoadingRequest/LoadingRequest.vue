@@ -1,15 +1,11 @@
 <template>
-  <div
-    :class="[
-      $options.class
-    ]"
-  />
+  <div :class="$options.className" />
 </template>
 
 <script>
 export default {
   name: 'LoadingRequest',
-  class: 'LoadingRequest',
+  className: 'LoadingRequest'
 }
 </script>
 
@@ -24,7 +20,7 @@ export default {
   border-top: 1em solid rgba(255, 255, 255, 0.2);
   border-right: 1em solid rgba(255, 255, 255, 0.2);
   border-bottom: 1em solid rgba(255, 255, 255, 0.2);
-  border-left: 1em solid #ffffff;
+  border-left: 1em solid #fff;
   animation: spin 0.7s infinite linear;
   transform: translateZ(0);
 

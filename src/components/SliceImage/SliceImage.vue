@@ -33,9 +33,9 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: saturate(0);
+    filter: saturate(0) brightness(1.5) contrast(0.9);
     mix-blend-mode: multiply;
+    object-fit: cover;
   }
 }
 </style>

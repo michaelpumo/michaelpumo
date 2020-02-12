@@ -96,7 +96,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    padding: calc(var(--spacing-unit) / 2);
+    padding: var(--spacing-unit);
     opacity: 0;
     visibility: hidden;
     background-color: color("light");
@@ -110,6 +110,10 @@ export default {
       visibility: visible;
       clip-path: circle(0% at 0 0);
       transition: clip-path ($trans-speed * 2) $trans-ease;
+    }
+
+    @include media("lg") {
+      padding: calc(var(--spacing-unit) / 2);
     }
   }
 

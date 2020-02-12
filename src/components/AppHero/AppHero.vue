@@ -5,7 +5,11 @@
       :class="`${$options.className}__title`">
       {{ title }}
     </h1>
-    <slot />
+    <div
+      v-if="$slots.default"
+      :class="`${$options.className}__description`">
+      <slot />
+    </div>
     <p>
       <ButtonInput
         label="Let's work together!" />
@@ -33,16 +37,16 @@ export default {
 
 <style lang="scss" scoped>
 .AppHero {
-  & > p {
-    @include type-style("3");
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
   &__title {
     color: var(--color-theme);
+  }
+
+  &__description {
+    &::v-deep {
+      p {
+        @include type-style("3");
+      }
+    }
   }
 }
 </style>

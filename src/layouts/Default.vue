@@ -1,6 +1,14 @@
 <template>
   <div :class="$options.className">
     <div :class="`${$options.className}__header`">
+      <ButtonIcon>
+        <g-image
+          src="/icons/icon-hamburger.png"
+          width="60"
+          height="60"
+          alt="Menu" />
+      </ButtonIcon>
+
       <AppHero :title="title">
         <PrismicRichtext :html="description" />
       </AppHero>
@@ -40,6 +48,7 @@
 import AppHero from '@/components/AppHero/AppHero.vue'
 import AppFooter from '@/components/AppFooter/AppFooter.vue'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
+import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 
 export default {
   name: 'Layout',
@@ -47,7 +56,8 @@ export default {
   components: {
     AppHero,
     AppFooter,
-    PrismicRichtext
+    PrismicRichtext,
+    ButtonIcon
   },
   props: {
     title: {
