@@ -1,9 +1,9 @@
 <template>
-  <div :class="$options.className">
+  <section :class="$options.className">
     <PrismicRichtext
       :class="`${$options.className}__content`"
       :html="slice.primary.content" />
-  </div>
+  </section>
 </template>
 
 <script>

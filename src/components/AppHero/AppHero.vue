@@ -10,7 +10,7 @@
       :class="`${$options.className}__description`">
       <slot />
     </div>
-    <p>
+    <p :class="`${$options.className}__cta`">
       <ButtonInput
         label="Let's work together!" />
     </p>
@@ -42,11 +42,16 @@ export default {
   }
 
   &__description {
+    margin-bottom: spacing("md");
     &::v-deep {
       p {
         @include type-style("3");
       }
     }
+  }
+
+  &__cta {
+    margin: 0;
   }
 }
 </style>

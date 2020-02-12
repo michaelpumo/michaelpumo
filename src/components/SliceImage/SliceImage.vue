@@ -1,11 +1,11 @@
 <template>
-  <div :class="$options.className">
+  <section :class="$options.className">
     <g-image
       :class="`${$options.className}__image`"
       :src="slice.primary.image.url"
       :width="slice.primary.image.dimensions.width.toString()"
       :height="slice.primary.image.dimensions.height.toString()" />
-  </div>
+  </section>
 </template>
 
 <script>

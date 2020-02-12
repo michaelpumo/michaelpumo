@@ -1,27 +1,29 @@
 <template>
-  <ul :class="$options.className">
-    <li
-      v-for="(client, index) in slice.fields"
-      :key="index"
-      :class="`${$options.className}__item`">
-      <SvgIcon
-        :class="`${$options.className}__logo`"
-        :name="`logo-${client.logo}`"
-      />
-      <div :class="`${$options.className}__info`">
-        <h3
-          v-if="client.name"
-          :class="`${$options.className}__name`">
-          {{ client.name }}
-        </h3>
-        <p
-          v-if="client.role"
-          :class="`${$options.className}__role`">
-          {{ client.role }}
-        </p>
-      </div>
-    </li>
-  </ul>
+  <section :class="$options.className">
+    <ul :class="`${$options.className}__list`">
+      <li
+        v-for="(client, index) in slice.fields"
+        :key="index"
+        :class="`${$options.className}__item`">
+        <SvgIcon
+          :class="`${$options.className}__logo`"
+          :name="`logo-${client.logo}`"
+        />
+        <div :class="`${$options.className}__info`">
+          <h3
+            v-if="client.name"
+            :class="`${$options.className}__name`">
+            {{ client.name }}
+          </h3>
+          <p
+            v-if="client.role"
+            :class="`${$options.className}__role`">
+            {{ client.role }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
@@ -50,13 +52,17 @@ export default {
 .SliceClients {
   $root: &;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  background-color: color("light");
-  grid-gap: 1px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background-color: color("light");
+    grid-gap: 1px;
+  }
 
   &__item {
     position: relative;

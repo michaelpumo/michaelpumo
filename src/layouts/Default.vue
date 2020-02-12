@@ -1,6 +1,6 @@
 <template>
   <div :class="$options.className">
-    <div :class="`${$options.className}__header`">
+    <div :class="`${$options.className}__introduction`">
       <ButtonIcon>
         <g-image
           src="/icons/icon-hamburger.png"
@@ -97,7 +97,7 @@ export default {
     // height: ;
   }
 
-  &__header {
+  &__introduction {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -112,6 +112,12 @@ export default {
       left: 0;
       width: 50%;
       height: 100vh;
+    }
+
+    &::v-deep {
+      a {
+        color: color("light");
+      }
     }
   }
 
