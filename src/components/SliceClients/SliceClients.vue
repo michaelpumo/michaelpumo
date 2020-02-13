@@ -97,6 +97,7 @@ export default {
     color: color("dark");
 
     @include media("sm") {
+      max-width: 200px;
       height: 23px;
     }
   }
