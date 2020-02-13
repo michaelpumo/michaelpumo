@@ -46,6 +46,7 @@ export default {
 .SliceProjects {
   $root: &;
 
+  padding: var(--spacing-unit);
   background-color: color("grey");
 }
 </style>
