@@ -14,6 +14,11 @@
         :key="index"
         :slice="slice"
       />
+      <SliceProjects
+        v-if="slice.type === 'projects'"
+        :key="index"
+        :slice="slice"
+      />
       <SliceQuotes
         v-if="slice.type === 'quotes'"
         :key="index"
@@ -55,6 +60,26 @@
               image
             }
           }
+          ... on prismic_PageBodyProjects {
+            type
+            fields {
+              image
+              name
+              role
+              link {
+                _linkType
+                ... on prismic_Page {
+                  _meta {
+                    uid
+                  }
+                }
+                ... on prismic__ExternalLink {
+                  _linkType
+                  url
+                }
+              }
+            }
+          }
           ... on prismic_PageBodyQuotes {
             type
             fields {
@@ -79,6 +104,7 @@
 <script>
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
+import SliceProjects from '@/components/SliceProjects/SliceProjects.vue'
 import SliceQuotes from '@/components/SliceQuotes/SliceQuotes.vue'
 import SliceText from '@/components/SliceText/SliceText.vue'
 
@@ -86,6 +112,7 @@ export default {
   components: {
     SliceClients,
     SliceImage,
+    SliceProjects,
     SliceQuotes,
     SliceText
   },
