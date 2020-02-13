@@ -1,5 +1,7 @@
 <template>
   <div :class="$options.className">
+    <AppCursor />
+
     <div :class="`${$options.className}__introduction`">
       <AppHero
         :title="title"
@@ -34,12 +36,14 @@
 </static-query>
 
 <script>
+import AppCursor from '@/components/AppCursor/AppCursor.vue'
 import AppHero from '@/components/AppHero/AppHero.vue'
 
 export default {
   name: 'Layout',
   className: 'Layout',
   components: {
+    AppCursor,
     AppHero
   },
   props: {

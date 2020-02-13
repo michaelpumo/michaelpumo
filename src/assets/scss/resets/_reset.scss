@@ -1,3 +1,9 @@
+* {
+  @media (any-pointer: fine) {
+    cursor: none;
+  }
+}
+
 body,
 h1,
 h2,
@@ -56,7 +62,6 @@ button {
   letter-spacing: inherit;
   text-transform: inherit;
   background: transparent;
-  cursor: pointer;
   user-select: none;
 }
 
@@ -86,18 +91,6 @@ input[type="checkbox"] {
   }
 }
 
-a {
-  color: inherit;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    outline: none;
-  }
-}
-
 a,
 button,
 input,
@@ -106,6 +99,17 @@ textarea,
 label,
 summary {
   touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
 }
 
 ul,

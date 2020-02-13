@@ -1,4 +1,5 @@
 /* eslint-disable */
+import './cursor-arrow'
 import './logo-allofus'
 import './logo-foolproof'
 import './logo-parallel'

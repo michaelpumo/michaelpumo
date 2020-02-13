@@ -90,7 +90,6 @@ export default {
   border-radius: 30px;
   border-style: solid;
   border-width: 2px;
-  cursor: pointer;
   outline: none;
   text-decoration: none;
   transition:
