@@ -77,7 +77,7 @@ export default {
     &:hover {
       #{$root}__info {
         @supports (clip-path: circle(0% at 0 0)) {
-          clip-path: circle(145% at 0 0);
+          clip-path: circle(100% at 50% 50%);
         }
       }
 
@@ -123,7 +123,7 @@ export default {
     @supports (clip-path: circle(0% at 0 0)) {
       opacity: 1;
       visibility: visible;
-      clip-path: circle(0% at 0 0);
+      clip-path: circle(0% at 50% 50%);
       transition: clip-path ($trans-speed * 2) $trans-ease;
     }
 
@@ -138,7 +138,7 @@ export default {
     max-width: 320px;
     opacity: 0;
     visibility: hidden;
-    transform: translate3d(calc(var(--spacing-unit) / 2), 0, 0);
+    transform: translate3d(0, 10px, 0);
     transition:
       opacity $trans-speed $trans-ease,
       transform $trans-speed $trans-ease,
