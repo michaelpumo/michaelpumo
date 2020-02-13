@@ -1,6 +1,9 @@
 <template>
   <div :class="$options.className">
     <AppCursor />
+    <AppNavigation
+      title="Burger Menu"
+      :items="navigation" />
 
     <div :class="`${$options.className}__introduction`">
       <AppHero
@@ -8,8 +11,6 @@
         :description="description"
         :colophon="colophon" />
     </div>
-
-    <!-- {{ navigation }} -->
 
     <main :class="`${$options.className}__main`">
       <slot />
@@ -38,13 +39,15 @@
 <script>
 import AppCursor from '@/components/AppCursor/AppCursor.vue'
 import AppHero from '@/components/AppHero/AppHero.vue'
+import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
 
 export default {
   name: 'Layout',
   className: 'Layout',
   components: {
     AppCursor,
-    AppHero
+    AppHero,
+    AppNavigation
   },
   props: {
     title: {
@@ -72,7 +75,6 @@ export default {
 .Layout {
   width: 100%;
   height: 100%;
-  background-color: darkblue;
 
   &__introduction {
     position: sticky;

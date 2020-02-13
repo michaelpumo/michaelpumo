@@ -1,14 +1,6 @@
 <template>
   <div :class="$options.className">
-    <div :class="`${$options.className}__top`">
-      <ButtonIcon>
-        <g-image
-          src="/icons/icon-hamburger.png"
-          width="60"
-          height="60"
-          alt="Menu" />
-      </ButtonIcon>
-    </div>
+    <div :class="`${$options.className}__top`" />
 
     <div :class="`${$options.className}__middle`">
       <h1
@@ -36,7 +28,6 @@
 </template>
 
 <script>
-import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 
@@ -44,7 +35,6 @@ export default {
   name: 'AppHero',
   className: 'AppHero',
   components: {
-    ButtonIcon,
     ButtonInput,
     PrismicRichtext
   },

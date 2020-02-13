@@ -21,30 +21,6 @@ export default {
       type: String,
       default: ''
     }
-    // route: {
-    //   type: Object,
-    //   default: () => ({})
-    // },
-    // type: {
-    //   type: String,
-    //   default: 'button',
-    //   validator(value) {
-    //     return [
-    //       'button',
-    //       'submit'
-    //     ].includes(value)
-    //   }
-    // },
-    // variant: {
-    //   type: String,
-    //   default: 'ghost',
-    //   validator(value) {
-    //     return [
-    //       'ghost',
-    //       'solid'
-    //     ].includes(value)
-    //   }
-    // }
   }
 }
 </script>
@@ -71,10 +47,5 @@ export default {
       height: 60px;
     }
   }
-
-  // &[disabled] {
-  //   opacity: 0.2;
-  //   pointer-events: none;
-  // }
 }
 </style>
