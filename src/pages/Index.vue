@@ -14,6 +14,11 @@
         :key="index"
         :slice="slice"
       />
+      <SliceQuotes
+        v-if="slice.type === 'quotes'"
+        :key="index"
+        :slice="slice"
+      />
       <SliceText
         v-if="slice.type === 'text'"
         :key="index"
@@ -50,6 +55,14 @@
               image
             }
           }
+          ... on prismic_PageBodyQuotes {
+            type
+            fields {
+              quote
+              name
+              author
+            }
+          }
           ... on prismic_PageBodyText {
             type
             primary {
@@ -66,12 +79,14 @@
 <script>
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
+import SliceQuotes from '@/components/SliceQuotes/SliceQuotes.vue'
 import SliceText from '@/components/SliceText/SliceText.vue'
 
 export default {
   components: {
     SliceClients,
     SliceImage,
+    SliceQuotes,
     SliceText
   },
   metaInfo() {

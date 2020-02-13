@@ -21,6 +21,6 @@ h4,
 h5,
 h6 {
   & + p {
-    margin-top: -#{spacing("sm") / 1.5};
+    margin-top: -#{spacing("sm") / 1.2};
   }
 }
