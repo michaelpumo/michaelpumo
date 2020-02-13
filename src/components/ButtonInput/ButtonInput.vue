@@ -75,12 +75,12 @@ export default {
 
 <style lang="scss" scoped>
 .ButtonInput {
-  @include type-style("4");
+  @include type-style("5");
 
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 50px;
   font-weight: 500;
   padding: 0 30px;
   margin: 0;
@@ -100,6 +100,12 @@ export default {
     background-color $trans-speed ease;
   user-select: none;
   white-space: nowrap;
+
+  @include media("sm") {
+    @include type-style("4");
+
+    height: 60px;
+  }
 
   &.is-variant-solid {
     background-color: var(--color-theme);

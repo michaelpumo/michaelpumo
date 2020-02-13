@@ -60,11 +60,16 @@ export default {
   white-space: nowrap;
 
   &__icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     padding: 10px;
     background-color: var(--color-theme);
     border-radius: 50%;
+
+    @include media("sm") {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   // &[disabled] {

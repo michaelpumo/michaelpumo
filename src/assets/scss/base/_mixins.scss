@@ -21,6 +21,8 @@
 
   @if ($level == "2") {
     @include type-size($level);
+
+    line-height: 1.2;
   }
 
   @if ($level == "3") {

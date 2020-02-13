@@ -92,8 +92,13 @@ export default {
   }
 
   &__logo {
-    height: 23px;
+    max-width: 80%;
+    height: 16px;
     color: color("dark");
+
+    @include media("sm") {
+      height: 23px;
+    }
   }
 
   &__info {

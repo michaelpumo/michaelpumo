@@ -5,7 +5,7 @@
   --color-general: #{color("dark")};
 }
 
-@include media("md") {
+@include media("sm") {
   :root {
     --spacing-unit: #{spacing("md")};
   }
