@@ -31,8 +31,15 @@ function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0 && obj.constructor === Object
 }
 
+function randId() {
+  return Math.random()
+    .toString(36)
+    .substring(2, 15)
+}
+
 export {
   slugify,
   linkResolver,
-  isObjectEmpty
+  isObjectEmpty,
+  randId
 }

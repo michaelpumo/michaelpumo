@@ -20,6 +20,9 @@
         <li
           v-for="(item, index) in items"
           :key="index"
+          v-jump-to="{
+            id: slugify(item.id)
+          }"
           :class="`${$options.className}__item`">
           <h4 :class="`${$options.className}__title`">
             {{ item.title }}
@@ -34,6 +37,8 @@
 </template>
 
 <script>
+import { slugify } from '@/utils/helpers'
+import { jumpTo } from '@/utils/directives'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 
 export default {
@@ -41,6 +46,9 @@ export default {
   className: 'AppNavigation',
   components: {
     ButtonIcon
+  },
+  directives: {
+    jumpTo
   },
   props: {
     title: {
@@ -58,6 +66,7 @@ export default {
     })
   },
   methods: {
+    slugify,
     toggleMenu() {
       this.active = !this.active
     }
@@ -144,6 +153,12 @@ export default {
 
   &__item {
     width: 100%;
+  }
+
+  &__title,
+  &__description {
+    pointer-events: none;
+    user-select: none;
   }
 
   &__title {

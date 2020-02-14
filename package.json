@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "gridsome": "^0.7.12",
+    "jump.js": "^1.0.2",
     "vue-flickity": "^1.2.1"
   },
   "devDependencies": {

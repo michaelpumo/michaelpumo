@@ -21,10 +21,6 @@ module.exports = {
         url: `https://${process.env.PRISMIC_REPOSITORY}.prismic.io`,
         fieldName: 'prismic',
         typeName: 'prismic',
-        // headers: {
-        //   'Prismic-Ref': '',
-        //   Authorization: 'Token '
-        // },
         useMasterRef: true
       }
     }
