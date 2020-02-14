@@ -90,6 +90,11 @@
   }
 }
 
+@mixin shadow-box() {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(color("dark"), 0.1);
+}
+
 @mixin ie11($bp: null) {
   @if $bp {
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) and (#{map-get($breakpoints, $bp)}) {

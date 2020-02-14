@@ -4,10 +4,17 @@
       v-if="slice.primary.content"
       :class="`${$options.className}__content`"
       :html="slice.primary.content" />
+
+    <ModalDialog
+      :open="true"
+      @close="closeModal">
+      <p>I am a modal</p>
+    </ModalDialog>
   </SectionSlice>
 </template>
 
 <script>
+import ModalDialog from '@/components/ModalDialog/ModalDialog'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
@@ -15,6 +22,7 @@ export default {
   name: 'SliceContact',
   className: 'SliceContact',
   components: {
+    ModalDialog,
     PrismicRichtext,
     SectionSlice
   },
@@ -22,6 +30,11 @@ export default {
     slice: {
       type: Object,
       default: () => ({})
+    }
+  },
+  methods: {
+    closeModal() {
+      console.log('close it!')
     }
   }
 }

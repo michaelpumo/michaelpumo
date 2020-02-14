@@ -101,6 +101,8 @@ export default {
   }
 
   &__container {
+    @include shadow-box();
+
     max-width: calc(100vw - var(--spacing-unit));
     max-height: calc(100vh - var(--spacing-unit));
     overflow-y: auto;
@@ -108,8 +110,6 @@ export default {
     margin: 0;
     opacity: 0;
     background-color: color("light");
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(color("dark"), 0.1);
     transition: opacity $trans-speed $trans-ease;
 
     @include media("sm") {
