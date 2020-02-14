@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import DefaultLayout from '@/layouts/Default.vue'
 import VueSVGIcon from 'vue-svgicon'
+import VuexStore from '@/store'
+import DefaultLayout from '@/layouts/Default.vue'
 import '@/assets/scss/app.scss'
 
-Vue.use(VueSVGIcon, {
-  tagName: 'SvgIcon'
-})
-
-export default function(Vue, { router, head, isClient }) {
+export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.component('Layout', DefaultLayout)
+
+  Vue.use(VueSVGIcon, {
+    tagName: 'SvgIcon'
+  })
+
+  appOptions.store = VuexStore
 }

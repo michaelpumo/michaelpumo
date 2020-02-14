@@ -10,7 +10,8 @@
   "dependencies": {
     "gridsome": "^0.7.12",
     "jump.js": "^1.0.2",
-    "vue-flickity": "^1.2.1"
+    "vue-flickity": "^1.2.1",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.2.2",
