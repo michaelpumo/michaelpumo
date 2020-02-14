@@ -5,8 +5,8 @@
         v-for="(project, index) in slice.fields"
         :key="index"
         :class="`${$options.className}__item`">
-        {{ project.link }}
-        {{ project.image }}
+        <!-- {{ project.link }}
+        {{ project.image }} -->
         <div :class="`${$options.className}__info`">
           <h4
             v-if="project.name"

@@ -10,6 +10,12 @@
         :key="index"
         :slice="slice"
       />
+      <SliceContact
+        v-if="slice.type === 'contact'"
+        :id="slice.primary.id"
+        :key="index"
+        :slice="slice"
+      />
       <SliceImage
         v-if="slice.type === 'image'"
         :id="slice.primary.id"
@@ -61,6 +67,13 @@
               logo
             }
           }
+          ... on prismic_PageBodyContact {
+            type
+            primary {
+              id
+              content
+            }
+          }
           ... on prismic_PageBodyImage {
             type
             primary {
@@ -79,12 +92,20 @@
               role
               link {
                 _linkType
-                ... on prismic_Page {
+                ... on prismic__ExternalLink {
+                  _linkType
+                  url
+                }
+                ... on prismic__Document {
                   _meta {
                     uid
                   }
                 }
-                ... on prismic__ExternalLink {
+                ... on prismic__ImageLink {
+                  _linkType
+                  url
+                }
+                ... on prismic__FileLink {
                   _linkType
                   url
                 }
@@ -118,6 +139,7 @@
 <script>
 import { slugify } from '@/utils/helpers'
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
+import SliceContact from '@/components/SliceContact/SliceContact.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
 import SliceProjects from '@/components/SliceProjects/SliceProjects.vue'
 import SliceQuotes from '@/components/SliceQuotes/SliceQuotes.vue'
@@ -126,6 +148,7 @@ import SliceText from '@/components/SliceText/SliceText.vue'
 export default {
   components: {
     SliceClients,
+    SliceContact,
     SliceImage,
     SliceProjects,
     SliceQuotes,

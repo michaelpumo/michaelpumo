@@ -12,8 +12,8 @@ import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
 export default {
-  name: 'SliceText',
-  className: 'SliceText',
+  name: 'SliceContact',
+  className: 'SliceContact',
   components: {
     PrismicRichtext,
     SectionSlice
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.SliceText {
+.SliceContact {
   padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
   background-color: color("light");
 
