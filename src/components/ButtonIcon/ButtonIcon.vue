@@ -34,7 +34,6 @@ export default {
   padding: 0;
   margin: 0;
   border: none;
-  cursor: pointer;
   outline: none;
   user-select: none;
   white-space: nowrap;

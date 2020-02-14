@@ -73,9 +73,6 @@ export default {
   top: calc(var(--spacing-unit) / 2);
   left: calc(var(--spacing-unit) / 2);
   z-index: depth("navigation");
-  // max-width: calc(100vw - var(--spacing-unit));
-  // max-height: calc(100vh - var(--spacing-unit));
-  // overflow-y: auto;
   background-color: transparent;
   pointer-events: none;
 
