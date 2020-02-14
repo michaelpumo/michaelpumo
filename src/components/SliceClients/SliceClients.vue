@@ -84,7 +84,6 @@ export default {
       #{$root}__name,
       #{$root}__role {
         opacity: 1;
-        visibility: visible;
         transform: translate3d(0, 0, 0);
         transition-delay: $trans-speed;
       }
@@ -114,7 +113,6 @@ export default {
     overflow: hidden;
     padding: var(--spacing-unit);
     opacity: 0;
-    visibility: hidden;
     background-color: color("light");
     pointer-events: none;
     transition:
@@ -123,7 +121,6 @@ export default {
 
     @supports (clip-path: circle(0% at 0 0)) {
       opacity: 1;
-      visibility: visible;
       clip-path: circle(0% at 50% 50%);
       transition: clip-path ($trans-speed * 2) $trans-ease;
     }
@@ -138,12 +135,10 @@ export default {
     width: 100%;
     max-width: 320px;
     opacity: 0;
-    visibility: hidden;
     transform: translate3d(0, 10px, 0);
     transition:
       opacity $trans-speed $trans-ease,
-      transform $trans-speed $trans-ease,
-      visibility $trans-speed $trans-ease;
+      transform $trans-speed $trans-ease;
   }
 
   &__role {

@@ -4,20 +4,17 @@
       $options.className,
       { 'is-active': active }
     ]">
-    <ButtonIcon
-      :class="`${$options.className}__toggle`"
-      @click.native="toggleMenu">
-      <g-image
-        src="/icons/icon-hamburger.png"
-        width="60"
-        height="60"
-        alt="Menu" />
-    </ButtonIcon>
-
     <div :class="`${$options.className}__container`">
-      <h2 :class="`${$options.className}__header`">
-        {{ title }}
-      </h2>
+      <ButtonIcon
+        :label="title"
+        :class="`${$options.className}__toggle`"
+        @click.native="toggleMenu">
+        <g-image
+          src="/icons/icon-hamburger.png"
+          width="60"
+          height="60"
+          :alt="active ? 'Close navigation' : 'Open navigation'" />
+      </ButtonIcon>
 
       <ul :class="`${$options.className}__list`">
         <li
@@ -72,16 +69,13 @@ export default {
 .AppNavigation {
   $root: &;
 
-  --button-size: 50px;
-
-  @include media("sm") {
-    --button-size: 60px;
-  }
-
   position: fixed;
   top: calc(var(--spacing-unit) / 2);
   left: calc(var(--spacing-unit) / 2);
   z-index: depth("navigation");
+  // max-width: calc(100vw - var(--spacing-unit));
+  // max-height: calc(100vh - var(--spacing-unit));
+  // overflow-y: auto;
   background-color: transparent;
   pointer-events: none;
 
@@ -90,33 +84,21 @@ export default {
   }
 
   &__toggle {
-    position: absolute;
-    top: calc(var(--spacing-unit) / 2);
-    left: calc(var(--spacing-unit) / 2);
-    z-index: depth("navigation") + 1;
-    width: var(--button-size);
-    height: var(--button-size);
+    margin-bottom: var(--spacing-unit);
+    margin-left: calc(-1 * (var(--spacing-unit) / 2));
     pointer-events: auto;
-  }
-
-  &__header {
-    position: absolute;
-    top: calc(var(--spacing-unit) - 6px);
-    left: calc(var(--spacing-unit) + var(--button-size));
-    margin: 0;
 
     @include media("sm") {
-      top: calc(var(--spacing-unit) - 15px);
-    }
-
-    @include media("xl") {
-      top: calc(var(--spacing-unit) - 25px);
+      margin-bottom: calc(var(--spacing-unit) / 2);
+      margin-left: 0;
     }
   }
 
   &__container {
-    padding: calc(var(--spacing-unit) / 2);
-    padding-top: calc(var(--spacing-unit) + var(--button-size));
+    max-width: calc(100vw - var(--spacing-unit));
+    max-height: calc(100vh - var(--spacing-unit));
+    overflow-y: auto;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
     margin: 0;
     opacity: 0;
     background-color: color("light");
@@ -124,10 +106,18 @@ export default {
     box-shadow: 5px 5px 10px rgba(color("dark"), 0.1);
     transition: opacity $trans-speed $trans-ease;
 
+    @include media("sm") {
+      padding: calc(var(--spacing-unit) / 2);
+    }
+
     @supports (clip-path: circle(0% at center)) {
       opacity: 1;
       clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
       transition: clip-path ($trans-speed * 2) $trans-ease;
+
+      @include media("sm") {
+        clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
+      }
     }
 
     #{$root}.is-active & {
@@ -142,6 +132,17 @@ export default {
   &__list {
     width: 100%;
     margin: 0;
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition:
+      opacity $trans-speed $trans-ease,
+      transform $trans-speed $trans-ease;
+
+    #{$root}.is-active & {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: $trans-speed;
+    }
   }
 
   &__item {

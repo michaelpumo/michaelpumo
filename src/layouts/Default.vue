@@ -2,7 +2,7 @@
   <div :class="$options.className">
     <AppCursor />
     <AppNavigation
-      title="Burger Menu"
+      title="Burger menu"
       :items="navigation" />
 
     <div :class="`${$options.className}__introduction`">

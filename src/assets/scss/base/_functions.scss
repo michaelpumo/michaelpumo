@@ -14,8 +14,12 @@
   @return unquote(map-get($typefaces, #{$name}));
 }
 
-@function spacing($name: "small") {
+@function spacing($name: "sm") {
   @return map-get($spacings, #{$name});
+}
+
+@function button($size: "sm") {
+  @return map-get($buttons, #{$size});
 }
 
 @function depth($name: "") {

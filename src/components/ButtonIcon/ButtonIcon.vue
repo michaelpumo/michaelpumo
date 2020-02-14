@@ -6,9 +6,11 @@
     <div :class="`${$options.className}__icon`">
       <slot />
     </div>
-    <template v-if="label">
+    <div
+      v-if="label"
+      :class="`${$options.className}__label`">
       {{ label }}
-    </template>
+    </div>
   </button>
 </template>
 
@@ -27,6 +29,8 @@ export default {
 
 <style lang="scss" scoped>
 .ButtonIcon {
+  display: flex;
+  align-items: center;
   padding: 0;
   margin: 0;
   border: none;
@@ -46,6 +50,14 @@ export default {
       width: 60px;
       height: 60px;
     }
+  }
+
+  &__label {
+    @include type-style("3");
+
+    font-weight: 500;
+    margin: 0 0 -2px spacing("sm");
+    color: color("dark");
   }
 }
 </style>

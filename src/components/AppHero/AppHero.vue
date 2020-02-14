@@ -71,7 +71,8 @@ export default {
   }
 
   &__top {
-
+    width: 100%;
+    height: var(--button-size);
   }
 
   &__middle {
