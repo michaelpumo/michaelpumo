@@ -11,4 +11,8 @@ export default function(Vue, { router, head, isClient, appOptions }) {
   })
 
   appOptions.store = VuexStore
+
+  head.script.push({
+    src: 'https://polyfill.io/v3/polyfill.min.js?features=default%2CIntersectionObserver%2CPromise%2Cfetch%2CObject.assign%2CObject.entries%2CObject.keys%2CObject.values'
+  })
 }
