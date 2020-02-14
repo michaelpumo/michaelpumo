@@ -153,10 +153,13 @@ export default {
   &__description {
     @include type-style("6");
 
+    margin-bottom: 20px;
     color: color("slate");
 
     @include media("sm") {
       @include type-style("5");
+
+      margin-bottom: spacing("sm");
     }
   }
 }

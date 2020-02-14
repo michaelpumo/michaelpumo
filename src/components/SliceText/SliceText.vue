@@ -28,8 +28,12 @@ export default {
 
 <style lang="scss" scoped>
 .SliceText {
-  padding: var(--spacing-unit);
+  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
   background-color: color("light");
+
+  @include media("sm") {
+    padding: var(--spacing-unit);
+  }
 
   &__content {
     width: 100%;
