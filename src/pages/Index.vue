@@ -6,26 +6,31 @@
     <template v-for="(slice, index) in page.body">
       <SliceClients
         v-if="slice.type === 'clients'"
+        :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceImage
         v-if="slice.type === 'image'"
+        :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceProjects
         v-if="slice.type === 'projects'"
+        :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceQuotes
         v-if="slice.type === 'quotes'"
+        :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceText
         v-if="slice.type === 'text'"
+        :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
@@ -47,6 +52,9 @@
         body {
           ... on prismic_PageBodyClients {
             type
+            primary {
+              id
+            }
             fields {
               name
               role
@@ -62,6 +70,9 @@
           }
           ... on prismic_PageBodyProjects {
             type
+            primary {
+              id
+            }
             fields {
               image
               name
@@ -82,6 +93,9 @@
           }
           ... on prismic_PageBodyQuotes {
             type
+            primary {
+              id
+            }
             fields {
               quote
               name
@@ -102,6 +116,7 @@
 </page-query>
 
 <script>
+import { slugify } from '@/utils/helpers'
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
 import SliceProjects from '@/components/SliceProjects/SliceProjects.vue'
@@ -145,7 +160,16 @@ export default {
   },
   computed: {
     page() {
-      return this.$page.prismic.page
+      const payload = { ...this.$page.prismic.page }
+
+      payload.body = payload.body.map(item => {
+        if (item.primary && item.primary.id) {
+          item.primary.id = slugify(item.primary.id)
+        }
+        return item
+      })
+
+      return payload
     }
   }
 }

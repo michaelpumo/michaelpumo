@@ -1,25 +1,19 @@
-const breakpoint = {
-  is(query) {
-    const size = query.trim()
-    const sizes = {
-      xxs: '375px',
-      xs: '520px',
-      sm: '768px',
-      md: '992px',
-      lg: '1200px',
-      xl: '1440px',
-      xxl: '1920px',
-      xxxl: '2550px'
-    }
+function slugify(text) {
+  const special = 'ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;'
+  const ordinary = 'AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------'
+  const p = new RegExp(special.split('').join('|'), 'g')
 
-    if (Object.prototype.hasOwnProperty.call(sizes, size)) {
-      return window.matchMedia(`only screen and (min-width: ${sizes[size]})`).matches
-    }
-
-    throw new ReferenceError(
-      `The size ${size} is not a valid breakpoint in: ${JSON.stringify(sizes)}`
-    )
-  }
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(p, (c) => ordinary.charAt(special.indexOf(c)))
+    .replace(/&/g, '-and-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '')
+    .trim()
 }
 
 function linkResolver(doc) {
@@ -38,7 +32,7 @@ function isObjectEmpty(obj) {
 }
 
 export {
-  breakpoint,
+  slugify,
   linkResolver,
   isObjectEmpty
 }
