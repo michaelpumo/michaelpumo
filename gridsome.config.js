@@ -12,6 +12,8 @@ function addStyleResource(rule) {
 
 module.exports = {
   siteName: 'Michael Pumo',
+  siteUrl: 'https://michaelpumo.com',
+  icon: './src/favicon-red.png',
   plugins: [
     {
       use: 'gridsome-source-graphql-prismic',
