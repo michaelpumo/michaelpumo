@@ -15,20 +15,14 @@ function doJump(e) {
     return
   }
 
-  // const bodyRect = document.body.getBoundingClientRect()
-  // const yar = (place.offsetTop + window.scrollY) - bodyRect.top
-  // console.log(yar)
-  // console.dir(place)
-  // e.target.style.pointerEvents = 'none'
+  place.style.position = 'static'
 
-  jump(place, {
-    duration: duration
-    // offset: -Math.abs(window.scrollY)
-    // offset: Math.abs(offset + a)
-    // callback: () => {
-    //   console.log('callbaaa')
-    //   e.target.style.pointerEvents = 'auto'
-    // }
+  window.requestAnimationFrame(() => {
+    jump(place, {
+      duration,
+      offset
+    })
+    place.style.removeProperty('position')
   })
 
   return false
@@ -36,7 +30,7 @@ function doJump(e) {
 
 const defaults = {
   id: '',
-  duration: 300,
+  duration: 500,
   offset: 0
 }
 
