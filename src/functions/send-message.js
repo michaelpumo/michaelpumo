@@ -2,9 +2,10 @@ const sgMail = require('@sendgrid/mail')
 // const validator = require('validator')
 // const axios = require('axios')
 
-exports.handler = async(event, context) => {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const { SENDGRID_API_KEY } = process.env
+sgMail.setApiKey(SENDGRID_API_KEY)
 
+exports.handler = async(event, context) => {
   const msg = {
     to: 'test@example.com',
     from: 'test@example.com',
