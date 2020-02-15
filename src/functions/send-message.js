@@ -13,7 +13,19 @@ exports.handler = async(event, context) => {
     html: '<strong>and easy to do anywhere, even with Node.js</strong>'
   }
 
-  return sgMail.send(msg)
+  try {
+    await sgMail.send(msg)
+
+    return {
+      statusCode: 200,
+      body: 'Message sent'
+    }
+  } catch (e) {
+    return {
+      statusCode: e.code,
+      body: e.message
+    }
+  }
 
   // return {
   //   statusCode: 200,
