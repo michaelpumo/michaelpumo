@@ -2,7 +2,10 @@
   <form
     novalidate
     autocomplete="off"
-    :class="$options.class">
+    :class="[
+      $options.class,
+      { 'is-loading': loading }
+    ]">
     <slot />
   </form>
 </template>
@@ -10,7 +13,13 @@
 <script>
 export default {
   name: 'FormBase',
-  class: 'FormBase'
+  class: 'FormBase',
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -19,6 +28,11 @@ $root: &;
 
 .FormBase {
   width: 100%;
-  max-width: 700px;
+  transition: opacity $trans-speed $trans-ease;
+
+  &.is-loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 </style>

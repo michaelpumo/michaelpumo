@@ -5,7 +5,6 @@
     :to="!isObjectEmpty(route) ? route : null"
     :class="[
       $options.className,
-      `is-variant-${variant}`,
       { 'is-loading': loading }
     ]"
   >
@@ -47,16 +46,6 @@ export default {
         ].includes(value)
       }
     },
-    variant: {
-      type: String,
-      default: 'ghost',
-      validator(value) {
-        return [
-          'ghost',
-          'solid'
-        ].includes(value)
-      }
-    },
     loading: {
       type: Boolean,
       default: false
@@ -87,16 +76,18 @@ export default {
   border: none;
   background-color: transparent;
   background-image: none;
+  border-color: var(--color-theme);
   border-radius: 30px;
   border-style: solid;
   border-width: 2px;
+  color: var(--color-theme);
   outline: none;
   text-decoration: none;
   transition:
-    opacity $trans-speed ease,
-    color $trans-speed ease,
-    border-color $trans-speed ease,
-    background-color $trans-speed ease;
+    opacity $trans-speed $trans-ease,
+    color $trans-speed $trans-ease,
+    border-color $trans-speed $trans-ease,
+    background-color $trans-speed $trans-ease;
   user-select: none;
   white-space: nowrap;
 
@@ -106,29 +97,11 @@ export default {
     height: 60px;
   }
 
-  &.is-variant-solid {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: var(--color-theme);
-    border-color: transparent;
-    color: #fff;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: var(--color-theme);
-    }
-  }
-
-  &.is-variant-ghost {
-    background-color: transparent;
-    border-color: var(--color-theme);
-    color: var(--color-theme);
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: var(--color-theme);
-      color: color("dark");
-    }
+    color: color("dark");
   }
 
   &.is-loading {

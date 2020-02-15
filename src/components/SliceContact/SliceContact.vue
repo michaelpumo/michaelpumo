@@ -8,6 +8,7 @@
     <p>
       <ButtonIcon
         label="I’d like to book you in for work"
+        color="red"
         @click.native="modalOpen('booking')">
         <g-image
           src="/icons/icon-working.png"
@@ -49,7 +50,9 @@
       <template #header>
         <ButtonIcon
           v-if="type === 'booking'"
-          label="I’d like to book you in for work">
+          label="I’d like to book you in for work"
+          color="red"
+          tag="div">
           <g-image
             src="/icons/icon-working.png"
             width="60"
@@ -60,7 +63,8 @@
         <ButtonIcon
           v-if="type === 'quote'"
           label="I’d like a quote for a project"
-          color="yellow">
+          color="yellow"
+          tag="div">
           <g-image
             src="/icons/icon-money.png"
             width="60"

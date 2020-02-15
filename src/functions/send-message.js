@@ -2,110 +2,45 @@ const sgMail = require('@sendgrid/mail')
 // const validator = require('validator')
 // const axios = require('axios')
 
-const { SENDGRID_API_KEY } = process.env
+const { SENDGRID_API_KEY, SENDGRID_TO_EMAIL } = process.env
 sgMail.setApiKey(SENDGRID_API_KEY)
 
 exports.handler = async(event, context) => {
-  const msg = {
-    to: 'test@example.com',
-    from: 'test@example.com',
-    subject: 'Sending with Twilio SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>'
+  const payload = JSON.parse(event.body)
+  const {
+    name,
+    email,
+    company
+  } = payload
+
+  sgMail.setApiKey(SENDGRID_API_KEY)
+
+  const titleCase = (text) => `${text.trim().charAt(0).toUpperCase()} ${text.trim().slice(1)}`
+  const body = Object.keys(payload).map((key) => {
+    return `<p>${titleCase(key)}: ${payload[key]}</p>`
+  }).join()
+
+  const message = {
+    to: SENDGRID_TO_EMAIL,
+    from: email,
+    subject: `${company} - ${name}`,
+    html: body
   }
 
   try {
-    await sgMail.send(msg)
+    await sgMail.send(message)
 
     return {
       statusCode: 200,
-      body: 'Message sent'
+      body: JSON.stringify({
+        code: 200,
+        message: 'Message successfully sent'
+      })
     }
-  } catch (e) {
+  } catch (error) {
     return {
-      statusCode: e.code,
-      body: e.message
+      statusCode: error.code,
+      body: JSON.stringify(error)
     }
   }
-
-  // return {
-  //   statusCode: 200,
-  //   body: JSON.stringify({ message: 'Hello world' })
-  // }
-
-  // const eventBody = JSON.parse(event.body)
-  // console.log(eventBody)
-
-  // const autopilotApikey = process.env.AUTOPILOT_API_KEY
-  // const autopilotContactList = process.env.AUTOPILOT_CONTACT_LIST
-  // const eventBody = JSON.parse(event.body)
-  // const email = eventBody.email.trim()
-
-  // if (!validator.isEmail(email)) {
-  //   return {
-  //     statusCode: 500,
-  //     body: 'Email is not valid.'
-  //   }
-  // }
-
-  // const data = JSON.stringify({
-  //   contact: {
-  //     Email: email,
-  //     _autopilot_list: autopilotContactList
-  //   }
-  // })
-
-  // return axios({
-  //   method: 'post',
-  //   url: 'https://api2.autopilothq.com/v1/contact',
-  //   data,
-  //   headers: {
-  //     autopilotapikey: autopilotApikey,
-  //     'Content-Type': 'application/json'
-  //   }
-  // })
-  //   .then(response => {
-  //     return {
-  //       statusCode: 200,
-  //       body: JSON.stringify(response.data)
-  //     }
-  //   })
-  //   .catch(error => {
-  //     return {
-  //       statusCode: 500,
-  //       body: JSON.stringify(error)
-  //     }
-  //   })
 }
-
-// const fetch = require('node-fetch')
-// exports.handler = async function(event, context) {
-//   if (!context.clientContext && !context.clientContext.identity) {
-//     return {
-//       statusCode: 500,
-//       body: JSON.stringify({
-//         msg: 'No identity instance detected. Did you enable it?'
-//       }) // Could be a custom message or object i.e. JSON.stringify(err)
-//     }
-//   }
-//   const { identity, user } = context.clientContext
-//   try {
-//     const response = await fetch('https://api.chucknorris.io/jokes/random')
-//     if (!response.ok) {
-//       // NOT res.status >= 200 && res.status < 300
-//       return { statusCode: response.status, body: response.statusText }
-//     }
-//     const data = await response.json()
-
-//     return {
-//       statusCode: 200,
-//       body: JSON.stringify({ identity, user, msg: data.value })
-//     }
-//   } catch (err) {
-//     console.log(err) // output to netlify function log
-//     return {
-//       statusCode: 500,
-//       body: JSON.stringify({ msg: err.message }) // Could be a custom message or object i.e. JSON.stringify(err)
-//     }
-//   }
-// }
