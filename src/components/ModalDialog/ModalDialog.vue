@@ -1,45 +1,37 @@
 <template>
   <div
     role="dialog"
-    aria-labelledby="Modal Dialog"
-    :aria-describedby="open ? 'Modal dialog is open' : 'Modal dialog is not open'"
     :class="[
-      $options.class,
+      $options.className,
       { 'is-open': open }
     ]"
     @click.self="close">
-    <div :class="`${$options.class}__window`">
-      <div :class="`${$options.class}__content`">
+    <div :class="`${$options.className}__window`">
+      <div :class="`${$options.className}__content`">
         <slot />
       </div>
       <button
         type="button"
-        :class="`${$options.class}__close`"
+        :class="`${$options.className}__close`"
         @click="close">
         <SvgIcon
           icon="close"
-          :class="`${$options.class}__cross`" />
+          :class="`${$options.className}__cross`" />
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import '@/assets/icons/close'
 
 export default {
   name: 'ModalDialog',
-  class: 'ModalDialog',
+  className: 'ModalDialog',
   props: {
     open: {
       type: Boolean,
       default: false
-    }
-  },
-  watch: {
-    open(newVal) {
-      this.setAppLock(newVal)
     }
   },
   mounted() {
@@ -49,9 +41,6 @@ export default {
     document.removeEventListener('keydown', this.closeKey)
   },
   methods: {
-    ...mapActions({
-      setAppLock: 'app/setLock'
-    }),
     close() {
       this.$emit('close')
     },
@@ -78,7 +67,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-color: rgba(color("dark"), 0.7);
+  background-color: rgba(color("dark"), 0.5);
   pointer-events: none;
   transition: opacity $trans-speed $trans-ease ($trans-speed * 2);
 
@@ -126,11 +115,12 @@ export default {
     // width: $bsu-lg;
     // height: $bsu-lg;
     background-color: transparent;
+    color: color("dark");
   }
 
   &__cross {
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
   }
 }
 </style>

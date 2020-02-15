@@ -1,16 +1,20 @@
 <template>
   <button
     type="button"
-    :class="$options.className"
+    :class="[
+      $options.className,
+      `h-${heading}`,
+      `color-${color}`
+    ]"
   >
-    <div :class="`${$options.className}__icon`">
+    <span :class="`${$options.className}__icon`">
       <slot />
-    </div>
-    <div
+    </span>
+    <span
       v-if="label"
       :class="`${$options.className}__label`">
       {{ label }}
-    </div>
+    </span>
   </button>
 </template>
 
@@ -22,6 +26,31 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    heading: {
+      type: String,
+      default: '4',
+      validator(value) {
+        return [
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6'
+        ].includes(value)
+      }
+    },
+    color: {
+      type: String,
+      default: 'red',
+      validator(value) {
+        return [
+          'red',
+          'green',
+          'yellow'
+        ].includes(value)
+      }
     }
   }
 }
@@ -29,6 +58,8 @@ export default {
 
 <style lang="scss" scoped>
 .ButtonIcon {
+  $root: &;
+
   display: flex;
   align-items: center;
   padding: 0;
@@ -42,8 +73,15 @@ export default {
     width: 50px;
     height: 50px;
     padding: 10px;
-    background-color: var(--color-theme);
     border-radius: 50%;
+
+    $colors: (red, green, yellow);
+
+    @each $color in $colors {
+      #{$root}.color-#{$color} & {
+        background-color: color("#{$color}");
+      }
+    }
 
     @include media("sm") {
       width: 60px;
@@ -52,11 +90,15 @@ export default {
   }
 
   &__label {
-    @include type-style("3");
-
     font-weight: 500;
     margin: 0 0 -2px spacing("sm");
     color: color("dark");
+
+    @for $i from 1 through 6 {
+      #{$root}.h-#{$i} & {
+        @include type-style("#{$i}");
+      }
+    }
   }
 }
 </style>

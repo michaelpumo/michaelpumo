@@ -7,6 +7,7 @@
     <div :class="`${$options.className}__container`">
       <ButtonIcon
         :label="title"
+        heading="3"
         :class="`${$options.className}__toggle`"
         @click.native="toggleMenu">
         <g-image
