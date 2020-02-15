@@ -62,32 +62,44 @@
 }
 
 @mixin error() {
-  @include type-style("5");
+  @include type-style("6");
 
-  margin: 10px 0;
-  color: color("error");
+  margin-top: (spacing("sm") / 2);
+  color: color("red");
 }
 
 @mixin label() {
-  @include type-caps;
-  @include type-size("6");
+  @include type-style("4");
 
+  font-weight: 500;
   padding: 0;
-  margin: 0 0 spacing("sm") 0;
-  cursor: pointer;
+  margin: 0 0 (spacing("sm") / 2) 0;
+  color: color("dark");
   user-select: none;
 }
 
 @mixin input() {
   width: 100%;
-  min-height: 60px;
-  padding: $bsu;
+  min-height: var(--field-size);
+  padding: (spacing("sm") / 2);
   margin: 0;
-  background-color: color("light");
+  border: 2px solid rgba(color("light"), 0);
+  background-color: lighten(color("grey"), 2.5%);
+  border-radius: 5px;
   color: inherit;
+  transition:
+    color $trans-speed $trans-ease,
+    border-color $trans-speed $trans-ease,
+    background-color $trans-speed $trans-ease;
+
+  &:focus {
+    background-color: color("light");
+    border-color: color("blue");
+    color: color("dark");
+  }
 
   &[disabled] {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
     filter: grayscale(1);
     user-select: none;

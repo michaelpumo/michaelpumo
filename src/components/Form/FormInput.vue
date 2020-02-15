@@ -1,0 +1,83 @@
+<template>
+  <div :class="$options.class">
+    <component
+      :is="type === 'textarea' ? 'textarea' : 'input'"
+      :id="fieldId"
+      :type="type"
+      :name="fieldId"
+      :class="`${$options.class}__input`"
+      v-bind="$attrs"
+      v-on="listeners"
+    />
+
+    <FormValidation
+      v-if="validation"
+      :validation="validation"
+    />
+  </div>
+</template>
+
+<script>
+import FormValidation from '@/components/Form/FormValidation.vue'
+
+export default {
+  name: 'FormInput',
+  class: 'FormInput',
+  components: {
+    FormValidation
+  },
+  inheritAttrs: false,
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    type: {
+      type: String,
+      default: 'text',
+      validator(value) {
+        return [
+          'text',
+          'number',
+          'tel',
+          'email',
+          'password',
+          'search',
+          'textarea'
+        ].includes(value)
+      }
+    },
+    validation: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  computed: {
+    fieldId() {
+      return `field-${this.id}`
+    },
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: (event) => this.$emit('input', event.target.value)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+$root: &;
+
+.FormInput {
+  width: 100%;
+
+  &__input {
+    @include input;
+
+    &[type="textarea"] {
+      min-height: 260px;
+    }
+  }
+}
+</style>

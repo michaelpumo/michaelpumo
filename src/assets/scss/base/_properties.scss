@@ -4,12 +4,14 @@
   --color-theme: #{color("red")};
   --color-general: #{color("dark")};
   --button-size: #{button("sm")};
+  --field-size: #{button("sm")};
 }
 
 @include media("sm") {
   :root {
     --spacing-unit: #{spacing("md")};
     --button-size: #{button("md")};
+    --field-size: #{button("md")};
   }
 }
 

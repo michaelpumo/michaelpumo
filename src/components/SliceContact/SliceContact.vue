@@ -49,7 +49,7 @@
     <ModalDialog
       :open="modalActive"
       @close="modalClose">
-      <p>I am a modal</p>
+      <FormContact />
     </ModalDialog>
   </SectionSlice>
 </template>
@@ -57,6 +57,7 @@
 <script>
 import { mapActions } from 'vuex'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
+import FormContact from '@/components/FormContact/FormContact'
 import ModalDialog from '@/components/ModalDialog/ModalDialog'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
@@ -66,6 +67,7 @@ export default {
   className: 'SliceContact',
   components: {
     ButtonIcon,
+    FormContact,
     ModalDialog,
     PrismicRichtext,
     SectionSlice
