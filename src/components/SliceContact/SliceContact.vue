@@ -9,7 +9,7 @@
       <ButtonIcon
         label="I’d like to book you in for work"
         :class="`${$options.className}__toggle`"
-        @click.native="openBooking">
+        @click.native="modalOpen('booking')">
         <g-image
           src="/icons/icon-working.png"
           width="60"
@@ -23,7 +23,7 @@
         label="I’d like a quote for a project"
         color="yellow"
         :class="`${$options.className}__toggle`"
-        @click.native="openBooking">
+        @click.native="modalOpen('quote')">
         <g-image
           src="/icons/icon-money.png"
           width="60"
@@ -37,7 +37,7 @@
         label="I’d like to ask a general question"
         color="green"
         :class="`${$options.className}__toggle`"
-        @click.native="openBooking">
+        @click.native="modalOpen('question')">
         <g-image
           src="/icons/icon-wave.png"
           width="60"
@@ -47,14 +47,15 @@
     </p>
 
     <ModalDialog
-      :open="false"
-      @close="closeModal">
+      :open="modalActive"
+      @close="modalClose">
       <p>I am a modal</p>
     </ModalDialog>
   </SectionSlice>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 import ModalDialog from '@/components/ModalDialog/ModalDialog'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
@@ -75,12 +76,26 @@ export default {
       default: () => ({})
     }
   },
+  data() {
+    return ({
+      modalActive: false
+    })
+  },
   methods: {
-    closeModal() {
-      console.log('close it!')
+    ...mapActions({
+      setAppLocked: 'app/setLocked'
+    }),
+    modalToggle() {
+      this.modalActive = !this.modalActive
+      this.setAppLocked(this.modalActive)
     },
-    openBooking() {
-      console.log('booking it!')
+    modalClose() {
+      console.log('modalClose')
+      this.modalToggle()
+    },
+    modalOpen(form) {
+      console.log('modalOpen', form)
+      this.modalToggle()
     }
   }
 }

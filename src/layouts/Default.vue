@@ -37,6 +37,7 @@
 </static-query>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppCursor from '@/components/AppCursor/AppCursor.vue'
 import AppHero from '@/components/AppHero/AppHero.vue'
 import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
@@ -64,8 +65,20 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      appLocked: 'app/locked'
+    }),
     navigation() {
       return this.$static.prismic.allGlobals.edges[0].node.navigation
+    }
+  },
+  watch: {
+    appLocked(lock) {
+      if (lock) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.removeProperty('overflow')
+      }
     }
   }
 }

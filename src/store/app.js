@@ -1,20 +1,20 @@
 const app = {
   namespaced: true,
   state: {
-    lock: false,
+    locked: false,
     theme: 'red',
     mode: 'dark',
     cursor: 'default'
   },
   getters: {
-    lock: (state) => state.lock,
+    locked: (state) => state.locked,
     theme: (state) => state.theme,
     mode: (state) => state.mode,
     cursor: (state) => state.cursor
   },
   mutations: {
-    SET_LOCK(state, payload) {
-      state.lock = payload
+    SET_LOCKED(state, payload) {
+      state.locked = payload
     },
     SET_THEME(state, payload) {
       state.theme = payload
@@ -27,8 +27,8 @@ const app = {
     }
   },
   actions: {
-    setLock(context, payload) {
-      context.commit('SET_LOCK', payload)
+    setLocked(context, payload) {
+      context.commit('SET_LOCKED', payload)
     },
     setTheme(context, payload) {
       context.commit('SET_THEME', payload)
