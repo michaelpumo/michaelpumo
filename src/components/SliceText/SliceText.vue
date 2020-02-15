@@ -29,10 +29,10 @@ export default {
 
 <style lang="scss" scoped>
 .SliceText {
-  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  padding: calc((var(--spacing-unit) * 2) + var(--button-size)) var(--spacing-unit) calc(var(--spacing-unit) * 2);
   background-color: color("light");
 
-  @include media("sm") {
+  @include media("lg") {
     padding: var(--spacing-unit);
   }
 
