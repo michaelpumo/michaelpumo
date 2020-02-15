@@ -51,6 +51,8 @@ export default {
   data() {
     return {
       flickityOptions: {
+        autoPlay: 5000,
+        pauseAutoPlayOnHover: true,
         initialIndex: 0,
         prevNextButtons: false,
         pageDots: true,
