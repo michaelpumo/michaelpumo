@@ -118,8 +118,9 @@ export default {
     padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
     margin: 0;
     opacity: 0;
-    background-color: color("light");
-    transition: opacity $trans-speed $trans-ease;
+    background-color: rgba(color("light"), 0);
+    transition:
+      opacity $trans-speed $trans-ease;
 
     @include media("sm") {
       padding: calc(var(--spacing-unit) / 2);
@@ -128,7 +129,9 @@ export default {
     @supports (clip-path: circle(0% at center)) {
       opacity: 1;
       clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
-      transition: clip-path ($trans-speed * 2) $trans-ease;
+      transition:
+        background-color $trans-speed ($trans-speed * 2) $trans-ease,
+        clip-path ($trans-speed * 2) $trans-ease;
 
       @include media("sm") {
         clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
@@ -137,6 +140,8 @@ export default {
 
     #{$root}.is-active & {
       opacity: 1;
+      background-color: color("light");
+      transition-delay: 0s;
 
       @supports (clip-path: circle(0% at center)) {
         clip-path: circle(100% at center);
