@@ -206,7 +206,7 @@ export default {
     send() {
       return axios({
         method: 'post',
-        url: 'https://michaelpumo-staging.netlify.com/.netlify/functions/send-message',
+        url: '/.netlify/functions/send-message',
         data: {
           email: 'test'
         }
