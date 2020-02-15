@@ -4,7 +4,8 @@
       :class="`${$options.className}__image`"
       :src="slice.primary.image.url"
       :width="slice.primary.image.dimensions.width.toString()"
-      :height="slice.primary.image.dimensions.height.toString()" />
+      :height="slice.primary.image.dimensions.height.toString()"
+      :alt="slice.primary.image.alt || 'Michael Pumo'" />
   </SectionSlice>
 </template>
 
