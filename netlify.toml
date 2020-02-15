@@ -1,5 +1,5 @@
 [dev]
-  functions = "src/functions/"
+  functions = "./functions"
 
 [build]
-  functions = "src/functions/"
+  functions = "./functions"
