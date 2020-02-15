@@ -8,7 +8,6 @@
     <p>
       <ButtonIcon
         label="I’d like to book you in for work"
-        :class="`${$options.className}__toggle`"
         @click.native="modalOpen('booking')">
         <g-image
           src="/icons/icon-working.png"
@@ -22,7 +21,6 @@
       <ButtonIcon
         label="I’d like a quote for a project"
         color="yellow"
-        :class="`${$options.className}__toggle`"
         @click.native="modalOpen('quote')">
         <g-image
           src="/icons/icon-money.png"
@@ -36,7 +34,6 @@
       <ButtonIcon
         label="I’d like to ask a general question"
         color="green"
-        :class="`${$options.className}__toggle`"
         @click.native="modalOpen('question')">
         <g-image
           src="/icons/icon-wave.png"
@@ -49,7 +46,44 @@
     <ModalDialog
       :open="modalActive"
       @close="modalClose">
-      <FormContact />
+      <template #header>
+        <ButtonIcon
+          v-if="type === 'booking'"
+          label="I’d like to book you in for work">
+          <g-image
+            src="/icons/icon-working.png"
+            width="60"
+            height="60"
+            alt="I’d like to book you in for work" />
+        </ButtonIcon>
+
+        <ButtonIcon
+          v-if="type === 'quote'"
+          label="I’d like a quote for a project"
+          color="yellow">
+          <g-image
+            src="/icons/icon-money.png"
+            width="60"
+            height="60"
+            alt="I’d like a quote for a project" />
+        </ButtonIcon>
+
+        <ButtonIcon
+          v-if="type === 'question'"
+          label="I’d like to ask a general question"
+          color="green"
+          tag="div">
+          <g-image
+            src="/icons/icon-wave.png"
+            width="60"
+            height="60"
+            alt="I’d like to ask a general question" />
+        </ButtonIcon>
+      </template>
+      <template #main>
+        <FormContact
+          :to="type" />
+      </template>
     </ModalDialog>
   </SectionSlice>
 </template>
@@ -80,6 +114,7 @@ export default {
   },
   data() {
     return ({
+      type: 'booking',
       modalActive: false
     })
   },
@@ -95,8 +130,9 @@ export default {
       console.log('modalClose')
       this.modalToggle()
     },
-    modalOpen(form) {
-      console.log('modalOpen', form)
+    modalOpen(type) {
+      // console.log('modalOpen', type)
+      this.type = type
       this.modalToggle()
     }
   }

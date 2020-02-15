@@ -76,7 +76,7 @@ $root: &;
     @include input;
 
     &[type="textarea"] {
-      min-height: 260px;
+      min-height: 180px;
     }
   }
 }

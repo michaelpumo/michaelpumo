@@ -4,6 +4,7 @@
       novalidate
       autocomplete="off"
       @submit.prevent="submit">
+      {{ to }}
       <!-- <FormField :label="`Checkboxes: ${checkboxes}`">
         <FormToggle
           id="checkbox1"
@@ -118,6 +119,7 @@
       </FormField>
 
       <ButtonInput
+        :loading="loading"
         label="Send message"
         @click.native="submit" />
     </form>
@@ -125,6 +127,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import {
   required,
   email
@@ -146,6 +149,12 @@ export default {
     FormInput,
     FormSelect,
     FormToggle
+  },
+  props: {
+    to: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return ({
@@ -178,7 +187,7 @@ export default {
     }
   },
   methods: {
-    submit(e) {
+    async submit(e) {
       // Trigger validation.
       this.$v.$touch()
 
@@ -188,7 +197,26 @@ export default {
         return
       }
 
+      this.loading = true
+
       console.log('Submit form with AJAX here.', e)
+      const send = await this.send()
+      console.log(send)
+    },
+    send() {
+      return axios({
+        method: 'post',
+        url: 'https://michaelpumo.netlify.com/.netlify/functions/send-message',
+        data: {
+          email: 'test'
+        }
+      })
+        .then(response => {
+          console.log('Response', response)
+        })
+        .catch(error => {
+          console.log('Error', error)
+        })
     }
   }
 }

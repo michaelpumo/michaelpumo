@@ -7,17 +7,24 @@
     ]"
     @click.self="close">
     <div :class="`${$options.className}__window`">
+      <header :class="`${$options.className}__header`">
+        <slot name="header" />
+        <button
+          type="button"
+          :class="`${$options.className}__close`"
+          @click="close">
+          <SvgIcon
+            icon="close"
+            :class="`${$options.className}__cross`" />
+          <span :class="`${$options.className}__a11y`">
+            Close
+          </span>
+        </button>
+      </header>
+
       <div :class="`${$options.className}__content`">
-        <slot />
+        <slot name="main" />
       </div>
-      <button
-        type="button"
-        :class="`${$options.className}__close`"
-        @click="close">
-        <SvgIcon
-          icon="close"
-          :class="`${$options.className}__cross`" />
-      </button>
     </div>
   </div>
 </template>
@@ -80,10 +87,12 @@ export default {
   &__window {
     @include shadow-box();
 
-    position: relative;
+    display: flex;
+    flex-direction: column;
     width: calc(100vw - var(--spacing-unit));
     max-width: 600px;
     height: calc(100vh - var(--spacing-unit));
+    overflow: hidden;
     opacity: 0;
     background-color: color("light");
     transform: scale(0.95);
@@ -97,30 +106,50 @@ export default {
     }
   }
 
-  &__content {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
     padding: var(--spacing-unit);
+    background-color: color("light");
+
+    @include media("sm") {
+      padding: calc(var(--spacing-unit) / 2);
+    }
   }
 
   &__close {
-    position: absolute;
-    top: 0;
-    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: $bsu-lg;
-    // height: $bsu-lg;
+    width: 15px;
+    height: 15px;
     background-color: transparent;
     color: color("dark");
   }
 
   &__cross {
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__a11y {
+    @extend %a11y-hidden;
+  }
+
+  &__content {
+    flex: 1;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--spacing-unit);
+    padding-top: 0;
+
+    @include media("sm") {
+      padding: calc(var(--spacing-unit) / 2);
+      padding-top: 0;
+    }
   }
 }
 </style>

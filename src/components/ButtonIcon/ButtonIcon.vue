@@ -1,6 +1,7 @@
 <template>
-  <button
-    type="button"
+  <component
+    :is="tag"
+    :type="tag === 'button' ? 'button' : null"
     :class="[
       $options.className,
       `h-${heading}`,
@@ -15,7 +16,7 @@
       :class="`${$options.className}__label`">
       {{ label }}
     </span>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -23,6 +24,10 @@ export default {
   name: 'ButtonIcon',
   className: 'ButtonIcon',
   props: {
+    tag: {
+      type: String,
+      default: 'button'
+    },
     label: {
       type: String,
       default: ''

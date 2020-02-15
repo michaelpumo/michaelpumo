@@ -31,7 +31,7 @@ export default {
     border-radius: 50%;
   }
 
-  @keyframes load8 {
+  @keyframes spin {
     0% {
       transform: rotate(0deg);
     }

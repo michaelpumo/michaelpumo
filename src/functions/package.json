@@ -1,0 +1,11 @@
+{
+  "name": "send-message",
+  "version": "1.0.0",
+  "description": "Sends an email message to hello@michaelpumo.com via SendGrid",
+  "author": "Michael Pumo",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.2",
+    "axios": "^0.19.2"
+  }
+}
