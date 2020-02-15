@@ -13,10 +13,15 @@ exports.handler = async(event, context) => {
     html: '<strong>and easy to do anywhere, even with Node.js</strong>'
   }
 
-  const eventBody = JSON.parse(event.body)
-  console.log(eventBody)
-
   return sgMail.send(msg)
+
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify({ message: 'Hello world' })
+  // }
+
+  // const eventBody = JSON.parse(event.body)
+  // console.log(eventBody)
 
   // const autopilotApikey = process.env.AUTOPILOT_API_KEY
   // const autopilotContactList = process.env.AUTOPILOT_CONTACT_LIST
