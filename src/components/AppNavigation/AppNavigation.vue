@@ -2,19 +2,19 @@
   <nav
     :class="[
       $options.className,
-      { 'is-active': active }
+      { 'is-active': navigationActive }
     ]">
     <div :class="`${$options.className}__container`">
       <ButtonIcon
         :label="title"
         heading="3"
         :class="`${$options.className}__toggle`"
-        @click.native="toggleMenu">
+        @click.native="toggleNavigation">
         <g-image
           src="/icons/icon-hamburger.png"
           width="60"
           height="60"
-          :alt="active ? 'Close navigation' : 'Open navigation'" />
+          :alt="navigationActive ? 'Close navigation' : 'Open navigation'" />
       </ButtonIcon>
 
       <ul :class="`${$options.className}__list`">
@@ -22,7 +22,8 @@
           v-for="(item, index) in items"
           :key="index"
           v-jump-to="{
-            id: slugify(item.id)
+            id: slugify(item.id),
+            callback
           }"
           :class="`${$options.className}__item`">
           <h4 :class="`${$options.className}__title`">
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
@@ -61,15 +63,21 @@ export default {
       default: () => ([])
     }
   },
-  data() {
-    return ({
-      active: false
+  computed: {
+    ...mapGetters({
+      navigationActive: 'navigation/active'
     })
   },
   methods: {
+    ...mapActions({
+      setNavigationActive: 'navigation/setActive'
+    }),
     slugify,
-    toggleMenu() {
-      this.active = !this.active
+    toggleNavigation() {
+      this.setNavigationActive(!this.navigationActive)
+    },
+    callback() {
+      this.setNavigationActive(false)
     }
   }
 }

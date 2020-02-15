@@ -3,7 +3,7 @@ import jump from 'jump.js'
 function doJump(e) {
   e.preventDefault()
 
-  const { identifier, duration, offset } = e.target
+  const { identifier, duration, offset, callback } = e.target
 
   if (!identifier.length) {
     return
@@ -20,7 +20,10 @@ function doJump(e) {
   window.requestAnimationFrame(() => {
     jump(place, {
       duration,
-      offset
+      offset,
+      callback: () => {
+        callback()
+      }
     })
     place.style.removeProperty('position')
   })
@@ -31,7 +34,8 @@ function doJump(e) {
 const defaults = {
   id: '',
   duration: 500,
-  offset: 0
+  offset: 0,
+  callback: () => {}
 }
 
 const jumpTo = {
@@ -44,6 +48,7 @@ const jumpTo = {
     el.identifier = properties.id
     el.duration = properties.duration
     el.offset = properties.offset
+    el.callback = properties.callback
 
     el.addEventListener('click', doJump)
   },
@@ -56,6 +61,7 @@ const jumpTo = {
     el.identifier = properties.id
     el.duration = properties.duration
     el.offset = properties.offset
+    el.callback = properties.callback
   },
   unbind: (el) => {
     el.removeEventListener('click', doJump)
