@@ -136,8 +136,8 @@ import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import {
   FormField,
   FormInput,
-  FormSelect,
-  FormToggle
+  FormSelect
+  // FormToggle
 } from '@/components/Form'
 
 export default {
@@ -147,8 +147,8 @@ export default {
     ButtonInput,
     FormField,
     FormInput,
-    FormSelect,
-    FormToggle
+    FormSelect
+    // FormToggle
   },
   props: {
     to: {
@@ -206,7 +206,7 @@ export default {
     send() {
       return axios({
         method: 'post',
-        url: 'https://michaelpumo.netlify.com/.netlify/functions/send-message',
+        url: 'https://michaelpumo-staging.netlify.com/.netlify/functions/send-message',
         data: {
           email: 'test'
         }
