@@ -67,7 +67,6 @@ export default {
   border: none;
   outline: none;
   user-select: none;
-  white-space: nowrap;
 
   &__icon {
     width: 50px;
@@ -91,8 +90,13 @@ export default {
 
   &__label {
     font-weight: 500;
-    margin: 0 0 -2px spacing("sm");
+    text-align: left;
+    margin: 0 0 -4px #{spacing("sm") / 2};
     color: color("dark");
+
+    @include media("sm") {
+      margin-left: spacing("sm");
+    }
 
     @for $i from 1 through 6 {
       #{$root}.h-#{$i} & {
