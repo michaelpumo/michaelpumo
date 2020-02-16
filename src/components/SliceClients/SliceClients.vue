@@ -91,7 +91,7 @@ export default {
   }
 
   &__logo {
-    max-width: 80%;
+    max-width: 60%;
     height: 16px;
     color: color("dark");
 
@@ -108,6 +108,7 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 1;
+    display: none;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -123,6 +124,10 @@ export default {
       opacity: 1;
       clip-path: circle(0% at 50% 50%);
       transition: clip-path ($trans-speed * 2) $trans-ease;
+    }
+
+    @include media("sm") {
+      display: block;
     }
 
     @include media("lg") {
