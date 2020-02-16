@@ -35,7 +35,7 @@
       :class="`${$options.className}__message`">
       <h3>Unexpected error</h3>
       <p>
-        Something went a bit awry. Perhaps you can reach out to me on
+        Something went a bit awry. Could you reach out to me on
         <a
           href="https://twitter.com/michaelpumo"
           target="_blank"
