@@ -18,7 +18,9 @@ export default {
       isSticky: false
     })
   },
-  mounted() {
+  async mounted() {
+    await this.$nextTick()
+
     this.evaluateSticky()
     window.addEventListener('resize', this.evaluateSticky)
   },
