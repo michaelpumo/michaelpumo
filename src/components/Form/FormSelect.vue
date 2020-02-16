@@ -1,15 +1,15 @@
 <template>
   <div
     :class="[
-      $options.class,
+      $options.className,
     ]"
   >
-    <div :class="`${$options.class}__wrapper`">
+    <div :class="`${$options.className}__wrapper`">
       <select
         :id="fieldId"
         :name="fieldId"
         :class="[
-          `${$options.class}__input`,
+          `${$options.className}__input`,
           { 'is-placeholder': selected === '' }
         ]"
         v-bind="$attrs"
@@ -31,7 +31,7 @@
         </option>
       </select>
       <SvgIcon
-        :class="`${$options.class}__icon`"
+        :class="`${$options.className}__icon`"
         icon="select-arrow"
       />
     </div>
@@ -49,7 +49,7 @@ import FormValidation from '@/components/Form/FormValidation.vue'
 
 export default {
   name: 'FormSelect',
-  class: 'FormSelect',
+  className: 'FormSelect',
   components: {
     FormValidation
   },

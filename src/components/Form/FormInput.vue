@@ -1,11 +1,11 @@
 <template>
-  <div :class="$options.class">
+  <div :class="$options.className">
     <component
       :is="type === 'textarea' ? 'textarea' : 'input'"
       :id="fieldId"
       :type="type"
       :name="fieldId"
-      :class="`${$options.class}__input`"
+      :class="`${$options.className}__input`"
       v-bind="$attrs"
       v-on="listeners"
     />
@@ -22,7 +22,7 @@ import FormValidation from '@/components/Form/FormValidation.vue'
 
 export default {
   name: 'FormInput',
-  class: 'FormInput',
+  className: 'FormInput',
   components: {
     FormValidation
   },

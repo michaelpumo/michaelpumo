@@ -1,22 +1,22 @@
 <template>
   <div
     :class="[
-      $options.class,
+      $options.className,
       `is-${type}`
     ]">
     <input
       :id="fieldId"
       v-model="checked"
       :type="type"
-      :class="`${$options.class}__input`"
+      :class="`${$options.className}__input`"
       :value="toggleValue"
       v-bind="$attrs"
       v-on="listeners"
     >
 
-    <div :class="`${$options.class}__marker`" />
+    <div :class="`${$options.className}__marker`" />
 
-    <div :class="`${$options.class}__text`">
+    <div :class="`${$options.className}__text`">
       {{ text }}
     </div>
 
@@ -32,7 +32,7 @@ import FormValidation from '@/components/Form/FormValidation.vue'
 
 export default {
   name: 'FormToggle',
-  class: 'FormToggle',
+  className: 'FormToggle',
   components: {
     FormValidation
   },

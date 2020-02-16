@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      $options.class,
+      $options.className,
       { 'a11y': a11y }
     ]"
   >
@@ -9,11 +9,11 @@
       :is="(id) ? 'label' : 'div'"
       v-if="label"
       :for="(id) ? fieldId : false"
-      :class="`${$options.class}__label`"
+      :class="`${$options.className}__label`"
     >
       {{ label }}
     </component>
-    <div :class="`${$options.class}__field`">
+    <div :class="`${$options.className}__field`">
       <slot />
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script>
 export default {
   name: 'FormField',
-  class: 'FormField',
+  className: 'FormField',
   props: {
     label: {
       type: String,

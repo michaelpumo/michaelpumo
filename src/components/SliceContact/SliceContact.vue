@@ -86,6 +86,7 @@
       </template>
       <template #main>
         <FormContact
+          :key="renderKey"
           :to="type" />
       </template>
     </ModalDialog>
@@ -94,6 +95,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { randId } from '@/utils/helpers'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 import FormContact from '@/components/FormContact/FormContact'
 import ModalDialog from '@/components/ModalDialog/ModalDialog'
@@ -118,6 +120,7 @@ export default {
   },
   data() {
     return ({
+      renderKey: randId(),
       type: 'booking',
       modalActive: false
     })
@@ -131,11 +134,10 @@ export default {
       this.setAppLocked(this.modalActive)
     },
     modalClose() {
-      console.log('modalClose')
       this.modalToggle()
     },
     modalOpen(type) {
-      // console.log('modalOpen', type)
+      this.renderKey = randId()
       this.type = type
       this.modalToggle()
     }

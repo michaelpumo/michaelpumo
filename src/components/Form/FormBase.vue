@@ -3,7 +3,7 @@
     novalidate
     autocomplete="off"
     :class="[
-      $options.class,
+      $options.className,
       { 'is-loading': loading }
     ]">
     <slot />
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'FormBase',
-  class: 'FormBase',
+  className: 'FormBase',
   props: {
     loading: {
       type: Boolean,

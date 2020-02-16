@@ -1,12 +1,12 @@
 <template>
   <ul
     v-if="validation.$invalid && validation.$dirty"
-    :class="$options.class"
+    :class="$options.className"
   >
     <li
       v-for="message in messages"
       :key="message.type"
-      :class="`${$options.class}__message`"
+      :class="`${$options.className}__message`"
     >
       {{ message.message }}
     </li>
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: 'FormValidation',
-  class: 'FormValidation',
+  className: 'FormValidation',
   props: {
     validation: {
       type: Object,
