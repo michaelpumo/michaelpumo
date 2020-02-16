@@ -1,10 +1,22 @@
-// @font-face {
-//   font-family: "Mier A";
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
-//   src: url("/fonts/gfsmith_bold.woff") format("woff");
-// }
+@font-face {
+  font-family: "Pumo";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("/fonts/PumoBook.woff") format("woff"),
+    url("/fonts/PumoBook.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pumo";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("/fonts/PumoDemi.woff") format("woff"),
+    url("/fonts/PumoDemi.woff2") format("woff2");
+}
 
 h1,
 h2,
