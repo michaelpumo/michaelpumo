@@ -220,7 +220,7 @@ export default {
   data() {
     return ({
       loading: false,
-      status: 'success',
+      status: '',
       checkboxes: [],
       radios: [],
       name: '',
