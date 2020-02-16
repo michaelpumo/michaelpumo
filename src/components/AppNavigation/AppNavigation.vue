@@ -113,7 +113,7 @@ export default {
     @include shadow-box();
 
     max-width: calc(100vw - var(--spacing-unit));
-    max-height: calc(100vh - var(--spacing-unit));
+    max-height: calc((var(--vh, 1vh) * 100) - var(--spacing-unit));
     overflow-y: auto;
     padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
     margin: 0;

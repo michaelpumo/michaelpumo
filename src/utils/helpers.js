@@ -37,9 +37,16 @@ function randId() {
     .substring(2, 15)
 }
 
+function vh() {
+  console.log('Call vh')
+  const vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
+
 export {
   slugify,
   linkResolver,
   isObjectEmpty,
-  randId
+  randId,
+  vh
 }

@@ -79,10 +79,6 @@ export default {
     max-width: 600px;
   }
 
-  &__bottom {
-
-  }
-
   &__title {
     color: var(--color-theme);
   }

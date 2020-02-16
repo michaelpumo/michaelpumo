@@ -62,7 +62,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     margin: 0;
     grid-gap: 2px;
   }

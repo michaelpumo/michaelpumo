@@ -1,8 +1,8 @@
 :root {
-  --app-height: 100vh;
-  --spacing-unit: #{spacing("sm")};
+  --vh: 1vh;
   --color-theme: #{color("red")};
   --color-general: #{color("dark")};
+  --spacing-unit: #{spacing("sm")};
   --button-size: #{button("sm")};
   --field-size: #{button("sm")};
 }

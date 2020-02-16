@@ -91,7 +91,7 @@ export default {
     flex-direction: column;
     width: calc(100vw - var(--spacing-unit));
     max-width: 600px;
-    height: calc(100vh - var(--spacing-unit));
+    height: calc((var(--vh, 1vh) * 100) - var(--spacing-unit));
     overflow: hidden;
     opacity: 0;
     background-color: color("light");

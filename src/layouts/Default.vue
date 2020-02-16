@@ -38,6 +38,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { vh } from '@/utils/helpers'
 import AppCursor from '@/components/AppCursor/AppCursor.vue'
 import AppHero from '@/components/AppHero/AppHero.vue'
 import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
@@ -80,6 +81,14 @@ export default {
         document.body.style.removeProperty('overflow')
       }
     }
+  },
+  mounted() {
+    vh()
+
+    window.addEventListener('resize', vh)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', vh)
   }
 }
 </script>
@@ -93,7 +102,7 @@ export default {
     position: sticky;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: var(--spacing-unit);
     background-color: color("dark");
 
@@ -109,7 +118,7 @@ export default {
 
     @include media("lg") {
       width: 50%;
-      min-height: 100vh;
+      min-height: calc(var(--vh, 1vh) * 100);
       margin-left: 50%;
     }
   }
