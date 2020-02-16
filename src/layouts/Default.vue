@@ -15,6 +15,8 @@
     <main :class="`${$options.className}__main`">
       <slot />
     </main>
+
+    <portal-target name="modal" />
   </div>
 </template>
 

@@ -44,52 +44,54 @@
       </ButtonIcon>
     </p>
 
-    <ModalDialog
-      :open="modalActive"
-      @close="modalClose">
-      <template #header>
-        <ButtonIcon
-          v-if="type === 'booking'"
-          label="I’d like to book you in for work"
-          color="red"
-          tag="div">
-          <g-image
-            src="/icons/icon-working.png"
-            width="60"
-            height="60"
-            alt="I’d like to book you in for work" />
-        </ButtonIcon>
+    <portal to="modal">
+      <ModalDialog
+        :open="modalActive"
+        @close="modalClose">
+        <template #header>
+          <ButtonIcon
+            v-if="type === 'booking'"
+            label="I’d like to book you in for work"
+            color="red"
+            tag="div">
+            <g-image
+              src="/icons/icon-working.png"
+              width="60"
+              height="60"
+              alt="I’d like to book you in for work" />
+          </ButtonIcon>
 
-        <ButtonIcon
-          v-if="type === 'quote'"
-          label="I’d like a quote for a project"
-          color="yellow"
-          tag="div">
-          <g-image
-            src="/icons/icon-money.png"
-            width="60"
-            height="60"
-            alt="I’d like a quote for a project" />
-        </ButtonIcon>
+          <ButtonIcon
+            v-if="type === 'quote'"
+            label="I’d like a quote for a project"
+            color="yellow"
+            tag="div">
+            <g-image
+              src="/icons/icon-money.png"
+              width="60"
+              height="60"
+              alt="I’d like a quote for a project" />
+          </ButtonIcon>
 
-        <ButtonIcon
-          v-if="type === 'question'"
-          label="I’d like to ask a general question"
-          color="green"
-          tag="div">
-          <g-image
-            src="/icons/icon-wave.png"
-            width="60"
-            height="60"
-            alt="I’d like to ask a general question" />
-        </ButtonIcon>
-      </template>
-      <template #main>
-        <FormContact
-          :key="renderKey"
-          :to="type" />
-      </template>
-    </ModalDialog>
+          <ButtonIcon
+            v-if="type === 'question'"
+            label="I’d like to ask a general question"
+            color="green"
+            tag="div">
+            <g-image
+              src="/icons/icon-wave.png"
+              width="60"
+              height="60"
+              alt="I’d like to ask a general question" />
+          </ButtonIcon>
+        </template>
+        <template #main>
+          <FormContact
+            :key="renderKey"
+            :to="type" />
+        </template>
+      </ModalDialog>
+    </portal>
   </SectionSlice>
 </template>
 
