@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { media } from '@/utils/media'
+
 export default {
   name: 'SectionSlice',
   className: 'SectionSlice',
@@ -29,7 +31,7 @@ export default {
   },
   methods: {
     evaluateSticky() {
-      this.isSticky = parseInt(this.$refs.section.offsetHeight, 10) <= window.innerHeight
+      this.isSticky = media.is('lg') && (parseInt(this.$refs.section.offsetHeight, 10) <= window.innerHeight)
     }
   }
 }
