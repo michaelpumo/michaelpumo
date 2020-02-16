@@ -3,6 +3,9 @@ const sgMail = require('@sendgrid/mail')
 const { SENDGRID_API_KEY, SENDGRID_TO_EMAIL } = process.env
 sgMail.setApiKey(SENDGRID_API_KEY)
 
+const nl2br = (text = '') => (typeof text !== 'string') ? text : text.toString().replace(/(\r\n|\n\r|\r|\n)/g, '<br>' + '$1')
+const titleCase = (text = '') => `${text.trim().charAt(0).toUpperCase()}${text.trim().slice(1)}`
+
 exports.handler = async(event, context) => {
   const payload = JSON.parse(event.body)
   const {
@@ -13,9 +16,8 @@ exports.handler = async(event, context) => {
 
   sgMail.setApiKey(SENDGRID_API_KEY)
 
-  const titleCase = (text) => `${text.trim().charAt(0).toUpperCase()}${text.trim().slice(1)}`
   const body = Object.keys(payload).map((key) => {
-    return `<p>${titleCase(key)}: ${payload[key]}</p>`
+    return `<p><strong>${titleCase(key)}</strong><br>${nl2br(payload[key])}</p>`
   }).join('')
 
   const message = {
