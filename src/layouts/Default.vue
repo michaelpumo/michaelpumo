@@ -26,6 +26,10 @@
       allGlobals {
         edges {
           node {
+            meta_google_verification
+            meta_language
+            meta_twitter_handle
+            meta_type
             navigation {
               id
               title
@@ -48,6 +52,35 @@ import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
 export default {
   name: 'Layout',
   className: 'Layout',
+  metaInfo() {
+    return ({
+      htmlAttrs: {
+        lang: this.global.meta_language
+      },
+      meta: [
+        {
+          property: 'google-site-verification',
+          content: this.global.meta_google_verification
+        },
+        {
+          property: 'og:type',
+          content: this.global.meta_type
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary'
+        },
+        {
+          property: 'twitter:creator',
+          content: `@${this.global.meta_twitter_handle}`
+        },
+        {
+          property: 'twitter:site',
+          content: `@${this.global.meta_twitter_handle}`
+        }
+      ]
+    })
+  },
   components: {
     AppCursor,
     AppHero,
@@ -71,6 +104,9 @@ export default {
     ...mapGetters({
       appLocked: 'app/locked'
     }),
+    global() {
+      return this.$static.prismic.allGlobals.edges[0].node
+    },
     navigation() {
       return this.$static.prismic.allGlobals.edges[0].node.navigation
     }

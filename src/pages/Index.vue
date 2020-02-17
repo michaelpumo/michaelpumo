@@ -51,6 +51,7 @@
         meta_title
         meta_description
         meta_keywords
+        meta_author
         meta_image
         title
         description
@@ -168,6 +169,10 @@ export default {
           content: this.page.meta_keywords
         },
         {
+          name: 'author',
+          content: this.page.meta_author
+        },
+        {
           property: 'og:title',
           content: this.page.meta_title
         },
@@ -177,6 +182,18 @@ export default {
         },
         {
           property: 'og:image',
+          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
+        },
+        {
+          property: 'twitter:title',
+          content: this.page.meta_title
+        },
+        {
+          property: 'twitter:description',
+          content: this.page.meta_description
+        },
+        {
+          property: 'twitter:image:src',
           content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
         }
       ]
