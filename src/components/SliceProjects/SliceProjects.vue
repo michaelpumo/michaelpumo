@@ -68,5 +68,9 @@ export default {
     //   grid-row-gap: calc((var(--spacing-unit) - #{spacing("sm")}) / 2);
     // }
   }
+
+  &__item {
+    width: 400px;
+  }
 }
 </style>
