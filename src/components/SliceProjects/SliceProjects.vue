@@ -53,8 +53,12 @@ export default {
 .SliceProjects {
   $root: &;
 
-  padding: var(--spacing-unit);
+  padding: calc((var(--spacing-unit) * 2) + var(--button-size)) var(--spacing-unit) calc(var(--spacing-unit) * 2);
   background-color: color("grey");
+
+  @include media("lg") {
+    padding: var(--spacing-unit);
+  }
 
   &__content {
     width: 100%;
