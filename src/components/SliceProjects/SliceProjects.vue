@@ -10,20 +10,11 @@
         v-for="(project, index) in slice.fields"
         :key="index"
         :class="`${$options.className}__item`">
-        <!-- {{ project.link }}
-        {{ project.image }} -->
-        <div :class="`${$options.className}__info`">
-          <h4
-            v-if="project.name"
-            :class="`${$options.className}__name`">
-            {{ project.name }}
-          </h4>
-          <p
-            v-if="project.role"
-            :class="`${$options.className}__role`">
-            {{ project.role }}
-          </p>
-        </div>
+        <ProjectCard
+          :name="project.name"
+          :role="project.role"
+          :image="project.image"
+          :link="project.link" />
       </li>
     </ul>
   </SectionSlice>
@@ -31,6 +22,7 @@
 
 <script>
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
+import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
 export default {
@@ -38,6 +30,7 @@ export default {
   className: 'SliceProjects',
   components: {
     PrismicRichtext,
+    ProjectCard,
     SectionSlice
   },
   props: {
@@ -68,12 +61,12 @@ export default {
   &__list {
     margin: 0 0 -#{spacing("sm")} 0;
 
-    @include media("xs") {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: var(--spacing-unit);
-      grid-row-gap: calc((var(--spacing-unit) - #{spacing("sm")}) / 2);
-    }
+    // @include media("xs") {
+    //   display: grid;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   grid-column-gap: var(--spacing-unit);
+    //   grid-row-gap: calc((var(--spacing-unit) - #{spacing("sm")}) / 2);
+    // }
   }
 }
 </style>

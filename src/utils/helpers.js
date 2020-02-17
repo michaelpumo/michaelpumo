@@ -28,6 +28,10 @@ function linkResolver(doc) {
 }
 
 function isObjectEmpty(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return true
+  }
+
   return Object.keys(obj).length === 0 && obj.constructor === Object
 }
 
