@@ -85,6 +85,7 @@
             type
             primary {
               id
+              content
             }
             fields {
               image
