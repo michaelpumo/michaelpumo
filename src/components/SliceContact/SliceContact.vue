@@ -7,14 +7,14 @@
 
     <p>
       <ButtonIcon
-        label="I’d like to book you in for work"
+        label="I’d like to book you in"
         color="red"
         @click.native="modalOpen('booking')">
         <g-image
           src="/icons/icon-working.png"
           width="60"
           height="60"
-          alt="I’d like to book you in for work" />
+          alt="I’d like to book you in" />
       </ButtonIcon>
     </p>
 
@@ -33,14 +33,14 @@
 
     <p>
       <ButtonIcon
-        label="I’d like to ask a general question"
+        label="I’d like to ask a question"
         color="green"
         @click.native="modalOpen('question')">
         <g-image
           src="/icons/icon-wave.png"
           width="60"
           height="60"
-          alt="I’d like to ask a general question" />
+          alt="I’d like to ask a question" />
       </ButtonIcon>
     </p>
 
@@ -51,14 +51,14 @@
         <template #header>
           <ButtonIcon
             v-if="type === 'booking'"
-            label="I’d like to book you in for work"
+            label="I’d like to book you in"
             color="red"
             tag="div">
             <g-image
               src="/icons/icon-working.png"
               width="60"
               height="60"
-              alt="I’d like to book you in for work" />
+              alt="I’d like to book you in" />
           </ButtonIcon>
 
           <ButtonIcon
@@ -75,14 +75,14 @@
 
           <ButtonIcon
             v-if="type === 'question'"
-            label="I’d like to ask a general question"
+            label="I’d like to ask a question"
             color="green"
             tag="div">
             <g-image
               src="/icons/icon-wave.png"
               width="60"
               height="60"
-              alt="I’d like to ask a general question" />
+              alt="I’d like to ask a question" />
           </ButtonIcon>
         </template>
         <template #main>
