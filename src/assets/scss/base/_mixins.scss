@@ -69,13 +69,17 @@
 }
 
 @mixin label() {
-  @include type-style("4");
+  @include type-style("5");
 
   font-weight: 500;
   padding: 0;
   margin: 0 0 (spacing("sm") / 2) 0;
   color: color("dark");
   user-select: none;
+
+  @include media("sm") {
+    @include type-style("4");
+  }
 }
 
 @mixin input() {
