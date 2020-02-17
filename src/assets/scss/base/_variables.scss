@@ -28,13 +28,21 @@ $sizes: (
 
 $breakpoints: (
   "xxs": "min-width: #{map-get($sizes, 'xxs')}",
+  "xxsMax": "max-width: #{map-get($sizes, 'xxs') - 1px}",
   "xs": "min-width: #{map-get($sizes, 'xs')}",
+  "xsMax": "max-width: #{map-get($sizes, 'xs') - 1px}",
   "sm": "min-width: #{map-get($sizes, 'sm')}",
+  "smMax": "max-width: #{map-get($sizes, 'sm') - 1px}",
   "md": "min-width: #{map-get($sizes, 'md')}",
+  "mdMax": "max-width: #{map-get($sizes, 'md') - 1px}",
   "lg": "min-width: #{map-get($sizes, 'lg')}",
+  "lgMax": "max-width: #{map-get($sizes, 'lg') - 1px}",
   "xl": "min-width: #{map-get($sizes, 'xl')}",
+  "xlMax": "max-width: #{map-get($sizes, 'xl') - 1px}",
   "xxl": "min-width: #{map-get($sizes, 'xxl')}",
-  "xxxl": "min-width: #{map-get($sizes, 'xxxl')}"
+  "xxlMax": "max-width: #{map-get($sizes, 'xxl') - 1px}",
+  "xxxl": "min-width: #{map-get($sizes, 'xxxl')}",
+  "xxxlMax": "max-width: #{map-get($sizes, 'xxxl') - 1px}"
 );
 
 $typefaces: (

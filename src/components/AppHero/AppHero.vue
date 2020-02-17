@@ -12,7 +12,8 @@
       <PrismicRichtext
         v-if="description && description.length"
         :class="`${$options.className}__description`"
-        :html="description" />
+        :html="description"
+        br-off="xsMax" />
 
       <p :class="`${$options.className}__cta`">
         <ButtonInput
@@ -94,14 +95,6 @@ export default {
 
         @include media("sm") {
           @include type-style("4");
-        }
-      }
-
-      br {
-        display: none;
-
-        @include media("sm") {
-          display: block;
         }
       }
     }
