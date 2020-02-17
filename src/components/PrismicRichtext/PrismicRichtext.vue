@@ -30,6 +30,7 @@ export default {
       default: '',
       validator(value) {
         return [
+          '',
           'xxs',
           'xxsMax',
           'xs',
