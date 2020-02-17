@@ -2,7 +2,9 @@
   <Layout
     :title="page.title"
     :description="page.description"
-    :colophon="page.colophon">
+    :colophon="page.colophon"
+    :button-id="page.button_id"
+    :button-title="page.button_title">
     <template v-for="(slice, index) in page.body">
       <SliceClients
         v-if="slice.type === 'clients'"
@@ -56,6 +58,8 @@
         title
         description
         colophon
+        button_id
+        button_title
         body {
           ... on prismic_PageBodyClients {
             type

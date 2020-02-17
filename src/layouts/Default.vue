@@ -9,7 +9,9 @@
       <AppHero
         :title="title"
         :description="description"
-        :colophon="colophon" />
+        :colophon="colophon"
+        :button-id="buttonId"
+        :button-title="buttonTitle" />
     </div>
 
     <main :class="`${$options.className}__main`">
@@ -98,6 +100,14 @@ export default {
     colophon: {
       type: Array,
       default: () => ([])
+    },
+    buttonTitle: {
+      type: String,
+      default: ''
+    },
+    buttonId: {
+      type: String,
+      default: ''
     }
   },
   computed: {

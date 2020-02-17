@@ -15,9 +15,14 @@
         :html="description"
         br-off="xsMax" />
 
-      <p :class="`${$options.className}__cta`">
+      <p
+        v-if="buttonId && buttonTitle"
+        :class="`${$options.className}__cta`">
         <ButtonInput
-          label="Let's work together!" />
+          v-jump-to="{
+            id: slugify(buttonId)
+          }"
+          :label="buttonTitle" />
       </p>
     </div>
 
@@ -29,6 +34,8 @@
 </template>
 
 <script>
+import { slugify } from '@/utils/helpers'
+import { jumpTo } from '@/utils/directives'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 
@@ -38,6 +45,9 @@ export default {
   components: {
     ButtonInput,
     PrismicRichtext
+  },
+  directives: {
+    jumpTo
   },
   props: {
     title: {
@@ -51,7 +61,18 @@ export default {
     colophon: {
       type: Array,
       default: () => ([])
+    },
+    buttonTitle: {
+      type: String,
+      default: ''
+    },
+    buttonId: {
+      type: String,
+      default: ''
     }
+  },
+  methods: {
+    slugify
   }
 }
 </script>
