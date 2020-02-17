@@ -101,8 +101,6 @@ export default {
   height: 100%;
 
   &__introduction {
-    position: sticky;
-    top: 0;
     width: 100%;
     height: calc(var(--vh, 1vh) * 100);
     padding: var(--spacing-unit);
