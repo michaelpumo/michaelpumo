@@ -1,27 +1,39 @@
-import jump from 'jump.js'
+import anime from 'animejs'
 
 function doJump(e) {
   e.preventDefault()
 
-  const { identifier, duration, offset, callback } = e.target
+  const {
+    identifier,
+    duration,
+    offset,
+    callback,
+    container,
+    easing
+  } = e.target
 
   if (!identifier.length) {
     return
   }
 
   const place = document.querySelector(`#${identifier}`)
+  const scrollable = document.querySelector(`#${container}`)
 
-  if (!place) {
+  if (!place || !scrollable) {
     return
   }
+
+  // const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement
 
   place.style.position = 'static'
 
   window.requestAnimationFrame(() => {
-    jump(place, {
+    anime({
+      targets: scrollable,
+      scrollTop: place.offsetTop + offset,
       duration,
-      offset,
-      callback: () => {
+      easing,
+      complete() {
         callback()
       }
     })
@@ -35,7 +47,9 @@ const defaults = {
   id: '',
   duration: 500,
   offset: 0,
-  callback: () => {}
+  callback: () => ({}),
+  container: 'app',
+  easing: 'easeInOutQuad'
 }
 
 const jumpTo = {
@@ -49,6 +63,8 @@ const jumpTo = {
     el.duration = properties.duration
     el.offset = properties.offset
     el.callback = properties.callback
+    el.container = properties.container
+    el.easing = properties.easing
 
     el.addEventListener('click', doJump)
   },
@@ -62,6 +78,8 @@ const jumpTo = {
     el.duration = properties.duration
     el.offset = properties.offset
     el.callback = properties.callback
+    el.container = properties.container
+    el.easing = properties.easing
   },
   unbind: (el) => {
     el.removeEventListener('click', doJump)
