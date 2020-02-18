@@ -150,7 +150,7 @@ export default {
 <style lang="scss" scoped>
 .SliceContact {
   padding: calc((var(--spacing-unit) * 2) + var(--button-size)) var(--spacing-unit) calc(var(--spacing-unit) * 2);
-  background-color: color("light");
+  background-color: color("grey");
 
   @include media("lg") {
     padding: var(--spacing-unit);
