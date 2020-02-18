@@ -16,7 +16,6 @@
     "jump.js": "^1.0.2",
     "portal-vue": "^2.1.7",
     "swiper": "^5.3.1",
-    "vue-flickity": "^1.2.1",
     "vuelidate": "^0.7.5",
     "vuex": "^3.1.2"
   },
@@ -31,7 +30,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.0",
+    "eslint-plugin-vue": "^6.2.1",
     "gridsome-source-graphql-prismic": "^0.1.6",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
