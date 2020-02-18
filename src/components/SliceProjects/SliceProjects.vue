@@ -90,7 +90,7 @@ export default {
 
   &__container {
     width: calc(100% + (var(--spacing-unit) * 2));
-    padding: 0 var(--spacing-unit) var(--spacing-unit) 20px;
+    padding: 0 var(--spacing-unit) 20px;
     margin: 0 0 0 calc(-1 * var(--spacing-unit));
 
     @include media("sm") {
@@ -98,7 +98,7 @@ export default {
     }
 
     @include media("lg") {
-      padding: 40px var(--spacing-unit);
+      padding: 25px var(--spacing-unit) 20px;
     }
   }
 

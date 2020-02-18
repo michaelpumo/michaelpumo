@@ -48,9 +48,10 @@ export default {
     },
     color: {
       type: String,
-      default: 'red',
+      default: 'theme',
       validator(value) {
         return [
+          'theme',
           'red',
           'green',
           'yellow'
@@ -78,6 +79,11 @@ export default {
     height: 50px;
     padding: 10px;
     border-radius: 50%;
+    transition: background-color $trans-speed $trans-ease;
+
+    #{$root}.color-theme & {
+      background-color: var(--color-theme);
+    }
 
     $colors: (red, green, yellow);
 

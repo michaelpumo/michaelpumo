@@ -1,6 +1,10 @@
+html,
+body {
+  background-color: color("dark");
+}
+
 html {
   font-size: 1em;
-  background: color("light");
   color: color("slate");
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

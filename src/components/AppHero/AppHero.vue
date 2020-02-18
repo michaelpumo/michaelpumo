@@ -103,6 +103,7 @@ export default {
 
   &__title {
     color: var(--color-theme);
+    transition: color $trans-speed $trans-ease;
   }
 
   &__description {
@@ -111,6 +112,10 @@ export default {
     }
 
     &::v-deep {
+      * {
+        transition: color $trans-speed $trans-ease;
+      }
+
       p {
         @include type-style("5");
 

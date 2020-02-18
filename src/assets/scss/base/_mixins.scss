@@ -112,7 +112,7 @@
 
 @mixin shadow-box() {
   border-radius: 10px;
-  box-shadow: 5px 5px 10px rgba(color("dark"), 0.1);
+  box-shadow: 5px 5px 10px rgba(color("dark"), 0.15);
 }
 
 @mixin ie11($bp: null) {

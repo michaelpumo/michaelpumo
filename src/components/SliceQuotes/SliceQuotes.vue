@@ -95,6 +95,7 @@ export default {
   overflow: hidden;
   padding: var(--spacing-unit);
   background-color: var(--color-theme);
+  transition: background-color $trans-speed $trans-ease;
 
   &::v-deep {
     .swiper-pagination {

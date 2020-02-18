@@ -119,8 +119,7 @@ export default {
     margin: 0;
     opacity: 0;
     background-color: rgba(color("light"), 0);
-    transition:
-      opacity $trans-speed $trans-ease;
+    transition: opacity $trans-speed $trans-ease;
 
     @include media("sm") {
       padding: calc(var(--spacing-unit) / 2);
