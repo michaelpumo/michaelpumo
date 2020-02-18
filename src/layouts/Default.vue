@@ -2,21 +2,23 @@
   <div
     :class="[
       $options.className,
-      { 'is-locked': appLocked }
+      { 'is-locked': appLocked },
+      { 'is-ready': appReady }
     ]">
     <AppCursor />
+
     <AppNavigation
       title="Burger menu"
       :items="navigation" />
 
-    <div :class="`${$options.className}__introduction`">
+    <header :class="`${$options.className}__introduction`">
       <AppHero
         :title="title"
         :description="description"
         :colophon="colophon"
         :button-id="buttonId"
         :button-title="buttonTitle" />
-    </div>
+    </header>
 
     <main :class="`${$options.className}__main`">
       <slot />
@@ -49,7 +51,7 @@
 </static-query>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { vh } from '@/utils/helpers'
 import AppCursor from '@/components/AppCursor/AppCursor.vue'
 import AppHero from '@/components/AppHero/AppHero.vue'
@@ -116,7 +118,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      appLocked: 'app/locked'
+      appLocked: 'app/locked',
+      appReady: 'app/ready'
     }),
     global() {
       return this.$static.prismic.allGlobals.edges[0].node
@@ -128,16 +131,25 @@ export default {
   mounted() {
     vh()
 
+    this.setAppReady(true)
+
     window.addEventListener('resize', vh)
   },
   beforeDestroy() {
     window.removeEventListener('resize', vh)
+  },
+  methods: {
+    ...mapActions({
+      setAppReady: 'app/setReady'
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .Layout {
+  $root: &;
+
   position: absolute;
   top: 0;
   right: 0;
@@ -165,7 +177,20 @@ export default {
     @include media("lg") {
       position: fixed;
       left: 0;
+      z-index: 1;
       width: 50%;
+
+      // @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+      //   width: 100%;
+      //   clip-path: polygon(0 0, 100% 0%, 78% 100%, 0% 100%);
+      //   transition: clip-path ($trans-speed * 2) $trans-ease;
+      // }
+
+      // #{$root}.is-ready & {
+      //   @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+      //     clip-path: polygon(0 0, calc(50% + 1px) 0, calc(50% + 1px) 100%, 0% 100%);
+      //   }
+      // }
     }
   }
 

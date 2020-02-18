@@ -1,18 +1,23 @@
 const app = {
   namespaced: true,
   state: {
+    ready: false,
     locked: false,
     theme: 'red',
     mode: 'dark',
     cursor: 'default'
   },
   getters: {
+    ready: (state) => state.ready,
     locked: (state) => state.locked,
     theme: (state) => state.theme,
     mode: (state) => state.mode,
     cursor: (state) => state.cursor
   },
   mutations: {
+    SET_READY(state, payload) {
+      state.ready = payload
+    },
     SET_LOCKED(state, payload) {
       state.locked = payload
     },
@@ -27,6 +32,9 @@ const app = {
     }
   },
   actions: {
+    setReady(context, payload) {
+      context.commit('SET_READY', payload)
+    },
     setLocked(context, payload) {
       context.commit('SET_LOCKED', payload)
     },
