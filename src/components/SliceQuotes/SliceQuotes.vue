@@ -139,7 +139,6 @@ export default {
   &__container {
     width: 100%;
     overflow: visible;
-    background-color: darkgoldenrod;
   }
 
   &__list {
