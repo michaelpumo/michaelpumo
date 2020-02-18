@@ -3,7 +3,8 @@
     :class="[
       $options.className,
       { 'is-locked': appLocked },
-      { 'is-ready': appReady }
+      { 'is-ready': appReady },
+      `is-theme-${appTheme}`,
     ]">
     <AppCursor />
 
@@ -119,7 +120,8 @@ export default {
   computed: {
     ...mapGetters({
       appLocked: 'app/locked',
-      appReady: 'app/ready'
+      appReady: 'app/ready',
+      appTheme: 'app/theme'
     }),
     global() {
       return this.$static.prismic.allGlobals.edges[0].node
@@ -163,6 +165,15 @@ export default {
 
   &.is-locked {
     overflow: hidden;
+  }
+
+  $colors: (red, green, yellow);
+
+  @each $color in $colors {
+    &.is-theme-#{$color} {
+      // background-color: ;
+      --color-theme: #{color($color)};
+    }
   }
 
   &__introduction {

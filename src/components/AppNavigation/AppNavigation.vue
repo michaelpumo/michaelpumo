@@ -34,6 +34,8 @@
           </p>
         </li>
       </ul>
+
+      <ThemeSwitcher />
     </div>
   </nav>
 </template>
@@ -43,12 +45,14 @@ import { mapActions, mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
+import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher'
 
 export default {
   name: 'AppNavigation',
   className: 'AppNavigation',
   components: {
-    ButtonIcon
+    ButtonIcon,
+    ThemeSwitcher
   },
   directives: {
     jumpTo
