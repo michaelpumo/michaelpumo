@@ -89,8 +89,48 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  overflow: hidden;
   padding: var(--spacing-unit);
   background-color: var(--color-theme);
+
+  &::v-deep {
+    .swiper-pagination {
+      bottom: -60px;
+      left: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: transparent;
+    }
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      background-color: transparent;
+      border-radius: 0;
+      cursor: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: color("light");
+        border-radius: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+  }
+
+  &__container {
+    width: 100%;
+    overflow: visible;
+  }
 
   &__list {
     width: 100%;
@@ -109,7 +149,7 @@ export default {
     opacity: 0;
     background-color: transparent;
     color: color("dark");
-    transition: opacity $trans-speed $trans-ease;
+    transition: opacity ($trans-speed * 2) $trans-ease;
 
     &.swiper-slide-active {
       opacity: 1;
