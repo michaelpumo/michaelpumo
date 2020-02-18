@@ -90,8 +90,12 @@ export default {
 
   &__container {
     width: calc(100% + (var(--spacing-unit) * 2));
-    padding: 40px var(--spacing-unit);
+    padding: 0 var(--spacing-unit);
     margin: 0 0 0 calc(-1 * var(--spacing-unit));
+
+    @include media("sm") {
+      padding: 40px var(--spacing-unit);
+    }
   }
 
   &__list {

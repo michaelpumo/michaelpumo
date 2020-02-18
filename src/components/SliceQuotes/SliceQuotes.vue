@@ -108,9 +108,11 @@ export default {
       width: 30px;
       height: 30px;
       margin: 0;
+      opacity: 0.5;
       background-color: transparent;
       border-radius: 0;
       cursor: none;
+      transition: opacity ($trans-speed * 2) $trans-ease;
 
       &::before {
         content: "";
@@ -123,6 +125,10 @@ export default {
         background-color: color("light");
         border-radius: 50%;
         transform: translate3d(-50%, -50%, 0);
+      }
+
+      &-active {
+        opacity: 1;
       }
     }
   }
