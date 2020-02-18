@@ -121,6 +121,13 @@ export default {
     }
   }
 
+  &__cta,
+  &__colophon {
+    display: inline-block;
+    width: auto;
+    pointer-events: auto;
+  }
+
   &__cta {
     margin: 0;
   }

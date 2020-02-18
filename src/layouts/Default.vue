@@ -160,6 +160,7 @@ export default {
     height: 100%;
     padding: var(--spacing-unit);
     background-color: color("dark");
+    pointer-events: none;
 
     @include media("lg") {
       position: fixed;
