@@ -1,36 +1,47 @@
 <template>
   <SectionSlice :class="$options.className">
-    <Flickity
-      ref="flickity"
-      :options="flickityOptions"
-      :class="`${$options.className}__list`">
-      <blockquote
-        v-for="(client, index) in slice.fields"
-        :key="index"
-        :class="`${$options.className}__item`">
-        <PrismicRichtext
-          v-if="client.quote && client.quote.length"
-          :class="`${$options.className}__quote`"
-          :html="client.quote" />
-        <footer>
-          <h4
-            v-if="client.name"
-            :class="`${$options.className}__name`">
-            {{ client.name }}
-          </h4>
-          <p
-            v-if="client.author"
-            :class="`${$options.className}__author`">
-            <cite>{{ client.author }}</cite>
-          </p>
-        </footer>
-      </blockquote>
-    </Flickity>
+    <div
+      ref="carousel"
+      :class="[
+        `${$options.className}__container`,
+        'swiper-container'
+      ]">
+      <ul
+        :class="[
+          `${$options.className}__list`,
+          'swiper-wrapper'
+        ]">
+        <li
+          v-for="(client, index) in slice.fields"
+          :key="index"
+          :class="`${$options.className}__item  swiper-slide`">
+          <blockquote :class="`${$options.className}__blockquote`">
+            <PrismicRichtext
+              v-if="client.quote && client.quote.length"
+              :class="`${$options.className}__content`"
+              :html="client.quote" />
+            <footer>
+              <h4
+                v-if="client.name"
+                :class="`${$options.className}__name`">
+                {{ client.name }}
+              </h4>
+              <p
+                v-if="client.author"
+                :class="`${$options.className}__author`">
+                <cite>{{ client.author }}</cite>
+              </p>
+            </footer>
+          </blockquote>
+        </li>
+      </ul>
+      <div class="swiper-pagination" />
+    </div>
   </SectionSlice>
 </template>
 
 <script>
-import Flickity from 'vue-flickity'
+import { Swiper, Keyboard, Pagination } from 'swiper/js/swiper.esm'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
@@ -38,7 +49,6 @@ export default {
   name: 'SliceQuotes',
   className: 'SliceQuotes',
   components: {
-    Flickity,
     PrismicRichtext,
     SectionSlice
   },
@@ -48,19 +58,26 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-      flickityOptions: {
-        autoPlay: 5000,
-        pauseAutoPlayOnHover: true,
-        initialIndex: 0,
-        prevNextButtons: false,
-        pageDots: true,
-        wrapAround: true,
-        resize: true,
-        fade: true
+  mounted() {
+    Swiper.use([Keyboard, Pagination])
+
+    this.carousel = new Swiper(this.$refs.carousel, {
+      keyboard: {
+        enabled: true
+      },
+      direction: 'horizontal',
+      grabCursor: false,
+      navigation: false,
+      slidesPerView: 1,
+      speed: 350,
+      loop: false,
+      spaceBetween: 0,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
       }
-    }
+    })
   }
 }
 </script>
@@ -74,46 +91,6 @@ export default {
   justify-content: flex-start;
   padding: var(--spacing-unit);
   background-color: var(--color-theme);
-
-  &::v-deep {
-    .flickity-page-dots {
-      bottom: -55px;
-      left: -8px;
-      display: flex;
-      width: 100%;
-      overflow: hidden;
-      text-align: left;
-
-      .dot {
-        position: relative;
-        display: block;
-        width: 25px;
-        height: 30px;
-        margin: 0;
-        opacity: 0.5;
-        background-color: transparent;
-        border-radius: 0;
-        cursor: none;
-        transition: opacity $trans-speed $trans-ease;
-
-        &.is-selected {
-          opacity: 1;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 10px;
-          height: 10px;
-          background-color: color("light");
-          border-radius: 50%;
-          transform: translate3d(-50%, -50%, 0);
-        }
-      }
-    }
-  }
 
   &__list {
     width: 100%;
@@ -134,12 +111,17 @@ export default {
     color: color("dark");
     transition: opacity $trans-speed $trans-ease;
 
-    &.is-selected {
+    &.swiper-slide-active {
       opacity: 1;
     }
   }
 
-  &__quote {
+  &__blockquote {
+    width: 100%;
+    margin: 0;
+  }
+
+  &__content {
     &::v-deep * {
       @include type-style("3");
 

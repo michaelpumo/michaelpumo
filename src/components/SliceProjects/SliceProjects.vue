@@ -61,12 +61,12 @@ export default {
       direction: 'horizontal',
       grabCursor: false,
       navigation: false,
-      // centeredSlides: true,
       slidesPerView: 'auto',
       speed: 350,
       loop: true,
-      threshold: 10,
-      spaceBetween: 20
+      spaceBetween: 20,
+      pagination: false
+      // freeMode: true
     })
   }
 }
