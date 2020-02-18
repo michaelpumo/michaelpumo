@@ -291,8 +291,9 @@ export default {
       this.company = ''
       this.message = ''
       this.found = ''
-
       this.status = ''
+
+      this.$v.$reset()
     },
     attempt() {
       this.status = ''
