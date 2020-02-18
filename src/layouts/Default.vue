@@ -1,5 +1,9 @@
 <template>
-  <div :class="$options.className">
+  <div
+    :class="[
+      $options.className,
+      { 'is-locked': appLocked }
+    ]">
     <AppCursor />
     <AppNavigation
       title="Burger menu"
@@ -121,15 +125,6 @@ export default {
       return this.$static.prismic.allGlobals.edges[0].node.navigation
     }
   },
-  watch: {
-    appLocked(lock) {
-      if (lock) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.removeProperty('overflow')
-      }
-    }
-  },
   mounted() {
     vh()
 
@@ -154,11 +149,15 @@ export default {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
+  &.is-locked {
+    overflow: hidden;
+  }
+
   &__introduction {
     position: sticky;
     top: 0;
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
     padding: var(--spacing-unit);
     background-color: color("dark");
 

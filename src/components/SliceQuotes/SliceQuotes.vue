@@ -14,7 +14,10 @@
         <li
           v-for="(client, index) in slice.fields"
           :key="index"
-          :class="`${$options.className}__item  swiper-slide`">
+          :class="[
+            `${$options.className}__item`,
+            'swiper-slide'
+          ]">
           <blockquote :class="`${$options.className}__blockquote`">
             <PrismicRichtext
               v-if="client.quote && client.quote.length"
@@ -136,6 +139,7 @@ export default {
   &__container {
     width: 100%;
     overflow: visible;
+    background-color: darkgoldenrod;
   }
 
   &__list {
@@ -143,7 +147,6 @@ export default {
     max-width: 600px;
     padding: 0;
     margin: 0;
-    background-color: transparent;
     user-select: none;
   }
 
@@ -153,7 +156,6 @@ export default {
     padding: 0;
     margin: 0;
     opacity: 0;
-    background-color: transparent;
     color: color("dark");
     transition: opacity ($trans-speed * 2) $trans-ease;
 
