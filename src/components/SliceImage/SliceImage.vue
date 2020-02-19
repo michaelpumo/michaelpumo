@@ -1,6 +1,6 @@
 <template>
   <SectionSlice :class="$options.className">
-    <g-image
+    <ImageLazy
       :class="`${$options.className}__image`"
       :src="slice.primary.image.url"
       :width="slice.primary.image.dimensions.width.toString()"
@@ -10,12 +10,14 @@
 </template>
 
 <script>
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
 export default {
   name: 'SliceImage',
   className: 'SliceImage',
   components: {
+    ImageLazy,
     SectionSlice
   },
   props: {

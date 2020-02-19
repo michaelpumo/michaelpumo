@@ -16,7 +16,7 @@
           rel="noopener">LinkedIn</a>.
       </p>
       <p>
-        <g-image
+        <ImageLazy
           :class="`${$options.className}__image`"
           src="/icons/icon-working.png"
           width="60"
@@ -44,7 +44,7 @@
           rel="noopener">LinkedIn</a>?
       </p>
       <p>
-        <g-image
+        <ImageLazy
           :class="`${$options.className}__image`"
           src="/icons/icon-facepalm.png"
           width="60"
@@ -195,6 +195,7 @@ import {
   FormSelect
   // FormToggle
 } from '@/components/Form'
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 
 export default {
   name: 'FormContact',
@@ -204,7 +205,8 @@ export default {
     FormBase,
     FormField,
     FormInput,
-    FormSelect
+    FormSelect,
+    ImageLazy
     // FormToggle
   },
   props: {

@@ -10,7 +10,7 @@
         label="I’d like to book you in"
         color="red"
         @click.native="modalOpen('booking')">
-        <g-image
+        <ImageLazy
           src="/icons/icon-working.png"
           width="60"
           height="60"
@@ -23,7 +23,7 @@
         label="I’d like a quote for a project"
         color="amber"
         @click.native="modalOpen('quote')">
-        <g-image
+        <ImageLazy
           src="/icons/icon-money.png"
           width="60"
           height="60"
@@ -36,7 +36,7 @@
         label="I’d like to ask a question"
         color="green"
         @click.native="modalOpen('question')">
-        <g-image
+        <ImageLazy
           src="/icons/icon-wave.png"
           width="60"
           height="60"
@@ -54,7 +54,7 @@
             label="I’d like to book you in"
             color="red"
             tag="div">
-            <g-image
+            <ImageLazy
               src="/icons/icon-working.png"
               width="60"
               height="60"
@@ -66,7 +66,7 @@
             label="I’d like a quote for a project"
             color="amber"
             tag="div">
-            <g-image
+            <ImageLazy
               src="/icons/icon-money.png"
               width="60"
               height="60"
@@ -78,7 +78,7 @@
             label="I’d like to ask a question"
             color="green"
             tag="div">
-            <g-image
+            <ImageLazy
               src="/icons/icon-wave.png"
               width="60"
               height="60"
@@ -100,6 +100,7 @@ import { mapActions } from 'vuex'
 import { randId } from '@/utils/helpers'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 import FormContact from '@/components/FormContact/FormContact'
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 import ModalDialog from '@/components/ModalDialog/ModalDialog'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
@@ -110,6 +111,7 @@ export default {
   components: {
     ButtonIcon,
     FormContact,
+    ImageLazy,
     ModalDialog,
     PrismicRichtext,
     SectionSlice

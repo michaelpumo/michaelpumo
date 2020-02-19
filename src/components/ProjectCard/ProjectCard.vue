@@ -2,7 +2,7 @@
   <PrismicLink
     :link="link"
     :class="$options.className">
-    <g-image
+    <ImageLazy
       v-if="!isObjectEmpty(image)"
       :src="image.url"
       :width="image.dimensions.width.toString()"
@@ -27,12 +27,14 @@
 
 <script>
 import { isObjectEmpty } from '@/utils/helpers'
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 import PrismicLink from '@/components/PrismicLink/PrismicLink.vue'
 
 export default {
   name: 'ProjectCard',
   className: 'ProjectCard',
   components: {
+    ImageLazy,
     PrismicLink
   },
   props: {
@@ -72,7 +74,7 @@ export default {
   overflow: hidden;
   padding-bottom: 133%;
   margin: 0;
-  background-color: color("light");
+  background-color: color("dark");
   color: color("light");
 
   &__image {
@@ -110,71 +112,5 @@ export default {
   &__role {
     margin-bottom: 0;
   }
-  // &__window {
-
-  //   display: flex;
-  //   flex-direction: column;
-  //   width: calc(100vw - var(--spacing-unit));
-  //   max-width: 600px;
-  //   height: calc((var(--vh, 1vh) * 100) - var(--spacing-unit));
-  //   overflow: hidden;
-  //   opacity: 0;
-  //   background-color: color("light");
-  //   transform: scale(0.95);
-  //   transition:
-  //     opacity $trans-speed $trans-ease $trans-speed,
-  //     transform $trans-speed $trans-ease $trans-speed;
-
-  //   #{$root}.is-open & {
-  //     opacity: 1;
-  //     transform: scale(1);
-  //   }
-  // }
-
-  // &__header {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-  //   width: 100%;
-  //   padding: var(--spacing-unit);
-  //   background-color: color("light");
-
-  //   @include media("sm") {
-  //     padding: calc(var(--spacing-unit) / 2);
-  //   }
-  // }
-
-  // &__close {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   width: 15px;
-  //   height: 15px;
-  //   background-color: transparent;
-  //   color: color("dark");
-  // }
-
-  // &__cross {
-  //   width: 100%;
-  //   height: 100%;
-  // }
-
-  // &__a11y {
-  //   @extend %a11y-hidden;
-  // }
-
-  // &__content {
-  //   flex: 1;
-  //   width: 100%;
-  //   overflow-y: scroll;
-  //   -webkit-overflow-scrolling: touch;
-  //   padding: var(--spacing-unit);
-  //   padding-top: 0;
-
-  //   @include media("sm") {
-  //     padding: calc(var(--spacing-unit) / 2);
-  //     padding-top: 0;
-  //   }
-  // }
 }
 </style>

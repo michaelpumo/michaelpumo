@@ -14,7 +14,7 @@
           rel="noopener">LinkedIn</a>?
       </p>
       <p>
-        <g-image
+        <ImageLazy
           :class="`${$options.className}__image`"
           src="/icons/icon-facepalm.png"
           width="60"
@@ -31,13 +31,15 @@
 <script>
 import ErrorLayout from '@/layouts/ErrorLayout.vue'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 
 export default {
   name: 'Page404',
   className: 'Page404',
   components: {
     ErrorLayout,
-    ButtonInput
+    ButtonInput,
+    ImageLazy
   }
 }
 </script>

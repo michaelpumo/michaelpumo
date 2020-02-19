@@ -10,7 +10,7 @@
         heading="3"
         :class="`${$options.className}__toggle`"
         @click.native="toggleNavigation">
-        <g-image
+        <ImageLazy
           src="/icons/icon-hamburger.png"
           width="60"
           height="60"
@@ -45,6 +45,7 @@ import { mapActions, mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
+import ImageLazy from '@/components/ImageLazy/ImageLazy'
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher'
 
 export default {
@@ -52,6 +53,7 @@ export default {
   className: 'AppNavigation',
   components: {
     ButtonIcon,
+    ImageLazy,
     ThemeSwitcher
   },
   directives: {
