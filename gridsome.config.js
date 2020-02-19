@@ -24,6 +24,25 @@ module.exports = {
         useMasterRef: true
       }
     }
+    // {
+    //   use: '@gridsome/source-graphql',
+    //   options: {
+    //     url: `https://${process.env.PRISMIC_REPOSITORY}.prismic.io`,
+    //     // url: 'https://michaelpumo.cdn.prismic.io/api/v2',
+    //     fieldName: 'prismic',
+    //     typeName: 'prismic',
+    //     httpLinkConfig: {
+    //       useGETForQueries: true
+    //     },
+    //     fetchOptions: {
+    //       method: 'GET'
+    //     },
+    //     headers: {
+    //       'Prismic-Ref': 'master',
+    //       Authorization: 'Token <ACCESS_TOKEN>'
+    //     }
+    //   }
+    // }
   ],
   chainWebpack(config) {
     const types = [

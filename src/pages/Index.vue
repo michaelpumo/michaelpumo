@@ -105,6 +105,7 @@
                 ... on prismic__Document {
                   _meta {
                     uid
+                    type
                   }
                 }
                 ... on prismic__ImageLink {

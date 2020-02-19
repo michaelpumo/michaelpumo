@@ -1,5 +1,7 @@
 <template>
-  <article :class="$options.className">
+  <PrismicLink
+    :link="link"
+    :class="$options.className">
     <g-image
       v-if="!isObjectEmpty(image)"
       :src="image.url"
@@ -18,17 +20,22 @@
         v-if="role"
         :class="`${$options.className}__role`">
         {{ role }}
+        {{ link }}
       </p>
     </div>
-  </article>
+  </PrismicLink>
 </template>
 
 <script>
 import { isObjectEmpty } from '@/utils/helpers'
+import PrismicLink from '@/components/PrismicLink/PrismicLink.vue'
 
 export default {
   name: 'ProjectCard',
   className: 'ProjectCard',
+  components: {
+    PrismicLink
+  },
   props: {
     name: {
       type: String,
