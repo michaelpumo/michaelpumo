@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     tag() {
-      return this.isObjectEmpty(this.route) ? 'button' : 'router-link'
+      return this.isObjectEmpty(this.route) ? 'button' : 'g-link'
     }
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
 .ButtonInput {
   @include type-style("5");
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 50px;

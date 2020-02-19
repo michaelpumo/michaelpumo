@@ -1,5 +1,5 @@
 <template>
-  <Layout
+  <AppLayout
     :title="page.title"
     :description="page.description"
     :colophon="page.colophon"
@@ -43,7 +43,7 @@
         :slice="slice"
       />
     </template>
-  </Layout>
+  </AppLayout>
 </template>
 
 <page-query>
@@ -145,6 +145,7 @@
 
 <script>
 import { slugify } from '@/utils/helpers'
+import AppLayout from '@/layouts/AppLayout.vue'
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceContact from '@/components/SliceContact/SliceContact.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
@@ -153,7 +154,10 @@ import SliceQuotes from '@/components/SliceQuotes/SliceQuotes.vue'
 import SliceText from '@/components/SliceText/SliceText.vue'
 
 export default {
+  name: 'PageIndex',
+  className: 'PageIndex',
   components: {
+    AppLayout,
     SliceClients,
     SliceContact,
     SliceImage,

@@ -59,8 +59,8 @@ import AppHero from '@/components/AppHero/AppHero.vue'
 import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
 
 export default {
-  name: 'Layout',
-  className: 'Layout',
+  name: 'AppLayout',
+  className: 'AppLayout',
   metaInfo() {
     return ({
       htmlAttrs: {
@@ -149,7 +149,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Layout {
+.AppLayout {
   $root: &;
 
   position: absolute;

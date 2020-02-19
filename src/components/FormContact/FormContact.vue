@@ -23,11 +23,9 @@
           height="60"
           alt="Message sent" />
       </p>
-      <p>
-        <ButtonInput
-          label="Back to form"
-          @click.native="reset" />
-      </p>
+      <ButtonInput
+        label="Back to form"
+        @click.native="reset" />
     </div>
 
     <div
@@ -53,11 +51,9 @@
           height="60"
           alt="Unexpected error" />
       </p>
-      <p>
-        <ButtonInput
-          label="Let's try again?"
-          @click.native="attempt" />
-      </p>
+      <ButtonInput
+        label="Let's try again?"
+        @click.native="attempt" />
     </div>
 
     <FormBase
@@ -221,8 +217,8 @@ export default {
     return ({
       loading: false,
       status: '',
-      checkboxes: [],
-      radios: [],
+      // checkboxes: [],
+      // radios: [],
       name: '',
       email: '',
       company: '',
@@ -316,12 +312,6 @@ export default {
     width: 100%;
     max-width: 300px;
     text-align: center;
-
-    &::v-deep {
-      button {
-        margin: 0 auto;
-      }
-    }
   }
 
   &__image {
