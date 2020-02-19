@@ -135,10 +135,7 @@ export default {
       $clip-rule: "(var(--button-size) / 2) + (var(--spacing-unit) / 2)";
 
       opacity: 1;
-      clip-path:
-        circle(
-          calc(var(--button-size) / 2) at calc(#{$clip-rule}) calc(#{$clip-rule})
-        );
+      clip-path: circle(calc(var(--button-size) / 2) at calc(#{$clip-rule}) calc(#{$clip-rule}));
       transition:
         background-color $trans-speed ($trans-speed * 2) $trans-ease,
         clip-path ($trans-speed * 2) $trans-ease;
