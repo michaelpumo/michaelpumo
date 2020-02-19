@@ -1,21 +1,20 @@
 <template>
-  <VLazyImage
-    :class="$options.class"
-    :src="src"
-    :alt="alt"
-    src-placeholder="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-  />
+  <img
+    :class="[
+      $options.class,
+      'lazyload'
+    ]"
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    :data-src="src"
+    :alt="alt">
 </template>
 
 <script>
-import VLazyImage from 'v-lazy-image'
+import 'lazysizes'
 
 export default {
   name: 'ImageLazy',
   class: 'ImageLazy',
-  components: {
-    VLazyImage
-  },
   props: {
     src: {
       type: String,
@@ -34,7 +33,7 @@ export default {
   opacity: 0;
   transition: opacity $trans-speed $trans-ease;
 
-  &.v-lazy-image-loaded {
+  &.lazyloaded {
     opacity: 1;
   }
 }
