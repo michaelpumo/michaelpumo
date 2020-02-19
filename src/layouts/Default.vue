@@ -6,8 +6,6 @@
       { 'is-ready': appReady },
       `is-theme-${appTheme}`,
     ]">
-    <AppCursor />
-
     <AppNavigation
       title="Burger menu"
       :items="navigation" />
@@ -26,6 +24,8 @@
     </main>
 
     <portal-target name="modal" />
+
+    <AppCursor />
   </div>
 </template>
 
