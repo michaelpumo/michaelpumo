@@ -45,30 +45,34 @@ exports.handler = async(event, context) => {
   const sendgridMessage = {
     to: SENDGRID_TO_EMAIL,
     from: normalizedEmail,
-    subject: `${company.trim()} - ${name.trim()}`,
+    subject: `Web request: ${company.trim()} - ${name.trim()}`,
     html: body
   }
 
-  const mailchimpUser = {
-    email_address: normalizedEmail,
-    status: 'subscribed',
-    merge_fields: {
-      NAME: name.trim(),
-      COMPANY: company.trim()
+  try {
+    const mailchimpUser = {
+      email_address: normalizedEmail,
+      status: 'subscribed',
+      merge_fields: {
+        NAME: name.trim(),
+        COMPANY: company.trim()
+      }
     }
-  }
 
-  const mailchimpPayload = {
-    method: 'post',
-    url: `https://${MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
-    headers: {
-      Authorization: `apikey ${MAILCHIMP_API_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    data: mailchimpUser
-  }
+    const mailchimpPayload = {
+      method: 'post',
+      url: `https://${MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
+      headers: {
+        Authorization: `apikey ${MAILCHIMP_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      data: mailchimpUser
+    }
 
-  await axios(mailchimpPayload)
+    await axios(mailchimpPayload)
+  } catch (error) {
+    console.log(error)
+  }
 
   try {
     await sgMail.send(sendgridMessage)
