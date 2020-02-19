@@ -167,7 +167,7 @@ export default {
     overflow: hidden;
   }
 
-  $colors: (red, green, yellow);
+  $colors: (red, green, amber);
 
   @each $color in $colors {
     &.is-theme-#{$color} {

@@ -17,11 +17,11 @@
         type="button"
         :class="[
           `${$options.className}__swatch`,
-          'is-yellow'
+          'is-amber'
         ]"
-        @click="setAppTheme('yellow')"
+        @click="setAppTheme('amber')"
       >
-        Yellow
+        Amber
       </button>
     </li>
     <li :class="`${$options.className}__item`">
@@ -86,7 +86,7 @@ export default {
     user-select: none;
     white-space: nowrap;
 
-    $colors: (red, green, yellow);
+    $colors: (red, green, amber);
 
     @each $color in $colors {
       &.is-#{$color} {

@@ -21,7 +21,7 @@
     <p>
       <ButtonIcon
         label="I’d like a quote for a project"
-        color="yellow"
+        color="amber"
         @click.native="modalOpen('quote')">
         <g-image
           src="/icons/icon-money.png"
@@ -64,7 +64,7 @@
           <ButtonIcon
             v-if="type === 'quote'"
             label="I’d like a quote for a project"
-            color="yellow"
+            color="amber"
             tag="div">
             <g-image
               src="/icons/icon-money.png"

@@ -54,7 +54,7 @@ export default {
           'theme',
           'red',
           'green',
-          'yellow'
+          'amber'
         ].includes(value)
       }
     }
@@ -85,7 +85,7 @@ export default {
       background-color: var(--color-theme);
     }
 
-    $colors: (red, green, yellow);
+    $colors: (red, green, amber);
 
     @each $color in $colors {
       #{$root}.color-#{$color} & {
