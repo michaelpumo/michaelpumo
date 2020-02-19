@@ -131,14 +131,15 @@ export default {
 
     @supports (clip-path: circle(0% at center)) {
       opacity: 1;
-      clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
+      clip-path:
+        circle(
+          calc(var(--button-size) / 2) at
+          calc(var(--button-size) / 2 + var(--spacing-unit) / 2)
+          calc(var(--button-size) / 2 + var(--spacing-unit) / 2)
+        );
       transition:
         background-color $trans-speed ($trans-speed * 2) $trans-ease,
         clip-path ($trans-speed * 2) $trans-ease;
-
-      @include media("sm") {
-        clip-path: circle(calc(var(--button-size) / 2) at calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)) calc((var(--button-size) / 2) + (var(--spacing-unit) / 2)));
-      }
     }
 
     #{$root}.is-active & {
