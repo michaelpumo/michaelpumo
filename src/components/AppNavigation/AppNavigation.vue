@@ -130,12 +130,14 @@ export default {
     }
 
     @supports (clip-path: circle(0% at center)) {
+      // WTF SCSS? Interpreting calc math with SCSS and butchering it.
+      // Need to pass as a whole string.
+      $clip-rule: "(var(--button-size) / 2) + (var(--spacing-unit) / 2)";
+
       opacity: 1;
       clip-path:
         circle(
-          calc(var(--button-size) / 2) at
-          calc(var(--button-size) / 2 + var(--spacing-unit) / 2)
-          calc(var(--button-size) / 2 + var(--spacing-unit) / 2)
+          calc(var(--button-size) / 2) at calc(#{$clip-rule}) calc(#{$clip-rule})
         );
       transition:
         background-color $trans-speed ($trans-speed * 2) $trans-ease,
