@@ -20,7 +20,6 @@
         v-if="role"
         :class="`${$options.className}__role`">
         {{ role }}
-        {{ link }}
       </p>
     </div>
   </PrismicLink>
