@@ -1,6 +1,14 @@
 const sgMail = require('@sendgrid/mail')
+const axios = require('axios')
 
-const { SENDGRID_API_KEY, SENDGRID_TO_EMAIL } = process.env
+const {
+  SENDGRID_API_KEY,
+  SENDGRID_TO_EMAIL,
+  MAILCHIMP_API_KEY,
+  MAILCHIMP_AUDIENCE_ID,
+  MAILCHIMP_DATA_CENTER
+} = process.env
+
 sgMail.setApiKey(SENDGRID_API_KEY)
 
 const nl2br = (text = '') => (typeof text !== 'string') ? text : text.toString().replace(/(\r\n|\n\r|\r|\n)/g, '<br>' + '$1')
@@ -26,6 +34,28 @@ exports.handler = async(event, context) => {
     subject: `${company} - ${name}`,
     html: body
   }
+
+  const mailchimpUser = {
+    email_address: email,
+    status: 'subscribed',
+    merge_fields: {
+      NAME: name,
+      COMPANY: company
+    }
+  }
+
+  const mailchimpPayload = {
+    method: 'post',
+    url: `https://${MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
+    headers: {
+      Authorization: `apikey ${MAILCHIMP_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    data: mailchimpUser
+  }
+
+  const mailchimpRequest = await axios(mailchimpPayload)
+  console.log(mailchimpRequest)
 
   try {
     await sgMail.send(message)
