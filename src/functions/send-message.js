@@ -1,3 +1,4 @@
+const validator = require('validator')
 const sgMail = require('@sendgrid/mail')
 const axios = require('axios')
 
@@ -19,8 +20,19 @@ exports.handler = async(event, context) => {
   const {
     name,
     email,
-    company
+    company,
+    message
   } = payload
+
+  if (!validator.isEmail(email.trim()) || !name.trim().length || !company.trim().length || !message.trim().length) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        code: 500,
+        message: 'Supplied form data is invalid.'
+      })
+    }
+  }
 
   sgMail.setApiKey(SENDGRID_API_KEY)
 
@@ -28,19 +40,21 @@ exports.handler = async(event, context) => {
     return `<p><strong>${titleCase(key)}</strong><br>${nl2br(payload[key])}</p>`
   }).join('')
 
-  const message = {
+  const normalizedEmail = validator.normalizeEmail(email)
+
+  const sendgridMessage = {
     to: SENDGRID_TO_EMAIL,
-    from: email,
-    subject: `${company} - ${name}`,
+    from: normalizedEmail,
+    subject: `${company.trim()} - ${name.trim()}`,
     html: body
   }
 
   const mailchimpUser = {
-    email_address: email,
+    email_address: normalizedEmail,
     status: 'subscribed',
     merge_fields: {
-      NAME: name,
-      COMPANY: company
+      NAME: name.trim(),
+      COMPANY: company.trim()
     }
   }
 
@@ -54,17 +68,16 @@ exports.handler = async(event, context) => {
     data: mailchimpUser
   }
 
-  const mailchimpRequest = await axios(mailchimpPayload)
-  console.log(mailchimpRequest)
+  await axios(mailchimpPayload)
 
   try {
-    await sgMail.send(message)
+    await sgMail.send(sendgridMessage)
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         code: 200,
-        message: 'Message successfully sent'
+        message: 'Message successfully sent.'
       })
     }
   } catch (error) {
