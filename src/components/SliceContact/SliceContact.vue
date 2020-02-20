@@ -44,7 +44,7 @@
       </ButtonIcon>
     </p>
 
-    <portal to="modal">
+    <Portal to="modal">
       <ModalDialog
         :open="modalActive"
         @close="modalClose">
@@ -94,7 +94,7 @@
             :to="type" />
         </template>
       </ModalDialog>
-    </portal>
+    </Portal>
   </SectionSlice>
 </template>
 

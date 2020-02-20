@@ -6,7 +6,8 @@
       `is-theme-${appTheme}`,
     ]">
     <router-view />
-    <portal-target name="modal" />
+
+    <PortalTarget name="modal" />
     <AppCursor />
   </div>
 </template>
