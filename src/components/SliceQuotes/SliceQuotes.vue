@@ -139,12 +139,13 @@ export default {
 
   &__container {
     width: 100%;
+    max-width: 700px;
     overflow: visible;
+    margin: 0 auto;
   }
 
   &__list {
     width: 100%;
-    max-width: 600px;
     padding: 0;
     margin: 0;
     user-select: none;
@@ -184,7 +185,7 @@ export default {
   &__name,
   &__author {
     width: 100%;
-    max-width: 320px;
+    // max-width: 320px;
   }
 
   &__author {
