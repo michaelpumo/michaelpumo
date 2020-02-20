@@ -51,6 +51,7 @@
         <template #header>
           <ButtonIcon
             v-if="type === 'booking'"
+            key="booking"
             label="I’d like to book you in"
             color="red"
             tag="div">
@@ -63,6 +64,7 @@
 
           <ButtonIcon
             v-if="type === 'quote'"
+            key="quote"
             label="I’d like a quote for a project"
             color="amber"
             tag="div">
@@ -75,6 +77,7 @@
 
           <ButtonIcon
             v-if="type === 'question'"
+            key="question"
             label="I’d like to ask a question"
             color="green"
             tag="div">
