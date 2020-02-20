@@ -1,13 +1,6 @@
 <template>
-  <main
-    :class="[
-      $options.className,
-      { 'is-ready': appReady },
-      `is-theme-${appTheme}`,
-    ]">
+  <main :class="$options.className">
     <slot />
-
-    <AppCursor />
   </main>
 </template>
 
@@ -34,10 +27,6 @@
 </static-query>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { vh } from '@/utils/helpers'
-import AppCursor from '@/components/AppCursor/AppCursor.vue'
-
 export default {
   name: 'ErrorLayout',
   className: 'ErrorLayout',
@@ -70,32 +59,10 @@ export default {
       ]
     })
   },
-  components: {
-    AppCursor
-  },
   computed: {
-    ...mapGetters({
-      appReady: 'app/ready',
-      appTheme: 'app/theme'
-    }),
     global() {
       return this.$static.prismic.allGlobals.edges[0].node
     }
-  },
-  mounted() {
-    vh()
-
-    this.setAppReady(true)
-
-    window.addEventListener('resize', vh)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', vh)
-  },
-  methods: {
-    ...mapActions({
-      setAppReady: 'app/setReady'
-    })
   }
 }
 </script>

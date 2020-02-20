@@ -1,10 +1,9 @@
 <template>
   <div
+    :id="$options.className"
     :class="[
       $options.className,
-      { 'is-locked': appLocked },
-      { 'is-ready': appReady },
-      `is-theme-${appTheme}`,
+      { 'is-locked': appLocked }
     ]">
     <AppNavigation
       title="Burger menu"
@@ -22,10 +21,6 @@
     <main :class="`${$options.className}__main`">
       <slot />
     </main>
-
-    <portal-target name="modal" />
-
-    <AppCursor />
   </div>
 </template>
 
@@ -52,9 +47,7 @@
 </static-query>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { vh } from '@/utils/helpers'
-import AppCursor from '@/components/AppCursor/AppCursor.vue'
+import { mapGetters } from 'vuex'
 import AppHero from '@/components/AppHero/AppHero.vue'
 import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
 
@@ -91,7 +84,6 @@ export default {
     })
   },
   components: {
-    AppCursor,
     AppHero,
     AppNavigation
   },
@@ -119,9 +111,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      appLocked: 'app/locked',
-      appReady: 'app/ready',
-      appTheme: 'app/theme'
+      appLocked: 'app/locked'
     }),
     global() {
       return this.$static.prismic.allGlobals.edges[0].node
@@ -129,21 +119,6 @@ export default {
     navigation() {
       return this.$static.prismic.allGlobals.edges[0].node.navigation
     }
-  },
-  mounted() {
-    vh()
-
-    this.setAppReady(true)
-
-    window.addEventListener('resize', vh)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', vh)
-  },
-  methods: {
-    ...mapActions({
-      setAppReady: 'app/setReady'
-    })
   }
 }
 </script>
@@ -170,8 +145,7 @@ export default {
   $colors: (red, green, amber);
 
   @each $color in $colors {
-    &.is-theme-#{$color} {
-      // background-color: ;
+    .is-theme-#{$color} & {
       --color-theme: #{color($color)};
     }
   }
@@ -190,18 +164,6 @@ export default {
       left: 0;
       z-index: 1;
       width: 50%;
-
-      // @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-      //   width: 100%;
-      //   clip-path: polygon(0 0, 100% 0%, 78% 100%, 0% 100%);
-      //   transition: clip-path ($trans-speed * 2) $trans-ease;
-      // }
-
-      // #{$root}.is-ready & {
-      //   @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
-      //     clip-path: polygon(0 0, calc(50% + 1px) 0, calc(50% + 1px) 100%, 0% 100%);
-      //   }
-      // }
     }
   }
 

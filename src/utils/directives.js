@@ -48,7 +48,7 @@ const defaults = {
   duration: 500,
   offset: 0,
   callback: () => ({}),
-  container: 'app',
+  container: 'AppLayout',
   easing: 'easeInOutQuad'
 }
 
