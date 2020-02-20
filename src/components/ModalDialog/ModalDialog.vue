@@ -23,7 +23,9 @@
       </header>
 
       <div :class="`${$options.className}__content`">
-        <slot name="main" />
+        <div :class="`${$options.className}__inner`">
+          <slot name="main" />
+        </div>
       </div>
     </div>
   </div>
@@ -143,12 +145,14 @@ export default {
     width: 100%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    padding: var(--spacing-unit);
-    padding-top: 0;
+  }
+
+  &__inner {
+    width: 100%;
+    padding: 0 var(--spacing-unit) var(--spacing-unit);
 
     @include media("sm") {
-      padding: calc(var(--spacing-unit) / 2);
-      padding-top: 0;
+      padding: 0 calc(var(--spacing-unit) / 2) calc(var(--spacing-unit) / 2);
     }
   }
 }
