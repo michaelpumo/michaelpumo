@@ -1,4 +1,5 @@
 /* eslint-disable */
+import './check'
 import './close'
 import './cursor-arrow'
 import './logo-allofus'

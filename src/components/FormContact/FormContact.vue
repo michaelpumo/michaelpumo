@@ -60,54 +60,6 @@
       v-if="!status.length"
       :loading="loading"
       @submit.prevent="submit">
-      <!-- <FormField :label="`Checkboxes: ${checkboxes}`">
-        <FormToggle
-          id="checkbox1"
-          v-model="checkboxes"
-          toggle-value="Red"
-          text="I am the text label"
-          type="checkbox"
-        />
-        <FormToggle
-          id="checkbox2"
-          v-model="checkboxes"
-          toggle-value="Blue"
-          text="I am the text label"
-          type="checkbox"
-        />
-        <FormToggle
-          id="checkbox3"
-          v-model="checkboxes"
-          toggle-value="Green"
-          text="I am the text label"
-          type="checkbox"
-        />
-      </FormField>
-
-      <FormField :label="`Radios: ${radios}`">
-        <FormToggle
-          id="radio1"
-          v-model="radios"
-          toggle-value="Red"
-          text="I am the text label"
-          type="radio"
-        />
-        <FormToggle
-          id="radio2"
-          v-model="radios"
-          toggle-value="Blue"
-          text="I am the text label"
-          type="radio"
-        />
-        <FormToggle
-          id="radio3"
-          v-model="radios"
-          toggle-value="Green"
-          text="I am the text label"
-          type="radio"
-        />
-      </FormField> -->
-
       <FormField
         id="name"
         label="Name">
@@ -173,6 +125,20 @@
           @input="$v.found.$touch()" />
       </FormField>
 
+      <FormField
+        id="agree"
+        label="We're good"
+        a11y>
+        <FormCheckbox
+          id="agree"
+          v-model="agree"
+          :validation="$v.agree"
+          value="Agree"
+          text="I agree for you to store my details in order to be contacted"
+          @change="$v.agree.$touch()"
+        />
+      </FormField>
+
       <ButtonInput
         :loading="loading"
         label="Send message"
@@ -185,15 +151,16 @@
 import axios from 'axios'
 import {
   required,
-  email
+  email,
+  sameAs
 } from 'vuelidate/lib/validators'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import {
   FormBase,
+  FormCheckbox,
   FormField,
   FormInput,
   FormSelect
-  // FormToggle
 } from '@/components/Form'
 import ImageLazy from '@/components/ImageLazy/ImageLazy'
 
@@ -203,11 +170,11 @@ export default {
   components: {
     ButtonInput,
     FormBase,
+    FormCheckbox,
     FormField,
     FormInput,
     FormSelect,
     ImageLazy
-    // FormToggle
   },
   props: {
     to: {
@@ -219,13 +186,12 @@ export default {
     return ({
       loading: false,
       status: '',
-      // checkboxes: [],
-      // radios: [],
       name: '',
       email: '',
       company: '',
       message: '',
-      found: ''
+      found: '',
+      agree: true
     })
   },
   validations: {
@@ -244,6 +210,9 @@ export default {
     },
     found: {
       required
+    },
+    agree: {
+      sameAs: sameAs(() => true)
     }
   },
   methods: {

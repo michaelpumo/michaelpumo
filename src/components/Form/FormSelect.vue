@@ -115,7 +115,7 @@ $root: &;
   &__icon {
     position: absolute;
     top: 50%;
-    right: spacing("sm");
+    right: (spacing("sm") / 2);
     z-index: 1;
     width: 12px;
     height: 8px;

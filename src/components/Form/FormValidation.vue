@@ -64,7 +64,7 @@ export default {
           message = 'This field can only contain numbers'
           break
         case 'sameAs':
-          message = `Must match the value of '${item.eq}' field`
+          message = 'This field is required'
           break
         case 'alphaNum':
           message = 'Can only contain letters and numbers'
