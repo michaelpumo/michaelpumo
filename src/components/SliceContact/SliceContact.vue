@@ -33,14 +33,14 @@
 
     <p>
       <ButtonIcon
-        label="I’d like to ask a question"
+        label="I’d just like to say hello"
         color="green"
         @click.native="modalOpen('question')">
         <ImageLazy
           src="/icons/icon-wave.png"
           width="60"
           height="60"
-          alt="I’d like to ask a question" />
+          alt="I’d just like to say hello" />
       </ButtonIcon>
     </p>
 
@@ -78,20 +78,20 @@
           <ButtonIcon
             v-if="type === 'question'"
             key="question"
-            label="I’d like to ask a question"
+            label="I’d just like to say hello"
             color="green"
             tag="div">
             <ImageLazy
               src="/icons/icon-wave.png"
               width="60"
               height="60"
-              alt="I’d like to ask a question" />
+              alt="I’d just like to say hello" />
           </ButtonIcon>
         </template>
         <template #main>
           <FormContact
             :key="renderKey"
-            :to="type" />
+            :type="type" />
         </template>
       </ModalDialog>
     </Portal>
