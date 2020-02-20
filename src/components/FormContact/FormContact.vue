@@ -96,6 +96,46 @@
       </FormField>
 
       <FormField
+        v-if="type === 'booking' || type === 'quote'"
+        id="budget"
+        label="Budget">
+        <FormInput
+          id="budget"
+          v-model.trim="budget"
+          :validation="$v.budget"
+          placeholder="£5,000 – £8,000"
+          @input="$v.budget.$touch()" />
+      </FormField>
+
+      <FormGroup
+        v-if="type === 'booking' || type === 'quote'"
+        :columns="2">
+        <FormField
+          id="start"
+          label="Start date">
+          <FormInput
+            id="start"
+            v-model.trim="start"
+            :validation="$v.start"
+            placeholder="02/10/2083"
+            type="date"
+            @input="$v.start.$touch()" />
+        </FormField>
+
+        <FormField
+          id="end"
+          label="End date">
+          <FormInput
+            id="end"
+            v-model.trim="end"
+            :validation="$v.end"
+            placeholder="02/10/2084"
+            type="date"
+            @input="$v.end.$touch()" />
+        </FormField>
+      </FormGroup>
+
+      <FormField
         id="message"
         label="Message">
         <FormInput
@@ -159,6 +199,7 @@ import {
   FormBase,
   FormCheckbox,
   FormField,
+  FormGroup,
   FormInput,
   FormSelect
 } from '@/components/Form'
@@ -172,14 +213,22 @@ export default {
     FormBase,
     FormCheckbox,
     FormField,
+    FormGroup,
     FormInput,
     FormSelect,
     ImageLazy
   },
   props: {
-    to: {
+    type: {
       type: String,
-      default: ''
+      default: 'question',
+      validator(value) {
+        return [
+          'booking',
+          'quote',
+          'question'
+        ].includes(value)
+      }
     }
   },
   data() {
@@ -191,29 +240,53 @@ export default {
       company: '',
       message: '',
       found: '',
-      agree: true
+      agree: true,
+      budget: '',
+      start: '',
+      end: ''
     })
   },
-  validations: {
-    name: {
-      required
-    },
-    email: {
-      required,
-      email
-    },
-    company: {
-      required
-    },
-    message: {
-      required
-    },
-    found: {
-      required
-    },
-    agree: {
-      sameAs: sameAs(() => true)
+  validations() {
+    const fields = {
+      name: {
+        required
+      },
+      email: {
+        required,
+        email
+      },
+      company: {
+        required
+      },
+      message: {
+        required
+      },
+      found: {
+        required
+      },
+      agree: {
+        sameAs: sameAs(() => true)
+      }
     }
+
+    if (this.type === 'booking' || this.type === 'quote') {
+      return {
+        ...fields,
+        ...{
+          budget: {
+            required
+          },
+          start: {
+            required
+          },
+          end: {
+            required
+          }
+        }
+      }
+    }
+
+    return fields
   },
   methods: {
     async submit() {
@@ -245,7 +318,10 @@ export default {
             email: this.email.trim(),
             company: this.company.trim(),
             message: this.message.trim(),
-            found: this.found.trim()
+            found: this.found.trim(),
+            budget: this.budget.trim() || 'n/a',
+            start: this.start.trim() || 'n/a',
+            end: this.end.trim() || 'n/a'
           }
         })
       } catch (error) {
@@ -259,6 +335,9 @@ export default {
       this.message = ''
       this.found = ''
       this.status = ''
+      this.budget = ''
+      this.start = ''
+      this.end = ''
 
       this.$v.$reset()
     },

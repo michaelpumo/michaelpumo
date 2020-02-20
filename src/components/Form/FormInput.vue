@@ -43,7 +43,8 @@ export default {
           'email',
           'password',
           'search',
-          'textarea'
+          'textarea',
+          'date'
         ].includes(value)
       }
     },
