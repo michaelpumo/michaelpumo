@@ -140,7 +140,7 @@ export default {
     width: 100%;
     max-width: 320px;
     opacity: 0;
-    transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 5px, 0);
     transition:
       opacity $trans-speed $trans-ease,
       transform $trans-speed $trans-ease;
