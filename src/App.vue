@@ -12,15 +12,6 @@
   </div>
 </template>
 
-<static-query>
-  query {
-    metadata {
-      siteName
-      siteDescription
-    }
-  }
-</static-query>
-
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { vh } from '@/utils/helpers'
@@ -30,18 +21,6 @@ import AppCursor from '@/components/AppCursor/AppCursor.vue'
 export default {
   name: 'App',
   className: 'App',
-  metaInfo() {
-    return {
-      title: this.$static.metadata.siteName,
-      meta: [
-        {
-          key: 'description',
-          name: 'description',
-          content: this.$static.metadata.siteDescription
-        }
-      ]
-    }
-  },
   components: {
     AppCursor
   },
