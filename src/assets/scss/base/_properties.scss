@@ -1,0 +1,22 @@
+:root {
+  --vh: 1vh;
+  --color-theme: #{color("red")};
+  --color-general: #{color("dark")};
+  --spacing-unit: #{spacing("sm")};
+  --button-size: #{button("sm")};
+  --field-size: #{button("sm")};
+}
+
+@include media("sm") {
+  :root {
+    --spacing-unit: #{spacing("md")};
+    --button-size: #{button("md")};
+    --field-size: #{button("md")};
+  }
+}
+
+@include media("xl") {
+  :root {
+    --spacing-unit: #{spacing("lg")};
+  }
+}

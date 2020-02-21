@@ -1,0 +1,165 @@
+* {
+  @media (any-pointer: fine) {
+    cursor: none;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+  display: inline-block;
+  vertical-align: middle;
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  appearance: none;
+  background: none;
+  border-radius: 0;
+  color: inherit;
+  outline: 0;
+  white-space: normal;
+}
+
+fieldset {
+  border: 0;
+}
+
+button {
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: transparent;
+  user-select: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select {
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  &::-ms-check {
+    display: none;
+  }
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label,
+summary {
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+li > {
+  & ul,
+  & ol {
+    margin-bottom: 0;
+  }
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+
+  &[src*=".svg"] {
+    width: 100% \9;
+  }
+
+  a & {
+    border: none;
+  }
+}
+
+::-ms-reveal,
+img[src*=".svg"] {
+  width: 100%;
+}
+
+audio,
+canvas,
+iframe,
+video,
+svg {
+  vertical-align: middle;
+}
+
+iframe,
+object {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+svg {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  fill: currentColor;
+}

@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Pumo";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("/fonts/PumoBook.woff") format("woff"),
+    url("/fonts/PumoBook.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pumo";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("/fonts/PumoDemi.woff") format("woff"),
+    url("/fonts/PumoDemi.woff2") format("woff2");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  color: color('dark');
+}
+
+h1 {
+  @include type-style("2");
+
+  @include media("sm") {
+    @include type-style("1");
+  }
+}
+
+h2 {
+  @include type-style("3");
+
+  @include media("sm") {
+    @include type-style("2");
+  }
+}
+
+h3 {
+  @include type-style("4");
+
+  @include media("sm") {
+    @include type-style("3");
+  }
+}
+
+h4 {
+  @include type-style("5");
+
+  @include media("sm") {
+    @include type-style("4");
+  }
+}
+
+h5 {
+  @include type-style("5");
+}
+
+h6 {
+  @include type-style("6");
+}
+
+a {
+  color: var(--color-theme);
+  user-select: none;
+}
+
+p,
+address {
+  @include type-style("5");
+
+  font-style: normal;
+}
+
+p a {
+  display: inline-block;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @supports (text-decoration-color: currentColor) {
+    text-decoration-color: currentColor;
+    transition: text-decoration-color $trans-speed ease;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+blockquote,
+address,
+cite,
+em,
+i {
+  font-style: normal;
+}
+
+strong,
+b {
+  font-weight: normal;
+}
+
+small {
+  @include type-style("6");
+}
