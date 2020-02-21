@@ -16,6 +16,12 @@ module.exports = {
   icon: './src/favicon-red.png',
   plugins: [
     {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-98372372-1'
+      }
+    },
+    {
       use: 'gridsome-source-graphql-prismic',
       options: {
         url: `https://${process.env.PRISMIC_REPOSITORY}.prismic.io`,
