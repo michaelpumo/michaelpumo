@@ -24,6 +24,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { vh } from '@/utils/helpers'
+import { colophon } from '@/utils/colophon'
 import AppCursor from '@/components/AppCursor/AppCursor.vue'
 
 export default {
@@ -53,6 +54,7 @@ export default {
   mounted() {
     vh()
 
+    colophon()
     this.setAppReady(true)
 
     window.addEventListener('resize', vh)
