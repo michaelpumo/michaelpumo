@@ -45,6 +45,7 @@ function colophon() {
   console.log('%cFramework%cGridsome (Vue.js)', title, description)
   console.log('%cContent Management%cPrismic (GraphQL)', title, description)
   console.log('%cHosting%cNetlify (+ functions)', title, description)
+  console.log('%cEmail%cSendGrid (API)', title, description)
   console.log('%cThanks for stopping by my portfolio ' + wave, footer)
 }
 
