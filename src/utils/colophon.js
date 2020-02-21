@@ -4,7 +4,7 @@ function colophon() {
     'font-size: 12px;',
     'font-weight: bold',
     'padding: 8px 10px',
-    'line-height: normal'
+    'line-height: 30px'
   ]
 
   const heading = [
