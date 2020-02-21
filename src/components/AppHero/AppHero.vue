@@ -98,7 +98,11 @@ export default {
   }
 
   &__middle {
-    max-width: 600px;
+    max-width: 450px;
+
+    @include media("sm") {
+      max-width: 600px;
+    }
   }
 
   &__title {

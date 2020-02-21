@@ -174,7 +174,7 @@
           v-model="agree"
           :validation="$v.agree"
           value="Agree"
-          text="I agree for you to store my details in order to be contacted"
+          text="I agree to share my details in order to receive a reply"
           @change="$v.agree.$touch()"
         />
       </FormField>
@@ -352,10 +352,10 @@ export default {
 .FormContact {
   $root: &;
 
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 100%;
 
   &__message {
