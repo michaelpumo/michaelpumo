@@ -174,7 +174,7 @@
           v-model="agree"
           :validation="$v.agree"
           value="Agree"
-          text="I agree to share my details in order to receive a reply"
+          text="I agree to be a nice and kind person!"
           @change="$v.agree.$touch()"
         />
       </FormField>
