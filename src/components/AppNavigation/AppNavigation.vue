@@ -5,37 +5,43 @@
       { 'is-active': navigationActive }
     ]">
     <div :class="`${$options.className}__container`">
-      <ButtonIcon
-        :label="title"
-        heading="3"
-        :class="`${$options.className}__toggle`"
-        @click.native="toggleNavigation">
-        <ImageLazy
-          src="/icons/icon-hamburger.png"
-          width="60"
-          height="60"
-          :alt="navigationActive ? 'Close navigation' : 'Open navigation'" />
-      </ButtonIcon>
+      <header :class="`${$options.className}__header`">
+        <ButtonIcon
+          :label="title"
+          heading="3"
+          @click.native="toggleNavigation">
+          <ImageLazy
+            src="/icons/icon-hamburger.png"
+            width="60"
+            height="60"
+            :alt="navigationActive ? 'Close navigation' : 'Open navigation'" />
+        </ButtonIcon>
+      </header>
 
-      <ul :class="`${$options.className}__list`">
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-          v-jump-to="{
-            id: slugify(item.id),
-            callback
-          }"
-          :class="`${$options.className}__item`">
-          <h4 :class="`${$options.className}__title`">
-            {{ item.title }}
-          </h4>
-          <p :class="`${$options.className}__description`">
-            {{ item.description }}
-          </p>
-        </li>
-      </ul>
+      <div :class="`${$options.className}__content`">
+        <div :class="`${$options.className}__inner`">
+          <ul :class="`${$options.className}__list`">
+            <li
+              v-for="(item, index) in items"
+              :key="index"
+              v-jump-to="{
+                id: slugify(item.id),
+                callback
+              }"
+              :class="`${$options.className}__item`">
+              <h4 :class="`${$options.className}__title`">
+                {{ item.title }}
+              </h4>
+              <p :class="`${$options.className}__description`">
+                {{ item.description }}
+              </p>
+            </li>
+          </ul>
 
-      <ThemeSwitcher />
+          <ThemeSwitcher
+            :class="`${$options.className}__switcher`" />
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -104,32 +110,18 @@ export default {
     pointer-events: auto;
   }
 
-  &__toggle {
-    margin-bottom: var(--spacing-unit);
-    margin-left: calc(-1 * (var(--spacing-unit) / 2));
-    pointer-events: auto;
-
-    @include media("sm") {
-      margin-bottom: calc(var(--spacing-unit) / 2);
-      margin-left: 0;
-    }
-  }
-
   &__container {
     @include shadow-box();
 
+    display: flex;
+    flex-direction: column;
     max-width: calc(100vw - var(--spacing-unit));
     max-height: calc((var(--vh, 1vh) * 100) - var(--spacing-unit));
-    overflow-y: auto;
-    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+    padding: 0;
     margin: 0;
     opacity: 0;
     background-color: rgba(color("light"), 0);
     transition: opacity $trans-speed $trans-ease;
-
-    @include media("sm") {
-      padding: calc(var(--spacing-unit) / 2);
-    }
 
     @supports (clip-path: circle(0% at center)) {
       // WTF SCSS? Interpreting calc math with SCSS and butchering it.
@@ -159,11 +151,42 @@ export default {
     }
   }
 
-  &__list {
+  &__header {
+    padding: calc(var(--spacing-unit) / 2);
+    pointer-events: auto;
+
+    @include media("sm") {
+      padding: calc(var(--spacing-unit) / 2);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit) var(--spacing-unit);
+
+    @include media("sm") {
+      padding: 0 calc(var(--spacing-unit) / 2) calc(var(--spacing-unit) / 2);
+    }
+  }
+
+  &__list,
+  &__switcher {
     width: 100%;
     margin: 0;
     opacity: 0;
-    transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 5px, 0);
     transition:
       opacity $trans-speed $trans-ease,
       transform $trans-speed $trans-ease;
@@ -171,7 +194,18 @@ export default {
     #{$root}.is-active & {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &__list {
+    #{$root}.is-active & {
       transition-delay: $trans-speed;
+    }
+  }
+
+  &__switcher {
+    #{$root}.is-active & {
+      transition-delay: ($trans-speed * 2);
     }
   }
 
