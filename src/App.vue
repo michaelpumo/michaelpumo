@@ -16,13 +16,12 @@
 import { mapGetters, mapActions } from 'vuex'
 import { vh } from '@/utils/helpers'
 import { colophon } from '@/utils/colophon'
-import AppCursor from '@/components/AppCursor/AppCursor.vue'
 
 export default {
   name: 'App',
   className: 'App',
   components: {
-    AppCursor
+    AppCursor: () => import('@/components/AppCursor/AppCursor')
   },
   computed: {
     ...mapGetters({
@@ -33,10 +32,11 @@ export default {
   mounted() {
     vh()
 
-    colophon()
     this.setAppReady(true)
 
     window.addEventListener('resize', vh)
+
+    colophon()
   },
   beforeDestroy() {
     window.removeEventListener('resize', vh)

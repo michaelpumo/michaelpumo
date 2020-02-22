@@ -102,9 +102,7 @@
 import { mapActions } from 'vuex'
 import { randId } from '@/utils/helpers'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
-import FormContact from '@/components/FormContact/FormContact'
 import ImageLazy from '@/components/ImageLazy/ImageLazy'
-import ModalDialog from '@/components/ModalDialog/ModalDialog'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 import SectionSlice from '@/components/SectionSlice/SectionSlice'
 
@@ -113,9 +111,9 @@ export default {
   className: 'SliceContact',
   components: {
     ButtonIcon,
-    FormContact,
+    FormContact: () => import('@/components/FormContact/FormContact'),
     ImageLazy,
-    ModalDialog,
+    ModalDialog: () => import('@/components/ModalDialog/ModalDialog'),
     PrismicRichtext,
     SectionSlice
   },
