@@ -15,14 +15,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { vh } from '@/utils/helpers'
-
-const credits = () => import(/* webpackChunkName: "extras" */ '@/utils/colophon')
+import AppCursor from '@/components/AppCursor/AppCursor'
+import { colophon } from '@/utils/colophon'
 
 export default {
   name: 'App',
   className: 'App',
   components: {
-    AppCursor: () => import(/* webpackChunkName: "extras" */ '@/components/AppCursor/AppCursor')
+    AppCursor
   },
   computed: {
     ...mapGetters({
@@ -32,13 +32,11 @@ export default {
   },
   async mounted() {
     vh()
+    colophon()
 
     this.setAppReady(true)
 
     window.addEventListener('resize', vh)
-
-    const { colophon } = await credits()
-    colophon()
   },
   beforeDestroy() {
     window.removeEventListener('resize', vh)
