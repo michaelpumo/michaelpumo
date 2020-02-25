@@ -111,6 +111,8 @@ export default {
   }
 
   &__description {
+    margin-top: 0;
+
     @include media("sm") {
       margin-bottom: spacing("md");
     }
