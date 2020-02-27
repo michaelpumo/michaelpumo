@@ -69,3 +69,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.AppReveal {
+  opacity: 0;
+}
+</style>
