@@ -2,7 +2,6 @@
   <div
     :class="[
       $options.className,
-      { 'is-ready': appReady },
       `is-theme-${appTheme}`,
     ]">
     <router-view />
@@ -30,7 +29,7 @@ export default {
       appTheme: 'app/theme'
     })
   },
-  async mounted() {
+  mounted() {
     vh()
     colophon()
 

@@ -1,5 +1,5 @@
 const path = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function addStyleResource(rule) {
   rule.use('style-resource')
@@ -42,8 +42,8 @@ module.exports = {
 
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
 
-    config
-      .plugin('BundleAnalyzerPlugin')
-      .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
+    // config
+    //   .plugin('BundleAnalyzerPlugin')
+    //   .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
   }
 }
