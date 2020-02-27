@@ -3,39 +3,54 @@
     <div :class="`${$options.className}__top`" />
 
     <div :class="`${$options.className}__middle`">
-      <h1
+      <AppReveal
         v-if="title"
+        tag="h1"
+        :active="appReady"
         :class="`${$options.className}__title`">
         {{ title }}
-      </h1>
+      </Appreveal>
 
-      <PrismicRichtext
+      <AppReveal
         v-if="description && description.length"
-        :class="`${$options.className}__description`"
-        :html="description"
-        br-off="xsMax" />
+        :active="appReady"
+        :delay="250">
+        <PrismicRichtext
+          :class="`${$options.className}__description`"
+          :html="description"
+          br-off="xsMax" />
+      </AppReveal>
 
-      <p
+      <AppReveal
         v-if="buttonId && buttonTitle"
+        tag="p"
+        :active="appReady"
+        :delay="500"
         :class="`${$options.className}__cta`">
         <ButtonInput
           v-jump-to="{
             id: slugify(buttonId)
           }"
           :label="buttonTitle" />
-      </p>
+      </AppReveal>
     </div>
 
-    <PrismicRichtext
+    <AppReveal
       v-if="colophon && colophon.length"
-      :class="`${$options.className}__colophon`"
-      :html="colophon" />
+      :active="appReady"
+      :delay="750">
+      <PrismicRichtext
+        :class="`${$options.className}__colophon`"
+        :html="colophon" />
+    </AppReveal>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
+import AppReveal from '@/components/AppReveal/AppReveal.vue'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext'
 
@@ -43,6 +58,7 @@ export default {
   name: 'AppHero',
   className: 'AppHero',
   components: {
+    AppReveal,
     ButtonInput,
     PrismicRichtext
   },
@@ -70,6 +86,11 @@ export default {
       type: String,
       default: ''
     }
+  },
+  computed: {
+    ...mapGetters({
+      appReady: 'app/ready'
+    })
   },
   methods: {
     slugify
