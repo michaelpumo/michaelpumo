@@ -7,10 +7,12 @@
     ]">
     <AppNavigation
       title="Burger menu"
+      :ready="ready"
       :items="navigation" />
 
     <header :class="`${$options.className}__introduction`">
       <AppHero
+        :ready="ready"
         :title="title"
         :description="description"
         :colophon="colophon"
@@ -109,6 +111,9 @@ export default {
       default: ''
     }
   },
+  data: () => ({
+    ready: false
+  }),
   computed: {
     ...mapGetters({
       appLocked: 'app/locked'
@@ -119,6 +124,11 @@ export default {
     navigation() {
       return this.$static.prismic.allGlobals.edges[0].node.navigation
     }
+  },
+  mounted() {
+    window.setTimeout(() => {
+      this.ready = true
+    }, 250)
   }
 }
 </script>

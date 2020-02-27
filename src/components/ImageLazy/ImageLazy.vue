@@ -31,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 .ImageLazy {
   opacity: 0;
-  transition: opacity $trans-speed $trans-ease;
+  transition: opacity ($trans-speed * 2) $trans-ease;
 
   &.lazyloaded {
     opacity: 1;

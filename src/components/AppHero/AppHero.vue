@@ -6,15 +6,16 @@
       <AppReveal
         v-if="title"
         tag="h1"
-        :active="appReady"
+        :active="ready"
+        :delay="250"
         :class="`${$options.className}__title`">
         {{ title }}
       </Appreveal>
 
       <AppReveal
         v-if="description && description.length"
-        :active="appReady"
-        :delay="250">
+        :active="ready"
+        :delay="500">
         <PrismicRichtext
           :class="`${$options.className}__description`"
           :html="description"
@@ -24,8 +25,8 @@
       <AppReveal
         v-if="buttonId && buttonTitle"
         tag="p"
-        :active="appReady"
-        :delay="500"
+        :active="ready"
+        :delay="750"
         :class="`${$options.className}__cta`">
         <ButtonInput
           v-jump-to="{
@@ -37,8 +38,8 @@
 
     <AppReveal
       v-if="colophon && colophon.length"
-      :active="appReady"
-      :delay="750">
+      :active="ready"
+      :delay="1000">
       <PrismicRichtext
         :class="`${$options.className}__colophon`"
         :html="colophon" />
@@ -47,7 +48,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
 import AppReveal from '@/components/AppReveal/AppReveal.vue'
@@ -66,6 +66,10 @@ export default {
     jumpTo
   },
   props: {
+    ready: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
@@ -86,11 +90,6 @@ export default {
       type: String,
       default: ''
     }
-  },
-  computed: {
-    ...mapGetters({
-      appReady: 'app/ready'
-    })
   },
   methods: {
     slugify

@@ -1,5 +1,7 @@
 <template>
-  <nav
+  <AppReveal
+    tag="nav"
+    :active="ready"
     :class="[
       $options.className,
       { 'is-active': navigationActive }
@@ -43,13 +45,14 @@
         </div>
       </div>
     </div>
-  </nav>
+  </AppReveal>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers'
 import { jumpTo } from '@/utils/directives'
+import AppReveal from '@/components/AppReveal/AppReveal.vue'
 import ButtonIcon from '@/components/ButtonIcon/ButtonIcon'
 import ImageLazy from '@/components/ImageLazy/ImageLazy'
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher'
@@ -58,6 +61,7 @@ export default {
   name: 'AppNavigation',
   className: 'AppNavigation',
   components: {
+    AppReveal,
     ButtonIcon,
     ImageLazy,
     ThemeSwitcher
@@ -66,6 +70,10 @@ export default {
     jumpTo
   },
   props: {
+    ready: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
