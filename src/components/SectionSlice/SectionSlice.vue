@@ -13,11 +13,9 @@
 export default {
   name: 'SectionSlice',
   className: 'SectionSlice',
-  data() {
-    return ({
-      isSticky: false
-    })
-  },
+  data: () => ({
+    isSticky: false
+  }),
   async mounted() {
     await this.$nextTick()
 

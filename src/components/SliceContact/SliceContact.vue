@@ -5,6 +5,8 @@
       :class="`${$options.className}__content`"
       :html="slice.primary.content" />
 
+    <br>
+
     <p>
       <ButtonIcon
         label="I’d like to book you in"
@@ -125,13 +127,11 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return ({
-      renderKey: randId(),
-      type: 'booking',
-      modalActive: false
-    })
-  },
+  data: () => ({
+    renderKey: randId(),
+    type: 'booking',
+    modalActive: false
+  }),
   methods: {
     ...mapActions({
       setAppLocked: 'app/setLocked'

@@ -21,13 +21,11 @@ import '@/assets/icons/cursor-arrow'
 export default {
   name: 'AppCursor',
   className: 'AppCursor',
-  data() {
-    return ({
-      x: 0,
-      y: 0,
-      active: true
-    })
-  },
+  data: () => ({
+    x: 0,
+    y: 0,
+    active: true
+  }),
   computed: {
     position() {
       const scale = this.active ? 1 : 2

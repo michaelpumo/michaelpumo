@@ -51,11 +51,9 @@ export default {
       }
     }
   },
-  data() {
-    return ({
-      PrismicDOM
-    })
-  },
+  data: () => ({
+    PrismicDOM
+  }),
   computed: {
     breakClass() {
       return this.brOff.length ? `br-off-${this.brOff}` : null

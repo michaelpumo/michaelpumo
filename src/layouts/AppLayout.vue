@@ -126,9 +126,10 @@ export default {
     }
   },
   mounted() {
-    window.setTimeout(() => {
-      this.ready = true
-    }, 250)
+    this.ready = true
+    // window.setTimeout(() => {
+    //   this.ready = true
+    // }, 50)
   }
 }
 </script>

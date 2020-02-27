@@ -231,21 +231,19 @@ export default {
       }
     }
   },
-  data() {
-    return ({
-      loading: false,
-      status: '',
-      name: '',
-      email: '',
-      company: '',
-      message: '',
-      found: '',
-      agree: true,
-      budget: '',
-      start: '',
-      end: ''
-    })
-  },
+  data: () => ({
+    loading: false,
+    status: '',
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+    found: '',
+    agree: true,
+    budget: '',
+    start: '',
+    end: ''
+  }),
   validations() {
     const fields = {
       name: {
