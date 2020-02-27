@@ -1,7 +1,8 @@
 <template>
   <component
     :is="tag"
-    ref="element">
+    ref="element"
+    :class="$options.className">
     <slot />
   </component>
 </template>
