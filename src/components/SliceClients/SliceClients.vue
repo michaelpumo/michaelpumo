@@ -76,9 +76,8 @@ export default {
 
     &:hover {
       #{$root}__info {
-        @supports (clip-path: circle(0% at 0 0)) {
-          clip-path: circle(100% at 50% 50%);
-        }
+        opacity: 1;
+        transition-delay: 0s;
       }
 
       #{$root}__name,
@@ -117,14 +116,9 @@ export default {
     background-color: color("light");
     pointer-events: none;
     transition:
-      opacity $trans-speed $trans-ease,
-      visibility $trans-speed $trans-ease;
-
-    @supports (clip-path: circle(0% at 0 0)) {
-      opacity: 1;
-      clip-path: circle(0% at 50% 50%);
-      transition: clip-path ($trans-speed * 2) $trans-ease;
-    }
+      opacity ($trans-speed * 2) $trans-ease,
+      visibility ($trans-speed * 2) $trans-ease;
+    transition-delay: $trans-speed;
 
     @include media("sm") {
       display: block;
@@ -142,8 +136,8 @@ export default {
     opacity: 0;
     transform: translate3d(0, 5px, 0);
     transition:
-      opacity $trans-speed $trans-ease,
-      transform $trans-speed $trans-ease;
+      transform ($trans-speed) ($trans-speed / 4) $trans-ease,
+      opacity ($trans-speed) $trans-ease;
   }
 
   &__role {

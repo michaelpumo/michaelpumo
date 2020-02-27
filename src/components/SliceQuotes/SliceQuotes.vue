@@ -158,10 +158,14 @@ export default {
     margin: 0;
     opacity: 0;
     color: color("dark");
-    transition: opacity ($trans-speed * 2) $trans-ease;
+    transform: translate3d(10px, 0, 0) skew(-10deg);
+    transition:
+      transform ($trans-speed * 2) ($trans-speed / 4) $trans-ease,
+      opacity ($trans-speed * 2) $trans-ease;
 
     &.swiper-slide-active {
       opacity: 1;
+      transform: translate3d(0, 0, 0) skew(0deg);
     }
   }
 
@@ -185,7 +189,6 @@ export default {
   &__name,
   &__author {
     width: 100%;
-    // max-width: 320px;
   }
 
   &__author {
