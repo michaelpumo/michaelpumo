@@ -5,7 +5,7 @@
       $options.className,
       { 'is-open': open }
     ]"
-    @click.self="close">
+    @mousedown.self="close">
     <div :class="`${$options.className}__window`">
       <header :class="`${$options.className}__header`">
         <slot name="header" />
