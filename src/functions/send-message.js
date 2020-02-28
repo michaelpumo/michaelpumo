@@ -44,7 +44,7 @@ exports.handler = async(event, context) => {
 
   const sendgridMessage = {
     to: SENDGRID_TO_EMAIL,
-    from: normalizedEmail,
+    from: 'mail@michaelpumo.com',
     subject: 'Website Message',
     html: body
   }
