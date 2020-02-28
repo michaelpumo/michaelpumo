@@ -17,6 +17,37 @@ module.exports = {
   icon: './src/favicon-red.png',
   plugins: [
     {
+      use: 'gridsome-plugin-pwa',
+      options: {
+        title: 'Michael Pumo',
+        startUrl: '/',
+        display: 'standalone',
+        statusBarStyle: 'default',
+        manifestPath: 'manifest.json',
+        disableServiceWorker: true,
+        serviceWorkerPath: 'service-worker.js',
+        cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
+        shortName: 'Michael Pumo',
+        themeColor: '#fd8e8e',
+        backgroundColor: '#ffffff',
+        icon: './src/favicon-red.png',
+        msTileImage: '',
+        msTileColor: '#fd8e8e'
+      }
+    },
+    {
+      use: 'gridsome-plugin-manifest',
+      options: {
+        background_color: '#ffffff',
+        icon_path: './src/favicon-red.png',
+        name: 'Michael Pumo',
+        short_name: 'Michael Pumo',
+        theme_color: '#fd8e8e',
+        lang: 'en-GB',
+        orientation: 'portrait'
+      }
+    },
+    {
       use: '@gridsome/plugin-google-analytics',
       options: {
         id: 'UA-98372372-1'
