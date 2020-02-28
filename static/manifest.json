@@ -1,0 +1,48 @@
+{
+    "background_color": "#ffffff",
+    "icon_path": "./src/favicon-red.png",
+    "name": "Michael Pumo",
+    "short_name": "Michael Pumo",
+    "theme_color": "#fd8e8e",
+    "lang": "en-GB",
+    "orientation": "portrait",
+    "display": "minimal-ui",
+    "file_name": "manifest.json",
+    "scope": "/",
+    "start_url": "/",
+    "dir": "auto",
+    "prefer_related_applications": false,
+    "related_applications": [],
+    "icons": [
+        {
+            "src": "/assets/img/favicon-red-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/assets/img/favicon-red-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/img/favicon-red-144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/assets/img/favicon-red-96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/assets/img/favicon-red-72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/assets/img/favicon-red-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        }
+    ]
+}
