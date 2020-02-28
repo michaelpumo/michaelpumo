@@ -127,9 +127,6 @@ export default {
   },
   mounted() {
     this.ready = true
-    // window.setTimeout(() => {
-    //   this.ready = true
-    // }, 50)
   }
 }
 </script>
