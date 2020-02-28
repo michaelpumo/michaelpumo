@@ -5,6 +5,7 @@ const axios = require('axios')
 const {
   SENDGRID_API_KEY,
   SENDGRID_TO_EMAIL,
+  SENDGRID_FROM_EMAIL,
   MAILCHIMP_API_KEY,
   MAILCHIMP_AUDIENCE_ID,
   MAILCHIMP_DATA_CENTER
@@ -44,7 +45,7 @@ exports.handler = async(event, context) => {
 
   const sendgridMessage = {
     to: SENDGRID_TO_EMAIL,
-    from: 'mail@michaelpumo.com',
+    from: SENDGRID_FROM_EMAIL,
     subject: 'Website Message',
     html: body
   }
