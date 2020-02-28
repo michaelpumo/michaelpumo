@@ -45,7 +45,7 @@ exports.handler = async(event, context) => {
 
   const sendgridMessage = {
     to: SENDGRID_TO_EMAIL,
-    from: SENDGRID_FROM_EMAIL,
+    from: `${name.trim()} <${SENDGRID_FROM_EMAIL}>`,
     subject: 'Website Message',
     html: body
   }
