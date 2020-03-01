@@ -14,7 +14,7 @@ function addStyleResource(rule) {
 module.exports = {
   siteName: 'Michael Pumo',
   siteUrl: 'https://michaelpumo.com',
-  icon: './src/favicon-red.png',
+  icon: './src/favicon.png',
   plugins: [
     {
       use: 'gridsome-plugin-pwa',
@@ -30,7 +30,7 @@ module.exports = {
         shortName: 'Michael Pumo',
         themeColor: '#fd8e8e',
         backgroundColor: '#ffffff',
-        icon: './src/favicon-red.png',
+        icon: './src/favicon.png',
         msTileImage: '',
         msTileColor: '#fd8e8e'
       }
@@ -39,7 +39,7 @@ module.exports = {
       use: 'gridsome-plugin-manifest',
       options: {
         background_color: '#ffffff',
-        icon_path: './src/favicon-red.png',
+        icon_path: './src/favicon.png',
         name: 'Michael Pumo',
         short_name: 'Michael Pumo',
         theme_color: '#fd8e8e',
