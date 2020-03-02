@@ -11,6 +11,7 @@ interface Payload {
   email: string;
   company: string;
   message: string;
+  [key: string]: string;
 }
 
 const {
@@ -49,7 +50,7 @@ exports.handler = async(event: HandlerEvent) => {
 
   sgMail.setApiKey(SENDGRID_API_KEY)
 
-  const html: string = Object.keys(payload).map((key) => {
+  const html: string = Object.keys(payload).map((key: string) => {
     return `<p><strong>${titleCase(key)}</strong><br>${nl2br(payload[key])}</p>`
   }).join('')
 
