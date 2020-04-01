@@ -33,5 +33,5 @@
     "i18n": "json",
     "page-query": "graphql",
     "static-query": "graphql"
-  },
+  }
 }
