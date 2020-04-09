@@ -35,7 +35,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "gridsome-plugin-manifest": "^0.3.4",
-    "gridsome-plugin-pwa": "0.0.15",
+    "gridsome-plugin-pwa": "0.0.13",
     "gridsome-source-graphql-prismic": "^0.1.6",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.4",
