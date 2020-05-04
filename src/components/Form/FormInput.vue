@@ -68,8 +68,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$root: &;
-
 .FormInput {
   width: 100%;
 

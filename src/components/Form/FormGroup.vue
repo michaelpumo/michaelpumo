@@ -24,8 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 .FormGroup {
-  $root: &;
-
   display: grid;
   grid-column-gap: spacing("sm");
   width: 100%;

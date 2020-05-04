@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$root: &;
-
 .FormBase {
   width: 100%;
   transition: opacity $trans-speed $trans-ease;
