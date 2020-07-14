@@ -47,100 +47,100 @@
 </template>
 
 <page-query>
-  query Page {
-    prismic {
-      page(uid: "home", lang: "en-gb") {
-        meta_title
-        meta_description
-        meta_keywords
-        meta_author
-        meta_image
-        title
-        description
-        colophon
-        button_id
-        button_title
-        body {
-          ... on prismic_PageBodyClients {
-            type
-            primary {
-              id
-            }
-            fields {
-              name
-              role
-              logo
-            }
+query Page {
+  prismic {
+    page(uid: "home", lang: "en-gb") {
+      meta_title
+      meta_description
+      meta_keywords
+      meta_author
+      meta_image
+      title
+      description
+      colophon
+      button_id
+      button_title
+      body {
+        ... on prismic_PageBodyClients {
+          type
+          primary {
+            id
           }
-          ... on prismic_PageBodyContact {
-            type
-            primary {
-              id
-              content
-            }
+          fields {
+            name
+            role
+            logo
           }
-          ... on prismic_PageBodyImage {
-            type
-            primary {
-              id
-              image
-            }
+        }
+        ... on prismic_PageBodyContact {
+          type
+          primary {
+            id
+            content
           }
-          ... on prismic_PageBodyProjects {
-            type
-            primary {
-              id
-              content
-            }
-            fields {
-              image
-              name
-              role
-              link {
+        }
+        ... on prismic_PageBodyImage {
+          type
+          primary {
+            id
+            image
+          }
+        }
+        ... on prismic_PageBodyProjects {
+          type
+          primary {
+            id
+            content
+          }
+          fields {
+            image
+            name
+            role
+            link {
+              _linkType
+              ... on prismic__ExternalLink {
                 _linkType
-                ... on prismic__ExternalLink {
-                  _linkType
-                  url
+                url
+              }
+              ... on prismic__Document {
+                _meta {
+                  uid
+                  type
                 }
-                ... on prismic__Document {
-                  _meta {
-                    uid
-                    type
-                  }
-                }
-                ... on prismic__ImageLink {
-                  _linkType
-                  url
-                }
-                ... on prismic__FileLink {
-                  _linkType
-                  url
-                }
+              }
+              ... on prismic__ImageLink {
+                _linkType
+                url
+              }
+              ... on prismic__FileLink {
+                _linkType
+                url
               }
             }
           }
-          ... on prismic_PageBodyQuotes {
-            type
-            primary {
-              id
-            }
-            fields {
-              quote
-              name
-              author
-            }
+        }
+        ... on prismic_PageBodyQuotes {
+          type
+          primary {
+            id
           }
-          ... on prismic_PageBodyText {
-            type
-            primary {
-              id
-              content
-            }
+          fields {
+            quote
+            name
+            author
+          }
+        }
+        ... on prismic_PageBodyText {
+          type
+          primary {
+            id
+            content
           }
         }
       }
     }
   }
+}
 </page-query>
 
 <script>

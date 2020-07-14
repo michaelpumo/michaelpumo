@@ -27,25 +27,25 @@
 </template>
 
 <static-query>
-  query Page {
-    prismic {
-      allGlobals {
-        edges {
-          node {
-            meta_google_verification
-            meta_language
-            meta_twitter_handle
-            meta_type
-            navigation {
-              id
-              title
-              description
-            }
+query Page {
+  prismic {
+    allGlobals {
+      edges {
+        node {
+          meta_google_verification
+          meta_language
+          meta_twitter_handle
+          meta_type
+          navigation {
+            id
+            title
+            description
           }
         }
       }
     }
   }
+}
 </static-query>
 
 <script>
