@@ -10,7 +10,52 @@ module.exports = function(api) {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   })
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
+  api.createPages(async({ graphql, createPage }) => {
+    const { data } = await graphql(`
+      {
+        Prismic {
+          allArticles {
+            edges {
+              node {
+                _meta {
+                  uid
+                }
+              }
+            }
+          }
+          allPages {
+            edges {
+              node {
+                _meta {
+                  uid
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
+
+    const { allArticles, allPages } = data.Prismic
+
+    allArticles.edges.forEach((article) => {
+      createPage({
+        path: `/article/${article.node._meta.uid}`,
+        component: './src/templates/Article.vue',
+        context: {
+          uid: article.node._meta.uid
+        }
+      })
+    })
+
+    allPages.edges.forEach((page) => {
+      createPage({
+        path: `/${page.node._meta.uid}`,
+        component: './src/templates/Page.vue',
+        context: {
+          uid: page.node._meta.uid
+        }
+      })
+    })
   })
 }

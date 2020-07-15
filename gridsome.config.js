@@ -15,6 +15,10 @@ module.exports = {
   siteName: 'Michael Pumo',
   siteUrl: 'https://michaelpumo.com',
   icon: './src/favicon.png',
+  transpileDependencies: [
+    'swiper',
+    'dom7'
+  ],
   plugins: [
     {
       use: 'gridsome-plugin-pwa',
@@ -57,9 +61,19 @@ module.exports = {
       use: 'gridsome-source-graphql-prismic',
       options: {
         url: `https://${process.env.PRISMIC_REPOSITORY}.prismic.io`,
-        fieldName: 'prismic',
-        typeName: 'prismic',
+        fieldName: 'Prismic',
+        typeName: 'Prismic',
         useMasterRef: true
+      }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        config: {
+          '/article/*': {
+            changefreq: 'weekly'
+          }
+        }
       }
     }
   ],
