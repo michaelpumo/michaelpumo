@@ -47,10 +47,55 @@ function vh() {
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
 
+function meta(obj) {
+  return ({
+    title: obj.meta_title,
+    meta: [
+      {
+        name: 'description',
+        content: obj.meta_description || ''
+      },
+      {
+        name: 'keywords',
+        content: obj.meta_keywords || ''
+      },
+      {
+        name: 'author',
+        content: obj.meta_author || ''
+      },
+      {
+        property: 'og:title',
+        content: obj.meta_title || ''
+      },
+      {
+        property: 'og:description',
+        content: obj.meta_description || ''
+      },
+      {
+        property: 'og:image',
+        content: (obj.meta_image && Object.prototype.hasOwnProperty.call(obj.meta_image, 'url')) ? obj.meta_image.url : null
+      },
+      {
+        property: 'twitter:title',
+        content: obj.meta_title || ''
+      },
+      {
+        property: 'twitter:description',
+        content: obj.meta_description || ''
+      },
+      {
+        property: 'twitter:image:src',
+        content: (obj.meta_image && Object.prototype.hasOwnProperty.call(obj.meta_image, 'url')) ? obj.meta_image.url : null
+      }
+    ]
+  })
+}
+
 export {
   slugify,
   linkResolver,
   isObjectEmpty,
   randId,
-  vh
+  vh,
+  meta
 }
