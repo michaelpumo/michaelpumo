@@ -26,22 +26,23 @@
 </template>
 
 <page-query>
-  query Page {
-    prismic {
-      page(uid: "404", lang: "en-gb") {
-        meta_title
-        meta_description
-        meta_keywords
-        meta_author
-        meta_image
-        title
-        description
-      }
+query Page {
+  Prismic {
+    page(uid: "404", lang: "en-gb") {
+      meta_title
+      meta_description
+      meta_keywords
+      meta_author
+      meta_image
+      title
+      description
     }
   }
+}
 </page-query>
 
 <script>
+import { meta } from '@/utils/helpers'
 import ErrorLayout from '@/layouts/ErrorLayout.vue'
 import ButtonInput from '@/components/ButtonInput/ButtonInput.vue'
 import ImageLazy from '@/components/ImageLazy/ImageLazy'
@@ -58,50 +59,12 @@ export default {
   },
   metaInfo() {
     return ({
-      title: this.page.meta_title,
-      meta: [
-        {
-          name: 'description',
-          content: this.page.meta_description
-        },
-        {
-          name: 'keywords',
-          content: this.page.meta_keywords
-        },
-        {
-          name: 'author',
-          content: this.page.meta_author
-        },
-        {
-          property: 'og:title',
-          content: this.page.meta_title
-        },
-        {
-          property: 'og:description',
-          content: this.page.meta_description
-        },
-        {
-          property: 'og:image',
-          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
-        },
-        {
-          property: 'twitter:title',
-          content: this.page.meta_title
-        },
-        {
-          property: 'twitter:description',
-          content: this.page.meta_description
-        },
-        {
-          property: 'twitter:image:src',
-          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
-        }
-      ]
+      ...meta(this.page)
     })
   },
   computed: {
     page() {
-      return { ...this.$page.prismic.page }
+      return { ...this.$page.Prismic.page }
     }
   }
 }

@@ -5,25 +5,25 @@
 </template>
 
 <static-query>
-  query Page {
-    prismic {
-      allGlobals {
-        edges {
-          node {
-            meta_google_verification
-            meta_language
-            meta_twitter_handle
-            meta_type
-            navigation {
-              id
-              title
-              description
-            }
+query Page {
+  Prismic {
+    allGlobals {
+      edges {
+        node {
+          meta_google_verification
+          meta_language
+          meta_twitter_handle
+          meta_type
+          navigation {
+            id
+            title
+            description
           }
         }
       }
     }
   }
+}
 </static-query>
 
 <script>
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     global() {
-      return this.$static.prismic.allGlobals.edges[0].node
+      return this.$static.Prismic.allGlobals.edges[0].node
     }
   }
 }

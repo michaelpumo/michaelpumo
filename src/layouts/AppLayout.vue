@@ -28,7 +28,7 @@
 
 <static-query>
 query Page {
-  prismic {
+  Prismic {
     allGlobals {
       edges {
         node {
@@ -119,10 +119,10 @@ export default {
       appLocked: 'app/locked'
     }),
     global() {
-      return this.$static.prismic.allGlobals.edges[0].node
+      return this.$static.Prismic.allGlobals.edges[0].node
     },
     navigation() {
-      return this.$static.prismic.allGlobals.edges[0].node.navigation
+      return this.$static.Prismic.allGlobals.edges[0].node.navigation
     }
   },
   mounted() {
