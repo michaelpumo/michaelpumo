@@ -13,31 +13,31 @@
         :slice="slice"
       />
       <SliceContact
-        v-if="slice.type === 'contact'"
+        v-else-if="slice.type === 'contact'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceImage
-        v-if="slice.type === 'image'"
+        v-else-if="slice.type === 'image'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceProjects
-        v-if="slice.type === 'projects'"
+        v-else-if="slice.type === 'projects'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceQuotes
-        v-if="slice.type === 'quotes'"
+        v-else-if="slice.type === 'quotes'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
       />
       <SliceText
-        v-if="slice.type === 'text'"
+        v-else-if="slice.type === 'text'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
@@ -48,7 +48,7 @@
 
 <page-query>
 query Page {
-  prismic {
+  Prismic {
     page(uid: "home", lang: "en-gb") {
       meta_title
       meta_description
@@ -61,7 +61,7 @@ query Page {
       button_id
       button_title
       body {
-        ... on prismic_PageBodyClients {
+        ... on Prismic_PageBodyClients {
           type
           primary {
             id
@@ -72,21 +72,21 @@ query Page {
             logo
           }
         }
-        ... on prismic_PageBodyContact {
+        ... on Prismic_PageBodyContact {
           type
           primary {
             id
             content
           }
         }
-        ... on prismic_PageBodyImage {
+        ... on Prismic_PageBodyImage {
           type
           primary {
             id
             image
           }
         }
-        ... on prismic_PageBodyProjects {
+        ... on Prismic_PageBodyProjects {
           type
           primary {
             id
@@ -98,28 +98,28 @@ query Page {
             role
             link {
               _linkType
-              ... on prismic__ExternalLink {
+              ... on Prismic__ExternalLink {
                 _linkType
                 url
               }
-              ... on prismic__Document {
+              ... on Prismic__Document {
                 _meta {
                   uid
                   type
                 }
               }
-              ... on prismic__ImageLink {
+              ... on Prismic__ImageLink {
                 _linkType
                 url
               }
-              ... on prismic__FileLink {
+              ... on Prismic__FileLink {
                 _linkType
                 url
               }
             }
           }
         }
-        ... on prismic_PageBodyQuotes {
+        ... on Prismic_PageBodyQuotes {
           type
           primary {
             id
@@ -130,7 +130,7 @@ query Page {
             author
           }
         }
-        ... on prismic_PageBodyText {
+        ... on Prismic_PageBodyText {
           type
           primary {
             id
@@ -144,7 +144,7 @@ query Page {
 </page-query>
 
 <script>
-import { slugify } from '@/utils/helpers'
+import { slugify, meta } from '@/utils/helpers'
 import AppLayout from '@/layouts/AppLayout.vue'
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
 import SliceContact from '@/components/SliceContact/SliceContact.vue'
@@ -167,50 +167,12 @@ export default {
   },
   metaInfo() {
     return ({
-      title: this.page.meta_title,
-      meta: [
-        {
-          name: 'description',
-          content: this.page.meta_description
-        },
-        {
-          name: 'keywords',
-          content: this.page.meta_keywords
-        },
-        {
-          name: 'author',
-          content: this.page.meta_author
-        },
-        {
-          property: 'og:title',
-          content: this.page.meta_title
-        },
-        {
-          property: 'og:description',
-          content: this.page.meta_description
-        },
-        {
-          property: 'og:image',
-          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
-        },
-        {
-          property: 'twitter:title',
-          content: this.page.meta_title
-        },
-        {
-          property: 'twitter:description',
-          content: this.page.meta_description
-        },
-        {
-          property: 'twitter:image:src',
-          content: (this.page.meta_image && Object.prototype.hasOwnProperty.call(this.page.meta_image, 'url')) ? this.page.meta_image.url : null
-        }
-      ]
+      ...meta(this.page)
     })
   },
   computed: {
     page() {
-      const payload = { ...this.$page.prismic.page }
+      const payload = { ...this.$page.Prismic.page }
 
       payload.body = payload.body.map(item => {
         if (item.primary && item.primary.id) {
