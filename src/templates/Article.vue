@@ -3,12 +3,8 @@
     :title="article.title"
     :description="article.description"
     :colophon="article.colophon">
-    <article :class="$options.className">
-      <PrismicRichtext
-        v-if="article.description"
-        :html="article.description"
-        :class="`${$options.className}__description`" />
-    </article>
+    <SliceZone
+      :content="article.body" />
   </AppLayout>
 </template>
 
@@ -23,8 +19,84 @@ query Article($uid: String!) {
       meta_image
       title
       description
-      _meta {
-        uid
+      colophon
+      body {
+        ... on Prismic_ArticleBodyClients {
+          type
+          primary {
+            id
+          }
+          fields {
+            name
+            role
+            logo
+          }
+        }
+        ... on Prismic_ArticleBodyContact {
+          type
+          primary {
+            id
+            content
+          }
+        }
+        ... on Prismic_ArticleBodyImage {
+          type
+          primary {
+            id
+            image
+          }
+        }
+        ... on Prismic_ArticleBodyProjects {
+          type
+          primary {
+            id
+            content
+          }
+          fields {
+            image
+            name
+            role
+            link {
+              _linkType
+              ... on Prismic__ExternalLink {
+                _linkType
+                url
+              }
+              ... on Prismic__Document {
+                _meta {
+                  uid
+                  type
+                }
+              }
+              ... on Prismic__ImageLink {
+                _linkType
+                url
+              }
+              ... on Prismic__FileLink {
+                _linkType
+                url
+              }
+            }
+          }
+        }
+        ... on Prismic_ArticleBodyQuotes {
+          type
+          primary {
+            id
+          }
+          fields {
+            quote
+            name
+            author
+          }
+        }
+        ... on Prismic_ArticleBodyText {
+          type
+          primary {
+            id
+            content
+          }
+        }
       }
     }
   }
@@ -34,7 +106,7 @@ query Article($uid: String!) {
 <script>
 import { meta } from '@/utils/helpers.js'
 import AppLayout from '@/layouts/AppLayout.vue'
-import PrismicRichtext from '@/components/PrismicRichtext/PrismicRichtext.vue'
+import SliceZone from '@/components/SliceZone/SliceZone.vue'
 
 export default {
   name: 'Article',
@@ -46,11 +118,10 @@ export default {
   },
   components: {
     AppLayout,
-    PrismicRichtext
+    SliceZone
   },
   computed: {
     article() {
-      console.log(this)
       return this.$page.Prismic.article
     }
   }

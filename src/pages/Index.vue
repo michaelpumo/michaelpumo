@@ -5,44 +5,8 @@
     :colophon="page.colophon"
     :button-id="page.button_id"
     :button-title="page.button_title">
-    <template v-for="(slice, index) in page.body">
-      <SliceClients
-        v-if="slice.type === 'clients'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-      <SliceContact
-        v-else-if="slice.type === 'contact'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-      <SliceImage
-        v-else-if="slice.type === 'image'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-      <SliceProjects
-        v-else-if="slice.type === 'projects'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-      <SliceQuotes
-        v-else-if="slice.type === 'quotes'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-      <SliceText
-        v-else-if="slice.type === 'text'"
-        :id="slice.primary.id"
-        :key="index"
-        :slice="slice"
-      />
-    </template>
+    <SliceZone
+      :content="page.body" />
   </AppLayout>
 </template>
 
@@ -146,24 +110,14 @@ query Page {
 <script>
 import { slugify, meta } from '@/utils/helpers'
 import AppLayout from '@/layouts/AppLayout.vue'
-import SliceClients from '@/components/SliceClients/SliceClients.vue'
-import SliceContact from '@/components/SliceContact/SliceContact.vue'
-import SliceImage from '@/components/SliceImage/SliceImage.vue'
-import SliceProjects from '@/components/SliceProjects/SliceProjects.vue'
-import SliceQuotes from '@/components/SliceQuotes/SliceQuotes.vue'
-import SliceText from '@/components/SliceText/SliceText.vue'
+import SliceZone from '@/components/SliceZone/SliceZone.vue'
 
 export default {
   name: 'PageIndex',
   className: 'PageIndex',
   components: {
     AppLayout,
-    SliceClients,
-    SliceContact,
-    SliceImage,
-    SliceProjects,
-    SliceQuotes,
-    SliceText
+    SliceZone
   },
   metaInfo() {
     return ({
