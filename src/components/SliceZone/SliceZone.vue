@@ -1,8 +1,14 @@
 <template>
-  <div>
+  <article>
     <template v-for="(slice, index) in slices">
       <SliceClients
         v-if="slice.type === 'clients'"
+        :id="slice.primary.id"
+        :key="index"
+        :slice="slice"
+      />
+      <SliceCode
+        v-else-if="slice.type === 'code'"
         :id="slice.primary.id"
         :key="index"
         :slice="slice"
@@ -38,12 +44,13 @@
         :slice="slice"
       />
     </template>
-  </div>
+  </article>
 </template>
 
 <script>
-import { slugify } from '@/utils/helpers'
+import { slugify } from '@/utils/helpers.js'
 import SliceClients from '@/components/SliceClients/SliceClients.vue'
+import SliceCode from '@/components/SliceCode/SliceCode.vue'
 import SliceContact from '@/components/SliceContact/SliceContact.vue'
 import SliceImage from '@/components/SliceImage/SliceImage.vue'
 import SliceProjects from '@/components/SliceProjects/SliceProjects.vue'
@@ -55,6 +62,7 @@ export default {
   className: 'SliceZone',
   components: {
     SliceClients,
+    SliceCode,
     SliceContact,
     SliceImage,
     SliceProjects,

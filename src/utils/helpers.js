@@ -91,11 +91,16 @@ function meta(obj) {
   })
 }
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace)
+}
+
 export {
   slugify,
   linkResolver,
   isObjectEmpty,
   randId,
   vh,
-  meta
+  meta,
+  replaceAll
 }

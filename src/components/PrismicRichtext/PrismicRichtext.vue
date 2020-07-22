@@ -5,13 +5,13 @@
       $options.className,
       breakClass
     ]"
-    v-html="PrismicDOM.RichText.asHtml(html, linkResolver)"
+    v-html="content"
   />
 </template>
 
 <script>
 import PrismicDOM from 'prismic-dom'
-import { linkResolver } from '@/utils/helpers'
+import { linkResolver, replaceAll } from '@/utils/helpers'
 
 export default {
   name: 'PrismicRichtext',
@@ -57,6 +57,12 @@ export default {
   computed: {
     breakClass() {
       return this.brOff.length ? `br-off-${this.brOff}` : null
+    },
+    content() {
+      const html = PrismicDOM.RichText.asHtml(this.html, linkResolver)
+      const coded = replaceAll(replaceAll(html, '<pre>', '<pre><code class="language-javascript">'), '</pre>', '</code></pre>')
+
+      return coded
     }
   },
   methods: {

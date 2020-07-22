@@ -13,6 +13,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
 
   appOptions.store = VuexStore
 
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://unpkg.com/dracula-prism/css/dracula-prism.css'
+  })
+
   // Polyfill.io service, should we need it.
   // head.script.push({
   //   src: 'https://polyfill.io/v3/polyfill.min.js?features=default'

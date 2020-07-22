@@ -32,6 +32,13 @@ query Article($uid: String!) {
             logo
           }
         }
+        ... on Prismic_ArticleBodyCode {
+          type
+          primary {
+            id
+            code
+          }
+        }
         ... on Prismic_ArticleBodyContact {
           type
           primary {
