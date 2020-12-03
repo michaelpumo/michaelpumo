@@ -1,37 +1,5 @@
 {
-  "editor.fontSize": 14,
-  "editor.tabSize": 2,
-  "editor.renderWhitespace": "all",
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "javascript.validate.enable": false,
-  "eslint.validate": [
-    "html",
-    "vue",
-    "javascript",
-    "javascriptreact"
-  ],
-  "eslint.options": {
-    "extensions": [
-      ".html",
-      ".js",
-      ".vue",
-      ".jsx"
-    ]
-  },
-  "eslint.enable": true,
-  "eslint.run": "onType",
-  "eslint.alwaysShowStatus": true,
-  "vetur.format.defaultFormatter.scss": "prettier",
-  "vetur.validation.template": true,
-  "vetur.format.defaultFormatter.js": "prettier-eslint",
-  "vetur.grammar.customBlocks": {
-    "docs": "md",
-    "i18n": "json",
-    "page-query": "graphql",
-    "static-query": "graphql"
-  }
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false
 }

@@ -1,0 +1,101 @@
+$colors: (
+  "light": #fff,
+  "dark": #2e304b,
+  "grey": #f1f1f1,
+  "slate": #6b6c7b,
+  "red": #fd8e8e,
+  "amber": #fde58e,
+  "green": #8efdb0,
+  "blue": #8ee7fd
+);
+
+$spacings: (
+  "sm": 30px,
+  "md": 60px,
+  "lg": 80px,
+);
+
+$sizes: (
+  "xxs": 375px,
+  "xs": 520px,
+  "sm": 768px,
+  "md": 992px,
+  "lg": 1200px,
+  "xl": 1440px,
+  "xxl": 1920px,
+  "xxxl": 2550px
+);
+
+$breakpoints: (
+  "xxs": "min-width: #{map-get($sizes, 'xxs')}",
+  "xxsMax": "max-width: #{map-get($sizes, 'xxs') - 1px}",
+  "xs": "min-width: #{map-get($sizes, 'xs')}",
+  "xsMax": "max-width: #{map-get($sizes, 'xs') - 1px}",
+  "sm": "min-width: #{map-get($sizes, 'sm')}",
+  "smMax": "max-width: #{map-get($sizes, 'sm') - 1px}",
+  "md": "min-width: #{map-get($sizes, 'md')}",
+  "mdMax": "max-width: #{map-get($sizes, 'md') - 1px}",
+  "lg": "min-width: #{map-get($sizes, 'lg')}",
+  "lgMax": "max-width: #{map-get($sizes, 'lg') - 1px}",
+  "xl": "min-width: #{map-get($sizes, 'xl')}",
+  "xlMax": "max-width: #{map-get($sizes, 'xl') - 1px}",
+  "xxl": "min-width: #{map-get($sizes, 'xxl')}",
+  "xxlMax": "max-width: #{map-get($sizes, 'xxl') - 1px}",
+  "xxxl": "min-width: #{map-get($sizes, 'xxxl')}",
+  "xxxlMax": "max-width: #{map-get($sizes, 'xxxl') - 1px}"
+);
+
+$typefaces: (
+  "sans": "Pumo, Helvetica, sans-serif"
+);
+
+$buttons: (
+  "sm": 50px,
+  "md": 60px
+);
+
+$depths: (
+  "cursor": 50,
+  "modal": 40,
+  "navigation": 30
+);
+
+$type: (
+  "1": 48px,
+  "2": 32px,
+  "3": 24px,
+  "4": 18px,
+  "5": 16px,
+  "6": 14px
+);
+
+$easeInCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeInQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$authenticMotion: cubic-bezier(0.4, 0, 0.2, 1);
+
+$trans-speed: 0.25s;
+$trans-delay: $trans-speed;
+$trans-ease: $authenticMotion;
+$trans-inout: $easeInOutQuart;
