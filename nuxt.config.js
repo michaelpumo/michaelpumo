@@ -59,7 +59,14 @@ export default {
     { src: '@/plugins/vuelidate.js' },
   ],
   components: false,
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
+  googleAnalytics: {
+    id: 'UA-98372372-1',
+  },
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/google-analytics',
+  ],
   modules: ['@nuxtjs/prismic'],
   prismic: {
     endpoint: 'https://michaelpumo.cdn.prismic.io/api/v2',
