@@ -10,6 +10,7 @@
 import { mapGetters } from 'vuex'
 import { vh } from '@/utils/helpers.js'
 import { colophon } from '@/utils/colophon.js'
+import { serviceWorker } from '@/utils/service-worker.js'
 import AppCursor from '@/components/app/AppCursor.vue'
 
 export default {
@@ -26,6 +27,7 @@ export default {
   mounted() {
     vh()
     colophon()
+    serviceWorker()
 
     window.addEventListener('resize', vh)
   },
