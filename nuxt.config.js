@@ -47,9 +47,9 @@ export default {
     ],
   },
   loading: {
-    color: '#FF5B6A',
+    color: '#fd8e8e',
     failedColor: '#ffffff',
-    height: '15px',
+    height: '5px',
     throttle: 200,
   },
   css: ['@/assets/scss/app.scss'],
