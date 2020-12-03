@@ -54,6 +54,7 @@ export default {
   },
   css: ['@/assets/scss/app.scss'],
   plugins: [
+    { src: '@/plugins/directives.js' },
     { src: '@/plugins/vue-svgicon.js' },
     { src: '@/plugins/portal-vue.js' },
     { src: '@/plugins/vuelidate.js' },

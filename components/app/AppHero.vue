@@ -52,7 +52,6 @@
 
 <script>
 import { slugify } from '@/utils/helpers.js'
-import { jumpTo } from '@/utils/directives.js'
 import AppReveal from '@/components/app/AppReveal.vue'
 import ButtonInput from '@/components/app/ButtonInput.vue'
 import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
@@ -64,9 +63,6 @@ export default {
     AppReveal,
     ButtonInput,
     PrismicRichtext,
-  },
-  directives: {
-    jumpTo,
   },
   props: {
     ready: {

@@ -47,7 +47,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import { slugify } from '@/utils/helpers.js'
-import { jumpTo } from '@/utils/directives.js'
 import AppReveal from '@/components/app/AppReveal.vue'
 import ButtonIcon from '@/components/app/ButtonIcon.vue'
 import ImageLazy from '@/components/app/ImageLazy.vue'
@@ -61,9 +60,6 @@ export default {
     ButtonIcon,
     ImageLazy,
     ThemeSwitcher,
-  },
-  directives: {
-    jumpTo,
   },
   props: {
     ready: {

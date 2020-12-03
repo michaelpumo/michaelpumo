@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import anime from 'animejs'
 
 function doJump(e) {
@@ -41,7 +42,7 @@ const defaults = {
   duration: 500,
   offset: 0,
   callback: () => ({}),
-  container: 'AppLayout',
+  container: 'Page',
   easing: 'easeInOutQuad',
 }
 
@@ -79,4 +80,4 @@ const jumpTo = {
   },
 }
 
-export { jumpTo }
+Vue.directive('jump-to', jumpTo)
