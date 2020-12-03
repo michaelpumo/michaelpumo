@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     tag() {
-      return this.isObjectEmpty(this.route) ? 'button' : 'g-link'
+      return this.isObjectEmpty(this.route) ? 'button' : 'NuxtLink'
     },
   },
   methods: {
