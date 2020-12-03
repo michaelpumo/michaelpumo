@@ -169,7 +169,7 @@ export default {
   }
 
   &__colophon {
-    color: color('slate');
+    color: tint(color('slate'), 50%);
 
     &::v-deep {
       p {
