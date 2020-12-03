@@ -80,6 +80,11 @@ export default {
         : 'Michael Pumo',
       meta: [
         {
+          hid: 'google-site-verification',
+          name: 'google-site-verification',
+          content: this.global.meta_google_verification || '',
+        },
+        {
           hid: 'description',
           name: 'description',
           content: this.meta_description || '',
@@ -110,9 +115,39 @@ export default {
           content: this.meta_url,
         },
         {
-          hid: 'robots',
-          name: 'robots',
-          content: this.meta_robots,
+          hid: 'og:type',
+          name: 'og:type',
+          content: this.global.meta_type,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: `@${this.global.meta_twitter_handle}`,
+        },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: `@${this.global.meta_twitter_handle}`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: this.meta_title || '',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: this.meta_description || '',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: this.meta_image?.url || '',
         },
       ],
     }
