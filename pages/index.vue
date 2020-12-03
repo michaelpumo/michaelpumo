@@ -1,7 +1,11 @@
 <template>
   <div
     :id="$options.className"
-    :class="[$options.className, { 'is-locked': appLocked }]"
+    :class="[
+      $options.className,
+      { 'is-locked': appLocked },
+      { 'is-ready': ready },
+    ]"
   >
     <AppNavigation
       title="Burger menu"
@@ -168,7 +172,14 @@ export default {
       position: fixed;
       left: 0;
       z-index: 1;
-      width: 50%;
+      width: 100%;
+      transition: width ($trans-speed * 4) ($trans-speed * 6) $easeOutQuint;
+    }
+
+    #{$root}.is-ready & {
+      @include media('lg') {
+        width: 50%;
+      }
     }
   }
 
