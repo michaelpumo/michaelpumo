@@ -1,24 +1,43 @@
 <template>
-  <AppLayout
-    :title="title"
-    :description="description"
-    :colophon="colophon"
-    :button-id="button_id"
-    :button-title="button_title"
+  <div
+    :id="$options.className"
+    :class="[$options.className, { 'is-locked': appLocked }]"
   >
-    <SliceZone :content="body" />
-  </AppLayout>
+    <AppNavigation
+      title="Burger menu"
+      :ready="ready"
+      :items="global.navigation"
+    />
+
+    <header :class="`${$options.className}__introduction`">
+      <AppHero
+        :ready="ready"
+        :title="title"
+        :description="description"
+        :colophon="colophon"
+        :button-id="button_id"
+        :button-title="button_title"
+      />
+    </header>
+
+    <main :class="`${$options.className}__main`">
+      <SliceZone :content="body" />
+    </main>
+  </div>
 </template>
 
 <script>
-import AppLayout from '@/components/app/AppLayout.vue'
+import { mapGetters } from 'vuex'
+import AppHero from '@/components/app/AppHero.vue'
+import AppNavigation from '@/components/app/AppNavigation.vue'
 import SliceZone from '@/components/app/SliceZone.vue'
 
 export default {
   name: 'Page',
   className: 'Page',
   components: {
-    AppLayout,
+    AppHero,
+    AppNavigation,
     SliceZone,
   },
   async asyncData({ $prismic, app, error }) {
@@ -41,6 +60,11 @@ export default {
         message: 'Page not found',
         statusCode: 404,
       })
+    }
+  },
+  data() {
+    return {
+      ready: false,
     }
   },
   head() {
@@ -89,6 +113,15 @@ export default {
       ],
     }
   },
+  computed: {
+    ...mapGetters({
+      appLocked: 'app/locked',
+      global: 'global/data',
+    }),
+  },
+  mounted() {
+    this.ready = true
+  },
 }
 </script>
 
@@ -97,5 +130,56 @@ export default {
 
 .Page {
   $root: &;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.is-locked {
+    overflow: hidden;
+  }
+
+  $colors: ('red', 'green', 'amber');
+
+  @each $color in $colors {
+    .is-theme-#{$color} & {
+      --color-theme: #{color($color)};
+    }
+  }
+
+  &__introduction {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-unit);
+    background-color: color('dark');
+    pointer-events: none;
+
+    @include media('lg') {
+      position: fixed;
+      left: 0;
+      z-index: 1;
+      width: 50%;
+    }
+  }
+
+  &__main {
+    background-color: color('light');
+
+    @include media('lg') {
+      width: 50%;
+      min-height: calc(var(--vh, 1vh) * 100);
+      margin-left: 50%;
+    }
+  }
 }
 </style>
