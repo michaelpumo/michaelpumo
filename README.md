@@ -1,7 +1,7 @@
-# Chorus
+# Michael Pumo
 
 ## Build Status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8d320a74-0e7a-4a1a-be79-9398e91d55cd/deploy-status)](https://app.netlify.com/sites/chorus-app/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13822f8f-4555-435e-82cb-33a21f14ec08/deploy-status)](https://app.netlify.com/sites/michaelpumo/deploys)
 
 ## Build Setup
 
