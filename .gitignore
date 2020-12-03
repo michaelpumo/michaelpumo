@@ -7,6 +7,8 @@ dist
 .env
 .env.*
 !.env.example
+.nuxt
+.eslintcache
 
 # Local Netlify folder
 .netlify
