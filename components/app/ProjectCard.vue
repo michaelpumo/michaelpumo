@@ -5,14 +5,14 @@
       :src="image.url"
       :width="image.dimensions.width.toString()"
       :height="image.dimensions.height.toString()"
-      :alt="image.alt || name || 'Michael Pumo'"
+      :alt="image.alt || name || 'Web development project'"
       :class="`${$options.className}__image`"
     />
 
     <div :class="`${$options.className}__info`">
-      <h4 v-if="name" :class="`${$options.className}__name`">
+      <h3 v-if="name" :class="`${$options.className}__name`">
         {{ name }}
-      </h4>
+      </h3>
       <p v-if="role" :class="`${$options.className}__role`">
         {{ role }}
       </p>
