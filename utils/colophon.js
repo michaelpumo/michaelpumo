@@ -7,15 +7,6 @@ function colophon() {
     'line-height: 30px',
   ]
 
-  const heading = [
-    ...common,
-    'font-size: 14px',
-    'background: #fff',
-    'color: #2e304b',
-    'padding-left: 0',
-    'border-radius: 5px',
-  ].join(';')
-
   const title = [
     ...common,
     'background: #2e304b',
@@ -30,24 +21,12 @@ function colophon() {
     'border-radius: 0 5px 5px 0',
   ].join(';')
 
-  const footer = [
-    ...common,
-    'font-weight: normal',
-    'background: #fff',
-    'color: #828393',
-    'padding-left: 0',
-    'border-radius: 5px',
-  ].join(';')
-
   /* eslint-disable */
-  const wave = String.fromCodePoint(0x1F44B)
-
-  console.log('%cSince you wanted to know...', heading)
   console.log('%cFramework%cNuxt.js (Vue.js)', title, description)
   console.log('%cContent Management%cPrismic (Rest API)', title, description)
   console.log('%cHosting%cNetlify (+ functions)', title, description)
   console.log('%cEmail%cSendGrid (API)', title, description)
-  console.log('%cThanks for stopping by my portfolio ' + wave, footer)
+  /* eslint-enable */
 }
 
 export { colophon }
