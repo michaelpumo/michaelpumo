@@ -35,7 +35,7 @@
 <script>
 import { Swiper, Keyboard, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
-import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
+import PrismicRichtext from '@/components/prismic/RichText.vue'
 import SectionSlice from '@/components/app/SectionSlice.vue'
 
 export default {

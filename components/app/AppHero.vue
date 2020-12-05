@@ -54,7 +54,7 @@
 import { slugify } from '@/utils/helpers.js'
 import AppReveal from '@/components/app/AppReveal.vue'
 import ButtonInput from '@/components/app/ButtonInput.vue'
-import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
+import PrismicRichtext from '@/components/prismic/RichText.vue'
 
 export default {
   name: 'AppHero',

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
+import PrismicRichtext from '@/components/prismic/RichText.vue'
 import SectionSlice from '@/components/app/SectionSlice.vue'
 
 export default {

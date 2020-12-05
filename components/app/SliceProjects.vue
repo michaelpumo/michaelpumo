@@ -31,7 +31,7 @@
 <script>
 import { Swiper, Keyboard } from 'swiper'
 import 'swiper/swiper-bundle.css'
-import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
+import PrismicRichtext from '@/components/prismic/RichText.vue'
 import ProjectCard from '@/components/app/ProjectCard.vue'
 import SectionSlice from '@/components/app/SectionSlice.vue'
 

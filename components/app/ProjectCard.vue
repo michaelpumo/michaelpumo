@@ -23,7 +23,7 @@
 <script>
 import { isObjectEmpty } from '@/utils/helpers.js'
 import ImageLazy from '@/components/app/ImageLazy.vue'
-import PrismicLink from '@/components/app/PrismicLink.vue'
+import PrismicLink from '@/components/prismic/Link.vue'
 
 export default {
   name: 'ProjectCard',

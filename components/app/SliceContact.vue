@@ -116,7 +116,7 @@ import ButtonIcon from '@/components/app/ButtonIcon.vue'
 import FormContact from '@/components/app/FormContact.vue'
 import ImageLazy from '@/components/app/ImageLazy.vue'
 import ModalDialog from '@/components/app/ModalDialog.vue'
-import PrismicRichtext from '@/components/app/PrismicRichtext.vue'
+import PrismicRichtext from '@/components/prismic/RichText.vue'
 import SectionSlice from '@/components/app/SectionSlice.vue'
 
 export default {

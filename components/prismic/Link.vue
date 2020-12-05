@@ -12,7 +12,7 @@
 
 <script>
 import PrismicDOM from 'prismic-dom'
-import { linkResolver } from '@/utils/prismic.js'
+import { linkResolver } from '@/utils/helpers.js'
 
 export default {
   name: 'Link',
