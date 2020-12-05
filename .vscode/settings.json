@@ -1,5 +1,8 @@
 {
   "stylelint.enable": true,
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "editor.fontFamily": "'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontWeight": "400",
+  "editor.fontSize": 14,
 }
