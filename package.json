@@ -13,8 +13,9 @@
     "icons": "vsvg -s ./assets/icons/svg -t ./assets/icons/js --es6"
   },
   "dependencies": {
-    "@sendgrid/mail": "^7.4.0",
     "@nuxtjs/prismic": "^1.2.4",
+    "@nuxtjs/pwa": "^3.3.2",
+    "@sendgrid/mail": "^7.4.0",
     "animejs": "^3.2.1",
     "axios": "^0.21.0",
     "lazysizes": "^5.2.2",
@@ -25,8 +26,8 @@
     "prismjs": "^1.22.0",
     "swiper": "^6.3.5",
     "validator": "^13.5.1",
-    "vuelidate": "^0.7.6",
-    "vue-svgicon": "3.2.9"
+    "vue-svgicon": "3.2.9",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",

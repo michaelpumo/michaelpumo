@@ -67,12 +67,19 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/pwa',
   ],
   modules: ['@nuxtjs/prismic'],
   prismic: {
     endpoint: 'https://michaelpumo.cdn.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver.js',
     htmlSerializer: '@/plugins/html-serializer.js',
+  },
+  pwa: {
+    icon: {
+      source: 'static/pwa.png',
+      fileName: 'pwa.png',
+    },
   },
   router: {
     trailingSlash: false,
