@@ -1,7 +1,7 @@
 {
     "name": "Michael Pumo",
     "short_name": "Michael Pumo",
-    "start_url": "https://michaelpumo.com",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
