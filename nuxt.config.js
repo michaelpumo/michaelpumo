@@ -80,6 +80,9 @@ export default {
       source: 'static/pwa.png',
       fileName: 'pwa.png',
     },
+    workbox: {
+      clientsClaim: false,
+    },
   },
   router: {
     trailingSlash: false,
