@@ -5,4 +5,4 @@
   functions = "./functions"
 
 [context.production]
-  environment = { NODE_VERSION = "nodejs12.x" }
+  environment = { NODE_VERSION = "10.x" }
