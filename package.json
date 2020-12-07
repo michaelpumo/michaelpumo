@@ -19,7 +19,7 @@
     "animejs": "^3.2.1",
     "axios": "^0.21.0",
     "lazysizes": "^5.2.2",
-    "nuxt": "^2.14.9",
+    "nuxt": "^2.14.10",
     "portal-vue": "^2.1.7",
     "prismic-dom": "^2.2.4",
     "prismic-javascript": "^3.0.2",
