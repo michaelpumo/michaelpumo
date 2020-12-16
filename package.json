@@ -19,7 +19,7 @@
     "animejs": "^3.2.1",
     "axios": "^0.21.0",
     "lazysizes": "^5.2.2",
-    "nuxt": "^2.14.11",
+    "nuxt": "^2.14.12",
     "portal-vue": "^2.1.7",
     "prismic-dom": "^2.2.4",
     "prismic-javascript": "^3.0.2",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-module": "^3.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "babel-eslint": "^10.1.0",
