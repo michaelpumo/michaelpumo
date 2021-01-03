@@ -208,7 +208,7 @@ export default {
       left: 0;
       z-index: 1;
       width: 100%;
-      transition: width ($trans-speed * 4) ($trans-speed * 6) $easeOutQuint;
+      transition: width ($trans-speed * 4) ($trans-speed * 2) $easeOutQuint;
     }
 
     #{$root}.is-ready & {
