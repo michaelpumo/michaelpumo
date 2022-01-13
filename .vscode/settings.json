@@ -1,8 +1,7 @@
 {
-  "stylelint.enable": true,
-  "css.validate": false,
-  "scss.validate": false,
-  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontWeight": "400",
-  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "vetur.validation.template": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

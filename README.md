@@ -1,23 +1,29 @@
-# Michael Pumo
+# Nuxt 3 Minimal Starter
 
-## Build Status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/13822f8f-4555-435e-82cb-33a21f14ec08/deploy-status)](https://app.netlify.com/sites/michaelpumo/deploys)
+We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
-## Build Setup
+## Setup
+
+Make sure to install the dependencies
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+yarn install
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Development
+
+Start the development server on http://localhost:3000
+
+```bash
+yarn dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+yarn build
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).

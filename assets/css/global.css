@@ -1,0 +1,30 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  /* ::selection {
+    color: theme('colors.gray.100');
+    background-color: theme('colors.gray.100');
+  } */
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  html {
+    text-size-adjust: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1em;
+  }
+
+  body {
+    box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}

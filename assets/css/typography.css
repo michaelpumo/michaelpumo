@@ -1,0 +1,136 @@
+@layer base {
+  /* @font-face {
+    font-family: 'Larken';
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/larken.woff2') format('woff2'),
+      url('/fonts/larken.woff') format('woff');
+  } */
+
+  /* * {
+    @apply font-sans text-prose text-9 md:text-7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-extrabold text-dark;
+  }
+
+  h1 {
+    @apply text-1;
+  }
+
+  h2 {
+    @apply text-2;
+  }
+
+  h3 {
+    @apply text-5;
+  }
+
+  h4 {
+    @apply text-6;
+  }
+
+  h5 {
+    @apply text-7;
+  }
+
+  h6 {
+    @apply text-8;
+  }
+
+  p,
+  li {
+    & a {
+      @apply transition-colors text-orange underline hover:text-dark select-none;
+    }
+  }
+
+  a {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  strong,
+  b {
+    @apply text-dark;
+  }
+
+  svg {
+    @apply transition;
+  }
+
+  a,
+  button,
+  input[type='submit'] {
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:focus {
+      outline: none !important;
+    }
+  } */
+}
+
+@layer components {
+  /* .prose {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mb-3 last:mb-0;
+    }
+
+    h1 {
+      @apply text-2 md:text-1;
+    }
+
+    h2 {
+      @apply text-6 md:text-3 lg:text-2;
+    }
+
+    h3 {
+      @apply text-8 md:text-5;
+    }
+
+    h4 {
+      @apply text-8 md:text-6;
+    }
+
+    h5 {
+      @apply text-8 md:text-7;
+    }
+
+    h6 {
+      @apply text-8;
+    }
+
+    p {
+      @apply mb-2 last:mb-0;
+
+      & + h1,
+      & + h2,
+      & + h3,
+      & + h4,
+      & + h5,
+      & + h6 {
+        @apply mt-4;
+      }
+    }
+
+    ol {
+      @apply list-decimal list-inside;
+    }
+
+    ul {
+      @apply list-disc list-inside;
+    } */
+}
