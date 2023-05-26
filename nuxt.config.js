@@ -44,6 +44,11 @@ export default {
         src: 'https://polyfill.io/v3/polyfill.min.js?features=default',
         body: true,
       },
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-WV93KLCLTG",
+        async: true,
+        body: true
+      }
     ],
   },
   loading: {
@@ -60,13 +65,9 @@ export default {
     { src: '@/plugins/vuelidate.js' },
   ],
   components: false,
-  googleAnalytics: {
-    id: 'UA-98372372-1',
-  },
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
   ],
   modules: ['@nuxtjs/prismic'],
