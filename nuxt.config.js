@@ -48,6 +48,10 @@ export default {
         src: "https://www.googletagmanager.com/gtag/js?id=G-WV93KLCLTG",
         async: true,
         body: true
+      },
+      {
+        src: "/js/ga.js",
+        body: true
       }
     ],
   },
