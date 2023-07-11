@@ -1,8 +1,5 @@
 {
-  "stylelint.enable": true,
-  "css.validate": false,
-  "scss.validate": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontWeight": "400",
-  "editor.fontSize": 15,
+  "editor.fontSize": 13,
 }
