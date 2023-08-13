@@ -1,4 +1,4 @@
-@import '@/css/custom.css';
-@import '@/css/fonts.css';
-@import '@/css/global.css';
-@import '@/css/typography.css';
+@import './custom.css';
+@import './fonts.css';
+@import './global.css';
+@import './typography.css';
