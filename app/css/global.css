@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*::selection {
+  @apply bg-black
+    text-brand-blue;
+}
+
+::placeholder {
+  @apply text-gray-500;
+}
+
+html,
+body {
+  @apply font-display min-h-full;
+}
+
+html {
+  text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @apply box-border
+    overflow-x-hidden;
+}
