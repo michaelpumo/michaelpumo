@@ -1,3 +1,5 @@
+'use server'
+
 import { FC, ReactNode } from 'react'
 
 interface Props {
@@ -7,7 +9,7 @@ interface Props {
 const ButtonAppearance: FC<Props> = ({ children }) => {
   return (
     <span
-      data-component="ButtonStyle"
+      data-component="ButtonAppearance"
       className="transition-colors duration-300 ease-outQuart text-lg border-2 rounded-full px-6 py-4 inline-block no-underline"
     >
       {children}

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Remove once in good support.
+  https://caniuse.com/css-text-wrap-balance */
+
   @responsive {
     .text-wrap {
       text-wrap: wrap;
