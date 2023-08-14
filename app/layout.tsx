@@ -7,8 +7,15 @@ import '@/assets/css/app.css'
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
-  use: [apiPlugin]
+  use: [apiPlugin],
+  apiOptions: {
+    region: process.env.NEXT_PUBLIC_STORYBLOK_REGION
+  }
 })
+
+// Revalidate every 5 seconds.
+// Disable for production.
+export const revalidate = 5
 
 export const metadata: Metadata = {
   title: 'Michael Pumo',

@@ -1,16 +1,6 @@
 @font-face {
   font-family: 'Moveable';
   src:
-    url('/fonts/GreycliffCF/GreycliffCF-ExtraBold.woff2') format('woff2'),
-    url('/fonts/GreycliffCF/GreycliffCF-ExtraBold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Moveable';
-  src:
     url('/fonts/GreycliffCF/GreycliffCF-Bold.woff2') format('woff2'),
     url('/fonts/GreycliffCF/GreycliffCF-Bold.woff') format('woff');
   font-weight: 700;
