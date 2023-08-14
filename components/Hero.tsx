@@ -14,19 +14,22 @@ interface Props {
   blok: any
 }
 
-const Hero: FC<Props> = ({ blok }) => {
-  return (
-    <section
-      {...storyblokEditable(blok)}
-      data-component="Hero"
-      className="sticky top-0 -z-10 w-full min-h-screen grid grid-cols-2"
-    >
-      <div className="p-4 sm:p-10 lg:p-14 xl:p-20 bg-brand-blue text-white">
-        <h1 className="font-display text-5xl text-balance mb-10">
+const Hero: FC<Props> = ({ blok }) => (
+  <section
+    {...storyblokEditable(blok)}
+    data-component="Hero"
+    className="sticky top-0 z-10 w-full lg:min-h-screen lg:grid lg:grid-cols-2"
+  >
+    <div className="fixed top-0 z-10 flex flex-col items-start justify-between w-full lg:static min-h-screen p-4 xs:p-8 sm:p-16 xl:p-20 bg-brand-blue text-white before:content-['']">
+      <div className="my-10">
+        <h1 className="max-w-[30ch] font-display text-3xl xs:text-4xl sm:text-5xl lg:text-5xl text-balance mb-10">
           {blok.title}
         </h1>
 
-        <RichText className="text-xl mb-10" content={blok.description} />
+        <RichText
+          className="max-w-[50ch] text-md sm:text-lg mb-10 text-balance"
+          content={blok.description}
+        />
 
         <p>
           <Link href="/">
@@ -35,19 +38,54 @@ const Hero: FC<Props> = ({ blok }) => {
         </p>
       </div>
 
-      <div className="bg-slate-100">
-        <Image
-          className="w-full h-full object-cover"
-          src="/images/me.jpeg"
-          alt="Michael Pumo"
-          sizes="50vw"
-          width={1000}
-          height={1000}
-          priority
-        />
+      <div>
+        <p className="text-sm">
+          Find me at{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://twitter.com/michaelpumo"
+          >
+            Twitter
+          </a>
+          ,{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/michaelpumo"
+          >
+            GitHub
+          </a>{' '}
+          and{' '}
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://www.linkedin.com/in/michaelpumo/"
+          >
+            LinkedIn
+          </a>
+          . <br />
+          Download{' '}
+          <a href="https://michaelpumo.cdn.prismic.io/michaelpumo/a40b9c43-29fd-421e-8484-6263a9d59584_michael-pumo-2024.pdf">
+            my resume
+          </a>{' '}
+          (PDF 893kb)
+        </p>
       </div>
-    </section>
-  )
-}
+    </div>
+
+    <div className="mt-[100vh] lg:mt-0 sticky top-0 z-10 lg:relative min-h-screen bg-slate-100">
+      <Image
+        className="absolute inset-0 z-10 w-full h-full object-cover"
+        src="/images/me.jpeg"
+        alt="Michael Pumo"
+        sizes="50vw"
+        width={1000}
+        height={1000}
+        priority
+      />
+    </div>
+  </section>
+)
 
 export default Hero

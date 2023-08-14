@@ -26,17 +26,18 @@ interface Props {
   children: ReactNode
 }
 
-const RootLayout: FC<Props> = ({ children }) => {
-  return (
-    <StoryblokProvider>
-      <html lang="en-GB">
-        <body>
+const RootLayout: FC<Props> = ({ children }) => (
+  <StoryblokProvider>
+    <html lang="en-GB">
+      <body>
+        <header className="fixed top-5 left-5 z-20">
           <ButtonMenu />
-          {children}
-        </body>
-      </html>
-    </StoryblokProvider>
-  )
-}
+        </header>
+
+        {children}
+      </body>
+    </html>
+  </StoryblokProvider>
+)
 
 export default RootLayout

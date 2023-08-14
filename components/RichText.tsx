@@ -6,12 +6,10 @@ interface Props {
   className?: string
 }
 
-const RichText: FC<Props> = ({ content, className }) => {
-  return (
-    <div data-component="RichText" className={className}>
-      {render(content)}
-    </div>
-  )
-}
+const RichText: FC<Props> = ({ content, className }) => (
+  <div data-component="RichText" className={className}>
+    {render(content)}
+  </div>
+)
 
 export default RichText

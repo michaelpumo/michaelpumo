@@ -10,7 +10,7 @@
 
 *::selection {
   @apply bg-black
-    text-brand-blue;
+    text-white;
 }
 
 ::placeholder {

@@ -25,8 +25,6 @@ interface Props {
   children: ReactNode
 }
 
-const StoryblokProvider: FC<Props> = ({ children }) => {
-  return children
-}
+const StoryblokProvider: FC<Props> = ({ children }) => children
 
 export default StoryblokProvider

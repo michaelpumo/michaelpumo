@@ -8,8 +8,10 @@ export async function fetchData() {
   return storyblokApi.get(`cdn/stories/home`, options)
 }
 
-export default async function Home() {
+const Page = async () => {
   const { data } = await fetchData()
 
   return <StoryblokStory story={data.story} />
 }
+
+export default Page

@@ -11,7 +11,7 @@ const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   plugins: [
     forms,
@@ -31,16 +31,16 @@ const config = {
       }
 
       addBase({
-        ':root': extractColorVars(theme('colors')),
+        ':root': extractColorVars(theme('colors'))
       })
-    },
+    }
   ],
   theme: {
     extend: {
       colors: {
         brand: {
-          blue: '#0045FF',
-        },
+          blue: '#0045FF'
+        }
       },
       typography: ({ theme }: { theme: any }) => ({
         brand: {
@@ -80,88 +80,88 @@ const config = {
           //   // '--tw-prose-invert-th-borders': theme('colors.pink[600]'),
           //   // '--tw-prose-invert-td-borders': theme('colors.pink[700]')
           // },
-        },
+        }
       }),
       fontSize: {
         xs: [
           pxToRem(12),
           {
-            lineHeight: pxToRem(16),
-          },
+            lineHeight: pxToRem(16)
+          }
         ],
         sm: [
           pxToRem(14),
           {
-            lineHeight: pxToRem(20),
-          },
+            lineHeight: pxToRem(20)
+          }
         ],
         base: [
           pxToRem(16),
           {
-            lineHeight: pxToRem(24),
-          },
+            lineHeight: pxToRem(24)
+          }
         ],
         lg: [
           pxToRem(18),
           {
-            lineHeight: pxToRem(24),
-          },
+            lineHeight: pxToRem(24)
+          }
         ],
         xl: [
           pxToRem(20),
           {
-            lineHeight: pxToRem(28),
-          },
+            lineHeight: pxToRem(28)
+          }
         ],
         '2xl': [
           pxToRem(24),
           {
-            lineHeight: pxToRem(32),
-          },
+            lineHeight: pxToRem(32)
+          }
         ],
         '3xl': [
           pxToRem(32),
           {
-            lineHeight: pxToRem(44),
-          },
+            lineHeight: pxToRem(38)
+          }
         ],
         '4xl': [
           pxToRem(36),
           {
-            lineHeight: pxToRem(40),
-          },
+            lineHeight: pxToRem(40)
+          }
         ],
         '5xl': [
           pxToRem(48),
           {
-            lineHeight: 1.1,
-          },
+            lineHeight: 1.1
+          }
         ],
         '6xl': [
           pxToRem(60),
           {
-            lineHeight: 1.1,
-          },
+            lineHeight: 1.1
+          }
         ],
         '7xl': [
           pxToRem(72),
           {
-            lineHeight: 1.1,
-          },
+            lineHeight: 1.1
+          }
         ],
         '8xl': [
           pxToRem(96),
           {
-            lineHeight: 1.1,
-          },
+            lineHeight: 1.1
+          }
         ],
         '9xl': [
           pxToRem(128),
           {
-            lineHeight: 1.1,
-          },
-        ],
-      },
+            lineHeight: 1.1
+          }
+        ]
+      }
     },
     screens: {
       xs: '375px',
@@ -175,11 +175,11 @@ const config = {
       'max-lg': { max: '1023px' },
       'max-md': { max: '767px' },
       'max-sm': { max: '639px' },
-      'max-xs': { max: '374px' },
+      'max-xs': { max: '374px' }
     },
     fontFamily: {
       display: ['Moveable', 'sans-serif'],
-      sans: ['Inter', 'sans-serif'],
+      sans: ['Inter', 'sans-serif']
     },
     transitionTimingFunction: {
       natural: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
@@ -206,9 +206,9 @@ const config = {
       inOutSine: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
       inBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
       outBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-      inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-    },
-  },
+      inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+    }
+  }
 }
 
 export default config
