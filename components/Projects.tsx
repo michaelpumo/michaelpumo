@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 
-interface Statement {
+interface Projects {
   title?: string
 }
 
@@ -9,11 +9,11 @@ interface Props {
   blok: any
 }
 
-const Statement: FC<Props> = ({ blok }) => (
+const Projects: FC<Props> = ({ blok }) => (
   <section
     {...storyblokEditable(blok)}
-    data-component="Statement"
-    className="relative z-10 w-full min-h-screen bg-brand-light flex items-center justify-center px-4 sm:px-10 lg:px-14 xl:px-20"
+    data-component="Projects"
+    className="relative z-10 w-full min-h-screen bg-brand-grey-light flex items-center justify-center px-4 sm:px-10 lg:px-14 xl:px-20"
   >
     <h2 className="font-display text-3xl sm:text-7xl text-balance text-center text-brand-blue mb-10">
       Wonderful things happen when you work together.
@@ -21,4 +21,4 @@ const Statement: FC<Props> = ({ blok }) => (
   </section>
 )
 
-export default Statement
+export default Projects

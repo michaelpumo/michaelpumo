@@ -20,7 +20,7 @@ const Hero: FC<Props> = ({ blok }) => (
     data-component="Hero"
     className="sticky top-0 z-10 w-full lg:h-screen lg:grid lg:grid-cols-2"
   >
-    <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-blue text-white">
+    <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-blue text-brand-light">
       <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 before:content-[''] overflow-scroll">
         <div className="w-full mb-10">
           <h1 className="max-w-[30ch] font-display text-3xl xs:text-4xl sm:text-5xl lg:text-5xl text-balance mb-10">
@@ -76,7 +76,7 @@ const Hero: FC<Props> = ({ blok }) => (
       </div>
     </div>
 
-    <div className="mt-[100vh] lg:mt-0 sticky top-0 z-10 lg:relative h-screen bg-slate-100">
+    <div className="mt-[100vh] lg:mt-0 sticky top-0 z-10 lg:relative h-screen bg-brand-grey-light">
       <Image
         className="absolute inset-0 z-10 w-full h-full object-cover"
         src="/images/me.jpeg"

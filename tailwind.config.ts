@@ -39,8 +39,13 @@ const config = {
     extend: {
       colors: {
         brand: {
+          light: '#fff',
+          dark: '#000',
           blue: '#0045FF',
-          yellow: '#ffde00'
+          yellow: '#fde58e',
+          grey: {
+            light: '#f1f5f9'
+          }
         }
       },
       typography: ({ theme }: { theme: any }) => ({

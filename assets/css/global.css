@@ -9,8 +9,8 @@
 }
 
 *::selection {
-  @apply bg-black
-    text-white;
+  @apply bg-brand-yellow
+    text-brand-dark;
 }
 
 ::placeholder {
@@ -31,4 +31,9 @@ html {
 body {
   @apply box-border
     overflow-x-hidden;
+}
+
+img,
+video {
+  user-select: none;
 }

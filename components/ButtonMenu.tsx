@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ButtonMenu: FC<Props> = ({ children }) => (
-  <div data-component="ButtonMenu" className="bg-white rounded-full p-4">
+  <div data-component="ButtonMenu" className="bg-brand-light rounded-full p-4">
     <Image
       className=""
       src="/images/burger.png"
