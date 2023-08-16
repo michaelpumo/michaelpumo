@@ -42,10 +42,12 @@ const config = {
           light: '#fff',
           dark: '#000',
           blue: '#0045FF',
-          yellow: '#fde58e',
           grey: {
             light: '#f1f5f9'
-          }
+          },
+          pink: '#fd8e8e',
+          red: '#fc5959',
+          yellow: '#fde58e'
         }
       },
       typography: ({ theme }: { theme: any }) => ({

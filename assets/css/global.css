@@ -14,7 +14,8 @@
 }
 
 ::placeholder {
-  @apply text-gray-500;
+  /* @apply text-brand-grey-light; */
+  color: red;
 }
 
 html,
