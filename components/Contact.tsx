@@ -46,60 +46,66 @@ const Contact: FC<Props> = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       data-component="Contact"
-      className="relative z-10 w-full min-h-screen bg-brand-grey-light text-brand-dark flex items-center justify-center px-4 sm:px-10 lg:px-14 xl:px-20"
+      className="relative z-10 flex flex-col items-center w-full min-h-screen bg-brand-grey-light text-brand-dark p-4 xs:p-8 sm:p-16 xl:p-20"
     >
-      <FormBase
-        className="w-full max-w-xl"
-        onSubmit={handleSubmit(submitHandler)}
-      >
-        <FormField id="name" label="Name">
-          <FormInput
-            id="name"
-            name="name"
-            register={register}
-            type="text"
-            placeholder="Albert Einstein"
-          />
-          <FormError className="mt-2" error={errors.name} />
-        </FormField>
+      <div className="w-full max-w-xl">
+        <h1 className="text-3xl mb-5">Contact me</h1>
 
-        <FormField id="email" label="Email">
-          <FormInput
-            id="email"
-            name="email"
-            register={register}
-            type="email"
-            placeholder="albert.einstein@example.com"
-          />
-          <FormError className="mt-2" error={errors.email} />
-        </FormField>
+        <p className="text-lg text-brand-dark/50 mb-10 max-w-[40ch]">
+          If you have a project in mind or would like to make an enquiry you can
+          use the form below.
+        </p>
 
-        <FormField id="company" label="Company">
-          <FormInput
-            id="company"
-            name="company"
-            register={register}
-            type="text"
-            placeholder="Alphabet Inc."
-          />
-          <FormError className="mt-2" error={errors.company} />
-        </FormField>
+        <FormBase className="w-full" onSubmit={handleSubmit(submitHandler)}>
+          <FormField id="name" label="Name">
+            <FormInput
+              id="name"
+              name="name"
+              register={register}
+              type="text"
+              placeholder="Steve Jobs"
+            />
+            <FormError className="mt-2" error={errors.name} />
+          </FormField>
 
-        <FormField id="message" label="Message">
-          <FormInput
-            multiline
-            id="message"
-            name="message"
-            register={register}
-            placeholder="Alphabet Inc."
-          />
-          <FormError className="mt-2" error={errors.message} />
-        </FormField>
+          <FormField id="email" label="Email">
+            <FormInput
+              id="email"
+              name="email"
+              register={register}
+              type="email"
+              placeholder="sjobs@apple.com"
+            />
+            <FormError className="mt-2" error={errors.email} />
+          </FormField>
 
-        <button type="submit" className="mt-5">
-          <ButtonAppearance>{'Send message'}</ButtonAppearance>
-        </button>
-      </FormBase>
+          <FormField id="company" label="Company">
+            <FormInput
+              id="company"
+              name="company"
+              register={register}
+              type="text"
+              placeholder="Apple"
+            />
+            <FormError className="mt-2" error={errors.company} />
+          </FormField>
+
+          <FormField id="message" label="Message">
+            <FormInput
+              multiline
+              id="message"
+              name="message"
+              register={register}
+              placeholder="I just called to say I love you..."
+            />
+            <FormError className="mt-2" error={errors.message} />
+          </FormField>
+
+          <button type="submit" className="mt-5">
+            <ButtonAppearance>{'Send message'}</ButtonAppearance>
+          </button>
+        </FormBase>
+      </div>
     </section>
   )
 }
