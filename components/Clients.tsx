@@ -1,4 +1,6 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useEffect, useRef, useState } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import type { ClientsStoryblok } from '@/types/storyblok'
 
@@ -7,7 +9,35 @@ interface Props {
 }
 
 const Clients: FC<Props> = ({ blok }) => {
-  console.log(blok)
+  const itemsRef = useRef<Array<HTMLLIElement | null>>([])
+  const [currentIndex, setIndex] = useState(0)
+
+  const callback: IntersectionObserverCallback = (
+    entries: IntersectionObserverEntry[]
+  ) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      const value = (entry.target as HTMLElement).dataset.index
+
+      if (entry.isIntersecting && value) {
+        setIndex(parseInt(value, 10))
+      }
+    })
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(callback, {
+      rootMargin: '-50% 0% -50% 0%',
+      threshold: 0
+    })
+
+    itemsRef.current?.forEach(item => item && observer.observe(item))
+
+    return () => {
+      itemsRef.current?.forEach(item => item && observer?.unobserve(item))
+      observer.disconnect()
+    }
+  }, [blok.clients])
+
   return (
     <section
       {...storyblokEditable(blok)}
@@ -28,7 +58,19 @@ const Clients: FC<Props> = ({ blok }) => {
       <ul className="flex flex-col gap-1 text-6xl">
         {blok.clients &&
           blok.clients.map((client: any, index: number) => (
-            <li key={index}>{client.title}</li>
+            <li
+              {...storyblokEditable(client)}
+              key={index}
+              ref={el => (itemsRef.current[index] = el)}
+              data-index={index}
+              tabIndex={0}
+              onMouseEnter={() => setIndex(index)}
+              className={`transition-all duration-500 ease-outExpo ${
+                index === currentIndex ? 'translate-x-8 lg:translate-x-10' : '' // opacity-10'
+              }`}
+            >
+              {client.title}
+            </li>
           ))}
       </ul>
     </section>

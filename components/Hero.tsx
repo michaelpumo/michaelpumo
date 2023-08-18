@@ -19,14 +19,18 @@ const Hero: FC<Props> = ({ blok }) => (
     <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-blue text-brand-light">
       <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 before:content-[''] overflow-scroll">
         <div className="w-full mb-10">
-          <h1 className="max-w-[30ch] font-display text-3xl xs:text-4xl sm:text-5xl lg:text-5xl text-balance mb-10">
-            {blok.title}
-          </h1>
+          {blok.title && (
+            <h1 className="max-w-[30ch] font-display text-3xl xs:text-4xl sm:text-5xl lg:text-5xl text-balance mb-10">
+              {blok.title}
+            </h1>
+          )}
 
-          <RichText
-            className="max-w-[50ch] text-md sm:text-lg mb-10 text-balance"
-            content={blok.description}
-          />
+          {blok.description && (
+            <RichText
+              className="max-w-[50ch] text-md sm:text-lg mb-10 text-balance"
+              content={blok.description}
+            />
+          )}
 
           <p>
             <Link href="/">
