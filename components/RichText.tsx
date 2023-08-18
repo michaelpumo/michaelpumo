@@ -1,12 +1,8 @@
 import { FC } from 'react'
 import { render } from 'storyblok-rich-text-react-renderer'
+import type { RichtextStoryblok } from '@/types/storyblok'
 
-interface Props {
-  content: any
-  className?: string
-}
-
-const RichText: FC<Props> = ({ content, className }) => (
+const RichText: FC<RichtextStoryblok> = ({ content, className }) => (
   <div data-component="RichText" className={className}>
     {render(content)}
   </div>

@@ -4,14 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ButtonAppearance from '@/components/ButtonAppearance'
 import RichText from '@/components/RichText'
-
-interface Hero {
-  title?: string
-  description?: string
-}
+import type { HeroStoryblok } from '@/types/storyblok'
 
 interface Props {
-  blok: any
+  blok: HeroStoryblok
 }
 
 const Hero: FC<Props> = ({ blok }) => (

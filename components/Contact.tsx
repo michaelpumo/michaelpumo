@@ -8,13 +8,10 @@ import FormBase from '@/components/Form/Base'
 import FormError from '@/components/Form/Error'
 import FormField from '@/components/Form/Field'
 import FormInput from '@/components/Form/Input'
-
-interface Contact {
-  title?: string
-}
+import type { ContactStoryblok } from '@/types/storyblok'
 
 interface Props {
-  blok: any
+  blok: ContactStoryblok
 }
 
 const schema = z.object({

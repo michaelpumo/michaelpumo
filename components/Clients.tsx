@@ -1,12 +1,9 @@
 import { FC } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-
-interface Clients {
-  title?: string
-}
+import type { ClientsStoryblok } from '@/types/storyblok'
 
 interface Props {
-  blok: any
+  blok: ClientsStoryblok
 }
 
 const Clients: FC<Props> = ({ blok }) => {
@@ -29,9 +26,10 @@ const Clients: FC<Props> = ({ blok }) => {
       </div>
 
       <ul className="flex flex-col gap-1 text-6xl">
-        {blok.clients.map((client: any, index: number) => (
-          <li key={index}>{client.title}</li>
-        ))}
+        {blok.clients &&
+          blok.clients.map((client: any, index: number) => (
+            <li key={index}>{client.title}</li>
+          ))}
       </ul>
     </section>
   )

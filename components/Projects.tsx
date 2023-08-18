@@ -1,12 +1,9 @@
 import { FC } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-
-interface Projects {
-  title?: string
-}
+import type { ProjectsStoryblok } from '@/types/storyblok'
 
 interface Props {
-  blok: any
+  blok: ProjectsStoryblok
 }
 
 const Projects: FC<Props> = ({ blok }) => (
