@@ -13,9 +13,9 @@
     text-brand-dark;
 }
 
-::placeholder {
-  /* @apply text-brand-grey-light; */
-  color: red;
+input::placeholder,
+textarea::placeholder {
+  @apply text-brand-dark/30;
 }
 
 html,
