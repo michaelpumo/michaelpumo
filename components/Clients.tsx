@@ -48,9 +48,14 @@ const Clients: FC<Props> = ({ blok }) => {
         <div className="sticky top-4 xs:top-8 sm:top-16 xl:top-20 z-10">
           <h1 className="text-3xl mb-5">Clients</h1>
 
+          <p className="text-2xl text-brand-dark mb-5 text-balance max-w-[40ch]">
+            I'm proud to have worked with some fantastic companies over the
+            course of my web development career.
+          </p>
+
           <p className="text-lg text-brand-dark/50 mb-10 max-w-[40ch]">
-            If you have a project in mind or would like to make an enquiry you
-            can use the form below.
+            From content-managed static sites with a headless CMS to eCommerce
+            shopping experiences.
           </p>
         </div>
       </div>

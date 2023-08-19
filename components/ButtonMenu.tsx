@@ -1,14 +1,17 @@
-'use server'
-
 import { FC, ReactNode } from 'react'
 import Image from 'next/image'
+import { twMerge } from 'tailwind-merge'
 
 interface Props {
   children?: ReactNode
+  className?: string
 }
 
-const ButtonMenu: FC<Props> = ({ children }) => (
-  <div data-component="ButtonMenu" className="bg-brand-light rounded-full p-4">
+const ButtonMenu: FC<Props> = ({ children, className }) => (
+  <div
+    data-component="ButtonMenu"
+    className={twMerge(['bg-brand-pink rounded-full p-4', className])}
+  >
     <Image
       className=""
       src="/images/burger.png"
@@ -17,6 +20,8 @@ const ButtonMenu: FC<Props> = ({ children }) => (
       height={30}
       priority
     />
+
+    {children}
   </div>
 )
 
