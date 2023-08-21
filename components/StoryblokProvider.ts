@@ -2,12 +2,12 @@
 
 import { FC, ReactNode } from 'react'
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
-import Clients from '@/components/Clients'
-import Contact from '@/components/Contact'
-import Hero from '@/components/Hero'
+import Clients from '@/components/Blok/Clients'
+import Contact from '@/components/Blok/Contact'
+import Hero from '@/components/Blok/Hero'
 import Page from '@/components/Page'
-import Projects from '@/components/Projects'
-import Statement from '@/components/Statement'
+import Projects from '@/components/Blok/Projects'
+import Statement from '@/components/Blok/Statement'
 
 const components = {
   clients: Clients,
