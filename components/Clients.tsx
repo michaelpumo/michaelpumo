@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState, ElementRef } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import type { ClientsStoryblok } from '@/types/storyblok'
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Clients: FC<Props> = ({ blok }) => {
-  const itemsRef = useRef<Array<HTMLLIElement | null>>([])
+  const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
   const [currentIndex, setIndex] = useState(0)
 
   const callback: IntersectionObserverCallback = (
