@@ -72,14 +72,16 @@ const Clients: FC<Props> = ({ blok }) => {
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
-                onMouseEnter={() => setIndex(index)}
                 className={`transition-all duration-500 ease-outExpo ${
-                  index === currentIndex
-                    ? 'translate-x-8 lg:translate-x-10'
-                    : '' // opacity-10'
+                  index === currentIndex ? 'translate-x-6 lg:translate-x-8' : '' // opacity-10'
                 }`}
               >
-                {client.title}
+                <span
+                  onMouseEnter={() => setIndex(index)}
+                  className="inline-block"
+                >
+                  {client.title}
+                </span>
               </li>
             ))}
         </ul>

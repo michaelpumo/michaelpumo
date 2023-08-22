@@ -112,7 +112,7 @@ const config = {
         lg: [
           pxToRem(18),
           {
-            lineHeight: pxToRem(24)
+            lineHeight: pxToRem(25)
           }
         ],
         xl: [
