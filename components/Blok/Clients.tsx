@@ -68,7 +68,7 @@ const Clients: FC<Props> = ({ blok }) => {
             blok.clients.map((client: any, index: number) => (
               <li
                 {...storyblokEditable(client)}
-                key={index}
+                key={client._uid}
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
