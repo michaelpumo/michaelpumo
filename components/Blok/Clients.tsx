@@ -3,6 +3,7 @@
 import { FC, useEffect, useRef, useState, ElementRef } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import type { ClientsStoryblok } from '@/types/storyblok'
+import RichText from '@/components/RichText'
 
 interface Props {
   blok: ClientsStoryblok
@@ -57,6 +58,12 @@ const Clients: FC<Props> = ({ blok }) => {
             From content-managed static sites with a headless CMS to eCommerce
             shopping experiences.
           </p>
+
+          {blok.title && (
+            <h1 className="text-3xl mb-5 text-balance">{blok.title}</h1>
+          )}
+
+          {blok.text && <RichText content={blok.text} />}
         </div>
       </div>
 

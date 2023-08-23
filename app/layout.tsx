@@ -19,7 +19,20 @@ export const revalidate = 5
 
 export const metadata: Metadata = {
   title: 'Michael Pumo',
-  description: 'Portfolio'
+  description: 'Web development portfolio of Michael Pumo',
+  openGraph: {
+    title: 'Michael Pumo',
+    description: 'Web development portfolio of Michael Pumo',
+    url: 'https://michaelpumo.com',
+    siteName: 'Michael Pumo'
+    // images: [
+    //   {
+    //     url: '',
+    //     width: 1200,
+    //     height: 600
+    //   }
+    // ]
+  }
 }
 
 interface Props {

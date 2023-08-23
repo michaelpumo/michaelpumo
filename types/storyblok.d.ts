@@ -7,26 +7,31 @@ export interface ClientStoryblok {
   [k: string]: any;
 }
 
-export interface ClientsStoryblok {
-  style?: StyleStoryblok[];
-  clients?: ClientStoryblok[];
-  _uid: string;
-  component: "clients";
-  [k: string]: any;
-}
-
-export interface ContactStoryblok {
-  _uid: string;
-  component: "contact";
-  [k: string]: any;
-}
-
 export interface RichtextStoryblok {
   type: string;
   content?: RichtextStoryblok[];
   marks?: RichtextStoryblok[];
   attrs?: any;
   text?: string;
+  [k: string]: any;
+}
+
+export interface ClientsStoryblok {
+  title?: string;
+  text?: RichtextStoryblok;
+  clients?: ClientStoryblok[];
+  style?: StyleStoryblok[];
+  _uid: string;
+  component: "clients";
+  [k: string]: any;
+}
+
+export interface ContactStoryblok {
+  title?: string;
+  text?: RichtextStoryblok;
+  style?: StyleStoryblok[];
+  _uid: string;
+  component: "contact";
   [k: string]: any;
 }
 
@@ -72,6 +77,7 @@ export interface ProjectStoryblok {
 
 export interface ProjectsStoryblok {
   projects?: ProjectStoryblok[];
+  style?: StyleStoryblok[];
   _uid: string;
   component: "projects";
   [k: string]: any;

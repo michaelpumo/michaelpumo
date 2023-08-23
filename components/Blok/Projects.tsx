@@ -96,11 +96,12 @@ const Projects: FC<Props> = ({ blok }) => {
       <div className="wrap w-full overflow-x-hidden">
         <ul
           ref={list}
-          className="w-auto h-[calc(100vh_-_300px)] flex flex-nowrap gap-10 scroll-px-[calc(50vw_-_(100vh_-_300px)_/_2.75)] px-[calc(50vw_-_(100vh_-_300px)_/_2.75)]"
+          className="w-auto h-[calc(100vh_-_170px)] flex flex-nowrap gap-10 scroll-px-[calc(50vw_-_(100vh_-_170px)_/_2.75)] px-[calc(50vw_-_(100vh_-_170px)_/_2.75)]"
         >
           {blok.projects &&
             blok.projects.map((project: any, index: number) => (
               <li
+                {...storyblokEditable(project)}
                 key={project._uid}
                 ref={el => (itemsRef.current[index] = el)}
                 tabIndex={0}
