@@ -31,7 +31,8 @@ const Projects: FC<Props> = ({ blok }) => {
         trigger: container.current,
         pin: true,
         scrub: 0.5,
-        end: `+=${list.current?.scrollWidth}`
+        end: `+=${list.current?.scrollWidth}`,
+        invalidateOnRefresh: true
       }
     })
 
@@ -51,6 +52,7 @@ const Projects: FC<Props> = ({ blok }) => {
         end: 'right center',
         scrub: true,
         id: `${title}`,
+        invalidateOnRefresh: true,
         onEnter: () => {
           title && setTitle(title)
         },
@@ -68,7 +70,8 @@ const Projects: FC<Props> = ({ blok }) => {
             start: 'center 90%',
             end: 'center 10%',
             scrub: true,
-            id: 'item'
+            id: 'item',
+            invalidateOnRefresh: true
           }
         })
         .to(inner, { scale: 1, ease: 'none' })
