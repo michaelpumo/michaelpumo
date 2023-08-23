@@ -30,7 +30,7 @@ const Projects: FC<Props> = ({ blok }) => {
       scrollTrigger: {
         trigger: container.current,
         pin: true,
-        scrub: 0.1,
+        scrub: 0.5,
         end: `+=${list.current?.scrollWidth}`
       }
     })
@@ -85,7 +85,7 @@ const Projects: FC<Props> = ({ blok }) => {
       ref={container}
       className="relative z-10 w-full min-h-screen bg-brand-light text-brand-dark flex items-center justify-center"
     >
-      <p className="absolute top-1/2 z-10 -translate-y-1/2 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title">
+      <p className="absolute z-10 w-full px-4 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title">
         {title}
       </p>
 

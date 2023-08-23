@@ -4,7 +4,8 @@
 
 @layer utilities {
   .text-project-title {
-    font-size: clamp(2rem, 10vw, 8rem);
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1;
   }
 
   /* Remove once in Tailwind natively.

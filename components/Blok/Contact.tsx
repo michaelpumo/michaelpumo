@@ -48,6 +48,10 @@ const Contact: FC<Props> = ({ blok }) => {
       <div className="w-full max-w-xl">
         <h1 className="text-3xl mb-5">Contact me</h1>
 
+        <p className="text-2xl text-brand-dark mb-5 text-balance max-w-[40ch]">
+          I'm currently open for new projects.
+        </p>
+
         <p className="text-lg text-brand-dark/50 mb-10 max-w-[40ch]">
           If you have a project in mind or would like to make an enquiry you can
           use the form below.
