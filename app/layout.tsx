@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { FC, ReactNode } from 'react'
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
 import StoryblokProvider from '@/components/StoryblokProvider'
-import ButtonMenu from '@/components/ButtonMenu'
 import '@/assets/css/app.css'
 
 storyblokInit({
@@ -42,13 +41,7 @@ interface Props {
 const RootLayout: FC<Props> = ({ children }) => (
   <StoryblokProvider>
     <html lang="en-GB">
-      <body>
-        <header className="fixed top-5 left-5 z-20">
-          <ButtonMenu />
-        </header>
-
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   </StoryblokProvider>
 )

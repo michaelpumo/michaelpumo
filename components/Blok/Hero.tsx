@@ -3,6 +3,7 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
 import ButtonAppearance from '@/components/ButtonAppearance'
+import Navigation from '@/components/Navigation'
 import RichText from '@/components/RichText'
 import type { HeroStoryblok } from '@/types/storyblok'
 
@@ -17,8 +18,12 @@ const Hero: FC<Props> = ({ blok }) => (
     className="sticky top-0 z-10 w-full lg:h-screen lg:grid lg:grid-cols-2"
   >
     <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-blue text-brand-light">
-      <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 before:content-[''] overflow-scroll">
-        <div className="w-full mb-10">
+      <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 overflow-scroll">
+        <header className="">
+          <Navigation />
+        </header>
+
+        <div className="w-full my-10">
           {blok.title && (
             <h1 className="max-w-[30ch] font-display text-3xl xs:text-4xl sm:text-5xl lg:text-5xl text-balance mb-10">
               {blok.title}
