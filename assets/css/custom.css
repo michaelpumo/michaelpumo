@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-  /* Remove once in good support.
+  .text-project-title {
+    font-size: clamp(2rem, 10vw, 8rem);
+  }
+
+  /* Remove once in Tailwind natively.
   https://caniuse.com/css-text-wrap-balance */
 
   @responsive {

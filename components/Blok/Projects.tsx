@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Projects: FC<Props> = ({ blok }) => {
-  const [title, setTitle] = useState('dfdb')
+  const [title, setTitle] = useState('')
   const container = useRef<ElementRef<'div'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
@@ -21,6 +21,9 @@ const Projects: FC<Props> = ({ blok }) => {
 
     if (!container.current || !list.current) return
 
+    const initialTitle = blok.projects?.[0].title
+    initialTitle && setTitle(initialTitle)
+
     const scrollTween = gsap.to(list.current, {
       x: -list.current?.scrollWidth,
       ease: 'none',
@@ -29,46 +32,30 @@ const Projects: FC<Props> = ({ blok }) => {
         pin: true,
         scrub: 0.1,
         end: `+=${list.current?.scrollWidth}`
-        //snap: directionalSnap(1 / (sections.length - 1)),
       }
     })
 
-    itemsRef.current?.forEach(item => {
-      const inner = item?.firstElementChild!
+    itemsRef.current?.forEach((item, index) => {
+      const inner = item?.firstElementChild
+      const title = blok.projects?.[index].title
+
+      if (!item || !inner) return
+
       gsap.set(inner, { scale: 0.75, transformOrigin: 'center center' })
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         trigger: item,
         containerAnimation: scrollTween,
-        start: 'center 90%',
-        end: 'center 10%',
+        start: 'left center',
+        end: 'right center',
         scrub: true,
-        id: 'item',
+        id: `${title}`,
         onEnter: () => {
-          console.log(
-            'onEnter',
-            blok.projects[parseInt(item?.dataset.index!, 10)].title
-          )
-          // setTitle(blok.projects[parseInt(item?.dataset.index!, 10)].title)
+          title && setTitle(title)
         },
         onEnterBack: () => {
-          console.log(
-            'onEnterBack',
-            blok.projects[parseInt(item?.dataset.index!, 10)].title
-          )
-        },
-        onLeave: () => {
-          console.log(
-            'onLeave',
-            blok.projects[parseInt(item?.dataset.index!, 10)].title
-          )
-        },
-        onLeaveBack: () => {
-          console.log(
-            'onLeaveBack',
-            blok.projects[parseInt(item?.dataset.index!, 10)].title
-          )
+          title && setTitle(title)
         }
       })
 
@@ -82,40 +69,14 @@ const Projects: FC<Props> = ({ blok }) => {
             end: 'center 10%',
             scrub: true,
             id: 'item'
-            // onEnter: () => {
-            //   console.log(
-            //     'onEnter',
-            //     blok.projects[parseInt(item?.dataset.index!, 10)].title
-            //   )
-            //   // setTitle(blok.projects[parseInt(item?.dataset.index!, 10)].title)
-            // },
-            // onEnterBack: () => {
-            //   console.log(
-            //     'onEnterBack',
-            //     blok.projects[parseInt(item?.dataset.index!, 10)].title
-            //   )
-            // },
-            // onLeave: () => {
-            //   console.log(
-            //     'onLeave',
-            //     blok.projects[parseInt(item?.dataset.index!, 10)].title
-            //   )
-            // },
-            // onLeaveBack: () => {
-            //   console.log(
-            //     'onLeaveBack',
-            //     blok.projects[parseInt(item?.dataset.index!, 10)].title
-            //   )
-            //   // setTitle(blok.projects[parseInt(item?.dataset.index!, 10)].title)
-            // }
           }
         })
         .to(inner, { scale: 1, ease: 'none' })
-        .to(inner, { scale: 0.75, ease: 'none' }) // , '+=2'
+        .to(inner, { scale: 0.75, ease: 'none' })
     })
 
     return () => {}
-  }, []) // container, list, itemsRef
+  }, [])
 
   return (
     <section
@@ -124,7 +85,7 @@ const Projects: FC<Props> = ({ blok }) => {
       ref={container}
       className="relative z-10 w-full min-h-screen bg-brand-light text-brand-dark flex items-center justify-center"
     >
-      <p className="absolute top-1/2 z-10 -translate-y-1/2 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-[20vh]">
+      <p className="absolute top-1/2 z-10 -translate-y-1/2 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title">
         {title}
       </p>
 
@@ -137,9 +98,8 @@ const Projects: FC<Props> = ({ blok }) => {
           {blok.projects &&
             blok.projects.map((project: any, index: number) => (
               <li
-                key={index}
+                key={project._uid}
                 ref={el => (itemsRef.current[index] = el)}
-                data-index={index}
                 tabIndex={0}
                 className="w-auto h-full rounded-2xl aspect-[3/4]"
               >
