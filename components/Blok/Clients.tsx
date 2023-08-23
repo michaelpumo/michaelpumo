@@ -47,23 +47,16 @@ const Clients: FC<Props> = ({ blok }) => {
     >
       <div>
         <div className="md:sticky md:top-16 xl:top-20 md:z-10">
-          <h1 className="text-3xl mb-5">Clients</h1>
-
-          <p className="text-2xl text-brand-dark mb-5 text-balance max-w-[40ch]">
-            I'm proud to have worked with some fantastic companies over the
-            course of my web development career.
-          </p>
-
-          <p className="text-lg text-brand-dark/50 max-w-[40ch]">
-            From content-managed static sites with a headless CMS to eCommerce
-            shopping experiences.
-          </p>
-
           {blok.title && (
             <h1 className="text-3xl mb-5 text-balance">{blok.title}</h1>
           )}
 
-          {blok.text && <RichText content={blok.text} />}
+          {blok.text && (
+            <RichText
+              className="prose-custom max-w-[40ch]"
+              content={blok.text}
+            />
+          )}
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Moveable';
+  font-family: 'Pumo';
   src:
     url('/fonts/GreycliffCF/GreycliffCF-Bold.woff2') format('woff2'),
     url('/fonts/GreycliffCF/GreycliffCF-Bold.woff') format('woff');
@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-family: 'Moveable';
+  font-family: 'Pumo';
   src:
     url('/fonts/GreycliffCF/GreycliffCF-Medium.woff2') format('woff2'),
     url('/fonts/GreycliffCF/GreycliffCF-Medium.woff') format('woff');

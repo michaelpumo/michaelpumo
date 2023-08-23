@@ -43,6 +43,7 @@ const config = {
           dark: '#000',
           blue: '#0045FF',
           grey: {
+            average: '#797a7c',
             light: '#f1f5f9'
           },
           pink: '#fd8e8e',
@@ -51,43 +52,43 @@ const config = {
         }
       },
       typography: ({ theme }: { theme: any }) => ({
-        brand: {
-          // css: {
-          //   '--tw-prose-body': theme('colors.gray[500]'),
-          //   '--tw-prose-headings': theme('colors.brand.dark.secondary'),
-          //   // '--tw-prose-lead': theme('colors.pink[700]'),
-          //   '--tw-prose-links': theme('colors.theme.accent'),
-          //   '--tw-prose-bold': theme('colors.brand.dark.secondary'),
-          //   '--tw-prose-counters': theme('colors.brand.dark.secondary'),
-          //   '--tw-prose-bullets': theme('colors.brand.dark.secondary'),
-          //   // '--tw-prose-hr': theme('colors.pink[300]'),
-          //   '--tw-prose-quotes': theme('colors.brand.dark.secondary'),
-          //   '--tw-prose-quote-borders': theme('colors.brand.dark.secondary'),
-          //   // '--tw-prose-captions': theme('colors.pink[700]'),
-          //   // '--tw-prose-code': theme('colors.pink[900]'),
-          //   // '--tw-prose-pre-code': theme('colors.pink[100]'),
-          //   '--tw-prose-pre-bg': theme('colors.brand.dark.secondary'),
-          //   // '--tw-prose-th-borders': theme('colors.pink[300]'),
-          //   // '--tw-prose-td-borders': theme('colors.pink[200]'),
-          //   '--tw-prose-invert-body': theme('colors.slate[300]'),
-          //   '--tw-prose-invert-headings': theme('colors.brand.light.primary'),
-          //   // '--tw-prose-invert-lead': theme('colors.pink[300]'),
-          //   '--tw-prose-invert-links': theme('colors.theme.accent'),
-          //   '--tw-prose-invert-bold': theme('colors.brand.light.primary'),
-          //   '--tw-prose-invert-counters': theme('colors.brand.light.primary'),
-          //   '--tw-prose-invert-bullets': theme('colors.brand.light.primary'),
-          //   // '--tw-prose-invert-hr': theme('colors.pink[700]'),
-          //   '--tw-prose-invert-quotes': theme('colors.brand.light.primary'),
-          //   '--tw-prose-invert-quote-borders': theme(
-          //     'colors.brand.light.primary',
-          //   ),
-          //   // '--tw-prose-invert-captions': theme('colors.pink[400]'),
-          //   // '--tw-prose-invert-code': theme('colors.white'),
-          //   // '--tw-prose-invert-pre-code': theme('colors.pink[300]'),
-          //   '--tw-prose-invert-pre-bg': theme('colors.brand.dark.secondary'),
-          //   // '--tw-prose-invert-th-borders': theme('colors.pink[600]'),
-          //   // '--tw-prose-invert-td-borders': theme('colors.pink[700]')
-          // },
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.brand.grey.average'),
+            '--tw-prose-headings': theme('colors.brand.dark'),
+            '--tw-prose-lead': theme('colors.brand.dark'),
+            '--tw-prose-links': theme('colors.brand.blue'),
+            '--tw-prose-bold': theme('colors.brand.dark'),
+            '--tw-prose-counters': theme('colors.brand.dark'),
+            '--tw-prose-bullets': theme('colors.brand.dark'),
+            '--tw-prose-hr': theme('colors.brand.dark'),
+            '--tw-prose-quotes': theme('colors.brand.dark'),
+            '--tw-prose-quote-borders': theme('colors.brand.dark'),
+            '--tw-prose-captions': theme('colors.brand.dark'),
+            '--tw-prose-code': theme('colors.brand.light'),
+            '--tw-prose-pre-code': theme('colors.brand.light'),
+            '--tw-prose-pre-bg': theme('colors.brand.dark'),
+            '--tw-prose-th-borders': theme('colors.brand.dark'),
+            '--tw-prose-td-borders': theme('colors.brand.dark')
+            // '--tw-prose-invert-body': theme('colors.brand.light'),
+            // '--tw-prose-invert-headings': theme('colors.brand.light'),
+            // '--tw-prose-invert-lead': theme('colors.pink[300]'),
+            // '--tw-prose-invert-links': theme('colors.brand.blue'),
+            // '--tw-prose-invert-bold': theme('colors.brand.light'),
+            // '--tw-prose-invert-counters': theme('colors.brand.light'),
+            // '--tw-prose-invert-bullets': theme('colors.brand.light'),
+            // '--tw-prose-invert-hr': theme('colors.pink[700]'),
+            // '--tw-prose-invert-quotes': theme('colors.brand.light'),
+            // '--tw-prose-invert-quote-borders': theme(
+            //   'colors.brand.light',
+            // ),
+            // '--tw-prose-invert-captions': theme('colors.pink[400]'),
+            // '--tw-prose-invert-code': theme('colors.white'),
+            // '--tw-prose-invert-pre-code': theme('colors.pink[300]'),
+            // '--tw-prose-invert-pre-bg': theme('colors.brand.dark'),
+            // '--tw-prose-invert-th-borders': theme('colors.pink[600]'),
+            // '--tw-prose-invert-td-borders': theme('colors.pink[700]')
+          }
         }
       }),
       fontSize: {
@@ -186,7 +187,7 @@ const config = {
       'max-xs': { max: '374px' }
     },
     fontFamily: {
-      display: ['Moveable', 'sans-serif'],
+      display: ['Pumo', 'sans-serif'],
       sans: ['Inter', 'sans-serif']
     },
     transitionTimingFunction: {
