@@ -92,6 +92,7 @@ const config = {
         }
       }),
       fontSize: {
+        'project-title': ['clamp(3rem, 10vw, 8rem)', { lineHeight: 1 }],
         xs: [
           pxToRem(12),
           {
