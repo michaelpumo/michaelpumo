@@ -5,6 +5,19 @@ import typography from '@tailwindcss/typography'
 
 const pxToRem = (px: number, base = 16) => `${px / base}rem`
 
+export const brand = {
+  light: '#fff',
+  dark: '#000',
+  blue: '#0045FF',
+  grey: {
+    average: '#797a7c',
+    light: '#f1f5f9'
+  },
+  pink: '#fd8e8e',
+  red: '#fc5959',
+  yellow: '#fde58e'
+}
+
 const config = {
   mode: 'jit',
   darkMode: 'class',
@@ -15,41 +28,30 @@ const config = {
   ],
   plugins: [
     forms,
-    typography,
-    function ({ addBase, theme }: { addBase: any; theme: any }) {
-      function extractColorVars(colorObj: any, colorGroup = ''): any {
-        return Object.keys(colorObj).reduce((vars, colorKey) => {
-          const value = colorObj[colorKey]
+    typography
+    // function ({ addBase, theme }: { addBase: any; theme: any }) {
+    //   function extractColorVars(colorObj: any, colorGroup = ''): any {
+    //     return Object.keys(colorObj).reduce((vars, colorKey) => {
+    //       const value = colorObj[colorKey]
 
-          const newVars =
-            typeof value === 'string'
-              ? { [`--color${colorGroup}-${colorKey}`]: value }
-              : extractColorVars(value, `-${colorKey}`)
+    //       const newVars =
+    //         typeof value === 'string'
+    //           ? { [`--color${colorGroup}-${colorKey}`]: value }
+    //           : extractColorVars(value, `-${colorKey}`)
 
-          return { ...vars, ...newVars }
-        }, {})
-      }
+    //       return { ...vars, ...newVars }
+    //     }, {})
+    //   }
 
-      addBase({
-        ':root': extractColorVars(theme('colors'))
-      })
-    }
+    //   addBase({
+    //     ':root': extractColorVars(theme('colors'))
+    //   })
+    // }
   ],
   theme: {
     extend: {
       colors: {
-        brand: {
-          light: '#fff',
-          dark: '#000',
-          blue: '#0045FF',
-          grey: {
-            average: '#797a7c',
-            light: '#f1f5f9'
-          },
-          pink: '#fd8e8e',
-          red: '#fc5959',
-          yellow: '#fde58e'
-        }
+        brand
       },
       typography: ({ theme }: { theme: any }) => ({
         DEFAULT: {
@@ -92,7 +94,7 @@ const config = {
         }
       }),
       fontSize: {
-        'project-title': ['clamp(3rem, 10vw, 8rem)', { lineHeight: 1 }],
+        'project-title': ['clamp(3rem, 10vw, 8rem)', { lineHeight: 1.1 }],
         xs: [
           pxToRem(12),
           {

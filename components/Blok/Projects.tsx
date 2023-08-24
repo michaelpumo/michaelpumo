@@ -12,7 +12,7 @@ interface Props {
 
 const Projects: FC<Props> = ({ blok }) => {
   const [title, setTitle] = useState('')
-  const container = useRef<ElementRef<'div'> | null>(null)
+  const container = useRef<ElementRef<'section'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
 
