@@ -5,6 +5,7 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import type { ProjectsStoryblok } from '@/types/storyblok'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ResponsiveImage from '@/components/ResponsiveImage'
 
 interface Props {
   blok: ProjectsStoryblok
@@ -15,6 +16,8 @@ const Projects: FC<Props> = ({ blok }) => {
   const container = useRef<ElementRef<'section'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
+
+  console.log(blok.projects)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -108,12 +111,17 @@ const Projects: FC<Props> = ({ blok }) => {
                 className="w-auto h-full rounded-2xl aspect-[3/4]"
               >
                 <div className="relative w-full h-full">
+                  <ResponsiveImage
+                    className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                    image={project.image}
+                    customSizes={[400, 800, 1200, 1600]}
+                  />
                   {/* first:scale-100 scale-75 snap-start */}
-                  <img
+                  {/* <img
                     className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                     src="https://images.prismic.io/michaelpumo/2cda8e7c-be5a-45a2-9e34-0b2730fe1dae_project-moth.jpg?auto=compress,format"
                     alt={project.title}
-                  />
+                  /> */}
                 </div>
               </li>
             ))}

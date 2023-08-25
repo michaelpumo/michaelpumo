@@ -43,6 +43,7 @@ const Navigation: FC<Props> = ({ className }) => {
           } absolute top-0 left-0 z-0 pointer-events-none rounded-full w-full h-full border-2 bg-brand-blue border-brand-light transition-all duration-300 ease-inOutCubic`}
         />
         <span className="relative z-10 text-2xl">🍔</span>
+        <span className="sr-only">Menu</span>
       </button>
 
       <nav
