@@ -119,6 +119,12 @@ const Projects: FC<Props> = ({ blok }) => {
             ))}
         </ul>
       </div>
+
+      <p className="absolute bottom-9 z-10 w-full px-4 font-bold text-center text-sm text-brand-blue">
+        <a href="#" className="no-underline">
+          Skip Projects
+        </a>
+      </p>
     </section>
   )
 }

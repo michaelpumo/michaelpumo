@@ -1,5 +1,4 @@
-import { FC, ElementRef, useRef, useState } from 'react'
-import { set } from 'react-hook-form'
+import { FC, ElementRef, useRef, useState, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface Props {
@@ -7,26 +6,21 @@ interface Props {
 }
 
 const Navigation: FC<Props> = ({ className }) => {
-  const nav = useRef<ElementRef<'nav'>>(null)
   const list = useRef<ElementRef<'ul'>>(null)
   const [open, setOpen] = useState(false)
 
-  const toggle = () => {
-    console.log('click')
-    if (nav.current && list.current) {
-      if (open) {
-        nav.current.style.width = `0px`
-        setOpen(false)
-      } else {
-        const { width, height } = list.current.getBoundingClientRect()
-
-        console.log('width', width, height)
-        console.log('offset', list.current.offsetWidth)
-
-        nav.current.style.width = `${width}px`
-        setOpen(true)
-      }
+  const navigationStyles = useMemo(() => {
+    if (!list.current) {
+      return { width: 0 }
     }
+
+    const { width } = list.current.getBoundingClientRect()
+
+    return open ? { width: `${width}px` } : { width: 0 }
+  }, [open, list])
+
+  const toggle = () => {
+    setOpen(!open)
   }
 
   return (
@@ -52,29 +46,31 @@ const Navigation: FC<Props> = ({ className }) => {
       </button>
 
       <nav
-        ref={nav}
-        className="w-0 h-full overflow-hidden transition-all duration-300 ease-outExpo"
+        style={navigationStyles}
+        className="w-0 h-full overflow-hidden transition-all duration-300 ease-inOutCubic"
       >
         <ul
           ref={list}
-          className="flex items-start justify-start gap-4 h-full bg-brand-red"
+          className={`${
+            open ? 'opacity-100' : 'opacity-0'
+          } flex items-start justify-start gap-4 pl-4 pr-6 w-fit h-full`}
         >
-          <li>
+          <li className="text-sm">
             <a className="no-underline" href="#">
               About
             </a>
           </li>
-          <li>
+          <li className="text-sm">
             <a className="no-underline" href="#">
               Clients
             </a>
           </li>
-          <li>
+          <li className="text-sm">
             <a className="no-underline" href="#">
               Projects
             </a>
           </li>
-          <li>
+          <li className="text-sm">
             <a className="no-underline" href="#">
               Contact
             </a>

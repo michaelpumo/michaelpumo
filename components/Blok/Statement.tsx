@@ -45,11 +45,7 @@ const Statement: FC<Props> = ({ blok }) => {
         { opacity: 0, scale: 1 / scaleDown, ease: 'none' },
         'B'
       )
-      .to(
-        container.current,
-        { backgroundColor: brand.light, ease: 'none' },
-        '+=1'
-      )
+      .to(container.current, { backgroundColor: brand.light, ease: 'none' })
   })
 
   return (
