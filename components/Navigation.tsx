@@ -54,7 +54,7 @@ const Navigation: FC<Props> = ({ className }) => {
           ref={list}
           className={`${
             open ? 'opacity-100' : 'opacity-0'
-          } flex items-start justify-start gap-4 pl-4 pr-6 w-fit h-full`}
+          } flex items-start justify-start gap-4 pl-4 pr-6 w-fit h-full transition-opacity duration-300`}
         >
           <li className="text-sm">
             <a className="no-underline" href="#">

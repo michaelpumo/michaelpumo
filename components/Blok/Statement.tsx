@@ -46,7 +46,9 @@ const Statement: FC<Props> = ({ blok }) => {
         'B'
       )
       .to(container.current, { backgroundColor: brand.light, ease: 'none' })
-  })
+
+    return () => {}
+  }, [])
 
   return (
     <section

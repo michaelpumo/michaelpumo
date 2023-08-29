@@ -14,11 +14,11 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.0",
     "@storyblok/react": "^2.4.5",
-    "@types/node": "20.5.4",
+    "@types/node": "20.5.6",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "gsap": "^3.12.2",
     "next": "13.4.19",
@@ -28,7 +28,7 @@
     "react-hook-form": "^7.45.4",
     "storyblok-rich-text-react-renderer": "^2.9.0",
     "tailwind-merge": "^1.14.0",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "zod": "^3.22.2"
   },
   "devDependencies": {
