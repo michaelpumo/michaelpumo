@@ -1,5 +1,4 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 13,
+  "editor.fontSize": 14
 }
