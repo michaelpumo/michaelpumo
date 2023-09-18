@@ -1,27 +1,37 @@
 import { FC, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
+import type { AssetStoryblok } from '@/types/storyblok'
 
 interface Props {
-  image: any
-  customSizes: number[]
+  image?: AssetStoryblok
+  customSizes?: number[]
   className?: string
 }
 
-const ResponsiveImage: FC<Props> = ({ image, customSizes, className }) => {
-  const baseUrl = image.filename
-  // .replace('//a.storyblok.com', '//a2.storyblok.com')
-  const options = {
+interface ImageOptions {
+  width: number
+  quality: number
+  format: string
+}
+
+const ResponsiveImage: FC<Props> = ({ image, customSizes = [], className }) => {
+  if (!image) return null
+
+  const options: ImageOptions = {
     width: 800,
     quality: 85,
     format: 'webp'
   }
 
-  const generateImageUrl = (filename: string, options) => {
+  const generateImageUrl = (filename: string, options: ImageOptions) => {
     // const queryParams = new URLSearchParams(options).toString()
-    return `${filename}/m/${options.width}x0/filters:quality(${options.quality})`
+    const file = filename.replace('//a.storyblok.com', '//a2.storyblok.com')
+    return `${file}/m/${options.width}x0/filters:quality(${options.quality})`
   }
 
-  const srcSet = customSizes
+  const sizes = customSizes.slice(1).sort((a, b) => a - b)
+
+  const srcSetAttr = sizes
     .map(
       size =>
         `${generateImageUrl(image.filename, {
@@ -31,20 +41,19 @@ const ResponsiveImage: FC<Props> = ({ image, customSizes, className }) => {
     )
     .join(', ')
 
-  console.log(srcSet)
+  console.log('Rendered Image...')
 
-  const sizes = customSizes
-    .map((size, index) => `(min-width: ${size}px) ${size}px`)
+  const sizesAttr = sizes
+    .map(size => `(min-width: ${size}px) ${size}px`)
     .join(', ')
 
   return (
     <img
       className={twMerge('', className)}
       src={generateImageUrl(image.filename, options)}
-      srcSet={srcSet}
-      sizes={sizes}
+      srcSet={srcSetAttr}
+      sizes={sizesAttr}
       alt={image.alt}
-      title={image.title}
     />
   )
 }

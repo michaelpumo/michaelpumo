@@ -1,8 +1,20 @@
 'use client'
 
-import { FC, useRef, ElementRef, useEffect, useState } from 'react'
+import {
+  FC,
+  useRef,
+  ElementRef,
+  useEffect,
+  useState,
+  memo,
+  useMemo
+} from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-import type { ProjectsStoryblok } from '@/types/storyblok'
+import type {
+  ProjectsStoryblok,
+  ProjectStoryblok,
+  AssetStoryblok
+} from '@/types/storyblok'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ResponsiveImage from '@/components/ResponsiveImage'
@@ -11,20 +23,37 @@ interface Props {
   blok: ProjectsStoryblok
 }
 
+interface ImageProps {
+  image?: AssetStoryblok
+  customSizes: number[]
+}
+
+const MemoizedResponsiveImage: FC<ImageProps> = memo(
+  ({ image, customSizes }) => {
+    return (
+      <ResponsiveImage
+        className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+        image={image}
+        customSizes={customSizes}
+      />
+    )
+  }
+)
+
 const Projects: FC<Props> = ({ blok }) => {
   const [title, setTitle] = useState('')
   const container = useRef<ElementRef<'section'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
-
-  console.log(blok.projects)
+  const projects = useMemo(() => blok.projects, [blok.projects])
 
   useEffect(() => {
+    console.log('useEffect in Projects')
     gsap.registerPlugin(ScrollTrigger)
 
     if (!container.current || !list.current) return
 
-    const initialTitle = blok.projects?.[0].title
+    const initialTitle = projects?.[0].title
     initialTitle && setTitle(initialTitle)
 
     const scrollTween = gsap.to(list.current, {
@@ -95,36 +124,27 @@ const Projects: FC<Props> = ({ blok }) => {
         {title}
       </p>
 
-      {/* snap-x snap-mandatory scroll-smooth overflow-auto  */}
       <div className="wrap w-full overflow-x-hidden">
         <ul
           ref={list}
           className="w-auto h-[calc(100vh_-_170px)] flex flex-nowrap gap-10 scroll-px-[calc(50vw_-_(100vh_-_170px)_/_2.75)] px-[calc(50vw_-_(100vh_-_170px)_/_2.75)]"
         >
-          {blok.projects &&
-            blok.projects.map((project: any, index: number) => (
-              <li
-                {...storyblokEditable(project)}
-                key={project._uid}
-                ref={el => (itemsRef.current[index] = el)}
-                tabIndex={0}
-                className="w-auto h-full rounded-2xl aspect-[3/4]"
-              >
-                <div className="relative w-full h-full">
-                  <ResponsiveImage
-                    className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                    image={project.image}
-                    customSizes={[400, 800, 1200, 1600]}
-                  />
-                  {/* first:scale-100 scale-75 snap-start */}
-                  {/* <img
-                    className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                    src="https://images.prismic.io/michaelpumo/2cda8e7c-be5a-45a2-9e34-0b2730fe1dae_project-moth.jpg?auto=compress,format"
-                    alt={project.title}
-                  /> */}
-                </div>
-              </li>
-            ))}
+          {projects?.map((project: ProjectStoryblok, index: number) => (
+            <li
+              {...storyblokEditable(project)}
+              key={project._uid}
+              ref={el => (itemsRef.current[index] = el)}
+              tabIndex={0}
+              className="w-auto h-full rounded-2xl aspect-[3/4]"
+            >
+              <div className="relative w-full h-full">
+                <MemoizedResponsiveImage
+                  image={project.image}
+                  customSizes={[800, 1200, 1600]}
+                />
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
 
