@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { FC, ReactNode } from 'react'
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
 import StoryblokProvider from '@/components/StoryblokProvider'
+import LenisProvider from '@/components/LenisProvider'
 import '@/assets/css/app.css'
 
 storyblokInit({
@@ -40,9 +41,11 @@ interface Props {
 
 const RootLayout: FC<Props> = ({ children }) => (
   <StoryblokProvider>
-    <html lang="en-GB">
-      <body>{children}</body>
-    </html>
+    <LenisProvider>
+      <html lang="en-GB">
+        <body>{children}</body>
+      </html>
+    </LenisProvider>
   </StoryblokProvider>
 )
 
