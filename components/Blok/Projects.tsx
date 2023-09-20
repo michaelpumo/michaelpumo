@@ -48,7 +48,6 @@ const Projects: FC<Props> = ({ blok }) => {
   const projects = useMemo(() => blok.projects, [blok.projects])
 
   useEffect(() => {
-    console.log('useEffect in Projects')
     gsap.registerPlugin(ScrollTrigger)
 
     if (!container.current || !list.current) return

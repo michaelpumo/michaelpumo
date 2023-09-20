@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import { twMerge } from 'tailwind-merge'
 import type { AssetStoryblok } from '@/types/storyblok'
 
@@ -40,8 +40,6 @@ const ResponsiveImage: FC<Props> = ({ image, customSizes = [], className }) => {
         })} ${size}w`
     )
     .join(', ')
-
-  console.log('Rendered Image...')
 
   const sizesAttr = sizes
     .map(size => `(min-width: ${size}px) ${size}px`)
