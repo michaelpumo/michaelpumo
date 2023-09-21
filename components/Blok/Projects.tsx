@@ -10,31 +10,24 @@ import {
   useMemo
 } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-import type {
-  ProjectsStoryblok,
-  ProjectStoryblok,
-  AssetStoryblok
-} from '@/types/storyblok'
+import type { ProjectsStoryblok, ProjectStoryblok } from '@/types/storyblok'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ResponsiveImage from '@/components/ResponsiveImage'
+import type { Props as ImageProps } from '@/components/ResponsiveImage'
 
 interface Props {
   blok: ProjectsStoryblok
 }
 
-interface ImageProps {
-  image?: AssetStoryblok
-  customSizes: number[]
-}
-
 const MemoizedResponsiveImage: FC<ImageProps> = memo(
-  ({ image, customSizes }) => {
+  ({ className, image, sizes, options }) => {
     return (
       <ResponsiveImage
-        className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+        className={className}
         image={image}
-        customSizes={customSizes}
+        sizes={sizes}
+        options={options}
       />
     )
   }
@@ -45,7 +38,12 @@ const Projects: FC<Props> = ({ blok }) => {
   const container = useRef<ElementRef<'section'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
-  const projects = useMemo(() => blok.projects, [blok.projects])
+  const projects = useMemo(
+    () =>
+      blok.projects?.filter((project: ProjectStoryblok) => project?.image) ??
+      [],
+    [blok.projects]
+  )
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -138,8 +136,9 @@ const Projects: FC<Props> = ({ blok }) => {
             >
               <div className="relative w-full h-full">
                 <MemoizedResponsiveImage
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                   image={project.image}
-                  customSizes={[800, 1200, 1600]}
+                  sizes={[800, 1200, 1600]}
                 />
               </div>
             </li>
