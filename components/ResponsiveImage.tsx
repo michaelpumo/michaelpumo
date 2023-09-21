@@ -4,6 +4,7 @@ import type { AssetStoryblok } from '@/types/storyblok'
 
 interface ImageOptions {
   width?: number
+  height?: number
   quality?: number
   format?: string
 }
@@ -19,25 +20,24 @@ const ResponsiveImage: FC<Props> = ({ image, sizes, className, options }) => {
   if (!image || !sizes?.length) return null
 
   const mergedOptions: ImageOptions = {
+    width: 0,
+    height: 0,
     quality: 85,
     format: 'webp',
     ...options
   }
 
-  const generateImageUrl = (
-    filename: string,
-    options: ImageOptions
-  ): string => {
+  const buildImageUrl = (filename: string, options: ImageOptions): string => {
     // const queryParams = new URLSearchParams(options).toString()
     const file = filename.replace('//a.storyblok.com', '//a2.storyblok.com')
-    return `${file}/m/${options.width}x0/filters:quality(${options.quality})`
+    return `${file}/m/${options.width}x${options.height}/filters:quality(${options.quality})`
   }
 
-  // Take every size given but the first (because first is the default).
+  // Take every size given but the first (because first is used in src).
   // Sort them to be in order.
   const restSizes = sizes.slice(1).sort((a, b) => a - b)
 
-  const srcAttr = generateImageUrl(image.filename, {
+  const srcAttr = buildImageUrl(image.filename, {
     ...mergedOptions,
     width: sizes[0]
   })
@@ -45,7 +45,7 @@ const ResponsiveImage: FC<Props> = ({ image, sizes, className, options }) => {
   const srcSetAttr = restSizes
     .map(
       size =>
-        `${generateImageUrl(image.filename, {
+        `${buildImageUrl(image.filename, {
           ...mergedOptions,
           width: size
         })} ${size}w`
