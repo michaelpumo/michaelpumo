@@ -9,23 +9,14 @@ interface Props {
 
 const LenisProvider: FC<Props> = ({ children }) => {
   useEffect(() => {
-    // const lenis = new Lenis()
-
-    // lenis.on('scroll', ScrollTrigger.update)
-
-    // gsap.ticker.add((time)=>{
-    //   lenis.raf(time * 1000)
-    // })
-
-    // gsap.ticker.lagSmoothing(0)
-
     const lenis = new Lenis({
-      // lerp: 0.1
-      duration: 1.5
+      lerp: 0.1,
+      duration: 1.5,
+      smoothWheel: true
     })
 
-    lenis.on('scroll', (e: Event) => {
-      console.log(e)
+    lenis.on('scroll', ({ ...all }) => {
+      console.log(all)
     })
 
     function raf(time: number) {
@@ -34,9 +25,10 @@ const LenisProvider: FC<Props> = ({ children }) => {
     }
 
     requestAnimationFrame(raf)
+
     return () => {
-      // lenis.off('scroll')
-      console.log('done')
+      console.log('Destroy Lenis')
+      lenis.destroy()
     }
   }, [])
 

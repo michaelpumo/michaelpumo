@@ -46,68 +46,72 @@ const Projects: FC<Props> = ({ blok }) => {
   )
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    const ctx = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger)
 
-    if (!container.current || !list.current) return
+      if (!container.current || !list.current) return
 
-    const initialTitle = projects?.[0].title
-    initialTitle && setTitle(initialTitle)
+      const initialTitle = projects?.[0].title
+      initialTitle && setTitle(initialTitle)
 
-    const scrollTween = gsap.to(list.current, {
-      x: -list.current?.scrollWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container.current,
-        pin: true,
-        scrub: 0.5,
-        end: `+=${list.current?.scrollWidth}`,
-        invalidateOnRefresh: true
-      }
-    })
-
-    itemsRef.current?.forEach((item, index) => {
-      const inner = item?.firstElementChild
-      const title = blok.projects?.[index].title
-
-      if (!item || !inner) return
-
-      gsap.set(inner, { scale: 0.75, transformOrigin: 'center center' })
-
-      ScrollTrigger.create({
-        markers: false,
-        trigger: item,
-        containerAnimation: scrollTween,
-        start: 'left center',
-        end: 'right center',
-        scrub: true,
-        id: `${title}`,
-        invalidateOnRefresh: true,
-        onEnter: () => {
-          title && setTitle(title)
-        },
-        onEnterBack: () => {
-          title && setTitle(title)
+      const scrollTween = gsap.to(list.current, {
+        x: -list.current?.scrollWidth,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container.current,
+          pin: true,
+          scrub: 0.5,
+          end: `+=${list.current?.scrollWidth}`,
+          invalidateOnRefresh: true
         }
       })
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            markers: false,
-            trigger: item,
-            containerAnimation: scrollTween,
-            start: 'center 90%',
-            end: 'center 10%',
-            scrub: true,
-            id: 'item',
-            invalidateOnRefresh: true
+      itemsRef.current?.forEach((item, index) => {
+        const inner = item?.firstElementChild
+        const title = blok.projects?.[index].title
+
+        if (!item || !inner) return
+
+        gsap.set(inner, { scale: 0.75, transformOrigin: 'center center' })
+
+        ScrollTrigger.create({
+          markers: false,
+          trigger: item,
+          containerAnimation: scrollTween,
+          start: 'left center',
+          end: 'right center',
+          scrub: true,
+          id: `${title}`,
+          invalidateOnRefresh: true,
+          onEnter: () => {
+            title && setTitle(title)
+          },
+          onEnterBack: () => {
+            title && setTitle(title)
           }
         })
-        .to(inner, { scale: 1, ease: 'none' })
-        .to(inner, { scale: 0.75, ease: 'none' })
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              markers: false,
+              trigger: item,
+              containerAnimation: scrollTween,
+              start: 'center 90%',
+              end: 'center 10%',
+              scrub: true,
+              id: 'item',
+              invalidateOnRefresh: true
+            }
+          })
+          .to(inner, { scale: 1, ease: 'none' })
+          .to(inner, { scale: 0.75, ease: 'none' })
+      })
     })
 
-    return () => {}
+    return () => {
+      ctx.revert()
+    }
   }, [])
 
   return (

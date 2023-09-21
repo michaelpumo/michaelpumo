@@ -15,7 +15,7 @@ storyblokInit({
 
 // Revalidate every 5 seconds.
 // Disable for production.
-export const revalidate = 5
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : null
 
 export const metadata: Metadata = {
   title: 'Michael Pumo',

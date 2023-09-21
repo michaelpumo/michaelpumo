@@ -14,40 +14,49 @@ const Statement: FC<Props> = ({ blok }) => {
   const title = useRef<ElementRef<'h2'> | null>(null)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    const ctx = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger)
 
-    if (!container.current || !title.current) return
+      if (!container.current || !title.current) return
 
-    const scaleDown = 0.95
+      const scaleDown = 0.95
 
-    gsap.set(title.current, { opacity: 0, scale: scaleDown })
+      gsap.set(title.current, { opacity: 0, scale: scaleDown })
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          markers: false,
-          trigger: container.current,
-          pin: true,
-          scrub: 0.5,
-          start: 'top top',
-          end: `+=${window.innerHeight * 8}px`,
-          id: 'item',
-          invalidateOnRefresh: true
-        }
-      })
-      .to(title.current, { opacity: 1, scale: 1, ease: 'none' })
-      .add('A', '+=1')
-      .to(title.current, { color: brand.light, ease: 'none' }, 'A')
-      .to(container.current, { backgroundColor: brand.blue, ease: 'none' }, 'A')
-      .add('B', '+=1')
-      .to(
-        title.current,
-        { opacity: 0, scale: 1 / scaleDown, ease: 'none' },
-        'B'
-      )
-      .to(container.current, { backgroundColor: brand.light, ease: 'none' })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            markers: false,
+            trigger: container.current,
+            pin: true,
+            anticipatePin: 1,
+            scrub: 0.5,
+            start: 'top top',
+            end: `+=${window.innerHeight * 8}px`,
+            id: 'item',
+            invalidateOnRefresh: true
+          }
+        })
+        .to(title.current, { opacity: 1, scale: 1, ease: 'none' })
+        .add('A', '+=1')
+        .to(title.current, { color: brand.light, ease: 'none' }, 'A')
+        .to(
+          container.current,
+          { backgroundColor: brand.blue, ease: 'none' },
+          'A'
+        )
+        .add('B', '+=1')
+        .to(
+          title.current,
+          { opacity: 0, scale: 1 / scaleDown, ease: 'none' },
+          'B'
+        )
+        .to(container.current, { backgroundColor: brand.light, ease: 'none' })
+    })
 
-    return () => {}
+    return () => {
+      ctx.revert()
+    }
   }, [])
 
   return (
