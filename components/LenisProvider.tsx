@@ -15,9 +15,9 @@ const LenisProvider: FC<Props> = ({ children }) => {
       smoothWheel: true
     })
 
-    lenis.on('scroll', ({ ...all }) => {
-      console.log(all)
-    })
+    // lenis.on('scroll', ({ ...all }) => {
+    //   console.log(all)
+    // })
 
     function raf(time: number) {
       lenis.raf(time)

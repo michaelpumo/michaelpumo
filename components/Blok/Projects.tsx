@@ -35,6 +35,7 @@ const MemoizedResponsiveImage: FC<ImageProps> = memo(
 
 const Projects: FC<Props> = ({ blok }) => {
   const [title, setTitle] = useState('')
+  const [titleVisible, setTitleVisible] = useState(false)
   const container = useRef<ElementRef<'section'> | null>(null)
   const list = useRef<ElementRef<'ul'> | null>(null)
   const itemsRef = useRef<Array<ElementRef<'li'> | null>>([])
@@ -85,9 +86,31 @@ const Projects: FC<Props> = ({ blok }) => {
           invalidateOnRefresh: true,
           onEnter: () => {
             title && setTitle(title)
+
+            if (index === 0) {
+              console.log('onEnter')
+              setTitleVisible(true)
+            }
           },
           onEnterBack: () => {
             title && setTitle(title)
+
+            if (index === itemsRef.current.length - 1) {
+              console.log('onEnterBack')
+              setTitleVisible(true)
+            }
+          },
+          onLeave: () => {
+            if (index === itemsRef.current.length - 1) {
+              console.log('onLeave')
+              setTitleVisible(false)
+            }
+          },
+          onLeaveBack: () => {
+            if (index === 0) {
+              console.log('onLeaveBack')
+              setTitleVisible(false)
+            }
           }
         })
 
@@ -121,7 +144,11 @@ const Projects: FC<Props> = ({ blok }) => {
       ref={container}
       className="relative z-10 w-full min-h-screen bg-brand-light text-brand-dark flex items-center justify-center"
     >
-      <p className="absolute z-10 w-full px-4 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title">
+      <p
+        className={`${
+          titleVisible ? '' : 'opacity-0 scale-95'
+        } transition-all duration-200 absolute z-10 w-full px-4 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title`}
+      >
         {title}
       </p>
 
@@ -150,11 +177,11 @@ const Projects: FC<Props> = ({ blok }) => {
         </ul>
       </div>
 
-      <p className="absolute bottom-9 z-10 w-full px-4 font-bold text-center text-sm text-brand-blue">
+      {/* <p className="absolute bottom-9 z-10 w-full px-4 font-bold text-center text-sm text-brand-blue">
         <a href="#" className="no-underline">
           Skip Projects
         </a>
-      </p>
+      </p> */}
     </section>
   )
 }
