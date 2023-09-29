@@ -10,10 +10,10 @@ import {
   useMemo
 } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-import type { ProjectsStoryblok, ProjectStoryblok } from '@/types/storyblok'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ResponsiveImage from '@/components/ResponsiveImage'
+import type { ProjectsStoryblok, ProjectStoryblok } from '@/types/storyblok'
 import type { Props as ImageProps } from '@/components/ResponsiveImage'
 
 interface Props {
