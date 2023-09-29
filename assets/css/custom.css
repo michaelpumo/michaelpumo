@@ -5,18 +5,15 @@
 @layer utilities {
   /* Remove once in Tailwind natively.
   https://caniuse.com/css-text-wrap-balance */
+  .text-wrap {
+    text-wrap: wrap;
+  }
 
-  @responsive {
-    .text-wrap {
-      text-wrap: wrap;
-    }
+  .text-nowrap {
+    text-wrap: nowrap;
+  }
 
-    .text-nowrap {
-      text-wrap: nowrap;
-    }
-
-    .text-balance {
-      text-wrap: balance;
-    }
+  .text-balance {
+    text-wrap: balance;
   }
 }
