@@ -19,7 +19,7 @@ const Hero: FC<Props> = ({ blok }) => (
   >
     <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-blue text-brand-light">
       <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 overflow-scroll">
-        <header className="">
+        <header>
           <Navigation />
         </header>
 
