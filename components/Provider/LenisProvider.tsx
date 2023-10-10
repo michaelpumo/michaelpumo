@@ -27,7 +27,6 @@ const LenisProvider: FC<Props> = ({ children }) => {
     requestAnimationFrame(raf)
 
     return () => {
-      console.log('Destroy Lenis')
       lenis.destroy()
     }
   }, [])

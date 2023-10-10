@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { FC, ReactNode } from 'react'
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
-import StoryblokProvider from '@/components/StoryblokProvider'
-import LenisProvider from '@/components/LenisProvider'
+import StoryblokProvider from '@/components/Provider/StoryblokProvider'
+import LenisProvider from '@/components/Provider/LenisProvider'
 import '@/assets/css/app.css'
 
 storyblokInit({
@@ -13,8 +13,7 @@ storyblokInit({
   }
 })
 
-// Revalidate every 5 seconds.
-// Disable for production.
+// Revalidate cache. Disable for production.
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : null
 
 export const metadata: Metadata = {
