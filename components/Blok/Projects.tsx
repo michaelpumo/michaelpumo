@@ -13,6 +13,7 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ResponsiveImage from '@/components/ResponsiveImage'
+import StoryblokLink from '@/components/StoryblokLink'
 import type { ProjectsStoryblok, ProjectStoryblok } from '@/types/storyblok'
 import type { Props as ImageProps } from '@/components/ResponsiveImage'
 
@@ -165,13 +166,16 @@ const Projects: FC<Props> = ({ blok }) => {
               tabIndex={0}
               className="w-auto h-full rounded-2xl aspect-[3/4]"
             >
-              <div className="relative w-full h-full">
+              <StoryblokLink
+                link={project.link}
+                className="relative block w-full h-full"
+              >
                 <MemoizedResponsiveImage
                   className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                   image={project.image}
                   sizes={[800, 1200, 1600]}
                 />
-              </div>
+              </StoryblokLink>
             </li>
           ))}
         </ul>
