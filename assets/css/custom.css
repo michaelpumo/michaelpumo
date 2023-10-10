@@ -16,4 +16,11 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-gradient {
+    /* linear-gradient(90deg,#b441c3,#ec5980 40%) */
+    background: linear-gradient(45deg, #be22ff 20%, #ff279c 50%, #ff981f 80%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

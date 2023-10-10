@@ -68,7 +68,7 @@ const Statement: FC<Props> = ({ blok }) => {
     >
       <h2
         ref={title}
-        className="font-display text-balance text-center text-3xl sm:text-7xl"
+        className="text-gradient font-display text-balance text-center text-3xl sm:text-7xl"
       >
         {/* Wonderful things happen when you work together. */}
         Tasty new web development portfolio. All in blue.
