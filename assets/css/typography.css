@@ -16,7 +16,7 @@
   p,
   li {
     & a {
-      @apply underline hover:no-underline;
+      @apply no-underline hover:underline;
     }
   }
 
@@ -40,19 +40,7 @@
 
   a,
   button {
-    @apply cursor-pointer
-      focus:ring-0
-      focus-visible:outline
-      focus-visible:outline-2
-      focus-visible:outline-brand-blue;
-  }
-
-  a {
-    @apply focus-visible:-outline-offset-2;
-  }
-
-  button {
-    @apply focus-visible:outline-offset-2;
+    @apply cursor-pointer outline-none ring-0 focus:ring-0 focus-visible:ring-0;
   }
 }
 

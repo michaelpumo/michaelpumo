@@ -74,11 +74,12 @@ const Clients: FC<Props> = ({ blok }) => {
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
-                className={`transform-gpu transition-all duration-1000 ease-outCirc ${
+                className={`transform-gpu transition-all duration-1000 ease-outCirc outline-none ${
                   index === currentIndex
                     ? 'translate-x-6 lg:translate-x-10'
                     : '' // opacity-10'
                 }`}
+                onFocus={() => setIndex(index)}
               >
                 <span
                   onMouseEnter={() => setIndex(index)}

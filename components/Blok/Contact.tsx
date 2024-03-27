@@ -105,8 +105,8 @@ const Contact: FC<Props> = ({ blok }) => {
             <FormError className="mt-2" error={errors.message} />
           </FormField>
 
-          <button type="submit" className="mt-5">
-            <ButtonAppearance>{'Send message'}</ButtonAppearance>
+          <button type="submit" className="group mt-5">
+            <ButtonAppearance color="light">{'Send message'}</ButtonAppearance>
           </button>
         </FormBase>
       </div>

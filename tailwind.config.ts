@@ -7,14 +7,15 @@ const pxToRem = (px: number, base = 16) => `${px / base}rem`
 
 export const brand = {
   light: '#fff',
-  dark: '#131417', // '#000',
+  dark: '#131417',
   blue: '#0045FF',
+  navy: '#2e304b',
   grey: {
     average: '#797a7c',
     light: '#f1f5f9'
   },
   pink: '#fd8e8e',
-  red: '#fc5959',
+  red: '#fd8e8e',
   yellow: '#fde58e'
 }
 
@@ -26,28 +27,8 @@ const config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  plugins: [
-    forms,
-    typography
-    // function ({ addBase, theme }: { addBase: any; theme: any }) {
-    //   function extractColorVars(colorObj: any, colorGroup = ''): any {
-    //     return Object.keys(colorObj).reduce((vars, colorKey) => {
-    //       const value = colorObj[colorKey]
-
-    //       const newVars =
-    //         typeof value === 'string'
-    //           ? { [`--color${colorGroup}-${colorKey}`]: value }
-    //           : extractColorVars(value, `-${colorKey}`)
-
-    //       return { ...vars, ...newVars }
-    //     }, {})
-    //   }
-
-    //   addBase({
-    //     ':root': extractColorVars(theme('colors'))
-    //   })
-    // }
-  ],
+  safelist: [{ pattern: /(bg-brand|text-brand|outline-brand)-./ }],
+  plugins: [forms, typography],
   theme: {
     extend: {
       colors: {
@@ -98,13 +79,13 @@ const config = {
         xs: [
           pxToRem(12),
           {
-            lineHeight: 1.2
+            lineHeight: 1.4
           }
         ],
         sm: [
           pxToRem(14),
           {
-            lineHeight: 1.2
+            lineHeight: 1.4
           }
         ],
         base: [
