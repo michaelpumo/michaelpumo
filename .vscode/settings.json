@@ -1,4 +1,8 @@
 {
+  "editor.fontSize": 13.5,
+  "editor.fontFamily": "Geist Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontSize": 14
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

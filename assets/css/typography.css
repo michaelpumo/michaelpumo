@@ -10,15 +10,13 @@
   h5,
   h6,
   legend {
-    @apply font-bold
-    tracking-tight;
+    @apply font-bold tracking-tight;
   }
 
   p,
   li {
     & a {
-      @apply underline
-      hover:no-underline;
+      @apply underline hover:no-underline;
     }
   }
 
@@ -26,8 +24,7 @@
   button,
   label,
   input[type='submit'] {
-    @apply touch-manipulation
-    select-none;
+    @apply touch-manipulation select-none;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -44,10 +41,10 @@
   a,
   button {
     @apply cursor-pointer
-    focus:ring-0
-    focus-visible:outline
-    focus-visible:outline-2
-    focus-visible:outline-brand-blue;
+      focus:ring-0
+      focus-visible:outline
+      focus-visible:outline-2
+      focus-visible:outline-brand-blue;
   }
 
   a {
@@ -87,7 +84,7 @@
     }
 
     h2 {
-      @apply text-2xl;
+      @apply text-3xl;
     }
 
     h3 {

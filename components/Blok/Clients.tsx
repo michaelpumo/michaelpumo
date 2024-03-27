@@ -43,12 +43,14 @@ const Clients: FC<Props> = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       data-component="Clients"
-      className="relative z-10 grid md:grid-cols-2 gap-10 sm:gap-16 xl:gap-20 w-full min-h-screen bg-brand-grey-light text-brand-dark p-4 xs:p-8 sm:p-16 xl:p-20"
+      className="relative z-10 grid md:grid-cols-2 gap-16 xl:gap-20 w-full min-h-screen bg-brand-grey-light text-brand-dark px-4 xs:px-8 sm:px-16 xl:px-20
+      
+      py-16 xl:py-20"
     >
       <div>
         <div className="md:sticky md:top-16 xl:top-20 md:z-10">
           {blok.title && (
-            <h1 className="text-3xl mb-5 text-balance">{blok.title}</h1>
+            <h1 className="text-lg mb-5 text-balance">{blok.title}</h1>
           )}
 
           {blok.text && (
@@ -72,8 +74,10 @@ const Clients: FC<Props> = ({ blok }) => {
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
-                className={`transition-all duration-500 ease-outExpo ${
-                  index === currentIndex ? 'translate-x-6 lg:translate-x-8' : '' // opacity-10'
+                className={`transform-gpu transition-all duration-1000 ease-outCirc ${
+                  index === currentIndex
+                    ? 'translate-x-6 lg:translate-x-10'
+                    : '' // opacity-10'
                 }`}
               >
                 <span

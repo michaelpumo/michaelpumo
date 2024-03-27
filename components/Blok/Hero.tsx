@@ -84,7 +84,7 @@ const Hero: FC<Props> = ({ blok }) => (
     <div className="mt-[100vh] lg:mt-0 sticky top-0 z-10 lg:relative h-screen bg-brand-grey-light">
       <Image
         className="absolute inset-0 z-10 w-full h-full object-cover"
-        src="/images/me.jpeg"
+        src="/images/profile.jpg"
         alt="Michael Pumo"
         sizes="50vw"
         width={1000}

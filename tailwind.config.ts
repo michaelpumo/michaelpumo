@@ -98,49 +98,49 @@ const config = {
         xs: [
           pxToRem(12),
           {
-            lineHeight: pxToRem(16)
+            lineHeight: 1.2
           }
         ],
         sm: [
           pxToRem(14),
           {
-            lineHeight: pxToRem(20)
+            lineHeight: 1.2
           }
         ],
         base: [
           pxToRem(16),
           {
-            lineHeight: pxToRem(24)
+            lineHeight: 1.4
           }
         ],
         lg: [
           pxToRem(18),
           {
-            lineHeight: pxToRem(25)
+            lineHeight: 1.4
           }
         ],
         xl: [
           pxToRem(20),
           {
-            lineHeight: pxToRem(28)
+            lineHeight: 1.2
           }
         ],
         '2xl': [
           pxToRem(24),
           {
-            lineHeight: pxToRem(32)
+            lineHeight: 1.2
           }
         ],
         '3xl': [
           pxToRem(32),
           {
-            lineHeight: pxToRem(38)
+            lineHeight: 1.2
           }
         ],
         '4xl': [
           pxToRem(36),
           {
-            lineHeight: pxToRem(40)
+            lineHeight: 1.2
           }
         ],
         '5xl': [

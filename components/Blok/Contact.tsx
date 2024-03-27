@@ -44,16 +44,18 @@ const Contact: FC<Props> = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       data-component="Contact"
-      className="relative z-10 flex flex-col items-center w-full min-h-screen bg-brand-grey-light text-brand-dark p-4 xs:p-8 sm:p-16 xl:p-20"
+      className="relative z-10 flex flex-col items-center w-full min-h-screen bg-brand-grey-light text-brand-dark px-4 xs:px-8 sm:px-16 xl:px-20
+      
+      py-16 xl:py-20"
     >
       <div className="w-full max-w-xl">
         {blok.title && (
-          <h1 className="text-3xl mb-5 text-balance">{blok.title}</h1>
+          <h1 className="text-lg mb-5 text-balance">{blok.title}</h1>
         )}
 
         {blok.text && (
           <RichText
-            className="prose-custom max-w-[40ch] mb-10"
+            className="prose-custom max-w-[40ch] mb-16 xl:mb-20"
             content={blok.text}
           />
         )}
