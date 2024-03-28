@@ -19,7 +19,7 @@ const Hero: FC<Props> = ({ blok }) => (
     className="sticky top-0 z-10 w-full lg:h-screen lg:grid lg:grid-cols-2"
   >
     <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-navy text-brand-light">
-      <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 overflow-scroll">
+      <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 overscroll-contain overflow-y-scroll">
         <header>
           {/* <Navigation /> */}
           <div className="flex items-center gap-3 text-sm border-none rounded-[50px] pl-5 pr-6 py-3 no-underline font-bold bg-brand-dark/20 text-brand-light">
