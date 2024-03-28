@@ -1,4 +1,4 @@
-import { FC, ElementRef, useRef, useEffect } from 'react'
+import { FC, ElementRef, useRef } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -41,10 +41,10 @@ const Statement: FC<Props> = ({ blok }) => {
         })
         .to(title.current, { opacity: 1, scale: 1, ease: 'none' })
         .add('A', '+=1')
-        .to(title.current, { color: brand.red, ease: 'none' }, 'A')
+        .to(title.current, { color: brand.yellow, ease: 'none' }, 'A')
         .to(
           container.current,
-          { backgroundColor: brand.navy, ease: 'none' },
+          { backgroundColor: brand.red, ease: 'none' },
           'A'
         )
         .add('B', '+=1')
@@ -54,7 +54,7 @@ const Statement: FC<Props> = ({ blok }) => {
           'B'
         )
         .to(container.current, {
-          backgroundColor: brand.grey.light,
+          backgroundColor: brand.navy,
           ease: 'none'
         })
     },

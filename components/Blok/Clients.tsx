@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useRef, useState, ElementRef } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
-import type { ClientsStoryblok } from '@/types/storyblok'
+import type { ClientsStoryblok, ClientStoryblok } from '@/types/storyblok'
 import RichText from '@/components/RichText'
 
 interface Props {
@@ -43,7 +43,7 @@ const Clients: FC<Props> = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       data-component="Clients"
-      className="relative z-10 grid md:grid-cols-2 gap-16 xl:gap-20 w-full min-h-screen bg-brand-grey-light text-brand-dark px-4 xs:px-8 sm:px-16 xl:px-20
+      className="relative z-10 grid md:grid-cols-2 gap-16 xl:gap-20 w-full min-h-screen bg-brand-navy text-brand-light px-4 xs:px-8 sm:px-16 xl:px-20
       
       py-16 xl:py-20"
     >
@@ -55,7 +55,7 @@ const Clients: FC<Props> = ({ blok }) => {
 
           {blok.text && (
             <RichText
-              className="prose-custom max-w-[40ch]"
+              className="prose-custom max-w-[40ch] max-lg:sr-only [&_h2]:text-brand-light [&_p]:text-brand-light/50"
               content={blok.text}
             />
           )}
@@ -63,21 +63,19 @@ const Clients: FC<Props> = ({ blok }) => {
       </div>
 
       <div>
-        {/* <img src="https://source.unsplash.com/200x200/?designstudio" alt="" /> */}
-
         <ul className="flex flex-col gap-1 text-5xl lg:text-6xl">
           {blok.clients &&
-            blok.clients.map((client: any, index: number) => (
+            blok.clients.map((client: ClientStoryblok, index: number) => (
               <li
                 {...storyblokEditable(client)}
                 key={client._uid}
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
-                className={`transform-gpu transition-all duration-1000 ease-outCirc outline-none ${
+                className={`relative transform-gpu transition-all duration-1000 ease-outCirc outline-none ${
                   index === currentIndex
-                    ? 'translate-x-6 lg:translate-x-10'
-                    : '' // opacity-10'
+                    ? 'translate-x-6 lg:translate-x-10 z-10'
+                    : 'opacity-10'
                 }`}
                 onFocus={() => setIndex(index)}
               >
@@ -87,6 +85,28 @@ const Clients: FC<Props> = ({ blok }) => {
                 >
                   {client.title}
                 </span>
+              </li>
+            ))}
+        </ul>
+      </div>
+
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <ul className="sticky top-0 bottom-0 w-screen h-screen">
+          {blok.clients &&
+            blok.clients.map((client: ClientStoryblok, index: number) => (
+              <li
+                key={client._uid}
+                className="flex flex-col items-center justify-center lg:items-end absolute inset-0 p-4 xs:p-8 sm:p-16 xl:p-20"
+              >
+                <img
+                  className={`transform-gpu transition-all duration-500 ease-outCirc rounded-2xl opacity-0 max-w-[70%] xs:max-w-[70%] sm:max-w-[70%] lg:max-w-[35%] ${
+                    index === currentIndex
+                      ? 'scale-100 opacity-100'
+                      : 'scale-95'
+                  }`}
+                  src={`https://source.unsplash.com/500x500/?designstudio-${client.title}`}
+                  alt=""
+                />
               </li>
             ))}
         </ul>

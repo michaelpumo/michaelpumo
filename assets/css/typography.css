@@ -46,7 +46,7 @@
 
 @layer components {
   .prose-custom {
-    @apply text-brand-grey-average text-lg;
+    @apply text-lg;
 
     * {
       @apply mb-5;

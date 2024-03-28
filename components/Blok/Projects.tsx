@@ -11,11 +11,15 @@ import {
 } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ResponsiveImage from '@/components/ResponsiveImage'
 import StoryblokLink from '@/components/StoryblokLink'
-import type { ProjectsStoryblok, ProjectStoryblok } from '@/types/storyblok'
-import type { Props as ImageProps } from '@/components/ResponsiveImage'
+import {
+  type ProjectsStoryblok,
+  type ProjectStoryblok
+} from '@/types/storyblok'
+import { type Props as ImageProps } from '@/components/ResponsiveImage'
 
 interface Props {
   blok: ProjectsStoryblok
@@ -47,8 +51,10 @@ const Projects: FC<Props> = ({ blok }) => {
     [blok.projects]
   )
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  gsap.registerPlugin(useGSAP)
+
+  useGSAP(
+    () => {
       gsap.registerPlugin(ScrollTrigger)
 
       if (!container.current || !list.current) return
@@ -131,12 +137,9 @@ const Projects: FC<Props> = ({ blok }) => {
           .to(inner, { scale: 1, ease: 'none' })
           .to(inner, { scale: 0.75, ease: 'none' })
       })
-    })
-
-    return () => {
-      ctx.revert()
-    }
-  }, [])
+    },
+    { scope: container }
+  )
 
   return (
     <section

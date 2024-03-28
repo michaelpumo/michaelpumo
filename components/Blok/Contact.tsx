@@ -55,7 +55,7 @@ const Contact: FC<Props> = ({ blok }) => {
 
         {blok.text && (
           <RichText
-            className="prose-custom max-w-[40ch] mb-16 xl:mb-20"
+            className="prose-custom max-w-[40ch] mb-16 xl:mb-20 [&_h2]:text-brand-dark [&_p]:text-brand-dark/50"
             content={blok.text}
           />
         )}
