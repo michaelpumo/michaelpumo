@@ -70,8 +70,7 @@ const Statement: FC<Props> = ({ blok }) => {
         ref={title}
         className="text-gradient font-display text-balance text-center text-3xl sm:text-7xl"
       >
-        {/* Wonderful things happen when you work together. */}
-        Tasty new web development portfolio. All in blue.
+        Building the best of the web with the best tools.
       </h2>
     </section>
   )

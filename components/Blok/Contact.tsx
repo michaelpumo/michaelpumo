@@ -60,7 +60,10 @@ const Contact: FC<Props> = ({ blok }) => {
           />
         )}
 
-        <FormBase className="w-full" onSubmit={handleSubmit(submitHandler)}>
+        <FormBase
+          className="w-full flex flex-col justify-start items-start gap-10"
+          onSubmit={handleSubmit(submitHandler)}
+        >
           <FormField id="name" label="Name">
             <FormInput
               id="name"
@@ -100,13 +103,15 @@ const Contact: FC<Props> = ({ blok }) => {
               id="message"
               name="message"
               register={register}
-              placeholder="I just called to say I love you..."
+              placeholder="You can't just ask customers what they want and then try to give that to them. By the time you get it built, they'll want something new...."
             />
             <FormError className="mt-2" error={errors.message} />
           </FormField>
 
-          <button type="submit" className="group mt-5">
-            <ButtonAppearance color="light">{'Send message'}</ButtonAppearance>
+          <button type="submit" className="group">
+            <ButtonAppearance color="light" background="navy">
+              Send message
+            </ButtonAppearance>
           </button>
         </FormBase>
       </div>

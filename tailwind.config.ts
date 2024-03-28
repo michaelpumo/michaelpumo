@@ -6,14 +6,15 @@ import typography from '@tailwindcss/typography'
 const pxToRem = (px: number, base = 16) => `${px / base}rem`
 
 export const brand = {
-  light: '#fff',
-  dark: '#131417',
   blue: '#0045FF',
-  navy: '#2e304b',
+  dark: '#131417',
+  green: '#8efd93',
   grey: {
     average: '#797a7c',
     light: '#f1f5f9'
   },
+  light: '#fff',
+  navy: '#2e304b',
   pink: '#fd8e8e',
   red: '#fd8e8e',
   yellow: '#fde58e'
@@ -73,88 +74,104 @@ const config = {
             // '--tw-prose-invert-td-borders': theme('colors.pink[700]')
           }
         }
-      }),
-      fontSize: {
-        'project-title': ['clamp(3rem, 10vw, 8rem)', { lineHeight: 1.1 }],
-        xs: [
-          pxToRem(12),
-          {
-            lineHeight: 1.4
-          }
-        ],
-        sm: [
-          pxToRem(14),
-          {
-            lineHeight: 1.4
-          }
-        ],
-        base: [
-          pxToRem(16),
-          {
-            lineHeight: 1.4
-          }
-        ],
-        lg: [
-          pxToRem(18),
-          {
-            lineHeight: 1.4
-          }
-        ],
-        xl: [
-          pxToRem(20),
-          {
-            lineHeight: 1.2
-          }
-        ],
-        '2xl': [
-          pxToRem(24),
-          {
-            lineHeight: 1.2
-          }
-        ],
-        '3xl': [
-          pxToRem(32),
-          {
-            lineHeight: 1.2
-          }
-        ],
-        '4xl': [
-          pxToRem(36),
-          {
-            lineHeight: 1.2
-          }
-        ],
-        '5xl': [
-          pxToRem(48),
-          {
-            lineHeight: 1.1
-          }
-        ],
-        '6xl': [
-          pxToRem(60),
-          {
-            lineHeight: 1.1
-          }
-        ],
-        '7xl': [
-          pxToRem(72),
-          {
-            lineHeight: 1.1
-          }
-        ],
-        '8xl': [
-          pxToRem(96),
-          {
-            lineHeight: 1.1
-          }
-        ],
-        '9xl': [
-          pxToRem(128),
-          {
-            lineHeight: 1.1
-          }
-        ]
+      })
+    },
+    animation: {
+      pulse: 'pulse 2.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite',
+      ring: 'ring 2.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite'
+    },
+    keyframes: {
+      pulse: {
+        '0%, 25%': { transform: 'scale(1)' },
+        '25%, 50%': { transform: 'scale(0.6)' },
+        '50%, 75%': { transform: 'scale(1)' }
+      },
+      ring: {
+        '25%, 50%': { 'outline-offset': '2px', opacity: 0 },
+        '50%, 75%': { 'outline-offset': '7px', opacity: 0.5 },
+        '75%, 100%': { 'outline-offset': '7px', opacity: 0 }
       }
+    },
+    fontSize: {
+      'project-title': ['clamp(3rem, 10vw, 8rem)', { lineHeight: 1.1 }],
+      xs: [
+        pxToRem(12),
+        {
+          lineHeight: 1.4
+        }
+      ],
+      sm: [
+        pxToRem(14),
+        {
+          lineHeight: 1.4
+        }
+      ],
+      base: [
+        pxToRem(16),
+        {
+          lineHeight: 1.4
+        }
+      ],
+      lg: [
+        pxToRem(18),
+        {
+          lineHeight: 1.4
+        }
+      ],
+      xl: [
+        pxToRem(20),
+        {
+          lineHeight: 1.2
+        }
+      ],
+      '2xl': [
+        pxToRem(24),
+        {
+          lineHeight: 1.2
+        }
+      ],
+      '3xl': [
+        pxToRem(32),
+        {
+          lineHeight: 1.2
+        }
+      ],
+      '4xl': [
+        pxToRem(36),
+        {
+          lineHeight: 1.2
+        }
+      ],
+      '5xl': [
+        pxToRem(48),
+        {
+          lineHeight: 1.1
+        }
+      ],
+      '6xl': [
+        pxToRem(60),
+        {
+          lineHeight: 1.1
+        }
+      ],
+      '7xl': [
+        pxToRem(72),
+        {
+          lineHeight: 1.1
+        }
+      ],
+      '8xl': [
+        pxToRem(96),
+        {
+          lineHeight: 1.1
+        }
+      ],
+      '9xl': [
+        pxToRem(128),
+        {
+          lineHeight: 1.1
+        }
+      ]
     },
     screens: {
       xs: '375px',

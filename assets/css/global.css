@@ -15,7 +15,7 @@
 
 input::placeholder,
 textarea::placeholder {
-  @apply text-brand-dark/30;
+  @apply !text-brand-dark/30;
 }
 
 html,

@@ -17,14 +17,14 @@ const ButtonAppearance: FC<Props> = ({
 }) => {
   const colorClass = brand[color] ? `text-brand-${color}` : 'text-brand-navy'
   const backgroundClass = brand[background]
-    ? `bg-brand-${background} group-hover:outline-brand-${background} group-focus:outline-brand-${background}`
-    : 'bg-brand-red group-hover:outline-brand-red group-focus:outline-brand-red'
+    ? `bg-brand-${background} outline-brand-${background} group-hover:outline-brand-${background} group-focus:outline-brand-${background}`
+    : 'bg-brand-red outline-brand-red group-hover:outline-brand-red group-focus:outline-brand-red'
 
   return (
     <span
       data-component="ButtonAppearance"
       className={twMerge([
-        'transition-all duration-300 ease-outQuad text-lg border-none rounded-[50px] px-6 py-4 inline-block no-underline font-bold -outline-offset-1 outline outline-1 outline-transparent group-hover:outline-offset-4  group-focus:outline-offset-4 ',
+        'transition-all duration-300 ease-natural text-lg border-none rounded-[50px] px-6 py-4 inline-block no-underline font-bold -outline-offset-1 outline outline-1 group-hover:outline-offset-2 group-focus:outline-offset-2',
         colorClass,
         backgroundClass,
         className

@@ -11,7 +11,7 @@ interface Props {
 const FormField: FC<Props> = ({ label, id, children, className, ...rest }) => (
   <div
     data-component="FormField"
-    className={twMerge('w-full mb-5', className)}
+    className={twMerge('w-full', className)}
     {...rest}
   >
     {label && (

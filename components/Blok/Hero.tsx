@@ -3,7 +3,8 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
 import ButtonAppearance from '@/components/ButtonAppearance'
-import Navigation from '@/components/Navigation'
+// import Navigation from '@/components/Navigation'
+import PulseBeacon from '@/components/PulseBeacon'
 import RichText from '@/components/RichText'
 import type { HeroStoryblok } from '@/types/storyblok'
 
@@ -20,7 +21,11 @@ const Hero: FC<Props> = ({ blok }) => (
     <div className="fixed top-0 z-10 w-full lg:static h-screen bg-brand-navy text-brand-light">
       <div className="flex flex-col items-start justify-between w-full h-full p-4 xs:p-8 sm:p-16 xl:p-20 overflow-scroll">
         <header>
-          <Navigation />
+          {/* <Navigation /> */}
+          <div className="flex items-center gap-3 text-sm border-none rounded-[50px] pl-5 pr-6 py-3 no-underline font-bold bg-brand-dark/20 text-brand-light">
+            <PulseBeacon background="green">Available</PulseBeacon>
+            Accepting new projects
+          </div>
         </header>
 
         <div className="w-full my-10 flex flex-col gap-10">
