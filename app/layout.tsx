@@ -42,7 +42,7 @@ const RootLayout: FC<Props> = ({ children }) => (
   <StoryblokProvider>
     <LenisProvider>
       <html lang="en-GB">
-        <body>{children}</body>
+        <body className="antialiased">{children}</body>
       </html>
     </LenisProvider>
   </StoryblokProvider>

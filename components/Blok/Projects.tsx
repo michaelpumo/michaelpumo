@@ -1,14 +1,6 @@
 'use client'
 
-import {
-  FC,
-  useRef,
-  ElementRef,
-  useEffect,
-  useState,
-  memo,
-  useMemo
-} from 'react'
+import { FC, useRef, ElementRef, useState, memo, useMemo } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -151,7 +143,7 @@ const Projects: FC<Props> = ({ blok }) => {
       <p
         className={`${
           titleVisible ? '' : 'opacity-0 scale-95'
-        } transition-all duration-200 absolute z-10 w-full px-4 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-blue text-project-title`}
+        } transition-all duration-200 absolute z-10 w-full px-4 pointer-events-none select-none font-display font-bold text-balance text-center text-brand-red text-project-title`}
       >
         {title}
       </p>
@@ -183,12 +175,6 @@ const Projects: FC<Props> = ({ blok }) => {
           ))}
         </ul>
       </div>
-
-      {/* <p className="absolute bottom-9 z-10 w-full px-4 font-bold text-center text-sm text-brand-blue">
-        <a href="#" className="no-underline">
-          Skip Projects
-        </a>
-      </p> */}
     </section>
   )
 }

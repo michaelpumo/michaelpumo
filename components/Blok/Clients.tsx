@@ -43,9 +43,7 @@ const Clients: FC<Props> = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       data-component="Clients"
-      className="relative z-10 grid md:grid-cols-2 gap-16 xl:gap-20 w-full min-h-screen bg-brand-navy text-brand-light px-4 xs:px-8 sm:px-16 xl:px-20
-      
-      py-16 xl:py-20"
+      className="relative z-10 grid md:grid-cols-2 gap-16 xl:gap-20 w-full min-h-screen bg-brand-navy text-brand-light px-4 xs:px-8 sm:px-16 xl:px-20 py-16 xl:py-40"
     >
       <div>
         <div className="md:sticky md:top-16 xl:top-20 md:z-10">

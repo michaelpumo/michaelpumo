@@ -41,10 +41,10 @@ const Statement: FC<Props> = ({ blok }) => {
         })
         .to(title.current, { opacity: 1, scale: 1, ease: 'none' })
         .add('A', '+=1')
-        .to(title.current, { color: brand.yellow, ease: 'none' }, 'A')
+        .to(title.current, { color: brand.light, ease: 'none' }, 'A')
         .to(
           container.current,
-          { backgroundColor: brand.red, ease: 'none' },
+          { backgroundColor: brand.navy, ease: 'none' },
           'A'
         )
         .add('B', '+=1')
@@ -53,10 +53,10 @@ const Statement: FC<Props> = ({ blok }) => {
           { opacity: 0, scale: 1 / scaleDown, ease: 'none' },
           'B'
         )
-        .to(container.current, {
-          backgroundColor: brand.navy,
-          ease: 'none'
-        })
+      // .to(container.current, {
+      //   backgroundColor: brand.navy,
+      //   ease: 'none'
+      // })
     },
     { scope: container }
   )
