@@ -68,27 +68,27 @@
     }
 
     h1 {
-      @apply text-3xl;
+      @apply text-5xl;
     }
 
     h2 {
-      @apply text-3xl;
+      @apply text-4xl;
     }
 
     h3 {
-      @apply text-xl;
+      @apply text-3xl;
     }
 
     h4 {
-      @apply text-lg;
+      @apply text-2xl;
     }
 
     h5 {
-      @apply text-base;
+      @apply text-xl;
     }
 
     h6 {
-      @apply text-sm;
+      @apply text-lg;
     }
   }
 }

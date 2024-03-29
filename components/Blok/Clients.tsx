@@ -4,6 +4,7 @@ import { FC, useEffect, useRef, useState, ElementRef } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import type { ClientsStoryblok, ClientStoryblok } from '@/types/storyblok'
 import RichText from '@/components/RichText'
+import SvgIcon from '@/components/SvgIcon'
 
 interface Props {
   blok: ClientsStoryblok
@@ -70,18 +71,35 @@ const Clients: FC<Props> = ({ blok }) => {
                 ref={el => (itemsRef.current[index] = el)}
                 data-index={index}
                 tabIndex={0}
-                className={`relative transform-gpu transition-all duration-1000 ease-outCirc outline-none ${
-                  index === currentIndex
-                    ? 'translate-x-6 lg:translate-x-10 z-10'
-                    : 'opacity-10'
+                className={`relative outline-none ${
+                  index === currentIndex ? 'z-10' : ''
                 }`}
                 onFocus={() => setIndex(index)}
               >
-                <span
-                  onMouseEnter={() => setIndex(index)}
-                  className="inline-block"
-                >
-                  {client.title}
+                <span className="flex overflow-hidden">
+                  <span
+                    className={`flex gap-5 transform-gpu transition-all duration-1000 ease-outCirc 
+                  ${
+                    index === currentIndex
+                      ? 'translate-x-0'
+                      : 'opacity-10 -translate-x-[80px]'
+                  }
+                `}
+                  >
+                    <span className="flex-shrink-0">
+                      <SvgIcon
+                        name="arrow-right"
+                        className="w-[60px] h-auto text-brand-light"
+                      />
+                    </span>
+
+                    <span
+                      onMouseEnter={() => setIndex(index)}
+                      className="inline-block"
+                    >
+                      {client.title}
+                    </span>
+                  </span>
                 </span>
               </li>
             ))}
