@@ -39,13 +39,13 @@ interface Props {
 }
 
 const RootLayout: FC<Props> = ({ children }) => (
-  <StoryblokProvider>
-    <LenisProvider>
-      <html lang="en-GB">
-        <body className="antialiased">{children}</body>
-      </html>
-    </LenisProvider>
-  </StoryblokProvider>
+  <html lang="en-GB">
+    <body className="antialiased">
+      <StoryblokProvider>
+        <LenisProvider>{children}</LenisProvider>
+      </StoryblokProvider>
+    </body>
+  </html>
 )
 
 export default RootLayout
