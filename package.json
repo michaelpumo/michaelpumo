@@ -17,9 +17,9 @@
     "@hookform/resolvers": "^3.3.4",
     "@storyblok/react": "^3.0.9",
     "@studio-freight/lenis": "^1.0.42",
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.12.4",
     "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@types/react-dom": "^18.2.24",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.4",
@@ -31,7 +31,7 @@
     "react-hook-form": "^7.51.2",
     "storyblok-rich-text-react-renderer": "^2.9.2",
     "tailwind-merge": "^2.2.2",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "zod": "^3.22.4"
   },
   "devDependencies": {
