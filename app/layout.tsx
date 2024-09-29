@@ -17,10 +17,18 @@ storyblokInit({
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : null
 
 export const metadata: Metadata = {
-  title: 'Michael Pumo',
+  title: 'Michael Pumo - Web Developer + Designer',
   description: 'Web development portfolio of Michael Pumo',
+  twitter: {
+    site: '@michaelpumo',
+    creator: '@michaelpumo',
+    title: 'Michael Pumo - Web Developer + Designer',
+    description: 'Web development portfolio of Michael Pumo'
+    // images?: TwitterImage | Array<TwitterImage>;
+  },
   openGraph: {
-    title: 'Michael Pumo',
+    type: 'website',
+    title: 'Michael Pumo - Web Developer + Designer',
     description: 'Web development portfolio of Michael Pumo',
     url: 'https://michaelpumo.com',
     siteName: 'Michael Pumo'
