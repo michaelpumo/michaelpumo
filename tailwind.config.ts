@@ -121,25 +121,25 @@ const config = {
       xl: [
         pxToRem(20),
         {
-          lineHeight: 1.2
+          lineHeight: 1.15
         }
       ],
       '2xl': [
         pxToRem(24),
         {
-          lineHeight: 1.2
+          lineHeight: 1.15
         }
       ],
       '3xl': [
         pxToRem(32),
         {
-          lineHeight: 1.2
+          lineHeight: 1.15
         }
       ],
       '4xl': [
         pxToRem(36),
         {
-          lineHeight: 1.2
+          lineHeight: 1.15
         }
       ],
       '5xl': [

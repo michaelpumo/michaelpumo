@@ -53,8 +53,9 @@ const Clients: FC<Props> = ({ blok }) => {
           )}
 
           {blok.text && (
+            // max-lg:sr-only
             <RichText
-              className="prose-custom max-w-[40ch] max-lg:sr-only [&_h2]:text-brand-light [&_p]:text-brand-light/50"
+              className="prose-custom max-w-[40ch] [&_h2]:text-brand-light [&_p]:text-brand-light/50"
               content={blok.text}
             />
           )}
@@ -86,7 +87,7 @@ const Clients: FC<Props> = ({ blok }) => {
                   }
                 `}
                   >
-                    <span className="flex-shrink-0">
+                    <span className="flex items-center flex-shrink-0">
                       <SvgIcon
                         name="arrow-right"
                         className="w-[60px] h-auto text-brand-light"

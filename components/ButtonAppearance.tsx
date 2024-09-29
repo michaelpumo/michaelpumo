@@ -24,13 +24,20 @@ const ButtonAppearance: FC<Props> = ({
     <span
       data-component="ButtonAppearance"
       className={twMerge([
-        'transition-all duration-300 ease-natural text-lg border-none rounded-[50px] px-6 py-4 inline-block no-underline font-bold -outline-offset-1 outline outline-1 group-hover:outline-offset-2 group-focus:outline-offset-2',
+        'transition-all duration-300 ease-natural text-lg border-none rounded-[50px] px-6 py-4 inline-block no-underline font-bold -outline-offset-1 outline outline-2 group-hover:outline-offset-2 group-focus:outline-offset-2',
         colorClass,
         backgroundClass,
         className
       ])}
     >
-      {children}
+      <span className="flex flex-col h-[25px] overflow-hidden group">
+        <span className="block group-hover:-translate-y-full transition-all duration-200 ease-outQuad">
+          {children}
+        </span>
+        <span className="block group-hover:-translate-y-full transition-all duration-200 ease-outQuad">
+          {children}
+        </span>
+      </span>
     </span>
   )
 }
