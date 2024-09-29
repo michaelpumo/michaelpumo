@@ -44,11 +44,10 @@ const Projects: FC<Props> = ({ blok }) => {
   )
 
   gsap.registerPlugin(useGSAP)
+  gsap.registerPlugin(ScrollTrigger)
 
   useGSAP(
     () => {
-      gsap.registerPlugin(ScrollTrigger)
-
       if (!container.current || !list.current) return
 
       const initialTitle = projects?.[0].title
