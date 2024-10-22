@@ -9,9 +9,10 @@ interface Props {
 const Page: FC<Props> = ({ blok }) => (
   <main {...storyblokEditable(blok)}>
     {blok.body &&
-      blok.body.map((child: any) => (
-        <StoryblokComponent blok={child} key={child._uid} />
-      ))}
+      blok.body.map(
+        child =>
+          child.projects && <StoryblokComponent blok={child} key={child._uid} />
+      )}
   </main>
 )
 
